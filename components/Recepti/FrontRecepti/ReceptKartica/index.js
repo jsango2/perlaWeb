@@ -40,7 +40,6 @@ function ReceptKartica({ photo, naslov, trajanje, link }) {
     threshold: 0.2,
     triggerOnce: true,
   });
-  console.log("link", link);
   const size = useWindowSize();
   // const t = useTranslations("Index");
   const router = useRouter();

@@ -26,7 +26,7 @@ import Recept from "../../components/Recepti/Recept/index.js";
 export default function News({
   pageData,
   novostiNaslovi,
-  novosti,
+  recepti,
   testData,
   params,
 }) {
@@ -41,7 +41,7 @@ export default function News({
 
   return (
     <Layout>
-      <Recept receptData={pageData} />
+      <Recept receptData={pageData} recepti={recepti} />
       {/* <Head>
         <title> {locale === "hr" ? novost.naslov : novost.naslovEng}</title>
         <link

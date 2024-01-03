@@ -19,7 +19,6 @@ export default function IndexPage({ allRecepti }) {
   // useEffect(() => {
   //   context.setNovostiNasloviContext(novostiNaslovi);
   // }, []);
-  console.log(allRecepti);
   return (
     <Layout>
       <Hero />

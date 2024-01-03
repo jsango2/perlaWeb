@@ -11,6 +11,7 @@ export const WrapAll = styled.div`
   height: auto;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
@@ -34,7 +35,7 @@ export const WrapContent = styled.div`
   height: auto;
   width: 100%;
   display: flex;
-  padding-left: 190px;
+  justify-content: center;
   padding-top: 150px;
   padding-bottom: 100px;
   /* @media only screen and (max-width: 1400px) {
@@ -111,6 +112,31 @@ export const NaslovSastojci = styled.h3`
   font-style: normal;
   font-weight: 600;
   line-height: 120%; /* 24px */
+  text-transform: uppercase;
+  /* @media only screen and (max-width: 1400px) {
+    padding: 100px 0 70px 70px;
+  } */
+  /* @media only screen and (max-width: 850px) {
+    padding: 0 0 0px 0;
+    align-items: flex-start;
+
+  } */
+  /* @media only screen and (max-width: 430px) {
+    min-height: unset;
+  } */
+`;
+export const DobarTek = styled.h3`
+  position: relative;
+  z-index: 1;
+
+  color: #f5faff;
+  margin-top: 140px;
+  /* H2 */
+  font-family: "Roboto", sans-serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%; /* 48px */
   text-transform: uppercase;
   /* @media only screen and (max-width: 1400px) {
     padding: 100px 0 70px 70px;
@@ -214,6 +240,48 @@ export const PostupakPripreme = styled.p`
     width: 370px;
     object-fit: cover;
   }
+  /* @media only screen and (max-width: 1400px) {
+    padding: 100px 0 70px 70px;
+  } */
+  /* @media only screen and (max-width: 850px) {
+    padding: 0 0 0px 0;
+    align-items: flex-start;
+
+  } */
+  /* @media only screen and (max-width: 430px) {
+    min-height: unset;
+  } */
+`;
+
+export const BottomCoverPhoto = styled.div`
+  position: relative;
+  z-index: 1;
+  min-height: 680px;
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: ${(props) => `url(${props.photo}) no-repeat center center`};
+  background-size: cover;
+  /* @media only screen and (max-width: 1400px) {
+    padding: 100px 0 70px 70px;
+  } */
+  /* @media only screen and (max-width: 850px) {
+    padding: 0 0 0px 0;
+    align-items: flex-start;
+
+  } */
+  /* @media only screen and (max-width: 430px) {
+    min-height: unset;
+  } */
+`;
+export const BottomOverlay = styled.div`
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  height: 60%;
+  width: 100%;
+  background: linear-gradient(180deg, #111729 0.76%, rgba(21, 28, 50, 0) 100%);
   /* @media only screen and (max-width: 1400px) {
     padding: 100px 0 70px 70px;
   } */

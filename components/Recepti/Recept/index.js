@@ -12,8 +12,10 @@ import { useInView } from "react-intersection-observer";
 import slugify from "slugify";
 import Hero from "./Hero/index.js";
 import ReceptSection from "./ReceptSection/index.js";
+import OstaliRecepti from "./OstaliReceptiSection/index.js";
+import PerlaProizvodi from "./PerlaProizvodi/index.js";
 
-function Recept(recept) {
+function Recept(recept, recepti) {
   const { ref, inView, entry } = useInView({
     /* Optional options */
     threshold: 0.2,
@@ -24,13 +26,14 @@ function Recept(recept) {
   const router = useRouter();
   const { locale } = router;
   const t = locale === "en" ? en : hr;
-
   return (
     <WrapAll>
       <Hero
         photo={recept.receptData.node.perlaRecepti.fotografijaRecepta.sourceUrl}
       />
       <ReceptSection data={recept} />
+      <OstaliRecepti data={recept} />
+      <PerlaProizvodi />
     </WrapAll>
   );
 }

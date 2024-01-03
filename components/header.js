@@ -39,7 +39,6 @@ const Header = ({ siteTitle, novostiNaslovi, oglasiNaslovi }) => {
   //   isOpen == true ? blockScroll() : allowScroll();
   // }, [isOpen]);
 
-  console.log(isOpen);
   useEffect(() => {
     const html = document.querySelector("html");
     if (html) {

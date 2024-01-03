@@ -101,6 +101,7 @@ function FrontRecepti({ recepti }) {
           <WrapRecipies>
             {recepti.edges.map((recept) => (
               <ReceptKartica
+                key={recept.node.id}
                 photo={recept.node.perlaRecepti.fotografijaRecepta.sourceUrl}
                 trajanje={recept.node.perlaRecepti.trajanjeKuhanja}
                 naslov={recept.node.perlaRecepti.naslovRecepta}

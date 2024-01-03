@@ -10,6 +10,9 @@ import {
   PripremaVrijeme,
   PostupakPripreme,
   RedniBroj,
+  BottomCoverPhoto,
+  BottomOverlay,
+  DobarTek,
 } from "./style.js";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -33,11 +36,11 @@ function ReceptSection({ data }) {
   const router = useRouter();
   const { locale } = router;
   const t = locale === "en" ? en : hr;
-  console.log(data);
+
   const yourDate = new Date(data.receptData.node.date)
     .toISOString()
     .split("T")[0];
-  console.log(yourDate);
+
   return (
     <WrapAll>
       <RedLine>
@@ -99,6 +102,14 @@ function ReceptSection({ data }) {
           )}
         </Postupak>
       </WrapContent>
+      <BottomCoverPhoto
+        photo={
+          data.receptData.node.perlaRecepti.fotografijaReceptaDonja.sourceUrl
+        }
+      >
+        <BottomOverlay />
+        <DobarTek>DOBAR TEK!</DobarTek>
+      </BottomCoverPhoto>
     </WrapAll>
   );
 }

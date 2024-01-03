@@ -88,6 +88,7 @@ export const WrapContent = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 180px 0 100px 0;
+  margin: 0 auto;
   @media only screen and (max-width: 850px) {
   }
 `;
@@ -101,6 +102,7 @@ export const WrapCategories = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 15px;
+  margin-bottom: 60px;
   flex-wrap: wrap;
   @media only screen and (max-width: 850px) {
   }
@@ -114,7 +116,7 @@ export const WrapRecipies = styled.div`
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 125px;
+  margin-top: 55px;
   @media only screen and (max-width: 850px) {
   }
 `;

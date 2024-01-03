@@ -28,7 +28,7 @@ export const HeroWrap = styled.div`
 `;
 export const HeroContent = styled.div`
   position: relative;
-  width: 1440px;
+  width: 100%;
   height: 100%;
   background: ${(props) => `url(${props.photo}) no-repeat center center`};
   background-size: cover;
