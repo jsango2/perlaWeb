@@ -76,10 +76,10 @@ function FooterSection() {
             info@perla.hr, +385(0)23/342-613
           </CopyLink>
           <CopyLink>
-            <Link href="/uvjeti">© 2022 MARIKOMERC GRUPA &nbsp;·</Link>
-            <Link href="/uvjeti">&nbsp; Uvjeti korištenja &nbsp;·</Link>
-            <Link href="/uvjeti">&nbsp; Izjava o privatnosti &nbsp;·</Link>
-            <Link href="/uvjeti">&nbsp; Web design SUTRA</Link>
+            <Link href="/">© 2022 MARIKOMERC GRUPA &nbsp;·</Link>
+            <Link href="/">&nbsp; Uvjeti korištenja &nbsp;·</Link>
+            <Link href="/">&nbsp; Izjava o privatnosti &nbsp;·</Link>
+            <Link href="/">&nbsp; Web design SUTRA</Link>
           </CopyLink>
         </Copy>
       </Container>

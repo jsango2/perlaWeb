@@ -214,7 +214,6 @@ export default index;
 
 export async function getStaticProps({ locales }) {
   const recepti = await getAllRecepti();
-
   const paths = [];
 
   recepti.edges.map((recept, i) => {

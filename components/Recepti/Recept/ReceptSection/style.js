@@ -57,7 +57,7 @@ export const Sastojci = styled.div`
   max-width: 300px;
   height: auto;
   min-height: 300px;
-  width: 280px;
+  width: 230px;
   padding-top: 100px;
   /* @media only screen and (max-width: 1400px) {
     padding: 100px 0 70px 70px;
@@ -89,6 +89,7 @@ export const Postupak = styled.div`
   min-height: 400px;
   width: 650px;
   padding-left: 100px;
+  margin-left: 100px;
   /* @media only screen and (max-width: 1400px) {
     padding: 100px 0 70px 70px;
   } */
@@ -150,7 +151,26 @@ export const DobarTek = styled.h3`
     min-height: unset;
   } */
 `;
+export const Divider = styled.div`
+  position: relative;
+  z-index: 1;
 
+  width: 80%;
+  height: 1px;
+  background-color: white;
+  opacity: 0.2;
+  /* @media only screen and (max-width: 1400px) {
+    padding: 100px 0 70px 70px;
+  } */
+  /* @media only screen and (max-width: 850px) {
+    padding: 0 0 0px 0;
+    align-items: flex-start;
+
+  } */
+  /* @media only screen and (max-width: 430px) {
+    min-height: unset;
+  } */
+`;
 export const NaslovRecepta = styled.h1`
   position: relative;
   z-index: 1;
@@ -175,6 +195,20 @@ export const NaslovRecepta = styled.h1`
     min-height: unset;
   } */
 `;
+export const NaslovReceptaPrilog = styled(NaslovRecepta)`
+  margin-bottom: 40px;
+  /* @media only screen and (max-width: 1400px) {
+    padding: 100px 0 70px 70px;
+  } */
+  /* @media only screen and (max-width: 850px) {
+    padding: 0 0 0px 0;
+    align-items: flex-start;
+
+  } */
+  /* @media only screen and (max-width: 430px) {
+    min-height: unset;
+  } */
+`;
 export const PripremaVrijeme = styled.p`
   position: relative;
   z-index: 1;
@@ -186,6 +220,7 @@ export const PripremaVrijeme = styled.p`
   font-style: normal;
   font-weight: 600;
   line-height: 140%; /* 16.8px */
+  margin-bottom: 50px;
   /* @media only screen and (max-width: 1400px) {
     padding: 100px 0 70px 70px;
   } */
@@ -235,7 +270,7 @@ export const PostupakPripreme = styled.p`
   font-style: normal;
   font-weight: 400;
   line-height: 140%;
-  margin-bottom: 45px;
+  margin-bottom: 75px;
   img {
     width: 370px;
     object-fit: cover;

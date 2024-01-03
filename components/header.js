@@ -14,7 +14,7 @@ import { useOnClickOutside } from "./helper/useClickOutside";
 import useScrollBlock from "../components/helper/useScrollBlock";
 import { useEffect } from "react";
 import Headroom from "react-headroom";
-const Header = ({ siteTitle, novostiNaslovi, oglasiNaslovi }) => {
+const Header = ({ siteTitle, receptiNaslovi }) => {
   const ref = useRef();
   // State for our modal
   const [blockScroll, allowScroll] = useScrollBlock();
@@ -64,8 +64,7 @@ const Header = ({ siteTitle, novostiNaslovi, oglasiNaslovi }) => {
             isOpen={isOpen}
             setIsOpen={setIsOpen}
             closeMenu={handleCloseMenu}
-            novostiNaslovi={novostiNaslovi}
-            oglasiNaslovi={oglasiNaslovi}
+            receptiNaslovi={receptiNaslovi}
           />
           <div className="headerWrap">
             <div className="navBar">
@@ -128,9 +127,8 @@ const Header = ({ siteTitle, novostiNaslovi, oglasiNaslovi }) => {
                   /> */}
 
                 <LanguageSwitcher
-                  novostiNaslovi={novostiNaslovi}
+                  receptiNaslovi={receptiNaslovi}
                   closeMenu={handleCloseMenu}
-                  oglasiNaslovi={oglasiNaslovi}
                 />
               </div>
             </div>

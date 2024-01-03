@@ -7,12 +7,14 @@ import {
   Postupak,
   NaslovSastojci,
   NaslovRecepta,
+  NaslovReceptaPrilog,
   PripremaVrijeme,
   PostupakPripreme,
   RedniBroj,
   BottomCoverPhoto,
   BottomOverlay,
   DobarTek,
+  Divider,
 } from "./style.js";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -61,25 +63,31 @@ function ReceptSection({ data }) {
               )
             )}
           </ul>
+
           {data.receptData.node.perlaRecepti.dodatniPrilog
             .sastojciZaDodatniPrilog !== null && (
-            <NaslovSastojci>
-              {
-                data.receptData.node.perlaRecepti.dodatniPrilog
-                  .nazivDodatnogPriloga
-              }
-            </NaslovSastojci>
+            <>
+              <Divider></Divider>
+              <NaslovSastojci>
+                {
+                  data.receptData.node.perlaRecepti.dodatniPrilog
+                    .nazivDodatnogPriloga
+                }
+              </NaslovSastojci>
+            </>
           )}
           <ul>
             {" "}
-            {data.receptData.node.perlaRecepti.dodatniPrilog.sastojciZaDodatniPrilog.map(
-              (sastojak) => (
-                <li>
-                  {sastojak.nazivNamirnice}, {sastojak.kolicina}{" "}
-                  {sastojak.jedinicnaMjera}
-                </li>
-              )
-            )}{" "}
+            {data.receptData.node.perlaRecepti.dodatniPrilog
+              .sastojciZaDodatniPrilog !== null &&
+              data.receptData.node.perlaRecepti.dodatniPrilog.sastojciZaDodatniPrilog.map(
+                (sastojak) => (
+                  <li>
+                    {sastojak.nazivNamirnice}, {sastojak.kolicina}{" "}
+                    {sastojak.jedinicnaMjera}
+                  </li>
+                )
+              )}{" "}
           </ul>
         </Sastojci>
         <Postupak>
@@ -99,6 +107,28 @@ function ReceptSection({ data }) {
                 {parse(korak.korak)}
               </PostupakPripreme>
             )
+          )}
+          {data.receptData.node.perlaRecepti.postupakPoKoracimaPrilog !==
+            null && (
+            <div>
+              <NaslovReceptaPrilog>
+                {
+                  data.receptData.node.perlaRecepti.dodatniPrilog
+                    .nazivDodatnogPriloga
+                }
+              </NaslovReceptaPrilog>
+              {data.receptData.node.perlaRecepti.postupakPoKoracimaPrilog.map(
+                (korak, index) => (
+                  <PostupakPripreme>
+                    <RedniBroj>
+                      {index < 9 && 0}
+                      {index + 1}
+                    </RedniBroj>
+                    {parse(korak.korak)}
+                  </PostupakPripreme>
+                )
+              )}
+            </div>
           )}
         </Postupak>
       </WrapContent>

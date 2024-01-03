@@ -129,11 +129,15 @@ export const Proizvodi = styled.div`
   width: 1305px;
   height: auto;
   margin: 83px auto 0 auto;
-  display: flex;
+  /* display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  justify-content: center; */
   color: white;
-  justify-content: center;
+  .slick-dots li button:before {
+    color: white;
+    font-size: 15px;
+  }
 
   @media only screen and (max-width: 1300px) {
     width: 95%;
@@ -184,7 +188,7 @@ export const ProizvodName = styled.p`
   font-size: 18px;
   line-height: 120%;
   text-align: center;
-  width: 90%;
+  width: 50%;
   /* identical to box height, or 22px */
 
   /* SUNRISE/Sunray */

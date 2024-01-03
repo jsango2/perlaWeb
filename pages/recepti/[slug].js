@@ -20,13 +20,13 @@ import parse from "html-react-parser";
 import slugify from "slugify";
 // import OtherNews from "../../components/NovostiSection/OtherNewsSection/index.js";
 import Head from "next/head.js";
-import { getAllRecepti } from "../../lib/api2.js";
+import { getAllRecepti, getAllReceptiNaslovi } from "../../lib/api2.js";
 import Recept from "../../components/Recepti/Recept/index.js";
 
 export default function News({
   pageData,
-  novostiNaslovi,
   recepti,
+  receptiNaslovi,
   testData,
   params,
 }) {
@@ -40,7 +40,7 @@ export default function News({
   // const htmlString = `<div>${textNovosti}</div>`;
 
   return (
-    <Layout>
+    <Layout receptiNaslovi={receptiNaslovi.edges}>
       <Recept receptData={pageData} recepti={recepti} />
       {/* <Head>
         <title> {locale === "hr" ? novost.naslov : novost.naslovEng}</title>
@@ -184,6 +184,30 @@ export async function getStaticPaths({ locales }) {
     // });
   });
 
+  recepti.edges.map((post, i) => {
+    // return locales.map((locale) => {
+    if (post.node.perlaRecepti.naslovReceptaEng !== null) {
+      return paths.push({
+        params: {
+          slug:
+            slugify(
+              post.node.perlaRecepti.naslovReceptaEng
+                .toLowerCase()
+                .split(" ")
+                .join("-"),
+              {
+                locale: "eng",
+              }
+            ) +
+            "-" +
+            new Date(post.node.date).toISOString().split("T")[0],
+        },
+        locale: "en",
+      });
+    }
+    // });
+  });
+
   // novosti.edges.map((post, i) => {
   //   // return locales.map((locale) => {
   //   return paths.push({
@@ -208,6 +232,8 @@ export async function getStaticPaths({ locales }) {
 
 export async function getStaticProps({ params }) {
   const recepti = await getAllRecepti();
+  const receptiNaslovi = await getAllReceptiNaslovi();
+
   // const novostiNaslovi = await getAllNovostiNaslovi();
   const currentPath = params.slug;
   const pageData = recepti.edges.find(
@@ -223,19 +249,24 @@ export async function getStaticProps({ params }) {
       ) +
         "-" +
         new Date(recept.node.date).toISOString().split("T")[0] ===
-      currentPath
-    //   ||
-    // slugify(recept.node.novosti.naslovEng.toLowerCase().split(" ").join("-"), {
-    //   locale: "eng",
-    // }) +
-    //   "-" +
-    //   recept.node.novosti.datum.split("/").join("-") ===
-    //   currentPath
+        currentPath ||
+      slugify(
+        recept.node.perlaRecepti.naslovReceptaEng
+          .toLowerCase()
+          .split(" ")
+          .join("-"),
+        {
+          locale: "eng",
+        }
+      ) +
+        "-" +
+        new Date(recept.node.date).toISOString().split("T")[0] ===
+        currentPath
   ) || {
     notfound: true,
   };
   return {
-    props: { pageData, recepti, params },
+    props: { pageData, recepti, receptiNaslovi, params },
   };
 }
 // export async function getStaticPaths({ locales }) {

@@ -7,7 +7,7 @@ import AppContext from "../../components/AppContext.js";
 import slugify from "slugify";
 
 function LanguageSwitcher({
-  novostiNaslovi,
+  receptiNaslovi,
   oglasiNaslovi,
   setMessage,
   closeMenu,
@@ -33,129 +33,59 @@ function LanguageSwitcher({
         const homeRedirect = locale === "hr" ? "/en" : "/";
         return router.push(homeRedirect, undefined, { locale: lang });
       }
-      if (asPath === "/proizvodi") {
-        const homeRedirect = locale === "hr" ? "/en/proizvodi" : "/proizvodi";
+      if (asPath === "/recepti") {
+        const homeRedirect = locale === "hr" ? "/en/recepti" : "/recepti";
         return router.push(homeRedirect, undefined, { locale: lang });
-      }
-      if (asPath === "/horeca") {
-        const homeRedirect = locale === "hr" ? "/en/horeca" : "/horeca";
-        return router.push(homeRedirect, undefined, { locale: lang });
-      }
-      if (asPath === "/novosti") {
-        return router.push("/novosti", undefined, { locale: lang });
-      }
-      if (asPath === "/karijere") {
-        return router.push("/karijere", undefined, { locale: lang });
-      }
-      if (asPath === "/o-nama") {
-        return router.push("/o-nama", undefined, { locale: lang });
-      }
-      if (asPath === "/marikomerc-kvalitete") {
-        return router.push("/marikomerc-kvalitete", undefined, {
-          locale: lang,
-        });
-      }
-      if (asPath === "/prerada-i-skladiste") {
-        return router.push("/prerada-i-skladiste", undefined, { locale: lang });
       }
       if (asPath === "/kontakt") {
         return router.push("/kontakt", undefined, { locale: lang });
       }
-      if (asPath.includes("/karijere/")) {
-        const getTranslationRouteForNews = oglasiNaslovi.filter((naslov) =>
+      if (asPath.includes("/recepti/")) {
+        const getTranslationRouteForNews = receptiNaslovi.filter((naslov) =>
           locale === "en"
-            ? naslov.node.oglasi.naslovOglasaEng
+            ? naslov.node.perlaRecepti.naslovReceptaEng
                 .toLowerCase()
                 .split(" ")
                 .join("-") +
                 "-" +
-                naslov.node.id ===
+                new Date(naslov.node.date).toISOString().split("T")[0] ===
               getSlug
             : slugify(
-                naslov.node.oglasi.naslovOglasa
+                naslov.node.perlaRecepti.naslovRecepta
                   .toLowerCase()
                   .split(" ")
                   .join("-") +
                   "-" +
-                  naslov.node.id,
+                  new Date(naslov.node.date).toISOString().split("T")[0],
                 { locale: "hrv" }
               ) === getSlug
         );
 
         const matchingUrl =
           locale === "hr"
-            ? getTranslationRouteForNews[0].node.oglasi.naslovOglasaEng
+            ? getTranslationRouteForNews[0].node.perlaRecepti.naslovReceptaEng
                 .toLowerCase()
                 .split(" ")
                 .join("-") +
               "-" +
-              getTranslationRouteForNews[0].node.id
+              new Date(getTranslationRouteForNews[0].node.date)
+                .toISOString()
+                .split("T")[0]
             : slugify(
-                getTranslationRouteForNews[0].node.oglasi.naslovOglasa
+                getTranslationRouteForNews[0].node.perlaRecepti.naslovRecepta
                   .toLowerCase()
                   .split(" ")
                   .join("-") +
                   "-" +
-                  getTranslationRouteForNews[0].node.id,
+                  new Date(getTranslationRouteForNews[0].node.date)
+                    .toISOString()
+                    .split("T")[0],
                 { locale: "hrv" }
               );
         console.log(matchingUrl);
         return router.push(matchingUrl, undefined, { locale: lang });
       }
 
-      if (asPath.includes("/novosti/")) {
-        const getTranslationRouteForNews = novostiNaslovi.filter((naslov) =>
-          locale === "en"
-            ? slugify(
-                naslov.node.novosti.naslovEng
-                  .toLowerCase()
-                  .split(" ")
-                  .join("-"),
-                {
-                  locale: "eng",
-                }
-              ) +
-                "-" +
-                naslov.node.novosti.datum.split("/").join("-") ===
-              getSlug
-            : slugify(
-                naslov.node.novosti.naslov.toLowerCase().split(" ").join("-"),
-                {
-                  locale: "hrv",
-                }
-              ) +
-                "-" +
-                naslov.node.novosti.datum.split("/").join("-") ===
-              getSlug
-        );
-
-        const matchingUrl =
-          locale === "hr"
-            ? slugify(
-                getTranslationRouteForNews[0].node.novosti.naslovEng
-                  .toLowerCase()
-                  .split(" ")
-                  .join("-") +
-                  "-" +
-                  getTranslationRouteForNews[0].node.novosti.datum
-                    .split("/")
-                    .join("-"),
-                { locale: "eng" }
-              )
-            : slugify(
-                getTranslationRouteForNews[0].node.novosti.naslov
-                  .toLowerCase()
-                  .split(" ")
-                  .join("-") +
-                  "-" +
-                  getTranslationRouteForNews[0].node.novosti.datum
-                    .split("/")
-                    .join("-"),
-                { locale: "hrv" }
-              );
-        console.log(matchingUrl);
-        return router.push(matchingUrl, undefined, { locale: lang });
-      }
       // pronađi za matchinUrl za Novosti
     }
   }

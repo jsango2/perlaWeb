@@ -5,12 +5,12 @@ import Header from "./header";
 export default function Layout({
   preview,
   children,
-  novostiNaslovi,
+  receptiNaslovi,
   oglasiNaslovi,
 }) {
   return (
     <>
-      <Header novostiNaslovi={novostiNaslovi} oglasiNaslovi={oglasiNaslovi} />
+      <Header receptiNaslovi={receptiNaslovi} />
       <Meta />
       <main>{children}</main>
       <FooterSection />
