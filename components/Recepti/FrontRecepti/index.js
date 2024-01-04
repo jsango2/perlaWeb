@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   WrapAll,
@@ -36,36 +36,7 @@ import ReceptKartica from "./ReceptKartica/index.js";
 import slugify from "slugify";
 
 function FrontRecepti({ recepti }) {
-  const kategorije = [
-    { naziv: "Brzi ručak" },
-    { naziv: "Zdrava večera" },
-    { naziv: "Za sportaše" },
-    { naziv: "Rižoto" },
-    { naziv: "Tjestenina" },
-    { naziv: "Grill tava" },
-  ];
-  const recepti2 = [
-    {
-      naziv: "Odrezak tune na žaru s mahunama i krumpirom i nečim još",
-      time: 45,
-    },
-    {
-      naziv: "Tuna na žaru s mahunama i krumpirom i nečim još",
-      time: 35,
-    },
-    {
-      naziv: "Zubatac na žaru s mahunama i krumpirom i nečim još",
-      time: 55,
-    },
-    {
-      naziv: "Lignja tune na žaru s mahunama i krumpirom i nečim još",
-      time: 25,
-    },
-    {
-      naziv: "Sipa tune na žaru s mahunama i krumpirom i nečim još",
-      time: 45,
-    },
-  ];
+  const [sortedRecipes, setSortedRecipes] = useState(recepti.edges);
   const { ref, inView, entry } = useInView({
     /* Optional options */
     threshold: 0.2,
@@ -76,6 +47,50 @@ function FrontRecepti({ recepti }) {
   const router = useRouter();
   const { locale } = router;
   const t = locale === "en" ? en : hr;
+  // Nađi jedinstvene tagove
+  const tags = [];
+  // recepti.edges.map((post, i) => {
+  //   post.node.perlaRecepti.tag.map((tag) => tags.push(tag.name));
+  // });
+  recepti.edges.map((post, i) => {
+    if (locale === "hr") {
+      if (post.node.perlaRecepti.tag !== null) {
+        post.node.perlaRecepti.tag.map((tag) => tags.push(tag.name));
+      }
+    } else {
+      if (post.node.perlaRecepti.tagEng !== null) {
+        post.node.perlaRecepti.tagEng.map((tag) => tags.push(tag.name));
+      }
+    }
+  });
+  const uniqueTags = [...new Set(tags)];
+
+  const handleTagClick = (tag) => {
+    if (locale === "hr") {
+      if (tag === "Svi") {
+        setSortedRecipes(recepti.edges);
+      } else {
+        const recipesSortedByTag = recepti.edges.filter((x) =>
+          x.node.perlaRecepti.tag.some((g) => g.name === tag)
+        );
+        setSortedRecipes(recipesSortedByTag);
+
+        // console.log(recipesSortedByTag);
+      }
+    } else {
+      if (tag === "All") {
+        setSortedRecipes(recepti.edges);
+      } else {
+        const recipesSortedByTag = recepti.edges.filter((x) =>
+          x.node.perlaRecepti.tagEng.some((g) => g.name === tag)
+        );
+        setSortedRecipes(recipesSortedByTag);
+
+        // console.log(recipesSortedByTag);
+      }
+    }
+  };
+  console.log(sortedRecipes);
   return (
     <div>
       <WrapAll ref={ref}>
@@ -94,29 +109,51 @@ function FrontRecepti({ recepti }) {
             PROVJERITE ZAŠTO
           </Title>
           <WrapCategories>
-            {kategorije.map((cat) => (
-              <Category>{cat.naziv}</Category>
+            {locale === "hr" ? (
+              <Category onClick={() => handleTagClick("Svi")}>Svi</Category>
+            ) : (
+              <Category onClick={() => handleTagClick("All")}>All</Category>
+            )}
+
+            {uniqueTags.map((tag) => (
+              <Category onClick={() => handleTagClick(tag)}>{tag}</Category>
             ))}
           </WrapCategories>
           <WrapRecipies>
-            {recepti.edges.map((recept) => (
+            {sortedRecipes.map((recept) => (
               <ReceptKartica
                 key={recept.node.id}
                 photo={recept.node.perlaRecepti.fotografijaRecepta.sourceUrl}
                 trajanje={recept.node.perlaRecepti.trajanjeKuhanja}
-                naslov={recept.node.perlaRecepti.naslovRecepta}
+                naslov={
+                  locale === "hr"
+                    ? recept.node.perlaRecepti.naslovRecepta
+                    : recept.node.perlaRecepti.naslovReceptaEng
+                }
                 link={
-                  slugify(
-                    recept.node.perlaRecepti.naslovRecepta
-                      .toLowerCase()
-                      .split(" ")
-                      .join("-"),
-                    {
-                      locale: "hrv",
-                    }
-                  ) +
-                  "-" +
-                  new Date(recept.node.date).toISOString().split("T")[0]
+                  locale === "hr"
+                    ? slugify(
+                        recept.node.perlaRecepti.naslovRecepta
+                          .toLowerCase()
+                          .split(" ")
+                          .join("-"),
+                        {
+                          locale: "hrv",
+                        }
+                      ) +
+                      "-" +
+                      new Date(recept.node.date).toISOString().split("T")[0]
+                    : slugify(
+                        recept.node.perlaRecepti.naslovReceptaEng
+                          .toLowerCase()
+                          .split(" ")
+                          .join("-"),
+                        {
+                          locale: "hrv",
+                        }
+                      ) +
+                      "-" +
+                      new Date(recept.node.date).toISOString().split("T")[0]
                 }
               ></ReceptKartica>
             ))}

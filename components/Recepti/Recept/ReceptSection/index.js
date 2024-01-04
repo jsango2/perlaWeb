@@ -42,7 +42,7 @@ function ReceptSection({ data }) {
   const yourDate = new Date(data.receptData.node.date)
     .toISOString()
     .split("T")[0];
-
+  console.log(data);
   return (
     <WrapAll>
       <RedLine>
@@ -54,70 +54,87 @@ function ReceptSection({ data }) {
         <Sastojci>
           <NaslovSastojci>SASTOJCI</NaslovSastojci>
           <ul>
-            {data.receptData.node.perlaRecepti.sastojcizaglavnojelo.map(
-              (sastojak) => (
-                <li>
-                  {sastojak.nazivNamirnice}, {sastojak.kolicina}{" "}
-                  {sastojak.jedinicnaMjera}
-                </li>
-              )
-            )}
+            {locale === "hr"
+              ? data.receptData.node.perlaRecepti.sastojcizaglavnojelo.map(
+                  (sastojak) => (
+                    <li>
+                      {sastojak.nazivNamirnice}, {sastojak.kolicina}{" "}
+                      {sastojak.jedinicnaMjera}
+                    </li>
+                  )
+                )
+              : data.receptData.node.perlaRecepti.sastojcizaglavnojeloEng.map(
+                  (sastojak) => (
+                    <li>
+                      {sastojak.nazivNamirniceEng}, {sastojak.kolicinaEng}{" "}
+                      {sastojak.jedinicnaMjeraEng}
+                    </li>
+                  )
+                )}
           </ul>
 
-          {data.receptData.node.perlaRecepti.dodatniPrilog
-            .sastojciZaDodatniPrilog !== null && (
-            <>
-              <Divider></Divider>
-              <NaslovSastojci>
-                {
-                  data.receptData.node.perlaRecepti.dodatniPrilog
-                    .nazivDodatnogPriloga
-                }
-              </NaslovSastojci>
-            </>
-          )}
+          {locale === "hr"
+            ? data.receptData.node.perlaRecepti.dodatniPrilog
+                .sastojciZaDodatniPrilog !== null && (
+                <>
+                  <Divider></Divider>
+                  <NaslovSastojci>
+                    {
+                      data.receptData.node.perlaRecepti.dodatniPrilog
+                        .nazivDodatnogPriloga
+                    }
+                  </NaslovSastojci>
+                </>
+              )
+            : data.receptData.node.perlaRecepti.dodatniPrilogEng
+                .sastojciZaDodatniPrilogEng !== null && (
+                <>
+                  <Divider></Divider>
+                  <NaslovSastojci>
+                    {
+                      data.receptData.node.perlaRecepti.dodatniPrilogEng
+                        .nazivDodatnogPrilogaEng
+                    }
+                  </NaslovSastojci>
+                </>
+              )}
           <ul>
             {" "}
-            {data.receptData.node.perlaRecepti.dodatniPrilog
-              .sastojciZaDodatniPrilog !== null &&
-              data.receptData.node.perlaRecepti.dodatniPrilog.sastojciZaDodatniPrilog.map(
-                (sastojak) => (
-                  <li>
-                    {sastojak.nazivNamirnice}, {sastojak.kolicina}{" "}
-                    {sastojak.jedinicnaMjera}
-                  </li>
+            {locale === "hr"
+              ? data.receptData.node.perlaRecepti.dodatniPrilog
+                  .sastojciZaDodatniPrilog !== null &&
+                data.receptData.node.perlaRecepti.dodatniPrilog.sastojciZaDodatniPrilog.map(
+                  (sastojak) => (
+                    <li>
+                      {sastojak.nazivNamirnice}, {sastojak.kolicina}{" "}
+                      {sastojak.jedinicnaMjera}
+                    </li>
+                  )
                 )
-              )}{" "}
+              : data.receptData.node.perlaRecepti.dodatniPrilogEng
+                  .sastojciZaDodatniPrilogEng !== null &&
+                data.receptData.node.perlaRecepti.dodatniPrilogEng.sastojciZaDodatniPrilogEng.map(
+                  (sastojak) => (
+                    <li>
+                      {sastojak.nazivNamirniceEng}, {sastojak.kolicinaEng}{" "}
+                      {sastojak.jedinicnaMjeraEng}
+                    </li>
+                  )
+                )}{" "}
           </ul>
         </Sastojci>
         <Postupak>
           <NaslovRecepta>
-            {data.receptData.node.perlaRecepti.naslovRecepta}
+            {locale === "hr"
+              ? data.receptData.node.perlaRecepti.naslovRecepta
+              : data.receptData.node.perlaRecepti.naslovReceptaEng}
           </NaslovRecepta>
           <PripremaVrijeme>
-            Priprema: {data.receptData.node.perlaRecepti.trajanjeKuhanja} min
+            {locale === "hr" ? "Priprema" : "Preparation"} :{" "}
+            {data.receptData.node.perlaRecepti.trajanjeKuhanja} min
           </PripremaVrijeme>
-          {data.receptData.node.perlaRecepti.postupakPoKoracima.map(
-            (korak, index) => (
-              <PostupakPripreme>
-                <RedniBroj>
-                  {index < 9 && 0}
-                  {index + 1}
-                </RedniBroj>
-                {parse(korak.korak)}
-              </PostupakPripreme>
-            )
-          )}
-          {data.receptData.node.perlaRecepti.postupakPoKoracimaPrilog !==
-            null && (
-            <div>
-              <NaslovReceptaPrilog>
-                {
-                  data.receptData.node.perlaRecepti.dodatniPrilog
-                    .nazivDodatnogPriloga
-                }
-              </NaslovReceptaPrilog>
-              {data.receptData.node.perlaRecepti.postupakPoKoracimaPrilog.map(
+          {locale === "hr"
+            ? data.receptData.node.perlaRecepti.postupakPoKoracima.map(
                 (korak, index) => (
                   <PostupakPripreme>
                     <RedniBroj>
@@ -127,9 +144,65 @@ function ReceptSection({ data }) {
                     {parse(korak.korak)}
                   </PostupakPripreme>
                 )
+              )
+            : data.receptData.node.perlaRecepti.postupakPoKoracimaEng.map(
+                (korak, index) => (
+                  <PostupakPripreme>
+                    <RedniBroj>
+                      {index < 9 && 0}
+                      {index + 1}
+                    </RedniBroj>
+                    {parse(korak.korakEng)}
+                  </PostupakPripreme>
+                )
               )}
-            </div>
-          )}
+          <Divider></Divider>
+
+          {locale === "hr"
+            ? data.receptData.node.perlaRecepti.postupakPoKoracimaPrilog !==
+                null && (
+                <div>
+                  <NaslovReceptaPrilog>
+                    {
+                      data.receptData.node.perlaRecepti.dodatniPrilog
+                        .nazivDodatnogPriloga
+                    }
+                  </NaslovReceptaPrilog>
+                  {data.receptData.node.perlaRecepti.postupakPoKoracimaPrilog.map(
+                    (korak, index) => (
+                      <PostupakPripreme>
+                        <RedniBroj>
+                          {index < 9 && 0}
+                          {index + 1}
+                        </RedniBroj>
+                        {parse(korak.korak)}
+                      </PostupakPripreme>
+                    )
+                  )}
+                </div>
+              )
+            : data.receptData.node.perlaRecepti.postupakPoKoracimaPrilogEng !==
+                null && (
+                <div>
+                  <NaslovReceptaPrilog>
+                    {
+                      data.receptData.node.perlaRecepti.dodatniPrilogEng
+                        .nazivDodatnogPrilogaEng
+                    }
+                  </NaslovReceptaPrilog>
+                  {data.receptData.node.perlaRecepti.postupakPoKoracimaPrilogEng.map(
+                    (korak, index) => (
+                      <PostupakPripreme>
+                        <RedniBroj>
+                          {index < 9 && 0}
+                          {index + 1}
+                        </RedniBroj>
+                        {parse(korak.korakEng)}
+                      </PostupakPripreme>
+                    )
+                  )}
+                </div>
+              )}
         </Postupak>
       </WrapContent>
       <BottomCoverPhoto
@@ -138,7 +211,7 @@ function ReceptSection({ data }) {
         }
       >
         <BottomOverlay />
-        <DobarTek>DOBAR TEK!</DobarTek>
+        <DobarTek>{locale === "hr" ? "DOBAR TEK!" : "BOUN APETITE!"}</DobarTek>
       </BottomCoverPhoto>
     </WrapAll>
   );

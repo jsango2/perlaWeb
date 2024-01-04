@@ -209,7 +209,7 @@ export const NaslovReceptaPrilog = styled(NaslovRecepta)`
     min-height: unset;
   } */
 `;
-export const PripremaVrijeme = styled.p`
+export const PripremaVrijeme = styled.div`
   position: relative;
   z-index: 1;
   color: #f5faff;
@@ -259,7 +259,7 @@ export const RedniBroj = styled.h1`
     min-height: unset;
   } */
 `;
-export const PostupakPripreme = styled.p`
+export const PostupakPripreme = styled.div`
   position: relative;
   z-index: 1;
   color: #f5faff;
