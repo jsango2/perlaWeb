@@ -87,7 +87,7 @@ export const WrapContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 180px 0 180px 0;
+  padding: 0px 0 100px 0;
   margin: 0 auto;
   @media only screen and (max-width: 850px) {
   }

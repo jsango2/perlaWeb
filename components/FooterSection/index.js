@@ -1,33 +1,22 @@
 import {
   WrapAll,
   Container,
-  Name,
   MainLinks,
   SingleLink,
-  WrapLogo,
-  SingleLink2,
-  SubLinks,
-  Column,
-  Column2,
-  ColumnIkone,
-  SubName,
   Title,
   Social,
   Copy,
   CopyLink,
 } from "./style.js";
 // import MarikomercLogo from "../../assets/svg/marikomerc_logo_footer.svg";
-import Instagram from "../../assets/svg/Instagram.svg";
-import Facebook from "../../assets/svg/Facebook.svg";
-import Linkedin from "../../assets/svg/Linkedin.svg";
-import Location from "../../assets/svg/Location.svg";
-import Email from "../../assets/svg/Email.svg";
+
 import useWindowSize from "../helper/usewindowsize";
 import { useInView } from "react-intersection-observer";
 import en from "../../locales/en.json";
 import hr from "../../locales/hr.json";
 import { useRouter } from "next/router.js";
 import Link from "next/link.js";
+import Image from "next/image.js";
 function FooterSection() {
   const router = useRouter();
   const { locale } = router;
@@ -49,24 +38,24 @@ function FooterSection() {
         </MainLinks>
         <Title>Pratite nas na Instagramu i ostalim mrežama!</Title>
         <Social>
-          <Link href="/social">
-            <Instagram></Instagram>
+          <Link href="/">
+            <Image src="/instagram.svg" width={25} height={25} />
           </Link>
 
-          <Link href="/social">
-            <Facebook></Facebook>
+          <Link href="/">
+            <Image src="/Instagram.svg" width={25} height={25} />
           </Link>
 
-          <Link href="/social">
-            <Linkedin></Linkedin>
+          <Link href="/">
+            <Image src="/Linkedin.svg" width={25} height={25} />
           </Link>
 
-          <Link href="/social">
-            <Location></Location>
+          <Link href="/">
+            <Image src="/Facebook.svg" width={25} height={25} />
           </Link>
 
-          <Link href="/social">
-            <Email></Email>
+          <Link href="/">
+            <Image src="/Email.svg" width={25} height={25} />
           </Link>
         </Social>
 

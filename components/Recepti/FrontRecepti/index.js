@@ -35,7 +35,8 @@ import { useInView } from "react-intersection-observer";
 import ReceptKartica from "./ReceptKartica/index.js";
 import slugify from "slugify";
 
-function FrontRecepti({ recepti }) {
+function FrontRecepti({ recepti, samoRecepti }) {
+  console.log(samoRecepti);
   const [sortedRecipes, setSortedRecipes] = useState(recepti.edges);
   const { ref, inView, entry } = useInView({
     /* Optional options */
@@ -116,7 +117,9 @@ function FrontRecepti({ recepti }) {
             )}
 
             {uniqueTags.map((tag) => (
-              <Category onClick={() => handleTagClick(tag)}>{tag}</Category>
+              <Category key={tag} onClick={() => handleTagClick(tag)}>
+                {tag}
+              </Category>
             ))}
           </WrapCategories>
           <WrapRecipies>
@@ -158,24 +161,28 @@ function FrontRecepti({ recepti }) {
               ></ReceptKartica>
             ))}
           </WrapRecipies>
-          <Button>PRONAĐI RECEPT</Button>
-          <BlueLine />
-          <Title>UZ NAS KUHAJ KAO VRHUNSKI CHEF</Title>
-          <Text>
-            Vrhunski plodovi mora naša su strast i obveza prema potrošačima. To
-            je ono što dobro radimo i u što vjerujemo. Izuzetno smo ponosni na
-            proizvode koje razvijamo za profesionalni segment, stoga nam je
-            užitak to podijeliti sa svima. Zato smo kreirali Perla liniju
-            proizvoda, s kojom je priprema maštovitih jela jednostavna i
-            zabavna.
-          </Text>
-          <WrapSocial>
-            <Instagram>@BISERMORA</Instagram>
-            <Facebook>PERLA - Biser Mora</Facebook>
-          </WrapSocial>
-          <Photo>
-            <Image src="/fotoMixPerla.png" layout="fill" />
-          </Photo>
+          {samoRecepti !== true && (
+            <>
+              <Button>PRONAĐI RECEPT</Button>
+              <BlueLine />
+              <Title>UZ NAS KUHAJ KAO VRHUNSKI CHEF</Title>
+              <Text>
+                Vrhunski plodovi mora naša su strast i obveza prema potrošačima.
+                To je ono što dobro radimo i u što vjerujemo. Izuzetno smo
+                ponosni na proizvode koje razvijamo za profesionalni segment,
+                stoga nam je užitak to podijeliti sa svima. Zato smo kreirali
+                Perla liniju proizvoda, s kojom je priprema maštovitih jela
+                jednostavna i zabavna.
+              </Text>
+              <WrapSocial>
+                <Instagram>@BISERMORA</Instagram>
+                <Facebook>PERLA - Biser Mora</Facebook>
+              </WrapSocial>
+              <Photo>
+                <Image src="/fotoMixPerla.png" layout="fill" />
+              </Photo>
+            </>
+          )}
         </WrapContent>
         <RedLineBottom>
           <WrapLogoPerla>
