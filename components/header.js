@@ -98,7 +98,7 @@ const Header = ({ siteTitle, receptiNaslovi }) => {
                     </div>
                   </div>
                   <div>
-                    <Link className="navLink" href="/proizvodi">
+                    <Link className="navLink" href="/recepti">
                       {locale === "hr" ? "Recepti" : "Recipies"}
                     </Link>
                   </div>
