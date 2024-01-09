@@ -270,6 +270,12 @@ export const Button = styled.div`
   margin-top: 84px;
   margin-bottom: 150px;
   cursor: pointer;
+  &:hover {
+    background: #203c5e;
+  }
+  &:active {
+    background: #ffffff;
+  }
   @media only screen and (max-width: 850px) {
   }
 `;

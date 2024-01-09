@@ -10,7 +10,7 @@ export const WrapAll = styled.div`
 
   min-height: 589px;
   height: auto;
-  width: 100%;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -194,6 +194,7 @@ export const ProizvodName = styled.p`
   /* SUNRISE/Sunray */
 
   color: #f5faff;
+  margin-left: 51px;
   @media only screen and (max-width: 1300px) {
     font-size: 14px;
   }

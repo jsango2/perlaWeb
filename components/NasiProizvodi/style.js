@@ -82,6 +82,7 @@ export const Proizvod = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   @media only screen and (max-width: 1300px) {
     width: 100%;
     height: 222px;

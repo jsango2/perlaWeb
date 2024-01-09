@@ -156,7 +156,8 @@ function ReceptSection({ data }) {
                   </PostupakPripreme>
                 )
               )}
-          <Divider></Divider>
+          {data.receptData.node.perlaRecepti.postupakPoKoracimaPrilog !==
+            null && <Divider></Divider>}
 
           {locale === "hr"
             ? data.receptData.node.perlaRecepti.postupakPoKoracimaPrilog !==

@@ -23,6 +23,8 @@ import en from "../../locales/en.json";
 import hr from "../../locales/hr.json";
 import { useInView } from "react-intersection-observer";
 import { catalogData } from "../../catalogData.js";
+import slugify from "slugify";
+import Link from "next/link.js";
 
 function NasiProizvodi() {
   const [perlaData, setPerlaData] = useState([]);
@@ -52,24 +54,41 @@ function NasiProizvodi() {
           <Title>NAŠI PROIZVODI</Title>
           <Proizvodi>
             {perlaData.map((data) => (
-              <WrapProizvod key={data["Kataloški broj:"]}>
-                <Proizvod>
-                  <Overlay />
-                  <WrapProizvodImage>
-                    <Image
-                      src={`/productImages/${data["Kataloški broj:"]}.webp`}
-                      layout="fill"
-                      alt="p1"
-                      objectFit="contain"
-                    />
-                  </WrapProizvodImage>
-                </Proizvod>
-                <ProizvodName>
-                  {locale === "hr"
-                    ? data["IME PROIZVODA - do 60 znakova"]
-                    : data["PRODUCT NAME - up to 60 characters"]}
-                </ProizvodName>
-              </WrapProizvod>
+              <Link
+                href={`/proizvodi/${
+                  slugify(
+                    data["IME PROIZVODA - do 60 znakova"]
+                      .toLowerCase()
+                      .split(" ")
+                      .join("-"),
+                    {
+                      locale: "hrv",
+                    }
+                  ) +
+                  "-" +
+                  data["Kataloški broj:"]
+                }`}
+                key={data["Kataloški broj:"]}
+              >
+                <WrapProizvod>
+                  <Proizvod>
+                    <Overlay />
+                    <WrapProizvodImage>
+                      <Image
+                        src={`/productImages/${data["Kataloški broj:"]}.webp`}
+                        layout="fill"
+                        alt="p1"
+                        objectFit="contain"
+                      />
+                    </WrapProizvodImage>
+                  </Proizvod>
+                  <ProizvodName>
+                    {locale === "hr"
+                      ? data["IME PROIZVODA - do 60 znakova"]
+                      : data["PRODUCT NAME - up to 60 characters"]}
+                  </ProizvodName>
+                </WrapProizvod>
+              </Link>
             ))}
           </Proizvodi>
           <Button>UČITAJ SVE PERLA PROIZVODE</Button>
