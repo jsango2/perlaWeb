@@ -130,8 +130,10 @@ export const Recipe = styled.div`
   margin: 15px;
   display: flex;
   flex-direction: column;
-  cursor: pointer;
-  @media only screen and (max-width: 850px) {
+
+  @media only screen and (max-width: 430px) {
+    width: 90vw;
+    height: 401px;
   }
 `;
 export const PhotoWrap = styled.div`
@@ -167,15 +169,23 @@ export const TextWrap = styled.div`
   z-index: 10;
   width: auto;
   height: 98px;
-  background-color: white;
+  /* background-color: white; */
   color: #1c2640;
   font-family: Gilroy;
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
   line-height: 120%; /* 24px */
-
+  cursor: pointer;
   padding: 15px 26px;
+  transition: all 0.1s ease-in-out;
+  &:hover {
+    background-color: #00304a;
+    color: white;
+  }
+  /* ${Recipe}:hover {
+    background-color: #00304a;
+  } */
   @media only screen and (max-width: 850px) {
   }
 `;

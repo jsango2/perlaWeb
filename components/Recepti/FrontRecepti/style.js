@@ -90,6 +90,7 @@ export const WrapContent = styled.div`
   padding: 180px 0 180px 0;
   margin: 0 auto;
   @media only screen and (max-width: 850px) {
+    width: 100vw;
   }
 `;
 export const WrapCategories = styled.div`
@@ -105,6 +106,7 @@ export const WrapCategories = styled.div`
   margin-bottom: 60px;
   flex-wrap: wrap;
   @media only screen and (max-width: 850px) {
+    width: 90vw;
   }
 `;
 export const WrapRecipies = styled.div`
@@ -237,7 +239,9 @@ export const Title = styled.h1`
   font-style: normal;
   font-weight: 600;
   line-height: 120%; /* 48px */
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 650px) {
+    width: 90vw;
+    font-size: 26px;
   }
 `;
 export const Text = styled.p`
@@ -251,6 +255,7 @@ export const Text = styled.p`
   line-height: 142.5%; /* 25.65px */
   width: 670px;
   @media only screen and (max-width: 850px) {
+    width: 90vw;
   }
 `;
 export const Button = styled.div`
@@ -287,7 +292,9 @@ export const Photo = styled.div`
   border-radius: 6px;
   overflow: hidden;
   margin-bottom: 85px;
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 430px) {
+    width: 100vw;
+    height: 120vw;
   }
 `;
 export const WrapSocial = styled.div`
@@ -297,7 +304,22 @@ export const WrapSocial = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 750px) {
+    margin: 20px;
+    position: relative;
+    right: unset;
+    top: unset;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: center;
   }
 `;
 export const Instagram = styled.div`

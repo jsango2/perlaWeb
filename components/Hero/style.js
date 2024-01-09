@@ -24,9 +24,8 @@ export const HeroWrap = styled.div`
     align-items: flex-start;
 
   } */
-  /* @media only screen and (max-width: 430px) {
-    min-height: unset;
-  } */
+  @media only screen and (max-width: 430px) {
+  }
 `;
 export const HeroContent = styled.div`
   position: relative;
@@ -40,6 +39,7 @@ export const HeroContent = styled.div`
   @media only screen and (max-width: 850px) {
   }
   @media only screen and (max-width: 430px) {
+    background: url("/heroBg.webp") no-repeat center left / cover;
   }
 `;
 export const Galeb1 = styled.div`

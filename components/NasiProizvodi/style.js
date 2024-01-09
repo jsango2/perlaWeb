@@ -133,7 +133,7 @@ export const Proizvodi = styled.div`
     width: 95%;
   }
   @media only screen and (max-width: 850px) {
-    width: 425px;
+    width: 100vw;
 
     height: auto;
     flex-wrap: wrap;
@@ -163,9 +163,9 @@ export const WrapProizvod = styled.div`
     margin-bottom: 40px;
   }
   @media only screen and (max-width: 450px) {
-    margin-bottom: 25px;
+    margin: 15px 5px 15px 5px;
 
-    width: 45%;
+    width: 46%;
   }
 `;
 export const ProizvodName = styled.p`
