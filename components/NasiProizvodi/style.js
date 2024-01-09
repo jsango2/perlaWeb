@@ -41,7 +41,9 @@ export const WrapContent = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 120px 0 100px 0;
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 650px) {
+    padding: 80px 0 40px 0;
+    width: 100%;
   }
 `;
 export const BlueLine = styled.div`
@@ -66,7 +68,8 @@ export const Title = styled.h1`
   font-style: normal;
   font-weight: 600;
   line-height: 120%; /* 48px */
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 650px) {
+    font-size: 26px;
   }
 `;
 export const Proizvod = styled.div`
@@ -94,7 +97,9 @@ export const WrapLogoPerla = styled.div`
   top: 160px;
   width: 324px;
   height: 152px;
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 650px) {
+    top: 111px;
+    width: 170px;
   }
 `;
 export const Button = styled.div`
@@ -113,7 +118,15 @@ export const Button = styled.div`
   align-items: center;
   margin-top: 84px;
   margin-bottom: 0px;
+
   cursor: pointer;
+  &:hover {
+    background: #203c5e;
+  }
+  &:active {
+    background: #ffffff;
+    color: black;
+  }
   @media only screen and (max-width: 850px) {
   }
 `;

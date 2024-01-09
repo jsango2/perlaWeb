@@ -34,6 +34,7 @@ import hr from "../../../locales/hr.json";
 import { useInView } from "react-intersection-observer";
 import ReceptKartica from "./ReceptKartica/index.js";
 import slugify from "slugify";
+import Link from "next/link.js";
 
 function FrontRecepti({ recepti, samoRecepti }) {
   console.log(samoRecepti);
@@ -163,7 +164,9 @@ function FrontRecepti({ recepti, samoRecepti }) {
           </WrapRecipies>
           {samoRecepti !== true && (
             <>
-              <Button>PRONAĐI RECEPT</Button>
+              <Link href="/recepti">
+                <Button>PRONAĐI RECEPT</Button>
+              </Link>
               <BlueLine />
               <Title>UZ NAS KUHAJ KAO VRHUNSKI CHEF</Title>
               <Text>

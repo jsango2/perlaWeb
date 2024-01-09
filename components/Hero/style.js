@@ -24,7 +24,8 @@ export const HeroWrap = styled.div`
     align-items: flex-start;
 
   } */
-  @media only screen and (max-width: 430px) {
+  @media only screen and (max-width: 630px) {
+    height: 65vw;
   }
 `;
 export const HeroContent = styled.div`

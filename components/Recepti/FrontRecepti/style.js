@@ -43,7 +43,8 @@ export const RedLine = styled.div`
   align-items: center;
   top: 0;
 
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 650px) {
+    height: 30px;
   }
   @media only screen and (max-width: 430px) {
   }
@@ -63,7 +64,8 @@ export const WrapLogoPerla = styled.div`
   top: -10px;
   width: 324px;
   height: 152px;
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 650px) {
+    width: 168px;
   }
 `;
 
@@ -92,6 +94,10 @@ export const WrapContent = styled.div`
   @media only screen and (max-width: 850px) {
     width: 100vw;
   }
+  @media only screen and (max-width: 650px) {
+    padding-top: 120px;
+    padding-bottom: 0;
+  }
 `;
 export const WrapCategories = styled.div`
   position: relative;
@@ -119,7 +125,8 @@ export const WrapRecipies = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 55px;
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 650px) {
+    margin-top: 0;
   }
 `;
 export const Recipe = styled.div`
@@ -280,8 +287,10 @@ export const Button = styled.div`
   }
   &:active {
     background: #ffffff;
+    color: black;
   }
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 650px) {
+    margin-bottom: 80px;
   }
 `;
 export const Photo = styled.div`

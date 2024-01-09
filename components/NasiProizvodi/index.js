@@ -28,6 +28,9 @@ import Link from "next/link.js";
 
 function NasiProizvodi() {
   const [perlaData, setPerlaData] = useState([]);
+  const [sliced, setSliced] = useState(false);
+
+  const [slice, setSlice] = useState([]);
   useEffect(() => {
     setPerlaData(
       catalogData.filter(
@@ -46,6 +49,7 @@ function NasiProizvodi() {
   const router = useRouter();
   const { locale } = router;
   const t = locale === "en" ? en : hr;
+  const handleClick = () => {};
   return (
     <div>
       <WrapAll ref={ref}>
@@ -53,7 +57,7 @@ function NasiProizvodi() {
           <BlueLine />
           <Title>NAŠI PROIZVODI</Title>
           <Proizvodi>
-            {perlaData.map((data) => (
+            {(sliced ? perlaData : perlaData.slice(0, 8)).map((data) => (
               <Link
                 href={`/proizvodi/${
                   slugify(
@@ -91,7 +95,13 @@ function NasiProizvodi() {
               </Link>
             ))}
           </Proizvodi>
-          <Button>UČITAJ SVE PERLA PROIZVODE</Button>
+
+          <Button onClick={() => setSliced(!sliced)}>
+            {!sliced
+              ? "UČITAJ SVE PERLA PROIZVODE"
+              : "UČITAJ MANJE PERLA PROIZVODA"}
+          </Button>
+
           <WrapLogoPerla>
             <Image src="/perlaLogoWithRed.svg" layout="fill" />
           </WrapLogoPerla>
