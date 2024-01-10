@@ -9,25 +9,18 @@ export const HeroWrap = styled.div`
   z-index: 1;
 
   height: 389px;
-  width: 100%;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("/heroBgWide.webp") no-repeat center center / cover;
+  background: url("/heroBg.webp") no-repeat center center / cover;
 
-  background-size: cover; /*for safari we can add this sperately*/
-  /* @media only screen and (max-width: 1400px) {
-    padding: 100px 0 70px 70px;
-  } */
-  /* @media only screen and (max-width: 850px) {
-    padding: 0 0 0px 0;
-    align-items: flex-start;
-
-  } */
+  background-size: cover;
   @media only screen and (max-width: 630px) {
     height: 65vw;
   }
 `;
+
 export const HeroContent = styled.div`
   position: relative;
   width: 1440px;
@@ -46,30 +39,54 @@ export const HeroContent = styled.div`
 export const Galeb1 = styled.div`
   position: absolute;
   z-index: 12;
-  bottom: 5%;
-  left: 20%;
+  /* bottom: 5%; */
+  /* left: 20%; */
+  right: ${(props) => props.percentage * 20 + 40}%;
+
+  width: 300px;
+  height: 230px;
+  bottom: ${(props) => props.percentage * 30 - 20}%;
   @media only screen and (max-width: 850px) {
-    display: none;
+    right: ${(props) => props.percentage * 20 + 40}%;
+
+    width: 30vw;
+    height: 26vw;
   }
 `;
+
 export const Galeb2 = styled.div`
   position: absolute;
   z-index: 12;
-  bottom: 250px;
-  left: 40%;
+  width: 185px;
+  height: 70px;
+  left: 45%;
+  bottom: ${(props) => props.percentage * 40 + 10}%;
+  transform: scale(${(props) => props.percentage});
 
   @media only screen and (max-width: 850px) {
-    display: none;
+    bottom: ${(props) => props.percentage * 40 + 10}%;
+
+    left: 43%;
+    width: 23vw;
+    height: 10vw;
   }
 `;
 export const Galeb3 = styled.div`
   position: absolute;
   z-index: 12;
-  bottom: -3%;
-  right: 34%;
+
+  width: 170px;
+  height: 190px;
+
+  left: ${(props) => props.percentage * 20 + 45}%;
+  bottom: ${(props) => props.percentage * 30 - 20}%;
+  transform: scale(${(props) => props.percentage});
 
   @media only screen and (max-width: 850px) {
-    display: none;
+    left: ${(props) => props.percentage * 20 + 45}%;
+    bottom: ${(props) => props.percentage * 30 - 20}%;
+    width: 23vw;
+    height: 23vw;
   }
 `;
 

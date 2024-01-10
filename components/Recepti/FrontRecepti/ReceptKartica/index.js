@@ -1,16 +1,6 @@
 import React from "react";
 
 import {
-  WrapAll,
-  RedLine,
-  WrapLogoPerla,
-  RedLineBottom,
-  BlueLine,
-  WrapContent,
-  Title,
-  WrapCategories,
-  Category,
-  WrapRecipies,
   Recipe,
   PhotoWrap,
   TextWrap,
@@ -18,12 +8,6 @@ import {
   Time,
   Overlay,
   Timer,
-  Button,
-  Text,
-  Photo,
-  WrapSocial,
-  Instagram,
-  Facebook,
 } from "./style.js";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -49,14 +33,14 @@ function ReceptKartica({ photo, naslov, trajanje, link }) {
   return (
     <WrapRecipe href={`/recepti/${link}`}>
       <Recipe>
-        <PhotoWrap photo={photo}>
+        <PhotoWrap photo={photo} className="photoWrap">
           <Overlay />
           <Time>
             <Timer />
             {trajanje} min
           </Time>
         </PhotoWrap>
-        <TextWrap>{naslov}</TextWrap>
+        <TextWrap className="cardTextBg">{naslov}</TextWrap>
       </Recipe>
     </WrapRecipe>
   );

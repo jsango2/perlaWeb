@@ -7,6 +7,7 @@ import {
   Social,
   Copy,
   CopyLink,
+  WrapLogoPerla,
 } from "./style.js";
 // import MarikomercLogo from "../../assets/svg/marikomerc_logo_footer.svg";
 
@@ -29,9 +30,11 @@ function FooterSection() {
   // });
   return (
     <WrapAll>
+      <WrapLogoPerla>
+        <Image src="/perlaLogoWithRed.svg" layout="fill" />
+      </WrapLogoPerla>
       <Container>
         <MainLinks>
-          <SingleLink>{t.Linkovi.onama}</SingleLink>
           <SingleLink>{t.Linkovi.onama}</SingleLink>
           <SingleLink>{t.Linkovi.onama}</SingleLink>
           <SingleLink>{t.Linkovi.onama}</SingleLink>

@@ -99,6 +99,25 @@ export const WrapContent = styled.div`
     padding-bottom: 100px;
   }
 `;
+export const WrapContent2 = styled.div`
+  position: relative;
+  z-index: 10;
+
+  width: 1440px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 180px 0 180px 0;
+  margin: 0 auto;
+  @media only screen and (max-width: 850px) {
+    width: 100vw;
+  }
+  @media only screen and (max-width: 650px) {
+    padding-top: 120px;
+    padding-bottom: 0;
+  }
+`;
 export const WrapCategories = styled.div`
   position: relative;
   z-index: 10;
@@ -308,6 +327,8 @@ export const Photo = styled.div`
   overflow: hidden;
   margin-bottom: 85px;
   @media only screen and (max-width: 430px) {
+    margin-bottom: 0;
+
     width: 100vw;
     height: 120vw;
   }

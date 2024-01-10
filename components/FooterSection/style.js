@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const WrapAll = styled.div`
   position: relative;
-  z-index: 0;
+  z-index: 1;
   width: 100%;
-  height: 450px;
+  height: auto;
   background: radial-gradient(
       79.54% 79.54% at 1.33% 0%,
       #374772 0%,
@@ -15,10 +15,12 @@ export const WrapAll = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  padding-bottom: 40px;
   /* overflow: hidden; */
   @media only screen and (max-width: 430px) {
     height: auto;
-    padding: 60px 0;
+    padding: 0px 0 60px 0;
   }
 `;
 
@@ -120,6 +122,20 @@ export const CopyLink = styled.div`
     flex-direction: column;
   }
 `;
+export const WrapLogoPerla = styled.div`
+  position: relative;
+  z-index: 10;
+  /* top: 160px; */
+  width: 324px;
+  height: 152px;
+  top: -90px;
+  @media only screen and (max-width: 650px) {
+    height: 100px;
+
+    top: -61px;
+    width: 170px;
+  }
+`;
 export const BlueLine = styled.div`
   position: relative;
   z-index: 10;
@@ -200,10 +216,9 @@ export const MainLinks = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 65px;
+  margin-top: 0px;
   margin-bottom: 65px;
   @media only screen and (max-width: 770px) {
-    display: none;
   }
 `;
 export const SubLinks = styled.div`

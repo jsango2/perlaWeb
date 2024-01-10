@@ -40,9 +40,9 @@ export const WrapContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 120px 0 100px 0;
+  padding: 120px 0 0px 0;
   @media only screen and (max-width: 650px) {
-    padding: 80px 0 40px 0;
+    padding: 80px 0 0px 0;
     width: 100%;
   }
 `;
@@ -94,7 +94,7 @@ export const Proizvod = styled.div`
 export const WrapLogoPerla = styled.div`
   position: relative;
   z-index: 10;
-  top: 160px;
+  /* top: 160px; */
   width: 324px;
   height: 152px;
   @media only screen and (max-width: 650px) {
@@ -229,5 +229,211 @@ export const WrapProizvodImage = styled.div`
   @media only screen and (max-width: 1300px) {
     width: 116px;
     height: 182px;
+  }
+`;
+export const Karamarko = styled.div`
+  position: relative;
+  z-index: 10;
+  width: 1440px;
+  height: auto;
+  display: flex;
+  /* overflow: hidden; */
+
+  justify-content: center;
+  margin: 230px auto 0px auto;
+  @media only screen and (max-width: 1300px) {
+    width: 100%;
+  }
+  @media only screen and (max-width: 1000px) {
+    flex-direction: column-reverse;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 0;
+  }
+  @media only screen and (max-width: 800px) {
+  }
+`;
+export const Title2 = styled.h1`
+  position: relative;
+  z-index: 10;
+  font-family: "Roboto Condensed", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+
+  font-size: 40px;
+  line-height: 120%;
+  /* or 48px */
+
+  text-align: left;
+
+  /* SUNRISE/Sunray */
+
+  color: #f5faff;
+  width: 680px;
+  margin: 0 auto 0 auto;
+  @media only screen and (max-width: 1000px) {
+    font-size: 36px;
+    width: 75%;
+  }
+  @media only screen and (max-width: 850px) {
+    font-size: 24px;
+    text-transform: unset;
+    text-align: center;
+  }
+  @media only screen and (max-width: 430px) {
+    width: 99%;
+  }
+`;
+export const LogoHks = styled.div`
+  position: relative;
+  z-index: 10;
+  margin-top: 65px;
+  width: 190px;
+  height: 185px;
+  @media only screen and (max-width: 850px) {
+    width: 170px;
+    height: 170px;
+    margin: 85px auto 0 auto;
+  }
+  @media only screen and (max-width: 430px) {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    /* margin: 45px auto 0 auto; */
+    top: 290px;
+    left: 20px;
+    /* position: absolute;
+    top: 360px;
+    width: 90px;
+    height: 90px; */
+  }
+  @media only screen and (max-width: 350px) {
+    top: 290px;
+
+    width: 60px;
+    height: 60px;
+    /* position: absolute;
+    top: 380px;
+    width: 90px;
+    height: 90px; */
+  }
+`;
+export const Right = styled.div`
+  position: relative;
+  z-index: 10;
+  width: 655px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 20px;
+  @media only screen and (max-width: 1000px) {
+    width: 100%;
+    height: auto;
+  }
+  @media only screen and (max-width: 430px) {
+    width: 100%;
+    height: auto;
+    padding-top: 30px;
+    padding-bottom: 50px;
+  }
+`;
+export const Left = styled.div`
+  position: relative;
+  z-index: 10;
+  width: 600px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  padding-left: 70px;
+  align-items: flex-end;
+  @media only screen and (max-width: 1000px) {
+    align-items: flex-end;
+    width: 100%;
+    padding-left: 0;
+  }
+  @media only screen and (max-width: 430px) {
+    align-items: flex-end;
+    width: 100vw;
+    padding-left: 0;
+  }
+`;
+export const ImageWrap = styled.div`
+  position: relative;
+  z-index: 10;
+  height: 543px;
+  width: 400px;
+  background-image: url("/karamarko.png");
+  background-size: cover;
+  @media only screen and (max-width: 1000px) {
+    height: 395px;
+    width: 300px;
+  }
+  @media only screen and (max-width: 650px) {
+    width: 70vw;
+  }
+  @media only screen and (max-width: 430px) {
+    height: 371px;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+  @media only screen and (max-width: 370px) {
+    height: 310px;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+`;
+export const Potpis = styled.div`
+  position: absolute;
+  z-index: 11;
+  width: 330px;
+  height: 300px;
+
+  left: -135px;
+  top: ${(props) => props.percentage * 50 + 100}px;
+  @media only screen and (max-width: 1000px) {
+    width: 220px;
+    height: 230px;
+    left: 41px;
+    top: 341px;
+  }
+
+  @media only screen and (max-width: 430px) {
+    width: 180px;
+    height: 190px;
+    top: 0px;
+
+    left: 0px;
+  }
+`;
+export const PozadinaPerla = styled.div`
+  position: absolute;
+  z-index: 10;
+  width: 860px;
+  height: 750px;
+  bottom: ${(props) => props.percentage * 70}px;
+
+  left: -195px;
+  @media only screen and (max-width: 1000px) {
+    left: -95px;
+
+    position: relative;
+    width: 560px;
+    height: 550px;
+  }
+  @media only screen and (max-width: 800px) {
+    left: 10px;
+    width: 50%;
+  }
+  @media only screen and (max-width: 430px) {
+    position: absolute;
+    bottom: ${(props) => props.percentage * 70 - 40}px;
+
+    left: 0px;
+    width: 80%;
   }
 `;

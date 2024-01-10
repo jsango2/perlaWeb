@@ -1,23 +1,12 @@
 import React from "react";
 
-import {
-  Title,
-  SubTitle,
-  WrapText,
-  HeroWrap,
-  HeroContent,
-  Galeb1,
-  Galeb2,
-  Galeb3,
-  WrapImage,
-  Icon,
-  Broj,
-  Linija,
-} from "./style.js";
+import { HeroWrap, HeroContent, Galeb1, Galeb2, Galeb3 } from "./style.js";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
 import useWindowSize from "../helper/usewindowsize.js";
+import { useScrollPercentage } from "react-scroll-percentage";
+
 // import { useTranslations } from "next-intl";
 import en from "../../locales/en.json";
 import hr from "../../locales/hr.json";
@@ -34,18 +23,25 @@ function Hero() {
   const router = useRouter();
   const { locale } = router;
   const t = locale === "en" ? en : hr;
+
+  const [ref2, percentage] = useScrollPercentage({
+    /* Optional options */
+    threshold: 0,
+  });
+
+  console.log(percentage);
   return (
     <div>
       <HeroWrap>
-        <HeroContent>
-          <Galeb1>
-            <Image src="/galeb1.png" width={300} height={230} />
+        <HeroContent ref={ref2}>
+          <Galeb1 percentage={percentage}>
+            <Image src="/galeb1.png" layout="fill" />
           </Galeb1>
-          <Galeb2>
-            <Image src="/galeb2.png" width={185} height={70} />
+          <Galeb2 percentage={percentage}>
+            <Image src="/galeb2.png" layout="fill" />
           </Galeb2>
-          <Galeb3>
-            <Image src="/galeb3.png" width={170} height={190} />
+          <Galeb3 percentage={percentage}>
+            <Image src="/galeb3.png" layout="fill" />
           </Galeb3>
         </HeroContent>
         {/* <WrapText>

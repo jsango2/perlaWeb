@@ -6,7 +6,7 @@ import {
   WrapLogoPerla,
   RedLineBottom,
   BlueLine,
-  WrapContent,
+  WrapContent2,
   Title,
   WrapCategories,
   Category,
@@ -102,7 +102,7 @@ function FrontRecepti({ recepti, samoRecepti }) {
           </WrapLogoPerla>
         </RedLine>
 
-        <WrapContent>
+        <WrapContent2>
           {" "}
           <BlueLine />
           <Title>
@@ -124,7 +124,7 @@ function FrontRecepti({ recepti, samoRecepti }) {
             ))}
           </WrapCategories>
           <WrapRecipies>
-            {sortedRecipes.map((recept) => (
+            {sortedRecipes.slice(0, 4).map((recept) => (
               <ReceptKartica
                 key={recept.node.id}
                 photo={recept.node.perlaRecepti.fotografijaRecepta.sourceUrl}
@@ -186,7 +186,7 @@ function FrontRecepti({ recepti, samoRecepti }) {
               </Photo>
             </>
           )}
-        </WrapContent>
+        </WrapContent2>
         <RedLineBottom>
           <WrapLogoPerla>
             <Image src="/perlaLogo.svg" layout="fill" />

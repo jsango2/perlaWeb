@@ -5,80 +5,80 @@ import styled from "styled-components";
 
 // import { HeroWrap } from "./style.js"
 
-export const WrapAll = styled.div`
-  position: relative;
-  z-index: 2;
+// export const WrapAll = styled.div`
+//   position: relative;
+//   z-index: 2;
 
-  min-height: 589px;
-  height: auto;
-  width: 100%;
-  display: flex;
+//   min-height: 589px;
+//   height: auto;
+//   width: 100%;
+//   display: flex;
 
-  justify-content: center;
-  align-items: center;
-  background: radial-gradient(
-    107.92% 107.92% at 1.33% 0%,
-    #253151 0%,
-    #101628 100%
-  );
-  /* @media only screen and (max-width: 1400px) {
+//   justify-content: center;
+//   align-items: center;
+//   background: radial-gradient(
+//     107.92% 107.92% at 1.33% 0%,
+//     #253151 0%,
+//     #101628 100%
+//   );
+/* @media only screen and (max-width: 1400px) {
     padding: 100px 0 70px 70px;
   } */
-  /* @media only screen and (max-width: 850px) {
+/* @media only screen and (max-width: 850px) {
     padding: 0 0 0px 0;
     align-items: flex-start;
 
   } */
-  /* @media only screen and (max-width: 430px) {
+/* @media only screen and (max-width: 430px) {
     min-height: unset;
   } */
 `;
-export const RedLine = styled.div`
-  position: absolute;
-  z-index: 10;
-  width: 100%;
-  height: 49px;
-  background: #e1251b;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 0;
+// export const RedLine = styled.div`;
+//   position: absolute;
+//   z-index: 10;
+//   width: 100%;
+//   height: 49px;
+//   background: #e1251b;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   top: 0;
 
-  @media only screen and (max-width: 850px) {
-  }
-  @media only screen and (max-width: 430px) {
-  }
-`;
-export const RedLineBottom = styled(RedLine)`
-  bottom: 0;
-  top: unset;
+//   @media only screen and (max-width: 850px) {
+//   }
+//   @media only screen and (max-width: 430px) {
+//   }
+// `;
+// export const RedLineBottom = styled(RedLine)`
+//   bottom: 0;
+//   top: unset;
 
-  @media only screen and (max-width: 850px) {
-  }
-  @media only screen and (max-width: 430px) {
-  }
-`;
-export const WrapLogoPerla = styled.div`
-  position: relative;
-  z-index: 10;
-  top: -10px;
-  width: 324px;
-  height: 152px;
-  @media only screen and (max-width: 850px) {
-  }
-`;
+//   @media only screen and (max-width: 850px) {
+//   }
+//   @media only screen and (max-width: 430px) {
+//   }
+// `;
+// export const WrapLogoPerla = styled.div`
+//   position: relative;
+//   z-index: 10;
+//   top: -10px;
+//   width: 324px;
+//   height: 152px;
+//   @media only screen and (max-width: 850px) {
+//   }
+// `;
 
-export const BlueLine = styled.div`
-  position: relative;
-  z-index: 10;
-  background-color: #4299c8;
-  border-radius: 2px;
-  width: 85px;
-  height: 3px;
+// export const BlueLine = styled.div`
+//   position: relative;
+//   z-index: 10;
+//   background-color: #4299c8;
+//   border-radius: 2px;
+//   width: 85px;
+//   height: 3px;
 
-  @media only screen and (max-width: 850px) {
-  }
-`;
+//   @media only screen and (max-width: 850px) {
+//   }
+// `;
 export const WrapContent = styled.div`
   position: relative;
   z-index: 10;
@@ -92,48 +92,56 @@ export const WrapContent = styled.div`
   @media only screen and (max-width: 850px) {
   }
 `;
-export const WrapCategories = styled.div`
-  position: relative;
-  z-index: 10;
+// export const WrapCategories = styled.div`
+//   position: relative;
+//   z-index: 10;
 
-  width: 860px;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 15px;
-  flex-wrap: wrap;
-  @media only screen and (max-width: 850px) {
-  }
-`;
-export const WrapRecipies = styled.div`
-  position: relative;
-  z-index: 10;
-  width: 100%;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 125px;
-  @media only screen and (max-width: 850px) {
-  }
-`;
+//   width: 860px;
+//   height: auto;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   margin-top: 15px;
+//   flex-wrap: wrap;
+//   @media only screen and (max-width: 850px) {
+//   }
+// `;
+// export const WrapRecipies = styled.div`
+//   position: relative;
+//   z-index: 10;
+//   width: 100%;
+//   height: auto;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   flex-wrap: wrap;
+//   margin-top: 125px;
+//   @media only screen and (max-width: 850px) {
+//   }
+// `;
 export const Recipe = styled.div`
   position: relative;
   z-index: 10;
   width: 359px;
   height: 431px;
-  border-radius: 24px;
+  border-radius: 22px;
   overflow: hidden;
   background-color: white;
   margin: 15px;
   display: flex;
   flex-direction: column;
-
+  cursor: pointer;
+  &:hover .cardTextBg {
+    background-color: #00304a;
+    color: white;
+    transform: scale(1.02);
+  }
+  &:hover .photoWrap {
+    transform: scale(1.02);
+  }
   @media only screen and (max-width: 430px) {
     width: 90vw;
-    height: 401px;
+    height: 345px;
   }
 `;
 export const PhotoWrap = styled.div`
@@ -141,6 +149,7 @@ export const PhotoWrap = styled.div`
   z-index: 10;
   width: 100%;
   height: 338px;
+  transition: all 0.8s ease-in-out;
 
   background: ${(props) => `url(${props.photo}) no-repeat center center`};
   background-size: cover;
@@ -169,20 +178,22 @@ export const TextWrap = styled.div`
   z-index: 10;
   width: auto;
   height: 98px;
-  /* background-color: white; */
   color: #1c2640;
+  /* P */
   font-family: Gilroy;
-  font-size: 20px;
+  font-size: 16px;
   font-style: normal;
-  font-weight: 600;
-  line-height: 120%; /* 24px */
+  font-weight: 400;
+  line-height: 140%; /* 22.4px */
+  border-radius: 0 0 20px 20px;
+  overflow: hidden;
   cursor: pointer;
   padding: 15px 26px;
-  transition: all 0.1s ease-in-out;
-  &:hover {
+  transition: all 0.3s ease-in-out;
+  /* &:hover {
     background-color: #00304a;
     color: white;
-  }
+  } */
   /* ${Recipe}:hover {
     background-color: #00304a;
   } */

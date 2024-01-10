@@ -25,6 +25,7 @@ import { useInView } from "react-intersection-observer";
 import { catalogData } from "../../catalogData.js";
 import slugify from "slugify";
 import Link from "next/link.js";
+import KaramarkoComp from "./karamarko.js";
 
 function NasiProizvodi() {
   const [perlaData, setPerlaData] = useState([]);
@@ -102,9 +103,7 @@ function NasiProizvodi() {
               : "UČITAJ MANJE PERLA PROIZVODA"}
           </Button>
 
-          <WrapLogoPerla>
-            <Image src="/perlaLogoWithRed.svg" layout="fill" />
-          </WrapLogoPerla>
+          <KaramarkoComp />
         </WrapContent>
       </WrapAll>
     </div>
