@@ -206,14 +206,19 @@ function ReceptSection({ data }) {
               )}
         </Postupak>
       </WrapContent>
-      <BottomCoverPhoto
-        photo={
-          data.receptData.node.perlaRecepti.fotografijaReceptaDonja.sourceUrl
-        }
-      >
-        <BottomOverlay />
-        <DobarTek>{locale === "hr" ? "DOBAR TEK!" : "BOUN APETITE!"}</DobarTek>
-      </BottomCoverPhoto>
+      {data.receptData.node.perlaRecepti.fotografijaReceptaDonja.sourceUrl !==
+        null && (
+        <BottomCoverPhoto
+          photo={
+            data.receptData.node.perlaRecepti.fotografijaReceptaDonja.sourceUrl
+          }
+        >
+          <BottomOverlay />
+          <DobarTek>
+            {locale === "hr" ? "DOBAR TEK!" : "BOUN APETITE!"}
+          </DobarTek>
+        </BottomCoverPhoto>
+      )}
     </WrapAll>
   );
 }
