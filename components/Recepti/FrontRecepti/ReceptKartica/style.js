@@ -186,7 +186,8 @@ export const TextWrap = styled.div`
   /* ${Recipe}:hover {
     background-color: #00304a;
   } */
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 650px) {
+    font-size: 18px;
   }
 `;
 export const Time = styled.div`

@@ -115,8 +115,9 @@ export const CopyLink = styled.div`
     text-decoration: none;
     color: white;
   }
-  @media only screen and (max-width: 770px) {
-    margin: 5px 10px;
+  @media only screen and (max-width: 650px) {
+    margin: 35px 10px 0px 10px;
+    flex-direction: column;
   }
 `;
 export const BlueLine = styled.div`

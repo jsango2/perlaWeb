@@ -84,8 +84,8 @@ export const Proizvod = styled.div`
   justify-content: center;
   align-items: center;
   @media only screen and (max-width: 1300px) {
-    width: 100%;
-    height: 222px;
+    /* width: 100%; */
+    /* height: 222px; */
   }
 `;
 export const WrapLogoPerla = styled.div`
@@ -142,18 +142,19 @@ export const Proizvodi = styled.div`
   @media only screen and (max-width: 1300px) {
     width: 95%;
   }
+  @media only screen and (max-width: 1100px) {
+    width: 95vw;
+  }
   @media only screen and (max-width: 850px) {
-    width: 425px;
-
     height: auto;
     flex-wrap: wrap;
   }
   @media only screen and (max-width: 450px) {
-    margin: 63px auto 0 auto;
+    /* margin: 63px auto 0 auto;
 
     width: 95%;
     min-width: 355px;
-    justify-content: space-evenly;
+    justify-content: space-evenly; */
   }
 `;
 export const WrapProizvod = styled.div`
@@ -174,7 +175,7 @@ export const WrapProizvod = styled.div`
   }
   @media only screen and (max-width: 450px) {
     margin-bottom: 25px;
-
+    display: flex;
     width: 45%;
   }
 `;
@@ -197,6 +198,10 @@ export const ProizvodName = styled.p`
   margin-left: 51px;
   @media only screen and (max-width: 1300px) {
     font-size: 14px;
+  }
+  @media only screen and (max-width: 850px) {
+    width: 170px;
+    margin-left: 0;
   }
 `;
 export const Overlay = styled.div`
@@ -225,7 +230,7 @@ export const WrapProizvodImage = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   @media only screen and (max-width: 1300px) {
-    width: 116px;
-    height: 182px;
+    /* width: 116px;
+    height: 182px; */
   }
 `;

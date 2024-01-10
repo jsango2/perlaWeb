@@ -38,22 +38,22 @@ function PerlaProizvodi() {
     // speed: 2000,
     // autoplaySpeed: 2000,
     dots: true,
-    infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
+    infinite: false,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    autoplay: false,
     autoplaySpeed: 0,
     cssEase: "linear",
     className: "testimonialSlider",
-    speed: 3500,
+    speed: 1500,
     responsive: [
       {
         breakpoint: 1800,
         settings: {
           dots: true,
-          infinite: true,
+          infinite: false,
           slidesToShow: 4,
-          slidesToScroll: 3,
+          slidesToScroll: 4,
           autoplay: false,
           autoplaySpeed: 0,
           cssEase: "linear",
@@ -65,14 +65,28 @@ function PerlaProizvodi() {
         breakpoint: 1100,
         settings: {
           dots: true,
-          infinite: true,
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          autoplay: true,
+          infinite: false,
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          autoplay: false,
           autoplaySpeed: 0,
           cssEase: "linear",
           className: "testimonialSlider",
-          speed: 3500,
+          speed: 1500,
+        },
+      },
+      {
+        breakpoint: 850,
+        settings: {
+          dots: true,
+          infinite: false,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: false,
+          autoplaySpeed: 0,
+          cssEase: "linear",
+          className: "testimonialSlider",
+          speed: 1500,
         },
       },
     ],
@@ -131,7 +145,7 @@ function PerlaProizvodi() {
               ))}
             </Slider>
           </Proizvodi>
-          <Button>UČITAJ SVE PERLA PROIZVODE</Button>
+          {/* <Button>UČITAJ SVE PERLA PROIZVODE</Button> */}
           <WrapLogoPerla2>
             <Image src="/perlaLogoWithRed.svg" layout="fill" />
           </WrapLogoPerla2>

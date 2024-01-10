@@ -360,7 +360,7 @@ p {
   color: white;
 }
 .NavLinksHamburgerWrap {
-  margin: 0 auto;
+  margin-left: auto;
 }
 .languageSwitcher {
   /* margin-top: 3px;
@@ -376,6 +376,7 @@ p {
   margin-left: 20px;
   position: absolute;
   right: 30px;
+  display: none;
 }
 /* .languageSwitchWrap{
   display: flex;
@@ -616,7 +617,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 .navLogo {
   position: absolute;
-  width: 160px;
+  width: 100px;
   height: 42px;
 }
 .HeroNaslovAnimacija {
@@ -739,7 +740,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
   visibility: show;
   transition: all 0.3s ease-in-out;
-  padding-left: 30px;
+  padding-left: 0px;
 }
 
 .menu {
@@ -1387,11 +1388,11 @@ select {
       #2b3a63 1.65%,
       #101628 100%
     );
-
+    align-items: center;
     padding-top: 60px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+
     justify-content: flex-start;
     transition: all 0.3s ease-in-out;
   }
@@ -1585,6 +1586,9 @@ select {
     width: 100vw;
     overflow: hidden;
   } */
+  .navLogo {
+    height: 30px;
+  }
   .wrapRaspored {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

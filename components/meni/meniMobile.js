@@ -38,7 +38,7 @@ const MeniMobile = ({
   return (
     <>
       <div className={`menu ${isOpen ? "openMenu" : "closedMenu"}`}>
-        <div
+        {/* <div
           onClick={() => {
             setIsOnamaMenuOpen(!isOnamaMenuOpen);
           }}
@@ -64,22 +64,28 @@ const MeniMobile = ({
                 : "Processing and Storage"}
             </Link>
           </div>
-        )}
+        )} */}
         <Link
           className="mobileLinks"
-          href="/proizvodi"
+          href="/"
           // onClick={() => {
           //   setIsOpen(false);
           // }}
         >
+          {locale === "hr" ? "Početna stranica" : "Home"}
+        </Link>
+        {/* <Link
+          className="mobileLinks"
+          href="/proizvodi"
+        >
           {locale === "hr" ? "Proizvodi" : "Products"}
-        </Link>
-        <Link href="/horeca">
+        </Link> */}
+        {/* <Link href="/horeca">
           {locale === "hr" ? "HoReCa suradnja" : "HoReCa collaboration"}
-        </Link>
-        <Link href="/karijere">{locale === "hr" ? "Karijere" : "Careers"}</Link>
-        <Link href="/kontakt">{locale === "hr" ? "Kontakt" : "Contact"}</Link>
-        <Link href="/novosti">{locale === "hr" ? "Novosti" : "News"}</Link>
+        </Link> */}
+        {/* <Link href="/karijere">{locale === "hr" ? "Karijere" : "Careers"}</Link> */}
+        {/* <Link href="/kontakt">{locale === "hr" ? "Kontakt" : "Contact"}</Link> */}
+        <Link href="/recepti">{locale === "hr" ? "Recepti" : "Recipes"}</Link>
         <Link href="/">Grupa</Link>
         <div className="mobileLinkDivider"></div>
         <LanguageSwitcher

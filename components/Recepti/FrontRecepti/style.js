@@ -96,7 +96,7 @@ export const WrapContent = styled.div`
   }
   @media only screen and (max-width: 650px) {
     padding-top: 120px;
-    padding-bottom: 0;
+    padding-bottom: 100px;
   }
 `;
 export const WrapCategories = styled.div`
@@ -232,7 +232,10 @@ export const Category = styled.div`
   line-height: 120%; /* 19.2px */
   margin: 6px 7px;
   cursor: pointer;
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 650px) {
+    font-size: 14px;
+    height: 26px;
+    padding: 0 12px;
   }
 `;
 export const Title = styled.h1`
@@ -291,6 +294,9 @@ export const Button = styled.div`
   }
   @media only screen and (max-width: 650px) {
     margin-bottom: 80px;
+    width: 278px;
+    height: 41px;
+    font-size: 16px;
   }
 `;
 export const Photo = styled.div`

@@ -85,17 +85,14 @@ const Header = ({ siteTitle, receptiNaslovi }) => {
 
                 <div className="navLinks">
                   <div>
-                    <div
+                    {/* <div
                       style={{ cursor: "pointer" }}
-                      // onMouseOver={handleOnamaOpen}
                     >
                       <Link className="navLink" href="/">
                         {locale === "hr" ? "O nama" : "About us"}
                       </Link>
-                      {/* <ArrowDown
-                        style={{ position: "relative", marginLeft: "-8px" }}
-                      /> */}
-                    </div>
+                  
+                    </div> */}
                   </div>
                   <div>
                     <Link className="navLink" href="/recepti">
