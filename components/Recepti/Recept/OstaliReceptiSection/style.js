@@ -95,6 +95,13 @@ export const Button = styled.div`
   line-height: 142.5%; /* 25.65px */
   margin-top: 60px;
   cursor: pointer;
+  &:hover {
+    background: #203c5e;
+  }
+  &:active {
+    background: #ffffff;
+    color: black;
+  }
   /* @media only screen and (max-width: 1400px) {
     padding: 100px 0 70px 70px;
   } */

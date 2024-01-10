@@ -126,11 +126,12 @@ export const Recipe = styled.div`
   height: 431px;
   border-radius: 22px;
   overflow: hidden;
-  background-color: white;
+  /* background-color: white; */
   margin: 15px;
   display: flex;
   flex-direction: column;
   cursor: pointer;
+
   &:hover .cardTextBg {
     background-color: #00304a;
     color: white;
@@ -188,6 +189,7 @@ export const TextWrap = styled.div`
   border-radius: 0 0 20px 20px;
   overflow: hidden;
   cursor: pointer;
+  background-color: white;
   padding: 15px 26px;
   transition: all 0.3s ease-in-out;
   /* &:hover {

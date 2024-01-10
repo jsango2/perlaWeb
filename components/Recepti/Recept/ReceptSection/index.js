@@ -15,6 +15,7 @@ import {
   BottomOverlay,
   DobarTek,
   Divider,
+  WrapFeaturedImage,
 } from "./style.js";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -27,6 +28,8 @@ import hr from "../../../../locales/hr.json";
 import { AiOutlineYoutube } from "react-icons/ai";
 import { useInView } from "react-intersection-observer";
 import { RedLine, WrapLogoPerla } from "../style.js";
+import { catalogData } from "../../../../catalogData.js";
+
 function ReceptSection({ data }) {
   const { ref, inView, entry } = useInView({
     /* Optional options */
@@ -39,10 +42,22 @@ function ReceptSection({ data }) {
   const { locale } = router;
   const t = locale === "en" ? en : hr;
 
-  const yourDate = new Date(data.receptData.node.date)
-    .toISOString()
-    .split("T")[0];
+  const perlaProizvodFeatured = catalogData.find(
+    (s) =>
+      s["IME PROIZVODA - do 60 znakova"] ===
+      data.receptData.node.perlaRecepti.perlaSastojci[0].perlaProizvodUReceptu
+  );
+  const perlaProizvodFeaturedCatNumber =
+    perlaProizvodFeatured["Kataloški broj:"];
+
+  const sastojciPerla = data.receptData.node.perlaRecepti.perlaSastojci.map(
+    (s) => s
+  );
+  const sastojciPerlaEng =
+    data.receptData.node.perlaRecepti.perlaSastojciEng.map((s) => s);
+
   console.log(data);
+
   return (
     <WrapAll>
       <RedLine>
@@ -53,24 +68,47 @@ function ReceptSection({ data }) {
       <WrapContent>
         <Sastojci>
           <NaslovSastojci>SASTOJCI</NaslovSastojci>
+
           <ul>
             {locale === "hr"
-              ? data.receptData.node.perlaRecepti.sastojcizaglavnojelo.map(
-                  (sastojak) => (
-                    <li>
-                      {sastojak.nazivNamirnice}, {sastojak.kolicina}{" "}
+              ? [
+                  sastojciPerla.map((sastojak) => (
+                    <li
+                      key={sastojak.perlaProizvodUReceptu}
+                      className="perlaProizvod"
+                    >
+                      {sastojak.perlaProizvodUReceptu}, {sastojak.kolicina}{" "}
                       {sastojak.jedinicnaMjera}
                     </li>
-                  )
-                )
-              : data.receptData.node.perlaRecepti.sastojcizaglavnojeloEng.map(
-                  (sastojak) => (
-                    <li>
-                      {sastojak.nazivNamirniceEng}, {sastojak.kolicinaEng}{" "}
-                      {sastojak.jedinicnaMjeraEng}
+                  )),
+                  data.receptData.node.perlaRecepti.sastojcizaglavnojelo.map(
+                    (sastojak) => (
+                      <li key={sastojak.nazivNamirnice}>
+                        {sastojak.nazivNamirnice}, {sastojak.kolicina}{" "}
+                        {sastojak.jedinicnaMjera}
+                      </li>
+                    )
+                  ),
+                ]
+              : [
+                  sastojciPerlaEng.map((sastojak) => (
+                    <li
+                      key={sastojak.perlaProizvodUReceptu}
+                      className="perlaProizvod"
+                    >
+                      {sastojak.perlaProizvodUReceptu}, {sastojak.kolicina}{" "}
+                      {sastojak.jedinicnaMjera}
                     </li>
-                  )
-                )}
+                  )),
+                  data.receptData.node.perlaRecepti.sastojcizaglavnojeloEng.map(
+                    (sastojak) => (
+                      <li key={sastojak.nazivNamirniceEng}>
+                        {sastojak.nazivNamirniceEng}, {sastojak.kolicina}{" "}
+                        {sastojak.jedinicnaMjera}
+                      </li>
+                    )
+                  ),
+                ]}
           </ul>
 
           {locale === "hr"
@@ -122,6 +160,12 @@ function ReceptSection({ data }) {
                   )
                 )}{" "}
           </ul>
+          <WrapFeaturedImage>
+            <Image
+              src={`/productImages/${perlaProizvodFeaturedCatNumber}.webp`}
+              layout="fill"
+            />
+          </WrapFeaturedImage>
         </Sastojci>
         <Postupak>
           <NaslovRecepta>

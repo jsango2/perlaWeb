@@ -324,8 +324,9 @@ export const Photo = styled.div`
   width: 477px;
   height: 582px;
   border-radius: 6px;
-  overflow: hidden;
   margin-bottom: 85px;
+  background-image: url("/fotoMixPerla.png");
+  background-size: cover;
   @media only screen and (max-width: 430px) {
     margin-bottom: 0;
 
@@ -334,17 +335,18 @@ export const Photo = styled.div`
   }
 `;
 export const WrapSocial = styled.div`
-  position: relative;
-  right: -360px;
-  top: 130px;
+  position: absolute;
+  z-index: 1;
+  right: -179px;
+  top: 85px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   @media only screen and (max-width: 750px) {
-    margin: 20px;
-    position: relative;
+    position: absolute;
     right: unset;
     top: unset;
+    bottom: -7px;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -355,7 +357,11 @@ export const WrapSocial = styled.div`
     -webkit-align-items: flex-start;
     -webkit-box-align: flex-start;
     -ms-flex-align: flex-start;
-    align-items: center;
+    align-items: flex-start;
+  }
+  @media only screen and (max-width: 430px) {
+    bottom: 67px;
+    left: 20px;
   }
 `;
 export const Instagram = styled.div`

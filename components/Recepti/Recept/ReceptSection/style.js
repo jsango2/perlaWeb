@@ -38,14 +38,14 @@ export const WrapContent = styled.div`
   justify-content: center;
   padding-top: 150px;
   padding-bottom: 100px;
+  margin-left: 20px;
   /* @media only screen and (max-width: 1400px) {
     padding: 100px 0 70px 70px;
   } */
-  /* @media only screen and (max-width: 850px) {
-    padding: 0 0 0px 0;
-    align-items: flex-start;
-
-  } */
+  @media only screen and (max-width: 850px) {
+    flex-direction: column;
+    align-items: center;
+  }
   /* @media only screen and (max-width: 430px) {
     min-height: unset;
   } */
@@ -59,6 +59,10 @@ export const Sastojci = styled.div`
   min-height: 300px;
   width: 230px;
   padding-top: 100px;
+  .perlaProizvod {
+    color: #4299c8;
+    font-weight: 700;
+  }
   /* @media only screen and (max-width: 1400px) {
     padding: 100px 0 70px 70px;
   } */
@@ -142,11 +146,10 @@ export const DobarTek = styled.h3`
   /* @media only screen and (max-width: 1400px) {
     padding: 100px 0 70px 70px;
   } */
-  /* @media only screen and (max-width: 850px) {
-    padding: 0 0 0px 0;
-    align-items: flex-start;
-
-  } */
+  @media only screen and (max-width: 850px) {
+    font-size: 26px;
+    margin-top: 40px;
+  }
   /* @media only screen and (max-width: 430px) {
     min-height: unset;
   } */
@@ -291,8 +294,7 @@ export const PostupakPripreme = styled.div`
 export const BottomCoverPhoto = styled.div`
   position: relative;
   z-index: 1;
-  min-height: 680px;
-  height: auto;
+  height: 680px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -301,11 +303,24 @@ export const BottomCoverPhoto = styled.div`
   /* @media only screen and (max-width: 1400px) {
     padding: 100px 0 70px 70px;
   } */
-  /* @media only screen and (max-width: 850px) {
-    padding: 0 0 0px 0;
-    align-items: flex-start;
-
+  @media only screen and (max-width: 1100px) {
+    height: 65vw;
+  }
+  /* @media only screen and (max-width: 430px) {
+    min-height: unset;
   } */
+`;
+export const WrapFeaturedImage = styled.div`
+  position: relative;
+  z-index: 1;
+  height: 190px;
+  width: 250px;
+  margin-top: 60px;
+  /* @media only screen and (max-width: 1400px) {
+    padding: 100px 0 70px 70px;
+  } */
+  @media only screen and (max-width: 1100px) {
+  }
   /* @media only screen and (max-width: 430px) {
     min-height: unset;
   } */

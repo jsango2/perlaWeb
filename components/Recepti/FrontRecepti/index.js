@@ -177,12 +177,11 @@ function FrontRecepti({ recepti, samoRecepti }) {
                 Perla liniju proizvoda, s kojom je priprema maštovitih jela
                 jednostavna i zabavna.
               </Text>
-              <WrapSocial>
-                <Instagram>@BISERMORA</Instagram>
-                <Facebook>PERLA - Biser Mora</Facebook>
-              </WrapSocial>
               <Photo>
-                <Image src="/fotoMixPerla.png" layout="fill" />
+                <WrapSocial>
+                  <Instagram>@BISERMORA</Instagram>
+                  <Facebook>PERLA - Biser Mora</Facebook>
+                </WrapSocial>
               </Photo>
             </>
           )}
