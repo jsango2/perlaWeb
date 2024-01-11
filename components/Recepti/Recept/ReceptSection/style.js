@@ -369,9 +369,12 @@ export const PostupakPripreme = styled.div`
   @media only screen and (max-width: 850px) {
     width: 100%;
   }
-  /* @media only screen and (max-width: 430px) {
-    min-height: unset;
-  } */
+  @media only screen and (max-width: 430px) {
+    img {
+      width: 90vw;
+      object-fit: cover;
+    }
+  }
 `;
 
 export const BottomCoverPhoto = styled.div`

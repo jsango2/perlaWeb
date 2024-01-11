@@ -41,6 +41,7 @@ export const RedLine = styled.div`
   @media only screen and (max-width: 850px) {
   }
   @media only screen and (max-width: 430px) {
+    height: 30px;
   }
 `;
 export const RedLineBottom = styled(RedLine)`
@@ -58,7 +59,8 @@ export const WrapLogoPerla = styled.div`
   top: -10px;
   width: 324px;
   height: 152px;
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 430px) {
+    width: 200px;
   }
 `;
 

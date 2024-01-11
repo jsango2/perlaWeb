@@ -42,7 +42,8 @@ export const WrapContent = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 120px 0 100px 0;
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 430px) {
+    padding: 60px 0 100px 0;
   }
 `;
 export const BlueLine = styled.div`
@@ -67,7 +68,8 @@ export const Title = styled.h1`
   font-style: normal;
   font-weight: 600;
   line-height: 120%; /* 48px */
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 430px) {
+    font-size: 26px;
   }
 `;
 export const Proizvod = styled.div`
@@ -94,7 +96,10 @@ export const WrapLogoPerla = styled.div`
   top: 0px;
   width: 324px;
   height: 152px;
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 430px) {
+    width: 200px;
+    height: 152px;
+    top: -10px;
   }
 `;
 export const WrapLogoPerla2 = styled(WrapLogoPerla)`
@@ -148,6 +153,7 @@ export const Proizvodi = styled.div`
   @media only screen and (max-width: 850px) {
     height: auto;
     flex-wrap: wrap;
+    width: 75vw;
   }
   @media only screen and (max-width: 450px) {
     /* margin: 63px auto 0 auto;
@@ -172,11 +178,12 @@ export const WrapProizvod = styled.div`
   }
   @media only screen and (max-width: 850px) {
     margin-bottom: 40px;
+    display: flex !important;
   }
   @media only screen and (max-width: 450px) {
     margin-bottom: 25px;
-    display: flex;
-    width: 45%;
+    width: 100%;
+    margin-left: 0;
   }
 `;
 export const ProizvodName = styled.p`

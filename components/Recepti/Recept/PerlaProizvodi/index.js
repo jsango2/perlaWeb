@@ -27,6 +27,8 @@ import hr from "../../../../locales/hr.json";
 import { useInView } from "react-intersection-observer";
 import { catalogData } from "../../../../catalogData.js";
 import { RedLine } from "../style.js";
+import Link from "next/link.js";
+import slugify from "slugify";
 
 function PerlaProizvodi() {
   const settings = {
@@ -80,6 +82,20 @@ function PerlaProizvodi() {
         settings: {
           dots: true,
           infinite: false,
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          autoplay: false,
+          autoplaySpeed: 0,
+          cssEase: "linear",
+          className: "testimonialSlider",
+          speed: 1500,
+        },
+      },
+      {
+        breakpoint: 750,
+        settings: {
+          dots: true,
+          infinite: false,
           slidesToShow: 1,
           slidesToScroll: 1,
           autoplay: false,
@@ -124,24 +140,41 @@ function PerlaProizvodi() {
           <Proizvodi>
             <Slider {...settings}>
               {perlaData.map((data) => (
-                <WrapProizvod key={data["Kataloški broj:"]}>
-                  <Proizvod>
-                    <Overlay />
-                    <WrapProizvodImage>
-                      <Image
-                        src={`/productImages/${data["Kataloški broj:"]}.webp`}
-                        layout="fill"
-                        alt="p1"
-                        objectFit="contain"
-                      />
-                    </WrapProizvodImage>
-                  </Proizvod>
-                  <ProizvodName>
-                    {locale === "hr"
-                      ? data["IME PROIZVODA - do 60 znakova"]
-                      : data["PRODUCT NAME - up to 60 characters"]}
-                  </ProizvodName>
-                </WrapProizvod>
+                <Link
+                  key={data["Kataloški broj:"]}
+                  href={`/proizvodi/${
+                    slugify(
+                      data["IME PROIZVODA - do 60 znakova"]
+                        .toLowerCase()
+                        .split(" ")
+                        .join("-"),
+                      {
+                        locale: "hrv",
+                      }
+                    ) +
+                    "-" +
+                    data["Kataloški broj:"]
+                  }`}
+                >
+                  <WrapProizvod>
+                    <Proizvod>
+                      <Overlay />
+                      <WrapProizvodImage>
+                        <Image
+                          src={`/productImages/${data["Kataloški broj:"]}.webp`}
+                          layout="fill"
+                          alt="p1"
+                          objectFit="contain"
+                        />
+                      </WrapProizvodImage>
+                    </Proizvod>
+                    <ProizvodName>
+                      {locale === "hr"
+                        ? data["IME PROIZVODA - do 60 znakova"]
+                        : data["PRODUCT NAME - up to 60 characters"]}
+                    </ProizvodName>
+                  </WrapProizvod>
+                </Link>
               ))}
             </Slider>
           </Proizvodi>

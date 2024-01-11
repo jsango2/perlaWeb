@@ -66,11 +66,10 @@ export const NaslovRecepta = styled.h1`
   /* @media only screen and (max-width: 1400px) {
     padding: 100px 0 70px 70px;
   } */
-  /* @media only screen and (max-width: 850px) {
-    padding: 0 0 0px 0;
-    align-items: flex-start;
-
-  } */
+  @media only screen and (max-width: 850px) {
+    font-size: 26px;
+    margin-bottom: 40px;
+  }
   /* @media only screen and (max-width: 430px) {
     min-height: unset;
   } */

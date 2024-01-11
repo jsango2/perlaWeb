@@ -186,11 +186,11 @@ function FrontRecepti({ recepti, samoRecepti }) {
             </>
           )}
         </WrapContent2>
-        <RedLineBottom>
+        {/* <RedLineBottom>
           <WrapLogoPerla>
             <Image src="/perlaLogo.svg" layout="fill" />
           </WrapLogoPerla>
-        </RedLineBottom>
+        </RedLineBottom> */}
       </WrapAll>
     </div>
   );
