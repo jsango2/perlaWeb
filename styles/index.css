@@ -840,7 +840,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   /* width: 100%; */
 }
 .blueLink {
-  background-color: #1e2843 !important;
+  color: #f5faff !important;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Gilroy;
+  font-size: 20px !important;
+  font-style: normal;
+  font-weight: 900 !important;
+  line-height: 120%; /* 24px */
+  opacity: 1 !important;
 }
 .formular input {
   background: #ffffff;

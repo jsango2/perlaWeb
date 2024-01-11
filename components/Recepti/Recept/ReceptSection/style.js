@@ -36,7 +36,7 @@ export const WrapContent = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  padding-top: 150px;
+  padding-top: 50px;
   padding-bottom: 100px;
   margin-left: 20px;
   /* @media only screen and (max-width: 1400px) {
@@ -45,15 +45,43 @@ export const WrapContent = styled.div`
   @media only screen and (max-width: 850px) {
     flex-direction: column;
     align-items: center;
+    padding-top: 0px;
   }
-  /* @media only screen and (max-width: 430px) {
-    min-height: unset;
+  @media only screen and (max-width: 430px) {
+    margin-left: 0;
+  }
+`;
+export const WrapTopTitle = styled.div`
+  position: relative;
+  z-index: 1;
+  margin-top: 140px;
+  margin-left: 300px;
+  height: auto;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  /* padding-top: 150px;
+  padding-bottom: 100px;
+  margin-left: 20px; */
+  /* @media only screen and (max-width: 1400px) {
+    padding: 100px 0 70px 70px;
   } */
+  @media only screen and (max-width: 850px) {
+    margin-left: 0px;
+    align-items: center;
+    /* flex-direction: column;
+    align-items: center; */
+  }
+  @media only screen and (max-width: 430px) {
+    width: 90vw;
+  }
 `;
 export const Sastojci = styled.div`
   position: relative;
   z-index: 1;
-
+  display: flex;
+  flex-direction: column;
   max-width: 300px;
   height: auto;
   min-height: 300px;
@@ -63,17 +91,18 @@ export const Sastojci = styled.div`
     color: #4299c8;
     font-weight: 700;
   }
+
   /* @media only screen and (max-width: 1400px) {
     padding: 100px 0 70px 70px;
   } */
-  /* @media only screen and (max-width: 850px) {
-    padding: 0 0 0px 0;
-    align-items: flex-start;
-
-  } */
-  /* @media only screen and (max-width: 430px) {
-    min-height: unset;
-  } */
+  @media only screen and (max-width: 850px) {
+    padding-top: 0;
+    max-width: 330px;
+    width: 330px;
+  }
+  @media only screen and (max-width: 430px) {
+    width: 90vw;
+  }
   li {
     color: #f5faff;
     /* P */
@@ -83,12 +112,15 @@ export const Sastojci = styled.div`
     font-weight: 400;
     line-height: 140%; /* 22.4px */
   }
+  ul {
+    padding-left: 20px;
+  }
 `;
 export const Postupak = styled.div`
   position: relative;
   z-index: 1;
 
-  max-width: 65 0px;
+  max-width: 650px;
   height: auto;
   min-height: 400px;
   width: 650px;
@@ -97,11 +129,12 @@ export const Postupak = styled.div`
   /* @media only screen and (max-width: 1400px) {
     padding: 100px 0 70px 70px;
   } */
-  /* @media only screen and (max-width: 850px) {
-    padding: 0 0 0px 0;
-    align-items: flex-start;
-
-  } */
+  @media only screen and (max-width: 850px) {
+    padding-left: 0;
+    margin: 0 auto;
+    width: 90vw;
+    max-width: unset;
+  }
   /* @media only screen and (max-width: 430px) {
     min-height: unset;
   } */
@@ -129,6 +162,47 @@ export const NaslovSastojci = styled.h3`
   /* @media only screen and (max-width: 430px) {
     min-height: unset;
   } */
+`;
+export const Wrapbroj = styled.div`
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  margin: 10px 0 40px 0;
+  /* @media only screen and (max-width: 1400px) {
+    padding: 100px 0 70px 70px;
+  } */
+  @media only screen and (max-width: 850px) {
+    margin: 0;
+  }
+  /* @media only screen and (max-width: 430px) {
+    min-height: unset;
+  } */
+`;
+export const Broj = styled.h3`
+  position: relative;
+  z-index: 1;
+  margin: 0 10px;
+  color: #b5d3e3;
+  /* M-H3 */
+  cursor: pointer;
+  font-family: Gilroy;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  opacity: 0.6;
+  line-height: 120%; /* 24px */
+  /* @media only screen and (max-width: 1400px) {
+    padding: 100px 0 70px 70px;
+  } */
+  /* @media only screen and (max-width: 850px) {
+    padding: 0 0 0px 0;
+    align-items: flex-start;
+
+  } */
+  @media only screen and (max-width: 430px) {
+    margin: 0 7px;
+  }
 `;
 export const DobarTek = styled.h3`
   position: relative;
@@ -189,11 +263,9 @@ export const NaslovRecepta = styled.h1`
   /* @media only screen and (max-width: 1400px) {
     padding: 100px 0 70px 70px;
   } */
-  /* @media only screen and (max-width: 850px) {
-    padding: 0 0 0px 0;
-    align-items: flex-start;
-
-  } */
+  @media only screen and (max-width: 850px) {
+    text-align: center;
+  }
   /* @media only screen and (max-width: 430px) {
     min-height: unset;
   } */
@@ -227,14 +299,28 @@ export const PripremaVrijeme = styled.div`
   /* @media only screen and (max-width: 1400px) {
     padding: 100px 0 70px 70px;
   } */
-  /* @media only screen and (max-width: 850px) {
-    padding: 0 0 0px 0;
-    align-items: flex-start;
-
-  } */
+  @media only screen and (max-width: 850px) {
+    margin-bottom: 0px;
+  }
   /* @media only screen and (max-width: 430px) {
     min-height: unset;
   } */
+`;
+export const WrapNasloviBroj = styled.div`
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  @media only screen and (max-width: 850px) {
+    margin-bottom: 0px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+  @media only screen and (max-width: 430px) {
+    width: 84vw;
+  }
 `;
 export const RedniBroj = styled.h1`
   position: absolute;
@@ -253,11 +339,10 @@ export const RedniBroj = styled.h1`
   /* @media only screen and (max-width: 1400px) {
     padding: 100px 0 70px 70px;
   } */
-  /* @media only screen and (max-width: 850px) {
-    padding: 0 0 0px 0;
-    align-items: flex-start;
-
-  } */
+  @media only screen and (max-width: 850px) {
+    left: unset;
+    right: 0;
+  }
   /* @media only screen and (max-width: 430px) {
     min-height: unset;
   } */
@@ -281,11 +366,9 @@ export const PostupakPripreme = styled.div`
   /* @media only screen and (max-width: 1400px) {
     padding: 100px 0 70px 70px;
   } */
-  /* @media only screen and (max-width: 850px) {
-    padding: 0 0 0px 0;
-    align-items: flex-start;
-
-  } */
+  @media only screen and (max-width: 850px) {
+    width: 100%;
+  }
   /* @media only screen and (max-width: 430px) {
     min-height: unset;
   } */
@@ -319,7 +402,10 @@ export const WrapFeaturedImage = styled.div`
   /* @media only screen and (max-width: 1400px) {
     padding: 100px 0 70px 70px;
   } */
-  @media only screen and (max-width: 1100px) {
+  display: flex;
+  @media only screen and (max-width: 850px) {
+    order: -1;
+    margin: 60px auto 0 auto;
   }
   /* @media only screen and (max-width: 430px) {
     min-height: unset;
