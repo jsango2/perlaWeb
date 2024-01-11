@@ -17,14 +17,33 @@ import { WrapAll } from "../components/Recepti/FrontRecepti/style.js";
 import { catalogData } from "../catalogData.js";
 import Script from "next/script";
 import { Container } from "../components/proizvodPage/hero/style.js";
-import Pop from "../components/pop.js";
 export default function IndexPage({ allRecepti }) {
   const context = useContext(AppContext);
   const size = useWindowSize();
 
   return (
     <Layout>
-      <Pop />
+      <div className="pop">
+        <Script
+          type="text/javascript"
+          src="http://popcar.hr/2022/index.php?controller=pjFront&action=pjActionLoad"
+        ></Script>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+        />
+        <link
+          href="http://popcar.hr/2022/core/framework/libs/pj/css/pj.bootstrap.min.css"
+          type="text/css"
+          rel="stylesheet"
+        />
+        <link
+          href="http://popcar.hr/2022/index.php?controller=pjFront&action=pjActionLoadCss"
+          type="text/css"
+          rel="stylesheet"
+        />
+      </div>
     </Layout>
   );
 }
