@@ -71,16 +71,16 @@ function NasiProizvodi() {
                     }
                   ) +
                   "-" +
-                  data["Kataloški broj:"]
+                  data["Kataloški broj: "]
                 }`}
-                key={data["Kataloški broj:"]}
+                key={data["Kataloški broj: "]}
               >
                 <WrapProizvod>
                   <Proizvod>
                     <Overlay />
                     <WrapProizvodImage>
                       <Image
-                        src={`/productImages/${data["Kataloški broj:"]}.webp`}
+                        src={`/productImages/${data["Kataloški broj: "]}.webp`}
                         layout="fill"
                         alt="p1"
                         objectFit="contain"

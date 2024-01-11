@@ -29,7 +29,7 @@ function Hero() {
     threshold: 0,
   });
 
-  console.log(percentage);
+  // console.log(percentage);
   return (
     <div>
       <HeroWrap>

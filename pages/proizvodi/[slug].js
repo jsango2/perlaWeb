@@ -76,6 +76,8 @@ export default function ProizvodPage({ pageData, params, recepti }) {
     });
   });
 
+  console.log(recepti);
+
   // const wantedArray = ["Lignja", "očišćena", "patagonica"];
 
   // const seen = "Brudet od lignja";
@@ -210,7 +212,7 @@ export async function getStaticPaths({ locales }) {
             }
           ) +
           "-" +
-          product["Kataloški broj:"],
+          product["Kataloški broj: "],
       },
       locale: "hr",
     });
@@ -237,7 +239,7 @@ export async function getStaticProps({ params }) {
         }
       ) +
         "-" +
-        product["Kataloški broj:"] ===
+        product["Kataloški broj: "] ===
       currentPath
     //   ||
     // slugify(

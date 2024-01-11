@@ -167,6 +167,16 @@ export const Timer = styled.div`
   @media only screen and (max-width: 850px) {
   }
 `;
+export const FeaturedPerlaImage = styled.div`
+  position: absolute;
+  z-index: 11;
+  bottom: 130px;
+  right: 10px;
+  width: 140px;
+  height: 110px;
+  @media only screen and (max-width: 850px) {
+  }
+`;
 export const WrapRecipe = styled(Link)`
   position: relative;
   z-index: 10;

@@ -7,6 +7,7 @@ import {
   WrapRecipe,
   Time,
   Overlay,
+  FeaturedPerlaImage,
   Timer,
 } from "./style.js";
 import Image from "next/image";
@@ -17,8 +18,9 @@ import useWindowSize from "../../../helper/usewindowsize.js";
 // import { useTranslations } from "next-intl";
 
 import { useInView } from "react-intersection-observer";
+import { catalogData } from "../../../../catalogData.js";
 
-function ReceptKartica({ photo, naslov, trajanje, link }) {
+function ReceptKartica({ photo, naslov, trajanje, link, catalogId }) {
   const { ref, inView, entry } = useInView({
     /* Optional options */
     threshold: 0.2,
@@ -33,6 +35,13 @@ function ReceptKartica({ photo, naslov, trajanje, link }) {
   return (
     <WrapRecipe href={`/recepti/${link}`}>
       <Recipe>
+        <FeaturedPerlaImage>
+          <Image
+            src={`/productImages/${catalogId}.webp`}
+            layout="fill"
+            objectFit="contain"
+          />
+        </FeaturedPerlaImage>
         <PhotoWrap photo={photo} className="photoWrap">
           <Overlay />
           <Time>

@@ -141,7 +141,7 @@ function PerlaProizvodi() {
             <Slider {...settings}>
               {perlaData.map((data) => (
                 <Link
-                  key={data["Kataloški broj:"]}
+                  key={data["Kataloški broj: "]}
                   href={`/proizvodi/${
                     slugify(
                       data["IME PROIZVODA - do 60 znakova"]
@@ -153,7 +153,7 @@ function PerlaProizvodi() {
                       }
                     ) +
                     "-" +
-                    data["Kataloški broj:"]
+                    data["Kataloški broj: "]
                   }`}
                 >
                   <WrapProizvod>
@@ -161,7 +161,7 @@ function PerlaProizvodi() {
                       <Overlay />
                       <WrapProizvodImage>
                         <Image
-                          src={`/productImages/${data["Kataloški broj:"]}.webp`}
+                          src={`/productImages/${data["Kataloški broj: "]}.webp`}
                           layout="fill"
                           alt="p1"
                           objectFit="contain"

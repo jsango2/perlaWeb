@@ -41,13 +41,13 @@ export const Galeb1 = styled.div`
   z-index: 12;
   /* bottom: 5%; */
   /* left: 20%; */
-  right: ${(props) => props.percentage * 20 + 40}%;
+  right: ${(props) => props.percentage}%;
 
   width: 300px;
   height: 230px;
-  bottom: ${(props) => props.percentage * 30 - 20}%;
+  bottom: ${(props) => props.percentage}%;
   @media only screen and (max-width: 850px) {
-    right: ${(props) => props.percentage * 20 + 40}%;
+    right: ${(props) => props.percentage}%;
 
     width: 30vw;
     height: 26vw;
@@ -60,11 +60,11 @@ export const Galeb2 = styled.div`
   width: 185px;
   height: 70px;
   left: 45%;
-  bottom: ${(props) => props.percentage * 40 + 10}%;
-  transform: scale(${(props) => props.percentage});
+  bottom: ${(props) => props.percentage}%;
+  /* transform: scale(${(props) => props.percentage}); */
 
   @media only screen and (max-width: 850px) {
-    bottom: ${(props) => props.percentage * 40 + 10}%;
+    bottom: ${(props) => props.percentage}%;
 
     left: 43%;
     width: 23vw;
@@ -78,13 +78,13 @@ export const Galeb3 = styled.div`
   width: 170px;
   height: 190px;
 
-  left: ${(props) => props.percentage * 20 + 45}%;
-  bottom: ${(props) => props.percentage * 30 - 20}%;
-  transform: scale(${(props) => props.percentage});
+  left: ${(props) => props.percentage}%;
+  bottom: ${(props) => props.percentage}%;
+  /* transform: scale(${(props) => props.percentage}); */
 
   @media only screen and (max-width: 850px) {
-    left: ${(props) => props.percentage * 20 + 45}%;
-    bottom: ${(props) => props.percentage * 30 - 20}%;
+    left: ${(props) => props.percentage}%;
+    bottom: ${(props) => props.percentage}%;
     width: 23vw;
     height: 23vw;
   }

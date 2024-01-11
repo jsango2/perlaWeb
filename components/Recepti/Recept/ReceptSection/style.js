@@ -34,8 +34,14 @@ export const WrapContent = styled.div`
   max-width: 1440px;
   height: auto;
   width: 100%;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  display: grid;
+  margin-top: 130px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: max-content;
+  grid-column-gap: 10px;
+  grid-row-gap: 8px;
   padding-top: 50px;
   padding-bottom: 100px;
   margin-left: 20px;
@@ -43,23 +49,27 @@ export const WrapContent = styled.div`
     padding: 100px 0 70px 70px;
   } */
   @media only screen and (max-width: 850px) {
+    display: flex;
+
     flex-direction: column;
     align-items: center;
     padding-top: 0px;
   }
   @media only screen and (max-width: 430px) {
-    margin-left: 0;
+    align-items: flex-start;
+    margin-left: 20px;
   }
 `;
 export const WrapTopTitle = styled.div`
   position: relative;
+  grid-area: 1 / 3 / 2 / 6;
   z-index: 1;
-  margin-top: 140px;
-  margin-left: 300px;
+  /* margin-top: 140px; */
+  margin-left: 200px;
   height: auto;
   width: 500px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   /* padding-top: 150px;
   padding-bottom: 100px;
@@ -68,6 +78,7 @@ export const WrapTopTitle = styled.div`
     padding: 100px 0 70px 70px;
   } */
   @media only screen and (max-width: 850px) {
+    grid-area: 1 / 3 / 3 / 6;
     margin-left: 0px;
     align-items: center;
     /* flex-direction: column;
@@ -79,6 +90,7 @@ export const WrapTopTitle = styled.div`
 `;
 export const Sastojci = styled.div`
   position: relative;
+  grid-area: 1 / 2 / 13 / 3;
   z-index: 1;
   display: flex;
   flex-direction: column;
@@ -86,7 +98,7 @@ export const Sastojci = styled.div`
   height: auto;
   min-height: 300px;
   width: 230px;
-  padding-top: 100px;
+  /* top: -220px; */
   .perlaProizvod {
     color: #4299c8;
     font-weight: 700;
@@ -96,12 +108,13 @@ export const Sastojci = styled.div`
     padding: 100px 0 70px 70px;
   } */
   @media only screen and (max-width: 850px) {
+    grid-area: 2 / 1 / 3 / 2;
     padding-top: 0;
     max-width: 330px;
     width: 330px;
   }
   @media only screen and (max-width: 430px) {
-    width: 90vw;
+    /* width: 90vw; */
   }
   li {
     color: #f5faff;
@@ -119,7 +132,7 @@ export const Sastojci = styled.div`
 export const Postupak = styled.div`
   position: relative;
   z-index: 1;
-
+  grid-area: 2 / 3 / 13 / 6;
   max-width: 650px;
   height: auto;
   min-height: 400px;
@@ -130,14 +143,15 @@ export const Postupak = styled.div`
     padding: 100px 0 70px 70px;
   } */
   @media only screen and (max-width: 850px) {
+    grid-area: 3 / 1 / 8 / 2;
     padding-left: 0;
     margin: 0 auto;
     width: 90vw;
     max-width: unset;
   }
-  /* @media only screen and (max-width: 430px) {
-    min-height: unset;
-  } */
+  @media only screen and (max-width: 430px) {
+    margin: 0;
+  }
 `;
 export const NaslovSastojci = styled.h3`
   position: relative;
@@ -151,6 +165,30 @@ export const NaslovSastojci = styled.h3`
   font-weight: 600;
   line-height: 120%; /* 24px */
   text-transform: uppercase;
+  /* @media only screen and (max-width: 1400px) {
+    padding: 100px 0 70px 70px;
+  } */
+  /* @media only screen and (max-width: 850px) {
+    padding: 0 0 0px 0;
+    align-items: flex-start;
+
+  } */
+  /* @media only screen and (max-width: 430px) {
+    min-height: unset;
+  } */
+`;
+export const NaslovDodatniSastojci = styled(NaslovSastojci)`
+  position: relative;
+  z-index: 1;
+
+  color: #f5faff;
+  font-family: Gilroy;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 22.4px */
+  text-transform: none;
+  margin-top: 20px;
   /* @media only screen and (max-width: 1400px) {
     padding: 100px 0 70px 70px;
   } */
@@ -259,7 +297,7 @@ export const NaslovRecepta = styled.h1`
   font-style: normal;
   font-weight: 600;
   line-height: 120%; /* 48px */
-  margin-bottom: 0;
+  margin: 20px 0;
   /* @media only screen and (max-width: 1400px) {
     padding: 100px 0 70px 70px;
   } */
@@ -410,9 +448,9 @@ export const WrapFeaturedImage = styled.div`
     order: -1;
     margin: 60px auto 0 auto;
   }
-  /* @media only screen and (max-width: 430px) {
-    min-height: unset;
-  } */
+  @media only screen and (max-width: 430px) {
+    width: 90vw;
+  }
 `;
 export const BottomOverlay = styled.div`
   position: absolute;

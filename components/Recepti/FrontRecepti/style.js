@@ -144,6 +144,8 @@ export const WrapRecipies = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 55px;
+  padding-bottom: ${(props) => (props.samoRecepti ? 100 : 0)}px;
+
   @media only screen and (max-width: 650px) {
     margin-top: 0;
   }

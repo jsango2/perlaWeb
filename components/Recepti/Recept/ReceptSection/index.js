@@ -6,6 +6,7 @@ import {
   Sastojci,
   Postupak,
   NaslovSastojci,
+  NaslovDodatniSastojci,
   NaslovRecepta,
   NaslovReceptaPrilog,
   PripremaVrijeme,
@@ -62,12 +63,12 @@ function ReceptSection({ data }) {
         data.receptData.node.perlaRecepti.perlaSastojci[0].perlaProizvodUReceptu
   );
 
-  console.log(perlaProizvodFeatured);
+  console.log(data.receptData.node.perlaRecepti.trajanjePripreme);
   console.log(data);
   useEffect(() => {
     if (perlaProizvodFeatured !== undefined) {
       setPerlaProizvodFeaturedCatNumber(
-        perlaProizvodFeatured["Kataloški broj:"]
+        perlaProizvodFeatured["Kataloški broj: "]
       );
       setSastojciPerla(
         data.receptData.node.perlaRecepti.perlaSastojci.map((s) => s)
@@ -77,6 +78,7 @@ function ReceptSection({ data }) {
       );
     }
   }, []);
+  console.log(perlaProizvodFeaturedCatNumber);
 
   // const perlaProizvodFeaturedCatNumber =
   //   perlaProizvodFeatured["Kataloški broj:"];
@@ -96,18 +98,26 @@ function ReceptSection({ data }) {
           <Image src="/perlaLogo.svg" layout="fill" />
         </WrapLogoPerla>
       </RedLine>
-      <WrapTopTitle>
-        <NaslovRecepta>
-          {locale === "hr"
-            ? data.receptData.node.perlaRecepti.naslovRecepta
-            : data.receptData.node.perlaRecepti.naslovReceptaEng}
-        </NaslovRecepta>
-        <PripremaVrijeme>
-          {locale === "hr" ? "Priprema" : "Preparation"} :{" "}
-          {data.receptData.node.perlaRecepti.trajanjeKuhanja} min
-        </PripremaVrijeme>
-      </WrapTopTitle>
       <WrapContent>
+        <WrapTopTitle>
+          <NaslovRecepta>
+            {locale === "hr"
+              ? data.receptData.node.perlaRecepti.naslovRecepta
+              : data.receptData.node.perlaRecepti.naslovReceptaEng}
+          </NaslovRecepta>
+          <PripremaVrijeme>
+            {" "}
+            <span>
+              {locale === "hr" ? "Priprema" : "Preparation"} :{" "}
+              {data.receptData.node.perlaRecepti.trajanjePripreme} min
+            </span>{" "}
+            <span style={{ margin: "0 5px" }}>|</span>
+            <span>
+              {locale === "hr" ? "Kuhanje" : "Cooking"} :{" "}
+              {data.receptData.node.perlaRecepti.trajanjeKuhanja} min
+            </span>
+          </PripremaVrijeme>
+        </WrapTopTitle>
         <Sastojci>
           <WrapNasloviBroj>
             <NaslovSastojci>BROJ OSOBA</NaslovSastojci>
@@ -219,12 +229,12 @@ function ReceptSection({ data }) {
                 .sastojciZaDodatniPrilog !== null && (
                 <>
                   <Divider></Divider>
-                  <NaslovSastojci>
+                  <NaslovDodatniSastojci>
                     {
                       data.receptData.node.perlaRecepti.dodatniPrilog
                         .nazivDodatnogPriloga
                     }
-                  </NaslovSastojci>
+                  </NaslovDodatniSastojci>
                 </>
               )
             : data.receptData.node.perlaRecepti.dodatniPrilogEng
@@ -274,6 +284,7 @@ function ReceptSection({ data }) {
               <Image
                 src={`/productImages/${perlaProizvodFeaturedCatNumber}.webp`}
                 layout="fill"
+                objectFit="contain"
               />
             </WrapFeaturedImage>
           )}

@@ -43,7 +43,7 @@ function Hero({ pageData }) {
           <Overlay />
           <WrapProizvodImage>
             <Image
-              src={`/productImages/${pageData["Kataloški broj:"]}.webp`}
+              src={`/productImages/${pageData["Kataloški broj: "]}.webp`}
               layout="fill"
               alt="p1"
               objectFit="contain"
