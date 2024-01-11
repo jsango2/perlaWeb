@@ -828,7 +828,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .pop {
-  min-height: 900px;
+  min-height: 100px;
   margin-top: 200px;
 }
 
