@@ -103,7 +103,7 @@ export const WrapContent2 = styled.div`
   position: relative;
   z-index: 10;
 
-  width: 1440px;
+  width: 1520px;
   height: auto;
   display: flex;
   flex-direction: column;

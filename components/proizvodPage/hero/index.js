@@ -9,6 +9,7 @@ import {
   Data,
   Pakiranje,
   Naziv,
+  NazivTop,
   NazivLat,
   WrapInfo,
   WrapCerts,
@@ -52,7 +53,7 @@ function Hero({ pageData }) {
         </Proizvod>
         <Data>
           <Pakiranje>{pageData["Težina po jedinici mjere"]}</Pakiranje>
-          <Naziv>{pageData["IME PROIZVODA - do 60 znakova"]}</Naziv>
+          <NazivTop>{pageData["IME PROIZVODA - do 60 znakova"]}</NazivTop>
           {pageData["LATINSKI NAZIV - do 60 znakova"] !== "-" && (
             <NazivLat>
               lat. {pageData["LATINSKI NAZIV - do 60 znakova"]}

@@ -31,25 +31,21 @@ export const Container = styled.div`
   z-index: 1;
 
   min-height: 410px;
-  max-width: 1440px;
+  max-width: 1520px;
   height: auto;
   width: 100%;
   margin-top: 74px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-
-  /* @media only screen and (max-width: 1400px) {
-    padding: 100px 0 70px 70px;
-  } */
-  /* @media only screen and (max-width: 850px) {
-    padding: 0 0 0px 0;
-    align-items: flex-start;
-
-  } */
-  /* @media only screen and (max-width: 430px) {
-    min-height: unset;
-  } */
+  flex-wrap: wrap;
+  @media only screen and (max-width: 850px) {
+    width: 100vw;
+  }
+  @media only screen and (max-width: 650px) {
+    padding-top: 0px;
+    padding-bottom: 0;
+  }
 `;
 export const Proizvod = styled.div`
   position: relative;

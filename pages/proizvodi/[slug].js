@@ -37,46 +37,53 @@ export default function ProizvodPage({ pageData, params, recepti }) {
 
   // const namirnicaNoSpaces = namirnica.toLowerCase().replaceAll(" ", "");
 
-  function includeWords(wanted, seen) {
-    var wantedMap = wanted
-        .toLowerCase()
-        .split(/\s+/)
-        .slice(0, -1)
-        .reduce((m, s) => m.set(s, (m.get(s) || 0) + 1), new Map()),
-      wantedArray = Array.from(wantedMap.keys()),
-      count = 0;
-    // const wantedArrayNoLastLetter = wantedArray.map((r) => r.slice(0, -1));
+  // function includeWords(wanted, seen) {
+  //   var wantedMap = wanted
+  //       .toLowerCase()
+  //       .split(/\s+/)
+  //       .slice(0, -1)
+  //       .reduce((m, s) => m.set(s, (m.get(s) || 0) + 1), new Map()),
+  //     wantedArray = Array.from(wantedMap.keys()),
+  //     count = 0;
+  //   // const wantedArrayNoLastLetter = wantedArray.map((r) => r.slice(0, -1));
 
-    seen
-      .toLowerCase()
-      .split(/\s+/)
-      .forEach((s) => {
-        let sh = s.slice(0, -1);
-        var key = wantedArray.find(
-          (t) =>
-            sh === t ||
-            (sh.length > 3 &&
-              t.length > 3 &&
-              (sh.startsWith(t) || t.startsWith(sh)))
-        );
-        if (!wantedMap.get(key)) return;
-        console.log(sh, key);
-        ++count;
-        wantedMap.set(key, wantedMap.get(key) - 1);
-      });
+  //   seen
+  //     .toLowerCase()
+  //     .split(/\s+/)
+  //     .forEach((s) => {
+  //       let sh = s.slice(0, -1);
+  //       var key = wantedArray.find(
+  //         (t) =>
+  //           sh === t ||
+  //           (sh.length > 3 &&
+  //             t.length > 3 &&
+  //             (sh.startsWith(t) || t.startsWith(sh)))
+  //       );
+  //       if (!wantedMap.get(key)) return;
+  //       console.log(sh, key);
+  //       ++count;
+  //       wantedMap.set(key, wantedMap.get(key) - 1);
+  //     });
 
-    if (count > 0) return true;
-  }
-  let receptiSaProizvodom = [];
-  recepti.edges.map((post) => {
-    post.node.perlaRecepti.sastojcizaglavnojelo.map((r) => {
-      if (includeWords(namirnica, r.nazivNamirnice)) {
-        receptiSaProizvodom.push(post);
-      }
-    });
-  });
+  //   if (count > 0) return true;
+  // }
+  // let receptiSaProizvodom = [];
+  // recepti.edges.map((post) => {
+  //   post.node.perlaRecepti.sastojcizaglavnojelo.map((r) => {
+  //     if (includeWords(namirnica, r.nazivNamirnice)) {
+  //       receptiSaProizvodom.push(post);
+  //     }
+  //   });
+  // });
 
-  console.log(recepti);
+  const receptiSaOvimPerlaProizvodom = recepti.edges.filter(
+    (recept) =>
+      recept.node.perlaRecepti.perlaSastojci[0].perlaProizvodUReceptu ===
+      namirnica
+  );
+
+  console.log(receptiSaOvimPerlaProizvodom);
+  console.log(namirnica);
 
   // const wantedArray = ["Lignja", "očišćena", "patagonica"];
 
@@ -186,7 +193,10 @@ export default function ProizvodPage({ pageData, params, recepti }) {
           content={`${novost.istaknutaFotografija.sourceUrl}`}
         />
       </Head> */}
-      <Proizvod pageData={pageData} receptiSaProizvodom={receptiSaProizvodom} />
+      <Proizvod
+        pageData={pageData}
+        receptiSaProizvodom={receptiSaOvimPerlaProizvodom}
+      />
     </Layout>
   );
 }

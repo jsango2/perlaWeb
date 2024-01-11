@@ -122,7 +122,7 @@ export const WrapContent = styled.div`
 export const Recipe = styled.div`
   position: relative;
   z-index: 10;
-  width: 359px;
+  width: 350px;
   height: 431px;
   border-radius: 22px;
   overflow: hidden;
@@ -140,8 +140,21 @@ export const Recipe = styled.div`
   &:hover .photoWrap {
     transform: scale(1.02);
   }
-  @media only screen and (max-width: 430px) {
+  &:hover .featuredPerlaImage {
+    opacity: 1;
+  }
+  @media only screen and (max-width: 760px) {
+    width: 46vw;
+    border-radius: 15px;
+    margin: 15px 8px;
+  }
+  @media only screen and (max-width: 550px) {
     width: 90vw;
+    height: 345px;
+    border-radius: 15px;
+    margin: 15px 8px;
+  }
+  @media only screen and (max-width: 430px) {
     height: 345px;
     border-radius: 15px;
   }
@@ -175,6 +188,8 @@ export const FeaturedPerlaImage = styled.div`
   right: 10px;
   width: 140px;
   height: 110px;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
   @media only screen and (max-width: 430px) {
     bottom: 102px;
     width: 120px;

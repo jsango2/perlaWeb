@@ -15,6 +15,7 @@ import { BlueLine, RedLine, WrapLogoPerla } from "../style.js";
 import { WrapRecipies } from "../../FrontRecepti/style.js";
 import ReceptKartica from "../../FrontRecepti/ReceptKartica/index.js";
 import slugify from "slugify";
+import { catalogData } from "../../../../catalogData.js";
 function OstaliRecepti({ data }) {
   const { ref, inView, entry } = useInView({
     /* Optional options */
@@ -34,14 +35,29 @@ function OstaliRecepti({ data }) {
   const otherRecipes = data.recepti.edges.filter(
     (rec) => rec.node.id !== currentReceptId
   );
+
+  const receptiSaKataloskimBrojemPerlaProizvoda = otherRecipes;
+
+  receptiSaKataloskimBrojemPerlaProizvoda.forEach((recept) => {
+    recept.catalogId = null;
+    for (let j = 0; j < catalogData.length; j++) {
+      if (
+        recept.node.perlaRecepti.perlaSastojci[0].perlaProizvodUReceptu ===
+        catalogData[j]["IME PROIZVODA - do 60 znakova"]
+      ) {
+        recept.catalogId = catalogData[j]["Kataloški broj: "];
+      }
+    }
+  });
   return (
     <WrapAll>
       <BlueLine />
       <NaslovRecepta>Ostali recepti</NaslovRecepta>
       <WrapRecipies>
-        {otherRecipes.slice(0, 3).map((recept) => (
+        {receptiSaKataloskimBrojemPerlaProizvoda.slice(0, 3).map((recept) => (
           <ReceptKartica
             key={recept.node.id}
+            catalogId={recept.catalogId}
             photo={recept.node.perlaRecepti.fotografijaRecepta.sourceUrl}
             trajanje={recept.node.perlaRecepti.trajanjeKuhanja}
             naslov={recept.node.perlaRecepti.naslovRecepta}

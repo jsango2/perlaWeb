@@ -35,7 +35,7 @@ function ReceptKartica({ photo, naslov, trajanje, link, catalogId }) {
   return (
     <WrapRecipe href={`/recepti/${link}`}>
       <Recipe>
-        <FeaturedPerlaImage>
+        <FeaturedPerlaImage className="featuredPerlaImage">
           <Image
             src={`/productImages/${catalogId}.webp`}
             layout="fill"

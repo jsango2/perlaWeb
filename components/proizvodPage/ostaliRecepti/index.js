@@ -12,6 +12,8 @@ import { AiOutlineYoutube } from "react-icons/ai";
 import { useInView } from "react-intersection-observer";
 import ReceptKartica from "../../Recepti/FrontRecepti/ReceptKartica/index.js";
 import slugify from "slugify";
+import { catalogData } from "../../../catalogData.js";
+
 function OstaliRecepti({ receptiSaProizvodom }) {
   // const { ref, inView, entry } = useInView({
   //   /* Optional options */
@@ -23,13 +25,26 @@ function OstaliRecepti({ receptiSaProizvodom }) {
   const router = useRouter();
   const { locale } = router;
   // const t = locale === "en" ? en : hr;
-  console.log(receptiSaProizvodom);
+  const receptiSaKataloskimBrojemPerlaProizvoda = receptiSaProizvodom;
+
+  receptiSaKataloskimBrojemPerlaProizvoda.forEach((recept) => {
+    recept.catalogId = null;
+    for (let j = 0; j < catalogData.length; j++) {
+      if (
+        recept.node.perlaRecepti.perlaSastojci[0].perlaProizvodUReceptu ===
+        catalogData[j]["IME PROIZVODA - do 60 znakova"]
+      ) {
+        recept.catalogId = catalogData[j]["Kataloški broj: "];
+      }
+    }
+  });
 
   return (
     <Container>
-      {receptiSaProizvodom.map((recept) => (
+      {receptiSaKataloskimBrojemPerlaProizvoda.map((recept) => (
         <ReceptKartica
           key={recept.node.id}
+          catalogId={recept.catalogId}
           photo={recept.node.perlaRecepti.fotografijaRecepta.sourceUrl}
           trajanje={recept.node.perlaRecepti.trajanjeKuhanja}
           naslov={

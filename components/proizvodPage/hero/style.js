@@ -42,14 +42,13 @@ export const Container = styled.div`
   /* @media only screen and (max-width: 1400px) {
     padding: 100px 0 70px 70px;
   } */
-  /* @media only screen and (max-width: 850px) {
-    padding: 0 0 0px 0;
-    align-items: flex-start;
-
-  } */
-  /* @media only screen and (max-width: 430px) {
-    min-height: unset;
-  } */
+  @media only screen and (max-width: 750px) {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  @media only screen and (max-width: 600px) {
+    margin-top: 44px;
+  }
 `;
 export const Proizvod = styled.div`
   position: relative;
@@ -64,7 +63,9 @@ export const Proizvod = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  @media only screen and (max-width: 1300px) {
+  @media only screen and (max-width: 600px) {
+    width: 90vw;
+    height: 90vw;
   }
 `;
 export const Overlay = styled.div`
@@ -92,7 +93,9 @@ export const WrapProizvodImage = styled.div`
   background-size: 80px 80px;
   background-repeat: no-repeat;
   background-position: center;
-  @media only screen and (max-width: 1300px) {
+  @media only screen and (max-width: 600px) {
+    width: 50vw;
+    height: 500px;
   }
 `;
 export const Data = styled.div`
@@ -102,7 +105,14 @@ export const Data = styled.div`
   height: 500px;
   margin-left: 70px;
   padding-top: 100px;
-  @media only screen and (max-width: 1300px) {
+  @media only screen and (max-width: 750px) {
+    padding-top: 0px;
+    margin-left: 0px;
+  }
+  @media only screen and (max-width: 600px) {
+    height: auto;
+    width: 90vw;
+    padding-bottom: 50px;
   }
 `;
 
@@ -131,6 +141,12 @@ export const Naziv = styled.div`
   font-weight: 600;
   line-height: 120%; /* 48px */
   margin: 20px 0 10px 0;
+  text-align: center;
+  @media only screen and (max-width: 1300px) {
+  }
+`;
+export const NazivTop = styled(Naziv)`
+  text-align: left;
   @media only screen and (max-width: 1300px) {
   }
 `;
@@ -152,7 +168,8 @@ export const WrapInfo = styled.div`
   z-index: 11;
   margin: 20px 0 20px 0;
   word-wrap: normal;
-  @media only screen and (max-width: 1300px) {
+  @media only screen and (max-width: 430px) {
+    margin: 20px 0 10px 0;
   }
 `;
 export const WrapCerts = styled.div`
@@ -189,5 +206,6 @@ export const WrapCert = styled.div`
     /* margin-top: 35px; */
     top: 5px;
     margin: 5px 0 0 0;
+    max-width: 87px;
   }
 `;

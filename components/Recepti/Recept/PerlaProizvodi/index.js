@@ -40,7 +40,7 @@ function PerlaProizvodi() {
     // speed: 2000,
     // autoplaySpeed: 2000,
     dots: true,
-    infinite: false,
+    infinite: true,
     slidesToShow: 4,
     slidesToScroll: 4,
     autoplay: false,
@@ -50,24 +50,10 @@ function PerlaProizvodi() {
     speed: 1500,
     responsive: [
       {
-        breakpoint: 1800,
-        settings: {
-          dots: true,
-          infinite: false,
-          slidesToShow: 4,
-          slidesToScroll: 4,
-          autoplay: false,
-          autoplaySpeed: 0,
-          cssEase: "linear",
-          className: "testimonialSlider",
-          speed: 1500,
-        },
-      },
-      {
         breakpoint: 1100,
         settings: {
           dots: true,
-          infinite: false,
+          infinite: true,
           slidesToShow: 3,
           slidesToScroll: 3,
           autoplay: false,
@@ -81,7 +67,7 @@ function PerlaProizvodi() {
         breakpoint: 850,
         settings: {
           dots: true,
-          infinite: false,
+          infinite: true,
           slidesToShow: 2,
           slidesToScroll: 2,
           autoplay: false,
@@ -95,7 +81,7 @@ function PerlaProizvodi() {
         breakpoint: 750,
         settings: {
           dots: true,
-          infinite: false,
+          infinite: true,
           slidesToShow: 1,
           slidesToScroll: 1,
           autoplay: false,
