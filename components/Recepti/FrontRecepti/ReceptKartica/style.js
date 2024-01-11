@@ -143,6 +143,7 @@ export const Recipe = styled.div`
   @media only screen and (max-width: 430px) {
     width: 90vw;
     height: 345px;
+    border-radius: 15px;
   }
 `;
 export const PhotoWrap = styled.div`
@@ -174,7 +175,9 @@ export const FeaturedPerlaImage = styled.div`
   right: 10px;
   width: 140px;
   height: 110px;
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 430px) {
+    bottom: 102px;
+    width: 120px;
   }
 `;
 export const WrapRecipe = styled(Link)`
