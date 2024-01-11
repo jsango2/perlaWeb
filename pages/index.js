@@ -15,7 +15,7 @@ import { getAllRecepti } from "../lib/api2.js";
 import KaoVrhunski from "../components/Recepti/FrontRecepti/KuhajKaoVrhunski/index.js";
 import { WrapAll } from "../components/Recepti/FrontRecepti/style.js";
 import { catalogData } from "../catalogData.js";
-catalogData;
+
 export default function IndexPage({ allRecepti }) {
   const context = useContext(AppContext);
   const size = useWindowSize();

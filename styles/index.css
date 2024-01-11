@@ -826,6 +826,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .mobileLinkDivider {
   height: 30px;
 }
+body [id^="pjWrapper"] {
+  width: 1000px;
+  margin: 0 auto;
+}
+.pop {
+  min-height: 1000px;
+  margin-top: 200px;
+}
 
 .trenerImg {
   width: 100%;
