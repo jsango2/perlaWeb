@@ -16,6 +16,7 @@ import { Naziv } from "./hero/style.js";
 import OstaliRecepti from "./ostaliRecepti/index.js";
 import { Button } from "../Recepti/FrontRecepti/style.js";
 import PerlaProizvodi from "../Recepti/Recept/PerlaProizvodi/index.js";
+import Link from "next/link.js";
 
 function Proizvod({ pageData, receptiSaProizvodom }) {
   //   const { ref, inView, entry } = useInView({
@@ -31,17 +32,19 @@ function Proizvod({ pageData, receptiSaProizvodom }) {
     <WrapAll>
       <Hero pageData={pageData} />
       <Divider />
-      <BlueLine />
+      {/* <BlueLine />
       <Naziv>
         {locale === "hr"
           ? "Recepti sa ovim proizvodom"
           : "Recepies with this product"}
-      </Naziv>
+      </Naziv> */}
       <OstaliRecepti receptiSaProizvodom={receptiSaProizvodom} />
-      <Button>
-        {" "}
-        {locale === "hr" ? "ISTRAŽI RECEPTE" : "SEARCH THR RECEPIES"}
-      </Button>
+      <Link href="/recepti">
+        <Button>
+          {" "}
+          {locale === "hr" ? "ISTRAŽI RECEPTE" : "SEARCH THR RECEPIES"}
+        </Button>
+      </Link>
       <PerlaProizvodi />
     </WrapAll>
   );

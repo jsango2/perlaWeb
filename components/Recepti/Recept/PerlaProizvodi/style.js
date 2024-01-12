@@ -20,14 +20,13 @@ export const WrapAll = styled.div`
     #101628 100%
   );
   padding-top: 100px;
+  padding-bottom: 90px;
   /* @media only screen and (max-width: 1400px) {
     padding: 100px 0 70px 70px;
   } */
-  /* @media only screen and (max-width: 850px) {
-    padding: 0 0 0px 0;
-    align-items: flex-start;
-
-  } */
+  @media only screen and (max-width: 850px) {
+    padding-bottom: 40px;
+  }
   /* @media only screen and (max-width: 430px) {
     min-height: unset;
   } */
@@ -104,7 +103,7 @@ export const WrapLogoPerla = styled.div`
 `;
 export const WrapLogoPerla2 = styled(WrapLogoPerla)`
   top: 160px;
-
+  display: none;
   @media only screen and (max-width: 850px) {
   }
 `;
@@ -173,6 +172,7 @@ export const WrapProizvod = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  cursor: pointer;
   @media only screen and (max-width: 1200px) {
     width: 200px;
   }

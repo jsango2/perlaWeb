@@ -37,8 +37,9 @@ export const Container = styled.div`
   margin-top: 74px;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   flex-wrap: wrap;
+  /* flex-direction: column; */
   @media only screen and (max-width: 850px) {
     width: 100vw;
   }

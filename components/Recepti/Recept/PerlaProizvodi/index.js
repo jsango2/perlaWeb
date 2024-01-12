@@ -130,19 +130,35 @@ function PerlaProizvodi() {
               {perlaData.map((data) => (
                 <Link
                   key={data["Kataloški broj: "]}
-                  href={`/proizvodi/${
-                    slugify(
-                      data["IME PROIZVODA - do 60 znakova"]
-                        .toLowerCase()
-                        .split(" ")
-                        .join("-"),
-                      {
-                        locale: "hrv",
-                      }
-                    ) +
-                    "-" +
-                    data["Kataloški broj: "]
-                  }`}
+                  href={
+                    locale === "hr"
+                      ? `/proizvodi/${
+                          slugify(
+                            data["IME PROIZVODA - do 60 znakova"]
+                              .toLowerCase()
+                              .split(" ")
+                              .join("-"),
+                            {
+                              locale: "hrv",
+                            }
+                          ) +
+                          "-" +
+                          data["Kataloški broj: "]
+                        }`
+                      : `/proizvodi/${
+                          slugify(
+                            data["PRODUCT NAME - up to 60 characters"]
+                              .toLowerCase()
+                              .split(" ")
+                              .join("-"),
+                            {
+                              locale: "eng",
+                            }
+                          ) +
+                          "-" +
+                          data["Kataloški broj: "]
+                        }`
+                  }
                 >
                   <WrapProizvod>
                     <Proizvod>

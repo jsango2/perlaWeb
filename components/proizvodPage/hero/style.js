@@ -142,7 +142,8 @@ export const Naziv = styled.div`
   line-height: 120%; /* 48px */
   margin: 20px 0 10px 0;
   text-align: center;
-  @media only screen and (max-width: 1300px) {
+  @media only screen and (max-width: 750px) {
+    font-size: 26px;
   }
 `;
 export const NazivTop = styled(Naziv)`
