@@ -8,32 +8,38 @@ import { createContext, useContext, useEffect, useState } from "react";
 import useWindowSize from "../components/helper/usewindowsize.js";
 
 import AppContext from "../components/AppContext.js";
-import Hero from "../components/Hero/index.js";
-import FrontRecepti from "../components/Recepti/FrontRecepti/index.js";
-import NasiProizvodi from "../components/NasiProizvodi/index.js";
-import { getAllRecepti } from "../lib/api2.js";
-import KaoVrhunski from "../components/Recepti/FrontRecepti/KuhajKaoVrhunski/index.js";
-import { WrapAll } from "../components/Recepti/FrontRecepti/style.js";
-import { catalogData } from "../catalogData.js";
+
 import Script from "next/script";
-import { Container } from "../components/proizvodPage/hero/style.js";
-export default function IndexPage({ allRecepti }) {
-  const context = useContext(AppContext);
-  const size = useWindowSize();
+export default function IndexPage() {
+  useEffect(() => {
+    const script = document.createElement("script");
+
+    script.src =
+      "https://www.popcar.hr/2022/index.php?controller=pjFront&action=pjActionLoad";
+    script.async = true;
+    script.type = "text/javascript";
+    var body = document.getElementById("demo");
+
+    body.appendChild(script);
+
+    console.log(script);
+    return () => {
+      body.removeChild(script);
+    };
+  }, []);
 
   return (
-    <div className="pop">
+    <Layout>
       <Head>
         <meta
           http-equiv="Content-Security-Policy"
           content="upgrade-insecure-requests"
         />
       </Head>
-      <Script
-        type="text/javascript"
-        src="https://www.popcar.hr/2022/index.php?controller=pjFront&action=pjActionLoad"
-      ></Script>
-      {/* <meta http-equiv="X-UA-Compatible" content="IE=edge" /> */}
+      <div
+        id="demo"
+        style={{ width: "800px", height: "400px", margin: "0 auto" }}
+      ></div>
       <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
@@ -48,6 +54,43 @@ export default function IndexPage({ allRecepti }) {
         type="text/css"
         rel="stylesheet"
       />
-    </div>
+      <div
+        style={{ backgroundColor: "black", height: "20px", width: "100%" }}
+      ></div>
+    </Layout>
   );
 }
+
+// return (
+//   <div className="pop">
+//     <Head>
+//       <meta
+//         http-equiv="Content-Security-Policy"
+//         content="upgrade-insecure-requests"
+//       />
+//     </Head>
+//     <Script
+//       type="text/javascript"
+//       src="https://www.popcar.hr/2022/index.php?controller=pjFront&action=pjActionLoad"
+//     ></Script>
+//     {/* <meta http-equiv="X-UA-Compatible" content="IE=edge" /> */}
+//     {/* <ScriptPop /> */}
+//     <meta
+//       name="viewport"
+//       content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+//     />
+//     <link
+//       href="https://www.popcar.hr/2022/core/framework/libs/pj/css/pj.bootstrap.min.css"
+//       type="text/css"
+//       rel="stylesheet"
+//     />
+//     <link
+//       href="https://www.popcar.hr/2022/index.php?controller=pjFront&action=pjActionLoadCss"
+//       type="text/css"
+//       rel="stylesheet"
+//     />
+//     <div
+//       style={{ backgroundColor: "black", height: "20px", width: "100%" }}
+//     ></div>
+//   </div>
+// );
