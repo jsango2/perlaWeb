@@ -25,9 +25,9 @@ export default function IndexPage({ allRecepti }) {
     <div className="pop">
       <Script
         type="text/javascript"
-        src="https://popcar.hr/2022/index.php?controller=pjFront&action=pjActionLoad"
+        src="https://www.popcar.hr/2022/index.php?controller=pjFront&action=pjActionLoad"
       ></Script>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      {/* <meta http-equiv="X-UA-Compatible" content="IE=edge" /> */}
       <meta
         http-equiv="Content-Security-Policy"
         content="upgrade-insecure-requests"
@@ -37,12 +37,12 @@ export default function IndexPage({ allRecepti }) {
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
       />
       <link
-        href="https://popcar.hr/2022/core/framework/libs/pj/css/pj.bootstrap.min.css"
+        href="https://www.popcar.hr/2022/core/framework/libs/pj/css/pj.bootstrap.min.css"
         type="text/css"
         rel="stylesheet"
       />
       <link
-        href="https://popcar.hr/2022/index.php?controller=pjFront&action=pjActionLoadCss"
+        href="https://www.popcar.hr/2022/index.php?controller=pjFront&action=pjActionLoadCss"
         type="text/css"
         rel="stylesheet"
       />
