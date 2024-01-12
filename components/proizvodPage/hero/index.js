@@ -36,7 +36,7 @@ function Hero({ pageData }) {
   const router = useRouter();
   const { locale } = router;
   // const t = locale === "en" ? en : hr;
-
+  console.log("Proizvod page::::", pageData);
   return (
     <HeroWrap>
       <Container>
@@ -53,7 +53,11 @@ function Hero({ pageData }) {
         </Proizvod>
         <Data>
           <Pakiranje>{pageData["Težina po jedinici mjere"]}</Pakiranje>
-          <NazivTop>{pageData["IME PROIZVODA - do 60 znakova"]}</NazivTop>
+          <NazivTop>
+            {locale === "hr"
+              ? pageData["IME PROIZVODA - do 60 znakova"]
+              : pageData["PRODUCT NAME - up to 60 characters"]}
+          </NazivTop>
           {pageData["LATINSKI NAZIV - do 60 znakova"] !== "-" && (
             <NazivLat>
               lat. {pageData["LATINSKI NAZIV - do 60 znakova"]}
@@ -61,13 +65,16 @@ function Hero({ pageData }) {
           )}
 
           <WrapInfo>
-            Pakiranje:{" "}
-            <strong style={{ marginRight: "10px" }}>
-              {pageData["OPIS (DO 300 ZNAKOVA)"]}
+            {locale === "hr" ? "Pakiranje:" : "Packaging:"}
+            <strong style={{ marginLeft: "5px", marginRight: "10px" }}>
+              {locale === "hr"
+                ? pageData["OPIS (DO 300 ZNAKOVA)"]
+                : pageData["OPIS ENGLESKI"]}
             </strong>
             <div>
-              {pageData["NAČIN SMRZAVANJA"] !== "-" &&
-                `Način smrzavanja: ${pageData["NAČIN SMRZAVANJA"]}`}
+              {pageData["NAČIN SMRZAVANJA"] !== "-" && locale === "hr"
+                ? `Način smrzavanja: ${pageData["NAČIN SMRZAVANJA"]}`
+                : `Freezing method: ${pageData["NAČIN SMRZAVANJA"]}`}
             </div>
           </WrapInfo>
           <WrapCerts>
@@ -106,7 +113,11 @@ function Hero({ pageData }) {
               ) : null}
             </div>
           </WrapCerts>
-          <Download href="/">Download specifikacije proizvoda</Download>
+          <Download href="/">
+            {locale === "hr"
+              ? "Download specifikacije proizvoda"
+              : "Download product specification"}
+          </Download>
         </Data>
       </Container>
     </HeroWrap>

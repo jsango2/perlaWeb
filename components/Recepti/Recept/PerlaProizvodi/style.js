@@ -202,7 +202,7 @@ export const ProizvodName = styled.p`
   /* SUNRISE/Sunray */
 
   color: #f5faff;
-  margin-left: 51px;
+  margin-left: 0;
   @media only screen and (max-width: 1300px) {
     font-size: 14px;
   }

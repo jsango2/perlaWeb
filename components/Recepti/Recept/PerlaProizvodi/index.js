@@ -88,7 +88,7 @@ function PerlaProizvodi() {
           autoplaySpeed: 0,
           cssEase: "linear",
           className: "testimonialSlider",
-          speed: 1500,
+          speed: 200,
         },
       },
     ],
@@ -122,7 +122,9 @@ function PerlaProizvodi() {
         </RedLine>
         <WrapContent>
           <BlueLine />
-          <Title>PERLA PROIZVODI</Title>
+          <Title>
+            {locale === "hr" ? "PERLA PROIZVODI" : "PERLA PRODUCTS"}
+          </Title>
           <Proizvodi>
             <Slider {...settings}>
               {perlaData.map((data) => (

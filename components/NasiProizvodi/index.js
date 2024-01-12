@@ -56,23 +56,39 @@ function NasiProizvodi() {
       <WrapAll ref={ref}>
         <WrapContent>
           <BlueLine />
-          <Title>NAŠI PROIZVODI</Title>
+          <Title>{locale === "hr" ? "NAŠI PROIZVODI" : "OUR PRODUCTS"}</Title>
           <Proizvodi>
             {(sliced ? perlaData : perlaData.slice(0, 8)).map((data) => (
               <Link
-                href={`/proizvodi/${
-                  slugify(
-                    data["IME PROIZVODA - do 60 znakova"]
-                      .toLowerCase()
-                      .split(" ")
-                      .join("-"),
-                    {
-                      locale: "hrv",
-                    }
-                  ) +
-                  "-" +
-                  data["Kataloški broj: "]
-                }`}
+                href={
+                  locale === "hr"
+                    ? `/proizvodi/${
+                        slugify(
+                          data["IME PROIZVODA - do 60 znakova"]
+                            .toLowerCase()
+                            .split(" ")
+                            .join("-"),
+                          {
+                            locale: "hrv",
+                          }
+                        ) +
+                        "-" +
+                        data["Kataloški broj: "]
+                      }`
+                    : `/proizvodi/${
+                        slugify(
+                          data["PRODUCT NAME - up to 60 characters"]
+                            .toLowerCase()
+                            .split(" ")
+                            .join("-"),
+                          {
+                            locale: "eng",
+                          }
+                        ) +
+                        "-" +
+                        data["Kataloški broj: "]
+                      }`
+                }
                 key={data["Kataloški broj: "]}
               >
                 <WrapProizvod>

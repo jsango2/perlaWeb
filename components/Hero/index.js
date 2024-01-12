@@ -1,6 +1,13 @@
 import React from "react";
 
-import { HeroWrap, HeroContent, Galeb1, Galeb2, Galeb3 } from "./style.js";
+import {
+  HeroWrap,
+  HeroContent,
+  Galeb1,
+  Galeb2,
+  Galeb3,
+  PercentageDiv,
+} from "./style.js";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
@@ -28,19 +35,20 @@ function Hero() {
     /* Optional options */
     threshold: 0,
   });
-
-  // console.log(percentage);
+  const percentage10 = percentage * 100;
+  console.log(percentage10);
   return (
     <div>
       <HeroWrap>
-        <HeroContent ref={ref2}>
-          <Galeb1 percentage={percentage}>
+        <PercentageDiv ref={ref2} />
+        <HeroContent>
+          <Galeb1 percentage={percentage10}>
             <Image src="/galeb1.png" layout="fill" />
           </Galeb1>
-          <Galeb2 percentage={percentage}>
+          <Galeb2 percentage={percentage10}>
             <Image src="/galeb2.png" layout="fill" />
           </Galeb2>
-          <Galeb3 percentage={percentage}>
+          <Galeb3 percentage={percentage10}>
             <Image src="/galeb3.png" layout="fill" />
           </Galeb3>
         </HeroContent>

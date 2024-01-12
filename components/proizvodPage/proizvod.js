@@ -25,17 +25,23 @@ function Proizvod({ pageData, receptiSaProizvodom }) {
   //   });
   //   const size = useWindowSize();
   //   // const t = useTranslations("Index");
-  //   const router = useRouter();
-  //   const { locale } = router;
-  //   const t = locale === "en" ? en : hr;
+  const router = useRouter();
+  const { locale } = router;
   return (
     <WrapAll>
       <Hero pageData={pageData} />
       <Divider />
       <BlueLine />
-      <Naziv>Recepti sa ovim proizvodom</Naziv>
+      <Naziv>
+        {locale === "hr"
+          ? "Recepti sa ovim proizvodom"
+          : "Recepies with this product"}
+      </Naziv>
       <OstaliRecepti receptiSaProizvodom={receptiSaProizvodom} />
-      <Button>ISTRAŽI RECEPTE</Button>
+      <Button>
+        {" "}
+        {locale === "hr" ? "ISTRAŽI RECEPTE" : "SEARCH THR RECEPIES"}
+      </Button>
       <PerlaProizvodi />
     </WrapAll>
   );

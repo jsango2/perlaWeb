@@ -16,7 +16,7 @@ const MeniMobile = ({
   isOpen,
   setIsOpen,
   closeMenu,
-  novostiNaslovi,
+  receptiNaslovi,
   oglasiNaslovi,
 }) => {
   const [isOnamaMenuOpen, setIsOnamaMenuOpen] = useState(false);
@@ -90,7 +90,7 @@ const MeniMobile = ({
         <div className="mobileLinkDivider"></div>
         <LanguageSwitcher
           closeMenu={closeMenu}
-          novostiNaslovi={novostiNaslovi}
+          receptiNaslovi={receptiNaslovi}
           oglasiNaslovi={oglasiNaslovi}
         />
         <div>

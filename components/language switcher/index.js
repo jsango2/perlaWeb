@@ -5,6 +5,7 @@ import { Context } from "../../pages/index.js";
 import { useRouter } from "next/router";
 import AppContext from "../../components/AppContext.js";
 import slugify from "slugify";
+import { catalogData } from "../../catalogData.js";
 
 function LanguageSwitcher({
   receptiNaslovi,
@@ -25,6 +26,8 @@ function LanguageSwitcher({
     setMessage(message);
   };
 
+  console.log(catalogData);
+
   // funkcija za promjenu jezika i trazenje url-a za istu stranicu na drugom jeziku. novostiNaslovi u propsima dolazi iz parent page Novosti
   function handleRouteChange(lang) {
     if (lang != locale) {
@@ -39,6 +42,9 @@ function LanguageSwitcher({
       }
       if (asPath === "/kontakt") {
         return router.push("/kontakt", undefined, { locale: lang });
+      }
+      if (asPath === "/proizvodi") {
+        return router.push("/proizvodi", undefined, { locale: lang });
       }
       if (asPath.includes("/recepti/")) {
         const getTranslationRouteForNews = receptiNaslovi.filter((naslov) =>
@@ -86,6 +92,65 @@ function LanguageSwitcher({
         return router.push(matchingUrl, undefined, { locale: lang });
       }
 
+      if (asPath.includes("/proizvodi/")) {
+        const getTranslationRouteForProduct = catalogData.filter((naslov) =>
+          locale === "en"
+            ? slugify(
+                naslov["PRODUCT NAME - up to 60 characters"]
+                  .toLowerCase()
+                  .split(" ")
+                  .join("-"),
+                {
+                  locale: "eng",
+                }
+              ) +
+                "-" +
+                naslov["Kataloški broj: "] ===
+              getSlug
+            : slugify(
+                naslov["IME PROIZVODA - do 60 znakova"]
+                  .toLowerCase()
+                  .split(" ")
+                  .join("-"),
+                {
+                  locale: "hrv",
+                }
+              ) +
+                "-" +
+                naslov["Kataloški broj: "] ===
+              getSlug
+        );
+
+        const matchingUrl =
+          locale === "hr"
+            ? slugify(
+                getTranslationRouteForProduct[0][
+                  "PRODUCT NAME - up to 60 characters"
+                ]
+                  .toLowerCase()
+                  .split(" ")
+                  .join("-"),
+                {
+                  locale: "eng",
+                }
+              ) +
+              "-" +
+              getTranslationRouteForProduct[0]["Kataloški broj: "]
+            : slugify(
+                getTranslationRouteForProduct[0][
+                  "IME PROIZVODA - do 60 znakova"
+                ]
+                  .toLowerCase()
+                  .split(" ")
+                  .join("-"),
+                { locale: "hrv" }
+              ) +
+              "-" +
+              getTranslationRouteForProduct[0]["Kataloški broj: "];
+
+        console.log(matchingUrl);
+        return router.push(matchingUrl, undefined, { locale: lang });
+      }
       // pronađi za matchinUrl za Novosti
     }
   }

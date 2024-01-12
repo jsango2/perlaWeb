@@ -53,6 +53,14 @@ export const Galeb1 = styled.div`
     height: 26vw;
   }
 `;
+export const PercentageDiv = styled.div`
+  position: absolute;
+  top: 100vh;
+  height: 100%;
+  width: 100%;
+  @media only screen and (max-width: 850px) {
+  }
+`;
 
 export const Galeb2 = styled.div`
   position: absolute;

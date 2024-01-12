@@ -229,6 +229,27 @@ export async function getStaticPaths({ locales }) {
     // });
   });
 
+  perlaData.map((product, i) => {
+    // return locales.map((locale) => {
+    return paths.push({
+      params: {
+        slug:
+          slugify(
+            product["PRODUCT NAME - up to 60 characters"]
+              .toLowerCase()
+              .split(" ")
+              .join("-"),
+            {
+              locale: "eng",
+            }
+          ) +
+          "-" +
+          product["Kataloški broj: "],
+      },
+      locale: "en",
+    });
+    // });
+  });
   return { paths, fallback: false };
 }
 
@@ -250,20 +271,19 @@ export async function getStaticProps({ params }) {
       ) +
         "-" +
         product["Kataloški broj: "] ===
-      currentPath
-    //   ||
-    // slugify(
-    //   product.node.perlaRecepti.naslovReceptaEng
-    //     .toLowerCase()
-    //     .split(" ")
-    //     .join("-"),
-    //   {
-    //     locale: "eng",
-    //   }
-    // ) +
-    //   "-" +
-    //   new Date(recept.node.date).toISOString().split("T")[0] ===
-    //   currentPath
+        currentPath ||
+      slugify(
+        product["PRODUCT NAME - up to 60 characters"]
+          .toLowerCase()
+          .split(" ")
+          .join("-"),
+        {
+          locale: "eng",
+        }
+      ) +
+        "-" +
+        product["Kataloški broj: "] ===
+        currentPath
   ) || {
     notfound: true,
   };
