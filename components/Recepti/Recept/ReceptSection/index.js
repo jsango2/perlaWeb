@@ -124,7 +124,10 @@ function ReceptSection({ data }) {
         </WrapTopTitle>
         <Sastojci>
           <WrapNasloviBroj>
-            <NaslovSastojci>BROJ OSOBA</NaslovSastojci>
+            <NaslovSastojci>
+              {" "}
+              {locale === "hr" ? "BROJ OSOBA" : "PERSONS"}
+            </NaslovSastojci>
             <Wrapbroj>
               <Broj
                 onClick={() => handleClick(1)}
@@ -170,7 +173,9 @@ function ReceptSection({ data }) {
               </Broj>
             </Wrapbroj>
           </WrapNasloviBroj>
-          <NaslovSastojci>SASTOJCI</NaslovSastojci>
+          <NaslovSastojci>
+            {locale === "hr" ? "SASTOJCI" : "INGREDIENTS"}
+          </NaslovSastojci>
 
           <ul>
             {locale === "hr"

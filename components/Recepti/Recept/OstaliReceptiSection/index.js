@@ -52,7 +52,9 @@ function OstaliRecepti({ data }) {
   return (
     <WrapAll>
       <BlueLine />
-      <NaslovRecepta>Ostali recepti</NaslovRecepta>
+      <NaslovRecepta>
+        {locale === "hr" ? "Ostali recepti" : "Other recepies"}
+      </NaslovRecepta>
       <WrapRecipies>
         {receptiSaKataloskimBrojemPerlaProizvoda.slice(0, 3).map((recept) => (
           <ReceptKartica
@@ -60,24 +62,40 @@ function OstaliRecepti({ data }) {
             catalogId={recept.catalogId}
             photo={recept.node.perlaRecepti.fotografijaRecepta.sourceUrl}
             trajanje={recept.node.perlaRecepti.trajanjeKuhanja}
-            naslov={recept.node.perlaRecepti.naslovRecepta}
+            naslov={
+              locale === "hr"
+                ? recept.node.perlaRecepti.naslovRecepta
+                : recept.node.perlaRecepti.naslovReceptaEng
+            }
             link={
-              slugify(
-                recept.node.perlaRecepti.naslovRecepta
-                  .toLowerCase()
-                  .split(" ")
-                  .join("-"),
-                {
-                  locale: "hrv",
-                }
-              ) +
-              "-" +
-              new Date(recept.node.date).toISOString().split("T")[0]
+              locale === "hr"
+                ? slugify(
+                    recept.node.perlaRecepti.naslovRecepta
+                      .toLowerCase()
+                      .split(" ")
+                      .join("-"),
+                    {
+                      locale: "hrv",
+                    }
+                  ) +
+                  "-" +
+                  new Date(recept.node.date).toISOString().split("T")[0]
+                : slugify(
+                    recept.node.perlaRecepti.naslovReceptaEng
+                      .toLowerCase()
+                      .split(" ")
+                      .join("-"),
+                    {
+                      locale: "hrv",
+                    }
+                  ) +
+                  "-" +
+                  new Date(recept.node.date).toISOString().split("T")[0]
             }
           ></ReceptKartica>
         ))}
       </WrapRecipies>
-      <Button>ISTRAŽI RECEPTE</Button>
+      <Button>{locale === "hr" ? "ISTRAŽI RECEPTE" : "SEARCH RECEPIES"}</Button>
     </WrapAll>
   );
 }
