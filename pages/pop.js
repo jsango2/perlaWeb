@@ -38,7 +38,13 @@ export default function IndexPage() {
       </Head>
       <div
         id="demo"
-        style={{ width: "800px", height: "400px", margin: "0 auto" }}
+        style={{
+          width: "100%",
+          height: "auto",
+          padding: "30px 0 60px 0",
+          margin: "0 auto",
+          maxWidth: "1440px",
+        }}
       ></div>
       <meta
         name="viewport"
