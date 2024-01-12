@@ -115,8 +115,12 @@ function NasiProizvodi() {
 
           <Button onClick={() => setSliced(!sliced)}>
             {!sliced
-              ? "UČITAJ SVE PERLA PROIZVODE"
-              : "UČITAJ MANJE PERLA PROIZVODA"}
+              ? locale === "hr"
+                ? "UČITAJ SVE PERLA PROIZVODE"
+                : "LOAD MORE PERLA PRODUCTS"
+              : locale === "hr"
+              ? "UČITAJ MANJE PERLA PROIZVODA"
+              : "LOAD LESS PERLA PRODUCTS"}
           </Button>
 
           <KaramarkoComp />

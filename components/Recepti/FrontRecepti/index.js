@@ -148,11 +148,19 @@ function FrontRecepti({ recepti, samoRecepti }) {
         <WrapContent2>
           {" "}
           <BlueLine />
-          <Title>
-            NAŠI RECEPTI SU{" "}
-            <span style={{ color: "#4299C8" }}>JEDNOSTAVNI I ZABAVNI</span>,
-            PROVJERITE ZAŠTO
-          </Title>
+          {locale === "hr" ? (
+            <Title>
+              NAŠI RECEPTI SU
+              <span style={{ color: "#4299C8" }}>JEDNOSTAVNI I ZABAVNI</span>
+              PROVJERITE ZAŠTO
+            </Title>
+          ) : (
+            <Title>
+              OUR RECIPES ARE{" "}
+              <span style={{ color: "#4299C8" }}>SIMPLE AND FUN</span>, CHECK
+              WHY
+            </Title>
+          )}
           <WrapCategories>
             {locale === "hr" ? (
               <Category onClick={() => handleTagClick("Svi")}>Svi</Category>
@@ -211,18 +219,17 @@ function FrontRecepti({ recepti, samoRecepti }) {
           {samoRecepti !== true && (
             <>
               <Link href="/recepti">
-                <Button>PRONAĐI RECEPT</Button>
+                <Button>
+                  {locale === "hr" ? "PRONAĐI RECEPT" : "FIND RECIPE"}
+                </Button>
               </Link>
               <BlueLine />
-              <Title>UZ NAS KUHAJ KAO VRHUNSKI CHEF</Title>
-              <Text>
-                Vrhunski plodovi mora naša su strast i obveza prema potrošačima.
-                To je ono što dobro radimo i u što vjerujemo. Izuzetno smo
-                ponosni na proizvode koje razvijamo za profesionalni segment,
-                stoga nam je užitak to podijeliti sa svima. Zato smo kreirali
-                Perla liniju proizvoda, s kojom je priprema maštovitih jela
-                jednostavna i zabavna.
-              </Text>
+              <Title>
+                {locale === "hr"
+                  ? "UZ NAS KUHAJ KAO VRHUNSKI CHEF"
+                  : "COOK LIKE A TOP CHEF WITH US"}
+              </Title>
+              <Text>{t.PerlaFront.Vrhunski}</Text>
               <Photo>
                 <WrapSocial>
                   <Instagram>@BISERMORA</Instagram>

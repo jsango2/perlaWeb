@@ -35,7 +35,7 @@ function Hero() {
     /* Optional options */
     threshold: 0,
   });
-  const percentage10 = percentage * 100;
+  const percentage10 = percentage * 10;
   console.log(percentage10);
   return (
     <div>
