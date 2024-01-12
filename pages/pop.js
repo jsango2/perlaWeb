@@ -22,30 +22,32 @@ export default function IndexPage({ allRecepti }) {
   const size = useWindowSize();
 
   return (
-    <div className="pop">
-      <Script
-        type="text/javascript"
-        src="https://www.popcar.hr/2022/index.php?controller=pjFront&action=pjActionLoad"
-      ></Script>
-      {/* <meta http-equiv="X-UA-Compatible" content="IE=edge" /> */}
-      <meta
-        http-equiv="Content-Security-Policy"
-        content="upgrade-insecure-requests"
-      />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
-      />
-      <link
-        href="https://www.popcar.hr/2022/core/framework/libs/pj/css/pj.bootstrap.min.css"
-        type="text/css"
-        rel="stylesheet"
-      />
-      <link
-        href="https://www.popcar.hr/2022/index.php?controller=pjFront&action=pjActionLoadCss"
-        type="text/css"
-        rel="stylesheet"
-      />
-    </div>
+    <Head>
+      <div className="pop">
+        <script
+          type="text/javascript"
+          src="https://www.popcar.hr/2022/index.php?controller=pjFront&action=pjActionLoad"
+        ></script>
+        {/* <meta http-equiv="X-UA-Compatible" content="IE=edge" /> */}
+        <meta
+          http-equiv="Content-Security-Policy"
+          content="upgrade-insecure-requests"
+        />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+        />
+        <link
+          href="https://www.popcar.hr/2022/core/framework/libs/pj/css/pj.bootstrap.min.css"
+          type="text/css"
+          rel="stylesheet"
+        />
+        <link
+          href="https://www.popcar.hr/2022/index.php?controller=pjFront&action=pjActionLoadCss"
+          type="text/css"
+          rel="stylesheet"
+        />
+      </div>
+    </Head>
   );
 }
