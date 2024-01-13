@@ -322,7 +322,7 @@ export const catalogData = [
       "",
   },
   {
-    "IME PROIZVODA - do 60 znakova": "Temeljac riblji 450 g Perla ",
+    "IME PROIZVODA - do 60 znakova": "Temeljac riblji 450 g Perla",
     "PRODUCT NAME - up to 60 characters": "Fish stock 450 g Perla",
     "LATINSKI NAZIV - do 60 znakova": "-",
     "Kataloški broj: ": 20986,

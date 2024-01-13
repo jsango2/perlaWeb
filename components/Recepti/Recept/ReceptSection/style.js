@@ -444,6 +444,7 @@ export const WrapFeaturedImage = styled.div`
     padding: 100px 0 70px 70px;
   } */
   display: flex;
+  cursor: pointer;
   @media only screen and (max-width: 850px) {
     order: -1;
     margin: 60px auto 0 auto;

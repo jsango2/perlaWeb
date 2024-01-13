@@ -25,6 +25,7 @@ import {
 import Image from "next/image";
 import { useRouter } from "next/router";
 import parse from "html-react-parser";
+import slugify from "slugify";
 
 import useWindowSize from "../../../helper/usewindowsize.js";
 // import { useTranslations } from "next-intl";
@@ -36,6 +37,7 @@ import { RedLine, WrapLogoPerla } from "../style.js";
 import { catalogData } from "../../../../catalogData.js";
 import { useState } from "react";
 import { useEffect } from "react";
+import Link from "next/link.js";
 
 function ReceptSection({ data }) {
   const [current, setCurrent] = useState(1);
@@ -289,13 +291,47 @@ function ReceptSection({ data }) {
                 )}{" "}
           </ul>
           {perlaProizvodFeaturedCatNumber && (
-            <WrapFeaturedImage>
-              <Image
-                src={`/productImages/${perlaProizvodFeaturedCatNumber}.webp`}
-                layout="fill"
-                objectFit="contain"
-              />
-            </WrapFeaturedImage>
+            <Link
+              href={
+                locale === "hr"
+                  ? `/proizvodi/${
+                      slugify(
+                        perlaProizvodFeatured["IME PROIZVODA - do 60 znakova"]
+                          .toLowerCase()
+                          .split(" ")
+                          .join("-"),
+                        {
+                          locale: "hrv",
+                        }
+                      ) +
+                      "-" +
+                      perlaProizvodFeatured["Kataloški broj: "]
+                    }`
+                  : `/proizvodi/${
+                      slugify(
+                        perlaProizvodFeatured[
+                          "PRODUCT NAME - up to 60 characters"
+                        ]
+                          .toLowerCase()
+                          .split(" ")
+                          .join("-"),
+                        {
+                          locale: "eng",
+                        }
+                      ) +
+                      "-" +
+                      perlaProizvodFeatured["Kataloški broj: "]
+                    }`
+              }
+            >
+              <WrapFeaturedImage>
+                <Image
+                  src={`/productImages/${perlaProizvodFeaturedCatNumber}.webp`}
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </WrapFeaturedImage>
+            </Link>
           )}
         </Sastojci>
         <Postupak>

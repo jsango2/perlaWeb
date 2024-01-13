@@ -36,7 +36,6 @@ function Hero() {
     threshold: 0,
   });
   const percentage10 = percentage * 10;
-  console.log(percentage10);
   return (
     <div>
       <HeroWrap>

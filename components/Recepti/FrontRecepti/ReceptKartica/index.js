@@ -9,6 +9,7 @@ import {
   Overlay,
   FeaturedPerlaImage,
   Timer,
+  BGplaceholder,
 } from "./style.js";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -35,6 +36,8 @@ function ReceptKartica({ photo, naslov, trajanje, link, catalogId }) {
   return (
     <WrapRecipe href={`/recepti/${link}`}>
       <Recipe>
+        <BGplaceholder />
+        <Overlay />
         <FeaturedPerlaImage className="featuredPerlaImage">
           <Image
             src={`/productImages/${catalogId}.webp`}
@@ -42,13 +45,11 @@ function ReceptKartica({ photo, naslov, trajanje, link, catalogId }) {
             objectFit="contain"
           />
         </FeaturedPerlaImage>
-        <PhotoWrap photo={photo} className="photoWrap">
-          <Overlay />
-          <Time>
-            <Timer />
-            {trajanje} min
-          </Time>
-        </PhotoWrap>
+        <Time>
+          <Timer />
+          {trajanje} min
+        </Time>
+        <PhotoWrap photo={photo} className="photoWrap"></PhotoWrap>
         <TextWrap className="cardTextBg">{naslov}</TextWrap>
       </Recipe>
     </WrapRecipe>

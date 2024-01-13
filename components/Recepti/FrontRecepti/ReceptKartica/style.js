@@ -161,13 +161,27 @@ export const Recipe = styled.div`
 `;
 export const PhotoWrap = styled.div`
   position: relative;
-  z-index: 10;
+  z-index: 9;
   width: 100%;
   height: 338px;
   transition: all 0.8s ease-in-out;
 
   background: ${(props) => `url(${props.photo}) no-repeat center center`};
   background-size: cover;
+  @media only screen and (max-width: 850px) {
+  }
+`;
+export const BGplaceholder = styled.div`
+  position: absolute;
+  z-index: 9;
+  width: 100%;
+  height: 100%;
+  background-image: url("/perlaLogo.svg");
+
+  /* background: ${(props) => `url(${props.photo}) no-repeat center center`}; */
+  background-size: 175px 175px;
+  background-repeat: no-repeat;
+  background-position: 50% 20%;
   @media only screen and (max-width: 850px) {
   }
 `;
@@ -242,11 +256,12 @@ export const Time = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  bottom: 10px;
+  bottom: 130px;
   left: 20px;
   display: flex;
   align-items: center;
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 550px) {
+    bottom: 110px;
   }
 `;
 export const Overlay = styled.div`
