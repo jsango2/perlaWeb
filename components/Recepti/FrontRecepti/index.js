@@ -135,7 +135,7 @@ function FrontRecepti({ recepti, samoRecepti }) {
   //     s["IME PROIZVODA - do 60 znakova"] ===
   //       data.receptData.node.perlaRecepti.perlaSastojci[0].perlaProizvodUReceptu
   // );
-  console.log(sortedRecipes);
+  console.log(samoRecepti);
   return (
     <div>
       <WrapAll ref={ref}>
@@ -151,7 +151,7 @@ function FrontRecepti({ recepti, samoRecepti }) {
           {locale === "hr" ? (
             <Title>
               NAŠI RECEPTI SU
-              <span style={{ color: "#4299C8" }}>JEDNOSTAVNI I ZABAVNI</span>
+              <span style={{ color: "#4299C8" }}> JEDNOSTAVNI I ZABAVNI </span>
               PROVJERITE ZAŠTO
             </Title>
           ) : (
@@ -175,46 +175,90 @@ function FrontRecepti({ recepti, samoRecepti }) {
             ))}
           </WrapCategories>
           <WrapRecipies samoRecepti={samoRecepti}>
-            {(size.width > 850 ? sortedRecipes : sortedRecipes.slice(0, 4)).map(
-              (recept) => (
-                <ReceptKartica
-                  key={recept.node.id}
-                  catalogId={recept.catalogId}
-                  photo={recept.node.perlaRecepti.fotografijaRecepta.sourceUrl}
-                  trajanje={recept.node.perlaRecepti.trajanjeKuhanja}
-                  naslov={
-                    locale === "hr"
-                      ? recept.node.perlaRecepti.naslovRecepta
-                      : recept.node.perlaRecepti.naslovReceptaEng
-                  }
-                  link={
-                    locale === "hr"
-                      ? slugify(
-                          recept.node.perlaRecepti.naslovRecepta
-                            .toLowerCase()
-                            .split(" ")
-                            .join("-"),
-                          {
-                            locale: "hrv",
-                          }
-                        ) +
-                        "-" +
-                        new Date(recept.node.date).toISOString().split("T")[0]
-                      : slugify(
-                          recept.node.perlaRecepti.naslovReceptaEng
-                            .toLowerCase()
-                            .split(" ")
-                            .join("-"),
-                          {
-                            locale: "hrv",
-                          }
-                        ) +
-                        "-" +
-                        new Date(recept.node.date).toISOString().split("T")[0]
-                  }
-                ></ReceptKartica>
-              )
-            )}
+            {samoRecepti === true
+              ? sortedRecipes.map((recept) => (
+                  <ReceptKartica
+                    key={recept.node.id}
+                    catalogId={recept.catalogId}
+                    photo={
+                      recept.node.perlaRecepti.fotografijaRecepta.sourceUrl
+                    }
+                    trajanje={recept.node.perlaRecepti.trajanjeKuhanja}
+                    naslov={
+                      locale === "hr"
+                        ? recept.node.perlaRecepti.naslovRecepta
+                        : recept.node.perlaRecepti.naslovReceptaEng
+                    }
+                    link={
+                      locale === "hr"
+                        ? slugify(
+                            recept.node.perlaRecepti.naslovRecepta
+                              .toLowerCase()
+                              .split(" ")
+                              .join("-"),
+                            {
+                              locale: "hrv",
+                            }
+                          ) +
+                          "-" +
+                          new Date(recept.node.date).toISOString().split("T")[0]
+                        : slugify(
+                            recept.node.perlaRecepti.naslovReceptaEng
+                              .toLowerCase()
+                              .split(" ")
+                              .join("-"),
+                            {
+                              locale: "hrv",
+                            }
+                          ) +
+                          "-" +
+                          new Date(recept.node.date).toISOString().split("T")[0]
+                    }
+                  ></ReceptKartica>
+                ))
+              : (size.width < 850
+                  ? sortedRecipes.slice(0, 4)
+                  : sortedRecipes.slice(0, 6)
+                ).map((recept) => (
+                  <ReceptKartica
+                    key={recept.node.id}
+                    catalogId={recept.catalogId}
+                    photo={
+                      recept.node.perlaRecepti.fotografijaRecepta.sourceUrl
+                    }
+                    trajanje={recept.node.perlaRecepti.trajanjeKuhanja}
+                    naslov={
+                      locale === "hr"
+                        ? recept.node.perlaRecepti.naslovRecepta
+                        : recept.node.perlaRecepti.naslovReceptaEng
+                    }
+                    link={
+                      locale === "hr"
+                        ? slugify(
+                            recept.node.perlaRecepti.naslovRecepta
+                              .toLowerCase()
+                              .split(" ")
+                              .join("-"),
+                            {
+                              locale: "hrv",
+                            }
+                          ) +
+                          "-" +
+                          new Date(recept.node.date).toISOString().split("T")[0]
+                        : slugify(
+                            recept.node.perlaRecepti.naslovReceptaEng
+                              .toLowerCase()
+                              .split(" ")
+                              .join("-"),
+                            {
+                              locale: "hrv",
+                            }
+                          ) +
+                          "-" +
+                          new Date(recept.node.date).toISOString().split("T")[0]
+                    }
+                  ></ReceptKartica>
+                ))}
           </WrapRecipies>
           {samoRecepti !== true && (
             <>
