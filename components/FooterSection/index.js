@@ -35,11 +35,23 @@ function FooterSection() {
       </WrapLogoPerla>
       <Container>
         <MainLinks>
-          <SingleLink>{t.Linkovi.onama}</SingleLink>
-          <SingleLink>{t.Linkovi.onama}</SingleLink>
-          <SingleLink>{t.Linkovi.onama}</SingleLink>
+          <Link href="/recepti">
+            <SingleLink>{locale === "hr" ? "Recepti" : "Recepies"}</SingleLink>
+          </Link>
+          <Link href="/">
+            <SingleLink>
+              {locale === "hr" ? "Proizvodi" : "Products"}
+            </SingleLink>
+          </Link>
+          <Link href="mailto:info@perla.hr">
+            <SingleLink>{locale === "hr" ? "Kontakt" : "Contact"}</SingleLink>
+          </Link>
         </MainLinks>
-        <Title>Pratite nas na Instagramu i ostalim mrežama!</Title>
+        <Title>
+          {locale === "hr"
+            ? "Pratite nas na Instagramu i ostalim mrežama!"
+            : "Follow us on Instagram and other social networks"}
+        </Title>
         <Social>
           <Link href="/">
             <Image src="/instagram.svg" width={25} height={25} />
@@ -68,9 +80,17 @@ function FooterSection() {
             info@perla.hr, +385(0)23/342-613
           </CopyLink>
           <CopyLink>
-            <Link href="/">© 2022 MARIKOMERC GRUPA &nbsp;·</Link>
-            <Link href="/">&nbsp; Uvjeti korištenja &nbsp;·</Link>
-            <Link href="/">&nbsp; Izjava o privatnosti &nbsp;·</Link>
+            <Link href="/">© 2022 MARIKOMERC GRUPA &nbsp;· </Link>
+            <Link href="/">
+              {locale === "hr"
+                ? " Uvjeti korištenja · "
+                : ` Terms & Conditions · `}
+            </Link>
+            <Link href="/">
+              {locale === "hr"
+                ? " Izjava o privatnosti · "
+                : " Privacy policy · "}
+            </Link>
             <Link href="/">&nbsp; Web design SUTRA</Link>
           </CopyLink>
         </Copy>

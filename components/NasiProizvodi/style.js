@@ -40,7 +40,7 @@ export const WrapContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 120px 0 0px 0;
+  padding: 180px 0 0px 0;
   @media only screen and (max-width: 650px) {
     padding: 80px 0 0px 0;
     width: 100%;
@@ -91,6 +91,7 @@ export const Proizvod = styled.div`
     height: 222px;
   }
 `;
+
 export const WrapLogoPerla = styled.div`
   position: relative;
   z-index: 10;
@@ -100,6 +101,23 @@ export const WrapLogoPerla = styled.div`
   @media only screen and (max-width: 650px) {
     top: 111px;
     width: 170px;
+  }
+`;
+export const RedLine = styled.div`
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: 49px;
+  background: #e1251b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+
+  @media only screen and (max-width: 650px) {
+    height: 30px;
+  }
+  @media only screen and (max-width: 430px) {
   }
 `;
 export const Button = styled.div`

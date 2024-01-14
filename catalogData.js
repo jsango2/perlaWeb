@@ -4,7 +4,9 @@ export const catalogData = [
       "Kolutići i krakovi lignje Patagonica 425 g Perla",
     "PRODUCT NAME - up to 60 characters":
       "Patagonica squid rings and arms 425 g Perla",
-    "LATINSKI NAZIV - do 60 znakova": "Loligo Patagonica ",
+    "IME PROIZVODA - skraceno": "Kolutići i krakovi lignje Patagonica Perla",
+    "PRODUCT NAME - short": "Patagonica squid rings and arms Perla",
+    "LATINSKI NAZIV - do 60 znakova": "Loligo Patagonica",
     "Kataloški broj: ": 21046,
     FeaturedPerla: "DA",
     "Kategorija kojoj proizvod pripada:": "PERLA",
@@ -33,6 +35,8 @@ export const catalogData = [
   {
     "IME PROIZVODA - do 60 znakova": "Lignja Patagonica 525 g Perla",
     "PRODUCT NAME - up to 60 characters": "Patagonica squid 525 g Perla",
+    "IME PROIZVODA - skraceno": "Lignja Patagonica Perla",
+    "PRODUCT NAME - short": "Patagonica squid Perla",
     "LATINSKI NAZIV - do 60 znakova": "Loligo Patagonica ",
     "Kataloški broj: ": 21047,
     FeaturedPerla: "DA",
@@ -63,6 +67,8 @@ export const catalogData = [
     "IME PROIZVODA - do 60 znakova": "Lignja očišćena Patagonica 450 g Perla",
     "PRODUCT NAME - up to 60 characters":
       "Squid cleaned Patagonica 450 g Perla",
+    "IME PROIZVODA - skraceno": "Lignja očišćena Patagonica Perla",
+    "PRODUCT NAME - short": "Squid cleaned Patagonica Perla",
     "LATINSKI NAZIV - do 60 znakova": "Loligo Patagonica ",
     "Kataloški broj: ": 21048,
     FeaturedPerla: "",
@@ -92,6 +98,8 @@ export const catalogData = [
   {
     "IME PROIZVODA - do 60 znakova": "Tuna steak 250 g Perla",
     "PRODUCT NAME - up to 60 characters": "Tuna steak 250 g Perla",
+    "IME PROIZVODA - skraceno": "Tuna steak Perla",
+    "PRODUCT NAME - short": "Tuna steak Perla",
     "LATINSKI NAZIV - do 60 znakova": "Thunnus obesus",
     "Kataloški broj: ": 20964,
     FeaturedPerla: "DA",
@@ -121,6 +129,8 @@ export const catalogData = [
   {
     "IME PROIZVODA - do 60 znakova": "Bodečnjak očišćeni Perla",
     "PRODUCT NAME - up to 60 characters": "Perla cleaned barb",
+    "IME PROIZVODA - skraceno": "Bodečnjak očišćeni Perla",
+    "PRODUCT NAME - short": "Perla cleaned barb",
     "LATINSKI NAZIV - do 60 znakova": "Sebastes marinus",
     "Kataloški broj: ": 20831,
     FeaturedPerla: "",
@@ -150,6 +160,8 @@ export const catalogData = [
   {
     "IME PROIZVODA - do 60 znakova": "Sipa kockice 235 g Perla",
     "PRODUCT NAME - up to 60 characters": "Cuttlefish cubes 235 g Perla",
+    "IME PROIZVODA - skraceno": "Sipa kockice Perla",
+    "PRODUCT NAME - short": "Cuttlefish cubes Perla",
     "LATINSKI NAZIV - do 60 znakova": "Sepia officinalis/pharaonis",
     "Kataloški broj: ": 20835,
     FeaturedPerla: "",
@@ -179,6 +191,8 @@ export const catalogData = [
   {
     "IME PROIZVODA - do 60 znakova": "Škampi za buzaru 375 g Perla",
     "PRODUCT NAME - up to 60 characters": "Shrimp for buzara 375",
+    "IME PROIZVODA - skraceno": "Škampi za buzaru Perla",
+    "PRODUCT NAME - short": "Shrimp for buzara",
     "LATINSKI NAZIV - do 60 znakova": "Nephrops Norvegicus",
     "Kataloški broj: ": 20856,
     FeaturedPerla: "DA",
@@ -208,6 +222,8 @@ export const catalogData = [
   {
     "IME PROIZVODA - do 60 znakova": "Oslić fileti 500 g Perla",
     "PRODUCT NAME - up to 60 characters": "Hake fillets 500 g Perla",
+    "IME PROIZVODA - skraceno": "Oslić fileti Perla",
+    "PRODUCT NAME - short": "Hake fillets Perla",
     "LATINSKI NAZIV - do 60 znakova": "Merluccius hubbsi",
     "Kataloški broj: ": 21049,
     FeaturedPerla: "",
@@ -237,6 +253,8 @@ export const catalogData = [
   {
     "IME PROIZVODA - do 60 znakova": "Lignja Peškafondo 500 g Perla",
     "PRODUCT NAME - up to 60 characters": "Squid Peškafondo 500 g Perla",
+    "IME PROIZVODA - skraceno": "Lignja Peškafondo Perla",
+    "PRODUCT NAME - short": "Squid Peškafondo Perla",
     "LATINSKI NAZIV - do 60 znakova": "Loligo Reynaudi",
     "Kataloški broj: ": 20968,
     FeaturedPerla: "",
@@ -266,6 +284,8 @@ export const catalogData = [
   {
     "IME PROIZVODA - do 60 znakova": "Vongole 750 g Perla",
     "PRODUCT NAME - up to 60 characters": "Vongole 750 g Perla",
+    "IME PROIZVODA - skraceno": "Vongole Perla",
+    "PRODUCT NAME - short": "Vongole Perla",
     "LATINSKI NAZIV - do 60 znakova": "Meretrix Lyrata",
     "Kataloški broj: ": 20841,
     FeaturedPerla: "",
@@ -293,8 +313,10 @@ export const catalogData = [
       "",
   },
   {
-    "IME PROIZVODA - do 60 znakova": "Temeljac od škampa 450 g Perla ",
+    "IME PROIZVODA - do 60 znakova": "Temeljac od škampa 450 g Perla",
     "PRODUCT NAME - up to 60 characters": "Shrimp stock 450 g Perla",
+    "IME PROIZVODA - skraceno": "Temeljac od škampa Perla",
+    "PRODUCT NAME - short": "Shrimp stock Perla",
     "LATINSKI NAZIV - do 60 znakova": "-",
     "Kataloški broj: ": 20985,
     FeaturedPerla: "",
@@ -324,6 +346,8 @@ export const catalogData = [
   {
     "IME PROIZVODA - do 60 znakova": "Temeljac riblji 450 g Perla",
     "PRODUCT NAME - up to 60 characters": "Fish stock 450 g Perla",
+    "IME PROIZVODA - skraceno": "Temeljac riblji Perla",
+    "PRODUCT NAME - short": "Fish stock Perla",
     "LATINSKI NAZIV - do 60 znakova": "-",
     "Kataloški broj: ": 20986,
     FeaturedPerla: "",
@@ -354,6 +378,8 @@ export const catalogData = [
     "IME PROIZVODA - do 60 znakova": "Krakovi za peku i salatu 1000 g Perla",
     "PRODUCT NAME - up to 60 characters":
       "Crab sticks for baking and salad 1000 g Perla",
+    "IME PROIZVODA - skraceno": "Krakovi za peku i salatu Perla",
+    "PRODUCT NAME - short": "Crab sticks for baking and salad Perla",
     "LATINSKI NAZIV - do 60 znakova": "Dosidicus gigas",
     "Kataloški broj: ": 21021,
     FeaturedPerla: "",
@@ -383,6 +409,8 @@ export const catalogData = [
   {
     "IME PROIZVODA - do 60 znakova": "Bakalar Lofoten namočen očišćen Perla",
     "PRODUCT NAME - up to 60 characters": "Cod Lofoten soaked cleaned Perla",
+    "IME PROIZVODA - skraceno": "Bakalar Lofoten namočen očišćen Perla",
+    "PRODUCT NAME - short": "Cod Lofoten soaked cleaned Perla",
     "LATINSKI NAZIV - do 60 znakova": "Gadus morhua",
     "Kataloški broj: ": 20861,
     FeaturedPerla: "",
@@ -412,6 +440,8 @@ export const catalogData = [
   {
     "IME PROIZVODA - do 60 znakova": "Sipa crnilo 2x4 g",
     "PRODUCT NAME - up to 60 characters": "Sipa black 2x4 g",
+    "IME PROIZVODA - skraceno": "Sipa crnilo",
+    "PRODUCT NAME - short": "Cuttlefish black ink",
     "LATINSKI NAZIV - do 60 znakova": "-",
     "Kataloški broj: ": 14026,
     FeaturedPerla: "",

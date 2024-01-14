@@ -38,6 +38,7 @@ import { catalogData } from "../../../../catalogData.js";
 import { useState } from "react";
 import { useEffect } from "react";
 import Link from "next/link.js";
+import { clearStorage } from "mapbox-gl";
 
 function ReceptSection({ data }) {
   const [current, setCurrent] = useState(1);
@@ -62,14 +63,61 @@ function ReceptSection({ data }) {
   const perlaProizvodFeatured = catalogData.find(
     (s) =>
       data.receptData.node.perlaRecepti.perlaSastojci !== null &&
-      s["IME PROIZVODA - do 60 znakova"] ===
+      s["IME PROIZVODA - skraceno"] ===
         data.receptData.node.perlaRecepti.perlaSastojci[0].perlaProizvodUReceptu
   );
+
+  const perlaProizvodiFeatured =
+    data.receptData.node.perlaRecepti.perlaSastojci;
+  const perlaProizvodiFeaturedEng =
+    data.receptData.node.perlaRecepti.perlaSastojciEng;
+  perlaProizvodiFeatured.forEach((sastojak) => {
+    sastojak.punoImeProizvoda = null;
+    sastojak.idProizvoda = null;
+    for (let j = 0; j < catalogData.length; j++) {
+      if (
+        sastojak.perlaProizvodUReceptu ===
+        catalogData[j][["IME PROIZVODA - skraceno"]]
+      ) {
+        sastojak.punoImeProizvoda =
+          catalogData[j]["IME PROIZVODA - do 60 znakova"];
+        sastojak.idProizvoda = catalogData[j]["Kataloški broj: "];
+      }
+    }
+  });
+  perlaProizvodiFeaturedEng.forEach((sastojak) => {
+    sastojak.punoImeProizvodaEng = null;
+    sastojak.idProizvoda = null;
+    for (let j = 0; j < catalogData.length; j++) {
+      if (
+        sastojak.perlaProizvodUReceptu ===
+        catalogData[j][["PRODUCT NAME - short"]]
+      ) {
+        sastojak.punoImeProizvoda =
+          catalogData[j]["PRODUCT NAME - up to 60 characters"];
+        sastojak.idProizvoda = catalogData[j]["Kataloški broj: "];
+      }
+    }
+  });
+
+  console.log(perlaProizvodiFeatured);
   const perlaProizvodFeaturedCatNumber =
     perlaProizvodFeatured["Kataloški broj: "];
   const sastojciPerla = data.receptData.node.perlaRecepti.perlaSastojci.map(
     (s) => s
   );
+
+  // receptiSaKataloskimBrojemPerlaProizvoda.forEach((recept) => {
+  //   recept.catalogId = null;
+  //   for (let j = 0; j < catalogData.length; j++) {
+  //     if (
+  //       recept.node.perlaRecepti.perlaSastojci[0].perlaProizvodUReceptu ===
+  //       catalogData[j]["IME PROIZVODA - do 60 znakova"]
+  //     ) {
+  //       recept.catalogId = catalogData[j]["Kataloški broj: "];
+  //     }
+  //   }
+  // });
   const sastojciPerlaEng =
     data.receptData.node.perlaRecepti.perlaSastojciEng.map((s) => s);
   // useEffect(() => {
@@ -83,7 +131,6 @@ function ReceptSection({ data }) {
   //     data.receptData.node.perlaRecepti.perlaSastojciEng.map((s) => s)
   //   );
   // }, []);
-  console.log("Data", data);
 
   // const perlaProizvodFeaturedCatNumber =
   //   perlaProizvodFeatured["Kataloški broj:"];
@@ -178,22 +225,60 @@ function ReceptSection({ data }) {
           <NaslovSastojci>
             {locale === "hr" ? "SASTOJCI" : "INGREDIENTS"}
           </NaslovSastojci>
-
+          {/* <ul>
+            {sastojciPerla.map((sastojak) =>
+              catalogData.map((data) => {
+                data["IME PROIZVODA - skraceno"] ===
+                  sastojak.perlaProizvodUReceptu && (
+                  <li
+                    key={sastojak.perlaProizvodUReceptu}
+                    className="perlaProizvod"
+                  >
+                    {console.log(
+                      sastojak.perlaProizvodUReceptu,
+                      personNumber * sastojak.kolicina
+                    )}
+                    {sastojak.perlaProizvodUReceptu},{" "}
+                    {(personNumber * sastojak.kolicina)
+                      .toFixed(2)
+                      .replace(/[.,]00$/, "")}
+                    {sastojak.jedinicnaMjera}
+                  </li>
+                );
+              })
+            )}
+          </ul> */}
           <ul>
             {locale === "hr"
               ? [
-                  perlaProizvodFeatured !== undefined &&
-                    sastojciPerla.map((sastojak) => (
-                      <li
-                        key={sastojak.perlaProizvodUReceptu}
-                        className="perlaProizvod"
+                  perlaProizvodiFeatured !== undefined &&
+                    perlaProizvodiFeatured.map((sastojak) => (
+                      <Link
+                        href={`/proizvodi/${
+                          slugify(
+                            sastojak.punoImeProizvoda
+                              .toLowerCase()
+                              .split(" ")
+                              .join("-"),
+                            {
+                              locale: "hrv",
+                            }
+                          ) +
+                          "-" +
+                          sastojak.idProizvoda
+                        }`}
                       >
-                        {sastojak.perlaProizvodUReceptu},{" "}
-                        {(personNumber * sastojak.kolicina)
-                          .toFixed(2)
-                          .replace(/[.,]00$/, "")}{" "}
-                        {sastojak.jedinicnaMjera}
-                      </li>
+                        <li
+                          key={sastojak.perlaProizvodUReceptu}
+                          className="perlaProizvod"
+                        >
+                          {sastojak.perlaProizvodUReceptu},{" "}
+                          {(personNumber * sastojak.kolicina)
+                            .toFixed(2)
+                            .replace(/[.,]00$/, "")}{" "}
+                          {sastojak.jedinicnaMjera}
+                        </li>
+                      </Link>
                     )),
                   data.receptData.node.perlaRecepti.sastojcizaglavnojelo.map(
                     (sastojak) => (
@@ -208,18 +293,34 @@ function ReceptSection({ data }) {
                   ),
                 ]
               : [
-                  perlaProizvodFeatured !== undefined &&
-                    sastojciPerlaEng.map((sastojak) => (
-                      <li
-                        key={sastojak.perlaProizvodUReceptu}
-                        className="perlaProizvod"
+                  perlaProizvodiFeaturedEng !== undefined &&
+                    perlaProizvodiFeaturedEng.map((sastojak) => (
+                      <Link
+                        href={`/proizvodi/${
+                          slugify(
+                            sastojak.punoImeProizvoda
+                              .toLowerCase()
+                              .split(" ")
+                              .join("-"),
+                            {
+                              locale: "eng",
+                            }
+                          ) +
+                          "-" +
+                          sastojak.idProizvoda
+                        }`}
                       >
-                        {sastojak.perlaProizvodUReceptu},{" "}
-                        {(personNumber * sastojak.kolicina)
-                          .toFixed(2)
-                          .replace(/[.,]00$/, "")}{" "}
-                        {sastojak.jedinicnaMjera}
-                      </li>
+                        <li
+                          key={sastojak.perlaProizvodUReceptu}
+                          className="perlaProizvod"
+                        >
+                          {sastojak.perlaProizvodUReceptu},{" "}
+                          {(personNumber * sastojak.kolicina)
+                            .toFixed(2)
+                            .replace(/[.,]00$/, "")}{" "}
+                          {sastojak.jedinicnaMjera}
+                        </li>
+                      </Link>
                     )),
                   data.receptData.node.perlaRecepti.sastojcizaglavnojeloEng.map(
                     (sastojak) => (

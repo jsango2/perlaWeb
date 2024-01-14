@@ -13,6 +13,7 @@ import {
   ProizvodName,
   WrapLogoPerla,
   Button,
+  RedLine,
 } from "./style.js";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -54,6 +55,11 @@ function NasiProizvodi() {
   return (
     <div>
       <WrapAll ref={ref}>
+        <RedLine>
+          <WrapLogoPerla>
+            <Image src="/perlaLogo.svg" layout="fill" />
+          </WrapLogoPerla>
+        </RedLine>
         <WrapContent>
           <BlueLine />
           <Title>{locale === "hr" ? "NAŠI PROIZVODI" : "OUR PRODUCTS"}</Title>

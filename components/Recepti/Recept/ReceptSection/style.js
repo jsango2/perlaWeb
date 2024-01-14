@@ -102,6 +102,7 @@ export const Sastojci = styled.div`
   .perlaProizvod {
     color: #4299c8;
     font-weight: 700;
+    cursor: pointer;
   }
 
   /* @media only screen and (max-width: 1400px) {

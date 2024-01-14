@@ -33,7 +33,7 @@ export default function ProizvodPage({ pageData, params, recepti }) {
   //   locale === "hr" ? novost.textNovosti : novost.textNovostiEng;
   // const htmlString = `<div>${textNovosti}</div>`;
 
-  let namirnica = pageData["IME PROIZVODA - do 60 znakova"];
+  let namirnica = pageData["IME PROIZVODA - skraceno"];
 
   // const namirnicaNoSpaces = namirnica.toLowerCase().replaceAll(" ", "");
 

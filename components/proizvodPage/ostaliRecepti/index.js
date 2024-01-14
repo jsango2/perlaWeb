@@ -35,7 +35,7 @@ function OstaliRecepti({ receptiSaProizvodom }) {
     for (let j = 0; j < catalogData.length; j++) {
       if (
         recept.node.perlaRecepti.perlaSastojci[0].perlaProizvodUReceptu ===
-        catalogData[j]["IME PROIZVODA - do 60 znakova"]
+        catalogData[j]["IME PROIZVODA - skraceno"]
       ) {
         recept.catalogId = catalogData[j]["Kataloški broj: "];
       }

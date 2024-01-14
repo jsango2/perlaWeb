@@ -71,11 +71,13 @@ function Hero({ pageData }) {
                 ? pageData["OPIS (DO 300 ZNAKOVA)"]
                 : pageData["OPIS ENGLESKI"]}
             </strong>
-            <div>
-              {pageData["NAČIN SMRZAVANJA"] !== "-" && locale === "hr"
-                ? `Način smrzavanja: ${pageData["NAČIN SMRZAVANJA"]}`
-                : `Freezing method: ${pageData["NAČIN SMRZAVANJA"]}`}
-            </div>
+            {pageData["NAČIN SMRZAVANJA"] !== "-" && (
+              <div>
+                {locale === "hr"
+                  ? `Način smrzavanja: ${pageData["NAČIN SMRZAVANJA"]}`
+                  : `Freezing method: ${pageData["NAČIN SMRZAVANJA"]}`}
+              </div>
+            )}
           </WrapInfo>
           <WrapCerts>
             {pageData["IFS Food"] === "DA" ? (
