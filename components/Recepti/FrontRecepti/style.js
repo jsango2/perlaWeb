@@ -128,7 +128,7 @@ export const WrapCategories = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 15px;
-  margin-bottom: 60px;
+  margin-bottom: 0px;
   flex-wrap: wrap;
   @media only screen and (max-width: 850px) {
     width: 90vw;
@@ -147,7 +147,7 @@ export const WrapRecipies = styled.div`
   padding-bottom: ${(props) => (props.samoRecepti ? 100 : 0)}px;
 
   @media only screen and (max-width: 650px) {
-    margin-top: 0;
+    margin-top: 30px;
   }
 `;
 export const Recipe = styled.div`
@@ -253,6 +253,13 @@ export const Category = styled.div`
   line-height: 120%; /* 19.2px */
   margin: 6px 7px;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: #6e9cbe;
+  }
+  &:active {
+    background-color: #203849;
+  }
   @media only screen and (max-width: 650px) {
     font-size: 14px;
     height: 26px;

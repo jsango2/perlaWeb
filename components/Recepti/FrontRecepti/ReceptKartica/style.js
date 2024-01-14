@@ -123,8 +123,8 @@ export const Recipe = styled.div`
   position: relative;
   z-index: 10;
   width: 350px;
-  height: 431px;
-  border-radius: 22px;
+  height: 356px;
+  border-radius: 10px;
   overflow: hidden;
   /* background-color: white; */
   margin: 15px;
@@ -145,13 +145,13 @@ export const Recipe = styled.div`
   }
   @media only screen and (max-width: 760px) {
     width: 46vw;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     margin: 15px 8px;
   }
   @media only screen and (max-width: 550px) {
     width: 90vw;
-    height: 345px;
-    border-radius: 15px;
+    height: 325px;
+    /* border-radius: 15px; */
     margin: 15px 8px;
   }
   @media only screen and (max-width: 430px) {
@@ -163,7 +163,7 @@ export const PhotoWrap = styled.div`
   position: relative;
   z-index: 9;
   width: 100%;
-  height: 338px;
+  height: 100%;
   transition: all 0.8s ease-in-out;
 
   background: ${(props) => `url(${props.photo}) no-repeat center center`};
@@ -217,21 +217,24 @@ export const WrapRecipe = styled(Link)`
   }
 `;
 export const TextWrap = styled.div`
-  position: relative;
+  box-sizing: border-box;
+  position: absolute;
   z-index: 10;
   width: auto;
-  height: 98px;
+  height: 80px;
+  width: 100%;
+  bottom: 0;
   color: #1c2640;
   /* P */
   font-family: Gilroy;
   font-size: 16px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 140%; /* 22.4px */
-  border-radius: 0 0 20px 20px;
+  border-radius: 0 0 10px 10px;
   overflow: hidden;
   cursor: pointer;
-  background-color: white;
+  background-color: #ffffffc4;
   padding: 15px 26px;
   transition: all 0.3s ease-in-out;
   /* &:hover {
@@ -256,12 +259,12 @@ export const Time = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  bottom: 130px;
+  bottom: 90px;
   left: 20px;
   display: flex;
   align-items: center;
   @media only screen and (max-width: 550px) {
-    bottom: 110px;
+    /* bottom: 90px; */
   }
 `;
 export const Overlay = styled.div`

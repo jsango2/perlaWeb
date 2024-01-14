@@ -26,7 +26,7 @@ export const HeroContent = styled.div`
   width: 1440px;
   height: 100%;
   background: url("/heroBg.webp") no-repeat center center / cover;
-
+  /* transform: scale(${(props) => props.percentage}); */
   background-size: cover;
   @media only screen and (max-width: 1100px) {
   }

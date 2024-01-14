@@ -306,17 +306,17 @@ export const LogoHks = styled.div`
   position: relative;
   z-index: 10;
   margin-top: 65px;
-  width: 190px;
-  height: 185px;
+  width: 120px;
+  height: 120px;
   @media only screen and (max-width: 850px) {
-    width: 170px;
-    height: 170px;
+    width: 100px;
+    height: 100px;
     margin: 85px auto 0 auto;
   }
   @media only screen and (max-width: 430px) {
     position: absolute;
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
     /* margin: 45px auto 0 auto; */
     top: 290px;
     left: 20px;
@@ -412,7 +412,7 @@ export const Potpis = styled.div`
   height: 300px;
 
   left: -135px;
-  top: ${(props) => props.percentage * 50 + 100}px;
+  top: ${(props) => props.percentage * 50 + 190}px;
   @media only screen and (max-width: 1000px) {
     width: 220px;
     height: 230px;
@@ -431,8 +431,8 @@ export const Potpis = styled.div`
 export const PozadinaPerla = styled.div`
   position: absolute;
   z-index: 10;
-  width: 860px;
-  height: 750px;
+  width: 560px;
+  height: 550px;
   bottom: ${(props) => props.percentage * 70}px;
 
   left: -195px;

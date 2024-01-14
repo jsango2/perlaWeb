@@ -41,6 +41,14 @@ body .slick-next::before {
   format: truetype;
   font-display: swap;
 }
+@font-face {
+  font-family: "Gilroy";
+  src: url("../assets/fonts/gilroy/Gilroy-Medium.ttf");
+  font-weight: 500;
+  font-style: normal;
+  format: truetype;
+  font-display: swap;
+}
 :root {
   --color-boja-marikomerc-plava: #1c2640ff;
   --color-boja-perla-crvena: #e1251bff;

@@ -40,7 +40,7 @@ function Hero() {
     <div>
       <HeroWrap>
         <PercentageDiv ref={ref2} />
-        <HeroContent>
+        <HeroContent percentage={percentage10}>
           <Galeb1 percentage={percentage10}>
             <Image src="/galeb1.png" layout="fill" />
           </Galeb1>
