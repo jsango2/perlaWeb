@@ -101,6 +101,7 @@ export const WrapLogoPerla = styled.div`
   @media only screen and (max-width: 650px) {
     top: 111px;
     width: 170px;
+    display: none;
   }
 `;
 export const RedLine = styled.div`

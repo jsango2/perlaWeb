@@ -218,7 +218,7 @@ function FrontRecepti({ recepti, samoRecepti }) {
                 ))
               : (size.width < 850
                   ? sortedRecipes.slice(0, 4)
-                  : sortedRecipes.slice(0, 6)
+                  : sortedRecipes.slice(0, 8)
                 ).map((recept) => (
                   <ReceptKartica
                     key={recept.node.id}

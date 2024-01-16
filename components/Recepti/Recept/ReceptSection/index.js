@@ -160,11 +160,16 @@ function ReceptSection({ data }) {
           </NaslovRecepta>
           <PripremaVrijeme>
             {" "}
-            <span>
-              {locale === "hr" ? "Priprema" : "Preparation"} :{" "}
-              {data.receptData.node.perlaRecepti.trajanjePripreme} min
-            </span>{" "}
-            <span style={{ margin: "0 5px" }}>|</span>
+            {data.receptData.node.perlaRecepti.trajanjePripreme !== null ? (
+              <>
+                <span>
+                  {locale === "hr" ? "Priprema" : "Preparation"} :{" "}
+                  {data.receptData.node.perlaRecepti.trajanjePripreme} min
+                </span>
+
+                <span style={{ margin: "0 5px" }}>|</span>
+              </>
+            ) : null}
             <span>
               {locale === "hr" ? "Kuhanje" : "Cooking"} :{" "}
               {data.receptData.node.perlaRecepti.trajanjeKuhanja} min

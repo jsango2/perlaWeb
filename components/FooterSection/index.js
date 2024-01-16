@@ -54,23 +54,33 @@ function FooterSection() {
         </Title>
         <Social>
           <Link href="/">
-            <Image src="/instagram.svg" width={25} height={25} />
+            <div style={{ cursor: "pointer" }}>
+              <Image src="/instagram.svg" width={25} height={25} />
+            </div>
           </Link>
 
           <Link href="/">
-            <Image src="/Instagram.svg" width={25} height={25} />
+            <div style={{ cursor: "pointer" }}>
+              <Image src="/Instagram.svg" width={25} height={25} />
+            </div>
           </Link>
 
           <Link href="/">
-            <Image src="/Linkedin.svg" width={25} height={25} />
+            <div style={{ cursor: "pointer" }}>
+              <Image src="/Linkedin.svg" width={25} height={25} />
+            </div>
           </Link>
 
           <Link href="/">
-            <Image src="/Facebook.svg" width={25} height={25} />
+            <div style={{ cursor: "pointer" }}>
+              <Image src="/Facebook.svg" width={25} height={25} />
+            </div>
           </Link>
 
           <Link href="/">
-            <Image src="/Email.svg" width={25} height={25} />
+            <div style={{ cursor: "pointer" }}>
+              <Image src="/Email.svg" width={25} height={25} />
+            </div>
           </Link>
         </Social>
 
