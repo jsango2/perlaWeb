@@ -180,7 +180,8 @@ export const WrapCerts = styled.div`
   width: 100%;
   display: flex;
   margin-bottom: 30px;
-  @media only screen and (max-width: 1300px) {
+  @media only screen and (max-width: 600px) {
+    height: 33px;
   }
 `;
 export const Download = styled.a`
@@ -202,11 +203,30 @@ export const WrapCert = styled.div`
   position: relative;
   z-index: 10;
   height: 100%;
-  max-width: 150px;
+  width: 109px;
+  @media only screen and (max-width: 600px) {
+    /* margin-top: 35px; */
+    top: 5px;
+    margin: 5px 0 0 0;
+    width: 55px;
+  }
+`;
+export const WrapCertMSC = styled(WrapCert)`
+  width: 170px;
   @media only screen and (max-width: 600px) {
     /* margin-top: 35px; */
     top: 5px;
     margin: 5px 0 0 0;
     max-width: 87px;
+  }
+`;
+export const WrapCertZZ = styled(WrapCert)`
+  width: 80px;
+
+  @media only screen and (max-width: 600px) {
+    /* margin-top: 35px; */
+    top: 5px;
+    margin: 5px 0 0 0;
+    max-width: 42px;
   }
 `;

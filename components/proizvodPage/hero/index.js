@@ -14,6 +14,8 @@ import {
   WrapInfo,
   WrapCerts,
   WrapCert,
+  WrapCertZZ,
+  WrapCertMSC,
   Download,
 } from "./style.js";
 import Image from "next/image";
@@ -82,36 +84,25 @@ function Hero({ pageData }) {
           <WrapCerts>
             {pageData["IFS Food"] === "DA" ? (
               <WrapCert>
-                <Image
-                  src="/IFSfood.svg"
-                  width={140}
-                  height={65}
-                  objectFit="cover"
-                />
+                <Image src="/IFSfood.svg" layout="fill" objectFit="contain" />
               </WrapCert>
             ) : null}
             <div style={{ marginLeft: "10px" }}>
               {pageData["Certifikat 'MSC' (DA/NE)"] === "DA" ? (
-                <WrapCert>
-                  <Image
-                    src="/MSC.svg"
-                    width={55}
-                    height={65}
-                    objectFit="cover"
-                  />
-                </WrapCert>
+                <WrapCertMSC>
+                  <Image src="/MSC.svg" layout="fill" objectFit="contain" />
+                </WrapCertMSC>
               ) : null}
             </div>
             <div style={{ marginLeft: "10px" }}>
               {pageData["Certifikat 'Živjeti Zdravo' (DA/NE)"] === "DA" ? (
-                <WrapCert>
+                <WrapCertZZ>
                   <Image
                     src="/zivjetizdravo.svg"
-                    width={80}
-                    height={65}
-                    objectFit="cover"
+                    layout="fill"
+                    objectFit="contain"
                   />
-                </WrapCert>
+                </WrapCertZZ>
               ) : null}
             </div>
           </WrapCerts>
