@@ -15,41 +15,56 @@ import { getAllRecepti } from "../lib/api2.js";
 import KaoVrhunski from "../components/Recepti/FrontRecepti/KuhajKaoVrhunski/index.js";
 import { WrapAll } from "../components/Recepti/FrontRecepti/style.js";
 import { catalogData } from "../catalogData.js";
+import { useRouter } from "next/router.js";
 
 export default function IndexPage({ allRecepti }) {
   const context = useContext(AppContext);
   const size = useWindowSize();
-  // useEffect(() => {
-  //   context.setNovostiNasloviContext(novostiNaslovi);
-  // }, []);
+  const router = useRouter();
+  const { locale } = router;
 
-  // let namirnica = "Lignje";
-  // let receptiSaVongolama = [];
-  // const filtrirano = () =>
-  //   allRecepti.edges.map((post) => {
-  //     post.node.perlaRecepti.sastojcizaglavnojelo.map((r) => {
-  //       if (r.nazivNamirnice.toLowerCase().includes(namirnica.toLowerCase())) {
-  //         receptiSaVongolama.push(post);
-  //       }
-  //     });
-  //   });
-  // filtrirano();
-
-  // const results = catalogData.filter((post) => {
-  //   if (e.target.value === "") return filteredData;
-  //   if (locale === "hr") {
-  //     return post["IME PROIZVODA - do 60 znakova"]
-  //       .toLowerCase()
-  //       .includes(e.target.value.toLowerCase());
-  //   }
-  //   if (locale === "en") {
-  //     return post["PRODUCT NAME - up to 60 characters"]
-  //       .toLowerCase()
-  //       .includes(e.target.value.toLowerCase());
-  //   }
-  // });
   return (
     <Layout>
+      <Head>
+        <title>Perla Recepti</title>
+        <meta property="og:title" content="Perla recepti" key="title" />
+        {/* <link
+            rel="canonical"
+            href="https://www.runzadar.com"
+            key="canonical"
+          /> */}
+
+        <meta name="twitter:card" content="summary_large_image" />
+
+        {/* <meta property="og:url" content="https://www.runzadar.com" /> */}
+
+        <meta property="og:image" content="/perlaOGimage.png" />
+        <meta
+          name="description"
+          content={
+            locale === "hr"
+              ? "Otkrijte raznolike recepte na Perla web stranici, idealne za ljubitelje morskih plodova. Pronađite inspiraciju za vaš sljedeći obrok, od jednostavnih do gurmanskih jela."
+              : "Discover a variety of recipes on Perla's website, perfect for seafood enthusiasts. From simple to gourmet, find inspiration for your next meal."
+          }
+          key="desc"
+        />
+        <meta
+          property="og:description"
+          content={
+            locale === "hr"
+              ? "Otkrijte raznolike recepte na Perla web stranici, idealne za ljubitelje morskih plodova. Pronađite inspiraciju za vaš sljedeći obrok, od jednostavnih do gurmanskih jela."
+              : "Discover a variety of recipes on Perla's website, perfect for seafood enthusiasts. From simple to gourmet, find inspiration for your next meal."
+          }
+        />
+        <meta
+          property="twitter:description"
+          content={
+            locale === "hr"
+              ? "Otkrijte raznolike recepte na Perla web stranici, idealne za ljubitelje morskih plodova. Pronađite inspiraciju za vaš sljedeći obrok, od jednostavnih do gurmanskih jela."
+              : "Discover a variety of recipes on Perla's website, perfect for seafood enthusiasts. From simple to gourmet, find inspiration for your next meal."
+          }
+        />
+      </Head>
       <Hero />
 
       <FrontRecepti recepti={allRecepti} />
