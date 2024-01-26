@@ -28,11 +28,18 @@ export default function IndexPage({ allRecepti }) {
       <Head>
         <title>Perla Recepti</title>
         <meta property="og:title" content="Perla recepti" key="title" />
+
         {/* <link
-            rel="canonical"
-            href="https://www.runzadar.com"
-            key="canonical"
-          /> */}
+          rel="alternate"
+          hreflang={locale === "hr" ? "hr" : "en"}
+          href={locale === "hr" ? "https://www.perla.hr":"https://www.perla.hr/en"}
+          data-react-helmet="true"
+        ></link> */}
+        {/* <link
+          rel="canonical"
+          href={locale === "hr" ? "https://www.perla.hr":"https://www.perla.hr/en"}
+          data-react-helmet="true"
+        ></link> */}
 
         <meta name="twitter:card" content="summary_large_image" />
 

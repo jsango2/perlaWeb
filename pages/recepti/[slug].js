@@ -38,13 +38,16 @@ export default function News({
   // const textNovosti =
   //   locale === "hr" ? novost.textNovosti : novost.textNovostiEng;
   // const htmlString = `<div>${textNovosti}</div>`;
-
+  console.log("PageData::::", pageData);
+  const recept = pageData.node.perlaRecepti;
   return (
     <Layout receptiNaslovi={receptiNaslovi.edges}>
-      <Recept receptData={pageData} recepti={recepti} />
-      {/* <Head>
-        <title> {locale === "hr" ? novost.naslov : novost.naslovEng}</title>
-        <link
+      <Head>
+        <title>
+          {" "}
+          {locale === "hr" ? recept.naslovRecepta : recept.naslovReceptaEng}
+        </title>
+        {/* <link
           rel="canonical"
           href={
             locale === "hr"
@@ -64,14 +67,14 @@ export default function News({
                 }`
           }
           key="canonical"
-        />
+        /> */}
 
         <meta
           property="og:title"
           content={
             locale === "hr"
-              ? `Marikomerc - ${novost.naslov}`
-              : `Marikomerc - ${novost.naslovEng}`
+              ? `Perla - ${recept.naslovRecepta}`
+              : `Perla - ${recept.naslovReceptaEng}`
           }
           key="title"
         />
@@ -79,35 +82,35 @@ export default function News({
           name="twitter:title"
           content={
             locale === "hr"
-              ? `Marikomerc - ${novost.naslov}`
-              : `Marikomerc - ${novost.naslovEng}`
+              ? `Perla - ${recept.naslovRecepta}`
+              : `Perla - ${recept.naslovReceptaEng}`
           }
         />
         <meta
           name="twitter:description"
           content={
-            locale === "hr" ? `${novost.seoOpis}` : `${novost.seoDescription}`
+            locale === "hr" ? recept.naslovRecepta : recept.naslovReceptaEng
           }
         />
         <meta
           name="twitter:image"
-          content={`${novost.istaknutaFotografija.sourceUrl}`}
+          content={recept.fotografijaRecepta.sourceUrl}
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="description"
           content={
-            locale === "hr" ? `${novost.seoOpis}` : `${novost.seoDescription}`
+            locale === "hr" ? recept.naslovRecepta : recept.naslovReceptaEng
           }
           key="desc"
         />
         <meta
           property="og:description"
           content={
-            locale === "hr" ? `${novost.seoOpis}` : `${novost.seoDescription}`
+            locale === "hr" ? recept.naslovRecepta : recept.naslovReceptaEng
           }
         />
-        <meta
+        {/* <meta
           property="og:url"
           content={
             locale === "hr"
@@ -126,33 +129,13 @@ export default function News({
                   novost.datum.split("/").join("-")
                 }`
           }
-        />
+        /> */}
         <meta
           property="og:image"
-          content={`${novost.istaknutaFotografija.sourceUrl}`}
+          content={recept.fotografijaRecepta.sourceUrl}
         />
-      </Head> */}
-      {/* <FeaturedImage>
-        <Image
-          src={novost.istaknutaFotografija.sourceUrl}
-          layout="fill"
-          objectFit="cover"
-        ></Image>
-      </FeaturedImage>
-      <TextSection>
-        <WrapContent>
-          <TitleBlock>
-            <Datum>{novost.datum}</Datum>
-            <Naslov>
-              {" "}
-              {locale === "hr" ? novost.naslov : novost.naslovEng}
-            </Naslov>
-            <BlueLine />
-          </TitleBlock>
-          <Content>{parse(htmlString)}</Content>
-        </WrapContent>
-      </TextSection>
-      <OtherNews novosti={novosti} /> */}
+      </Head>
+      <Recept receptData={pageData} recepti={recepti} />
     </Layout>
   );
 }

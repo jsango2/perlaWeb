@@ -260,6 +260,7 @@ function ReceptSection({ data }) {
                   perlaProizvodiFeatured !== undefined &&
                     perlaProizvodiFeatured.map((sastojak) => (
                       <Link
+                        key={sastojak.idProizvoda}
                         href={`/proizvodi/${
                           slugify(
                             sastojak.punoImeProizvoda
@@ -280,9 +281,7 @@ function ReceptSection({ data }) {
                           className="perlaProizvod"
                         >
                           {sastojak.perlaProizvodUReceptu},{" "}
-                          {(personNumber * sastojak.kolicina)
-                            .toFixed(2)
-                            .replace(/[.,]00$/, "")}{" "}
+                          {(personNumber * sastojak.kolicina).toString()}{" "}
                           {sastojak.jedinicnaMjera}
                         </li>
                       </Link>
@@ -291,9 +290,9 @@ function ReceptSection({ data }) {
                     (sastojak) => (
                       <li key={sastojak.nazivNamirnice}>
                         {sastojak.nazivNamirnice},{" "}
-                        {(personNumber * sastojak.kolicina)
+                        {(+(personNumber * sastojak.kolicina))
                           .toFixed(2)
-                          .replace(/[.,]00$/, "")}{" "}
+                          .replace(/([0-9]+(\.[0-9]+[1-9])?)(\.?0+$)/, "$1")}
                         {sastojak.jedinicnaMjera}
                       </li>
                     )
@@ -376,7 +375,7 @@ function ReceptSection({ data }) {
                   .sastojciZaDodatniPrilog !== null &&
                 data.receptData.node.perlaRecepti.dodatniPrilog.sastojciZaDodatniPrilog.map(
                   (sastojak) => (
-                    <li>
+                    <li key={sastojak.nazivNamirnice}>
                       {sastojak.nazivNamirnice},{" "}
                       {(personNumber * sastojak.kolicina)
                         .toFixed(2)
@@ -389,7 +388,7 @@ function ReceptSection({ data }) {
                   .sastojciZaDodatniPrilogEng !== null &&
                 data.receptData.node.perlaRecepti.dodatniPrilogEng.sastojciZaDodatniPrilogEng.map(
                   (sastojak) => (
-                    <li>
+                    <li key={sastojak.nazivNamirniceEng}>
                       {sastojak.nazivNamirniceEng},{" "}
                       {(personNumber * sastojak.kolicinaEng)
                         .toFixed(2)
@@ -458,7 +457,7 @@ function ReceptSection({ data }) {
           {locale === "hr"
             ? data.receptData.node.perlaRecepti.postupakPoKoracima.map(
                 (korak, index) => (
-                  <PostupakPripreme>
+                  <PostupakPripreme key={index}>
                     <RedniBroj>
                       {index < 9 && 0}
                       {index + 1}
@@ -469,7 +468,7 @@ function ReceptSection({ data }) {
               )
             : data.receptData.node.perlaRecepti.postupakPoKoracimaEng.map(
                 (korak, index) => (
-                  <PostupakPripreme>
+                  <PostupakPripreme key={index}>
                     <RedniBroj>
                       {index < 9 && 0}
                       {index + 1}
@@ -493,7 +492,7 @@ function ReceptSection({ data }) {
                   </NaslovReceptaPrilog>
                   {data.receptData.node.perlaRecepti.postupakPoKoracimaPrilog.map(
                     (korak, index) => (
-                      <PostupakPripreme>
+                      <PostupakPripreme key={index}>
                         <RedniBroj>
                           {index < 9 && 0}
                           {index + 1}
@@ -515,7 +514,7 @@ function ReceptSection({ data }) {
                   </NaslovReceptaPrilog>
                   {data.receptData.node.perlaRecepti.postupakPoKoracimaPrilogEng.map(
                     (korak, index) => (
-                      <PostupakPripreme>
+                      <PostupakPripreme key={index}>
                         <RedniBroj>
                           {index < 9 && 0}
                           {index + 1}
