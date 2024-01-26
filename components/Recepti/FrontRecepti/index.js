@@ -54,7 +54,7 @@ function FrontRecepti({ recepti, samoRecepti }) {
   // recepti.edges.map((post, i) => {
   //   post.node.perlaRecepti.tag.map((tag) => tags.push(tag.name));
   // });
-
+  console.log("Recepti", sortedRecipes);
   const receptiSaKataloskimBrojemPerlaProizvoda = recepti.edges;
 
   receptiSaKataloskimBrojemPerlaProizvoda.forEach((recept) => {
