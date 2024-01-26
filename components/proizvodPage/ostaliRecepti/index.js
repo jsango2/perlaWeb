@@ -72,6 +72,7 @@ function OstaliRecepti({ receptiSaProizvodom }) {
                           .split(" ")
                           .join("-"),
                         {
+                          strict: true,
                           locale: "hrv",
                         }
                       ) +
@@ -83,7 +84,8 @@ function OstaliRecepti({ receptiSaProizvodom }) {
                           .split(" ")
                           .join("-"),
                         {
-                          locale: "hrv",
+                          strict: true,
+                          locale: "eng",
                         }
                       ) +
                       "-" +

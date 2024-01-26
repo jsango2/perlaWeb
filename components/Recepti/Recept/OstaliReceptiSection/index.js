@@ -76,6 +76,7 @@ function OstaliRecepti({ data }) {
                       .join("-"),
                     {
                       locale: "hrv",
+                      strict: true,
                     }
                   ) +
                   "-" +
@@ -86,7 +87,8 @@ function OstaliRecepti({ data }) {
                       .split(" ")
                       .join("-"),
                     {
-                      locale: "hrv",
+                      locale: "eng",
+                      strict: true,
                     }
                   ) +
                   "-" +

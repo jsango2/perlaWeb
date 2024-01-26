@@ -150,6 +150,15 @@ export const WrapRecipies = styled.div`
     margin-top: 30px;
   }
 `;
+export const Pagination = styled.div`
+  position: relative;
+  z-index: 10;
+  margin: 30px auto 0 auto;
+  width: 700px;
+  @media only screen and (max-width: 700px) {
+    width: 80vw;
+  }
+`;
 export const Recipe = styled.div`
   position: relative;
   z-index: 10;

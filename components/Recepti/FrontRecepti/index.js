@@ -11,12 +11,7 @@ import {
   WrapCategories,
   Category,
   WrapRecipies,
-  Recipe,
-  PhotoWrap,
-  TextWrap,
-  Time,
-  Overlay,
-  Timer,
+  Pagination,
   Button,
   Text,
   Photo,
@@ -26,6 +21,7 @@ import {
 } from "./style.js";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import ReactPaginate from "react-paginate";
 
 import useWindowSize from "../../helper/usewindowsize.js";
 // import { useTranslations } from "next-intl";
@@ -38,6 +34,8 @@ import Link from "next/link.js";
 import { catalogData } from "../../../catalogData.js";
 
 function FrontRecepti({ recepti, samoRecepti }) {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(9);
   console.log(recepti);
   console.log(catalogData);
   const [sortedRecipes, setSortedRecipes] = useState(recepti.edges);
@@ -64,7 +62,7 @@ function FrontRecepti({ recepti, samoRecepti }) {
     for (let j = 0; j < catalogData.length; j++) {
       if (
         recept.node.perlaRecepti.perlaSastojci[0].perlaProizvodUReceptu ===
-        catalogData[j]["IME PROIZVODA - do 60 znakova"]
+        catalogData[j]["IME PROIZVODA - skraceno"]
       ) {
         recept.catalogId = catalogData[j]["Kataloški broj: "];
       }
@@ -135,6 +133,27 @@ function FrontRecepti({ recepti, samoRecepti }) {
   //     s["IME PROIZVODA - do 60 znakova"] ===
   //       data.receptData.node.perlaRecepti.perlaSastojci[0].perlaProizvodUReceptu
   // );
+
+  // PAGINATE:
+
+  const paginationClick = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  };
+  const [page, setPage] = useState();
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const [itemOffset, setItemOffset] = useState([]);
+  // const [newOffset2, setNewOffset2] = useState([]);
+  const currentListPaginated = sortedRecipes.slice(
+    indexOfFirstPost,
+    indexOfLastPost
+  );
+  const paginate = ({ selected }) => {
+    setCurrentPage(selected + 1);
+  };
+
+  const [itemsPerPage] = useState(9);
   console.log(samoRecepti);
   return (
     <div>
@@ -197,6 +216,7 @@ function FrontRecepti({ recepti, samoRecepti }) {
                               .split(" ")
                               .join("-"),
                             {
+                              strict: true,
                               locale: "hrv",
                             }
                           ) +
@@ -208,7 +228,8 @@ function FrontRecepti({ recepti, samoRecepti }) {
                               .split(" ")
                               .join("-"),
                             {
-                              locale: "hrv",
+                              strict: true,
+                              locale: "eng",
                             }
                           ) +
                           "-" +
@@ -240,6 +261,7 @@ function FrontRecepti({ recepti, samoRecepti }) {
                               .split(" ")
                               .join("-"),
                             {
+                              strict: true,
                               locale: "hrv",
                             }
                           ) +
@@ -251,7 +273,8 @@ function FrontRecepti({ recepti, samoRecepti }) {
                               .split(" ")
                               .join("-"),
                             {
-                              locale: "hrv",
+                              strict: true,
+                              locale: "eng",
                             }
                           ) +
                           "-" +
@@ -260,6 +283,28 @@ function FrontRecepti({ recepti, samoRecepti }) {
                   ></ReceptKartica>
                 ))}
           </WrapRecipies>
+          {/* <Pagination>
+            <ReactPaginate
+              activeClassName={"item active "}
+              breakClassName={"item break-me "}
+              breakLabel={"..."}
+              containerClassName={"pagination"}
+              disabledClassName={"disabled-page"}
+              onPageChange={paginate}
+              pageCount={Math.ceil(sortedRecipes.length / postsPerPage)}
+              previousLabel={""}
+              nextLabel={""}
+              nextClassName={"item next "}
+              pageClassName={"pageClassName"}
+              pageLinkClassName={"pagelink"}
+              previousLinkClassName={"page-number"}
+              nextLinkClassName={"page-number"}
+              activeLinkClassName={"activePage"}
+              previousClassName={"item previous"}
+              forcePage={page}
+              onClick={paginationClick}
+            />
+          </Pagination> */}
           {samoRecepti !== true && (
             <>
               <Link href="/recepti">

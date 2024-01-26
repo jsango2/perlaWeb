@@ -140,6 +140,7 @@ function PerlaProizvodi() {
                               .join("-"),
                             {
                               locale: "hrv",
+                              strict: true,
                             }
                           ) +
                           "-" +
@@ -153,6 +154,7 @@ function PerlaProizvodi() {
                               .join("-"),
                             {
                               locale: "eng",
+                              strict: true,
                             }
                           ) +
                           "-" +

@@ -55,14 +55,16 @@ function NasiProizvodi() {
   return (
     <div>
       <WrapAll ref={ref}>
-        <RedLine>
+        <RedLine id="ProizvodiSectionMobile">
           <WrapLogoPerla>
             <Image src="/perlaLogo.svg" layout="fill" />
           </WrapLogoPerla>
         </RedLine>
         <WrapContent>
           <BlueLine />
-          <Title>{locale === "hr" ? "NAŠI PROIZVODI" : "OUR PRODUCTS"}</Title>
+          <Title id="ProizvodiSection">
+            {locale === "hr" ? "NAŠI PROIZVODI" : "OUR PRODUCTS"}
+          </Title>
           <Proizvodi>
             {(sliced ? perlaData : perlaData.slice(0, 8)).map((data) => (
               <Link
@@ -75,6 +77,7 @@ function NasiProizvodi() {
                             .split(" ")
                             .join("-"),
                           {
+                            strict: true,
                             locale: "hrv",
                           }
                         ) +
@@ -88,6 +91,7 @@ function NasiProizvodi() {
                             .split(" ")
                             .join("-"),
                           {
+                            strict: true,
                             locale: "eng",
                           }
                         ) +

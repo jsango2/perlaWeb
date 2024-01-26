@@ -49,10 +49,16 @@ function LanguageSwitcher({
       if (asPath.includes("/recepti/")) {
         const getTranslationRouteForNews = receptiNaslovi.filter((naslov) =>
           locale === "en"
-            ? naslov.node.perlaRecepti.naslovReceptaEng
-                .toLowerCase()
-                .split(" ")
-                .join("-") +
+            ? slugify(
+                naslov.node.perlaRecepti.naslovReceptaEng
+                  .toLowerCase()
+                  .split(" ")
+                  .join("-"),
+                {
+                  strict: true,
+                  locale: "eng",
+                }
+              ) +
                 "-" +
                 new Date(naslov.node.date).toISOString().split("T")[0] ===
               getSlug
@@ -63,20 +69,25 @@ function LanguageSwitcher({
                   .join("-") +
                   "-" +
                   new Date(naslov.node.date).toISOString().split("T")[0],
-                { locale: "hrv" }
+
+                { locale: "hrv", strict: true }
               ) === getSlug
         );
-
+        // console.log("GTR:::::", getTranslationRouteForNews);
         const matchingUrl =
           locale === "hr"
-            ? getTranslationRouteForNews[0].node.perlaRecepti.naslovReceptaEng
-                .toLowerCase()
-                .split(" ")
-                .join("-") +
-              "-" +
-              new Date(getTranslationRouteForNews[0].node.date)
-                .toISOString()
-                .split("T")[0]
+            ? slugify(
+                getTranslationRouteForNews[0].node.perlaRecepti.naslovReceptaEng
+                  .toLowerCase()
+                  .split(" ")
+                  .join("-") +
+                  "-" +
+                  new Date(getTranslationRouteForNews[0].node.date)
+                    .toISOString()
+                    .split("T")[0],
+
+                { locale: "eng", strict: true }
+              )
             : slugify(
                 getTranslationRouteForNews[0].node.perlaRecepti.naslovRecepta
                   .toLowerCase()
@@ -86,7 +97,8 @@ function LanguageSwitcher({
                   new Date(getTranslationRouteForNews[0].node.date)
                     .toISOString()
                     .split("T")[0],
-                { locale: "hrv" }
+
+                { locale: "hrv", strict: true }
               );
         console.log(matchingUrl);
         return router.push(matchingUrl, undefined, { locale: lang });

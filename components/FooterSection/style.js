@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const WrapAll = styled.div`
   position: relative;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
   height: auto;
   background: radial-gradient(
@@ -124,7 +124,7 @@ export const CopyLink = styled.div`
 `;
 export const WrapLogoPerla = styled.div`
   position: relative;
-  z-index: 10;
+  z-index: 11;
   /* top: 160px; */
   width: 324px;
   height: 152px;

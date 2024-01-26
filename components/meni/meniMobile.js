@@ -20,8 +20,10 @@ const MeniMobile = ({
   oglasiNaslovi,
 }) => {
   const [isOnamaMenuOpen, setIsOnamaMenuOpen] = useState(false);
+
   const { locale } = useRouter();
   const [blockScroll, allowScroll] = useScrollBlock();
+  const router = useRouter();
 
   // const history = useHistory()
   // const goToHome = () => {
@@ -38,6 +40,8 @@ const MeniMobile = ({
   return (
     <>
       <div className={`menu ${isOpen ? "openMenu" : "closedMenu"}`}>
+        {/* <div className={`menu ${isOpen ? "openMenu" : "closedMenu"}`}> */}
+        {/* className={` ${inView ? "inViewHero" : "outViewHero"}`} */}
         {/* <div
           onClick={() => {
             setIsOnamaMenuOpen(!isOnamaMenuOpen);
@@ -65,13 +69,7 @@ const MeniMobile = ({
             </Link>
           </div>
         )} */}
-        <Link
-          className="mobileLinks"
-          href="/"
-          // onClick={() => {
-          //   setIsOpen(false);
-          // }}
-        >
+        <Link className="mobileLinks" href="/">
           {locale === "hr" ? "Početna stranica" : "Home"}
         </Link>
         {/* <Link
@@ -80,6 +78,30 @@ const MeniMobile = ({
         >
           {locale === "hr" ? "Proizvodi" : "Products"}
         </Link> */}
+        {router.pathname === "/" ? (
+          <Link
+            // className="navLink"
+            href="#ProizvodiSectionMobile"
+            scroll={false}
+          >
+            <a
+              className="mobileLinks"
+              onClick={() => {
+                setIsOpen(false);
+              }}
+            >
+              {locale === "hr" ? "Proizvodi" : "Products"}
+            </a>
+          </Link>
+        ) : (
+          <Link
+            // className="navLink"
+            href="/#ProizvodiSectionMobile"
+            scroll={false}
+          >
+            {locale === "hr" ? "Proizvodi" : "Products"}
+          </Link>
+        )}
         {/* <Link href="/horeca">
           {locale === "hr" ? "HoReCa suradnja" : "HoReCa collaboration"}
         </Link> */}

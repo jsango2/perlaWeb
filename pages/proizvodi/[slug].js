@@ -219,6 +219,7 @@ export async function getStaticPaths({ locales }) {
               .join("-"),
             {
               locale: "hrv",
+              strict: true,
             }
           ) +
           "-" +
@@ -241,6 +242,7 @@ export async function getStaticPaths({ locales }) {
               .join("-"),
             {
               locale: "eng",
+              strict: true,
             }
           ) +
           "-" +
@@ -267,6 +269,7 @@ export async function getStaticProps({ params }) {
           .join("-"),
         {
           locale: "hrv",
+          strict: true,
         }
       ) +
         "-" +
@@ -279,6 +282,7 @@ export async function getStaticProps({ params }) {
           .join("-"),
         {
           locale: "eng",
+          strict: true,
         }
       ) +
         "-" +

@@ -34,7 +34,7 @@ const Header = ({ siteTitle, receptiNaslovi }) => {
   function handleCloseMenu() {
     setIsOpen(false);
   }
-
+  console.log("Pathname::::", router.pathname);
   // useEffect(() => {
   //   isOpen == true ? blockScroll() : allowScroll();
   // }, [isOpen]);
@@ -55,6 +55,7 @@ const Header = ({ siteTitle, receptiNaslovi }) => {
   //     height: "65px",
   //   }}
   // >
+  console.log("Otvoren meni mobile::::", isOpen);
   return (
     <>
       {/* <Script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15/dist/smooth-scroll.polyfills.min.js" /> */}
@@ -100,9 +101,23 @@ const Header = ({ siteTitle, receptiNaslovi }) => {
                     </Link>
                   </div>
                   <div>
-                    <Link className="navLink" href="/horeca">
-                      {locale === "hr" ? "Proizvodi" : "Products"}
-                    </Link>
+                    {router.pathname === "/" ? (
+                      <Link
+                        className="navLink"
+                        href="#ProizvodiSection"
+                        scroll={false}
+                      >
+                        {locale === "hr" ? "Proizvodi" : "Products"}
+                      </Link>
+                    ) : (
+                      <Link
+                        className="navLink"
+                        href="/#ProizvodiSection"
+                        scroll={false}
+                      >
+                        {locale === "hr" ? "Proizvodi" : "Products"}
+                      </Link>
+                    )}
                   </div>
 
                   <div>

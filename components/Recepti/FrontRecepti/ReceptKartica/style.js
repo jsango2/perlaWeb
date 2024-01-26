@@ -198,7 +198,7 @@ export const Timer = styled.div`
 export const FeaturedPerlaImage = styled.div`
   position: absolute;
   z-index: 11;
-  bottom: 130px;
+  bottom: 86px;
   right: 10px;
   width: 140px;
   height: 110px;

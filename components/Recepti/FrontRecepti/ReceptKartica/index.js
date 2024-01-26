@@ -33,6 +33,8 @@ function ReceptKartica({ photo, naslov, trajanje, link, catalogId }) {
   const { locale } = router;
   // const t = locale === "en" ? en : hr;
 
+  console.log("Catalog id:", catalogId);
+
   return (
     <WrapRecipe href={`/recepti/${link}`}>
       <Recipe>
