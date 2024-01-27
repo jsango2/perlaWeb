@@ -59,7 +59,7 @@ function ReceptKartica({
           {trajanje} min
         </Time>
         <PhotoWrap className="photoWrap">
-          {/* <Image
+          <Image
             src={photo}
             // src={`${photo.slice(0, -4)}-768x432.png`}
             layout="fill"
@@ -67,8 +67,8 @@ function ReceptKartica({
             quality={100}
             placeholder="blur"
             blurDataURL={`${photo}?auto=format,compress&q=1&blur=100&w=2`}
-          /> */}
-          <img srcSet={photoSrcSet} height={360} />
+          />
+          {/* <img srcSet={photoSrcSet} height={360} /> */}
         </PhotoWrap>
         <TextWrap className="cardTextBg">{naslov}</TextWrap>
       </Recipe>
