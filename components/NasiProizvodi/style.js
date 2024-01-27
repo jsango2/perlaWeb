@@ -72,35 +72,16 @@ export const Title = styled.h1`
     font-size: 26px;
   }
 `;
-export const Proizvod = styled.div`
-  position: relative;
-  z-index: 11;
-  width: 273px;
-  height: auto;
-  /* background: linear-gradient(180deg, #a4d4ff 0%, rgba(255, 255, 255, 0) 100%); */
-  /* opacity: 0.09; */
-  /* SUNRISE/Sunray */
 
-  border-radius: 39px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  @media only screen and (max-width: 1300px) {
-    width: 100%;
-    height: auto;
-  }
-`;
 export const WrapCerts = styled.div`
   position: absolute;
   z-index: 12;
-  height: 35px;
-  width: 90%;
+  height: 26px;
+  width: 63%;
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
   top: 240px;
-  left: 18px;
   @media only screen and (max-width: 1200px) {
     left: 22px;
     width: 87%;
@@ -113,7 +94,7 @@ export const WrapCert = styled.div`
   position: relative;
   z-index: 10;
   height: 100%;
-  width: 58px;
+  width: 50px;
   @media only screen and (max-width: 1200px) {
     width: 40px;
   }
@@ -122,7 +103,7 @@ export const WrapCert = styled.div`
   }
 `;
 export const WrapCertMSC = styled(WrapCert)`
-  width: 88px;
+  width: 68px;
   @media only screen and (max-width: 1200px) {
     width: 55px;
   }
@@ -130,7 +111,7 @@ export const WrapCertMSC = styled(WrapCert)`
   }
 `;
 export const WrapCertZZ = styled(WrapCert)`
-  width: 50px;
+  width: 40px;
   @media only screen and (max-width: 1200px) {
     width: 35px;
   }
@@ -270,16 +251,41 @@ export const ProizvodName = styled.p`
 export const Overlay = styled.div`
   position: absolute;
   z-index: 11;
-  width: 100%;
-  height: 100%;
+  width: 150%;
+  height: 150%;
   background: linear-gradient(180deg, #a4d4ff 0%, rgba(255, 255, 255, 0) 100%);
   opacity: 0.09;
   /* SUNRISE/Sunray */
-  border: 1px solid #f5faff;
 
-  border-radius: 39px;
-
+  /* border-radius: 39px; */
+  transition: all 0.5s ease-in-out;
   @media only screen and (max-width: 600px) {
+  }
+`;
+export const Proizvod = styled.div`
+  position: relative;
+  z-index: 11;
+  width: 273px;
+  height: auto;
+  /* background: linear-gradient(180deg, #a4d4ff 0%, rgba(255, 255, 255, 0) 100%); */
+  /* opacity: 0.09; */
+  /* SUNRISE/Sunray */
+  border: 1px solid #f5faff1f;
+  border-radius: 39px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  &:hover .proizvodBG {
+    transform: rotate(90deg);
+  }
+  &:hover .proizvodImg {
+    transform: rotate(8deg) translate(0px, 0px) scale(1, 1) skew(-7deg, 0deg);
+  }
+  @media only screen and (max-width: 1300px) {
+    width: 100%;
+    height: auto;
   }
 `;
 export const WrapProizvodImage = styled.div`
@@ -292,6 +298,8 @@ export const WrapProizvodImage = styled.div`
   background-size: 80px 80px;
   background-repeat: no-repeat;
   background-position: center;
+  transition: all 0.5s ease-in-out;
+  transform: scale(0.9);
   @media only screen and (max-width: 1300px) {
     /* width: 116px; */
     /* height: 182px; */
@@ -459,7 +467,7 @@ export const Potpis = styled.div`
   width: 330px;
   height: 300px;
 
-  left: -135px;
+  left: -35px;
   top: ${(props) => props.percentage * 50 + 190}px;
   @media only screen and (max-width: 1000px) {
     width: 220px;
@@ -483,7 +491,7 @@ export const PozadinaPerla = styled.div`
   height: 550px;
   bottom: ${(props) => props.percentage * 70}px;
 
-  left: -195px;
+  left: 0px;
   @media only screen and (max-width: 1000px) {
     left: -95px;
 

@@ -55,7 +55,7 @@ function KaramarkoComp() {
   const handleClick = () => {};
   return (
     <Karamarko ref={ref}>
-      <Left>
+      <Left ref={ref3}>
         <PozadinaPerla percentage={percentage}>
           <Image src="/perlaLogoShell.svg" layout="fill" />
         </PozadinaPerla>{" "}

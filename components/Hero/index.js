@@ -52,11 +52,11 @@ function Hero() {
           <Galeb3 percentage={percentage10}>
             <Image src="/galeb3.png" layout="fill" />
           </Galeb3>
-          <RedLine>
+          {/* <RedLine>
             <WrapLogoPerla>
               <Image src="/perlaLogo.svg" layout="fill" />
             </WrapLogoPerla>
-          </RedLine>
+          </RedLine> */}
         </HeroContent>
       </HeroWrap>
     </div>

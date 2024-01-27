@@ -140,8 +140,8 @@ function NasiProizvodi() {
                         </div>
                       )}
                     </WrapCerts>
-                    <Overlay />
-                    <WrapProizvodImage>
+                    <Overlay className="proizvodBG" />
+                    <WrapProizvodImage className="proizvodImg">
                       <Image
                         src={`/productImages/${data["Kataloški broj: "]}.webp`}
                         layout="fill"

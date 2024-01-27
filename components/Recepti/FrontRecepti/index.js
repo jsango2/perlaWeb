@@ -155,11 +155,11 @@ function FrontRecepti({ recepti, samoRecepti }) {
   return (
     <div>
       <WrapAll ref={ref}>
-        {/* <RedLine>
+        <RedLine>
           <WrapLogoPerla>
             <Image src="/perlaLogo.svg" layout="fill" />
           </WrapLogoPerla>
-        </RedLine> */}
+        </RedLine>
 
         <WrapContent2>
           {router.pathname !== "/recepti" && (

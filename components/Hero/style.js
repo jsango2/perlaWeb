@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 export const HeroWrap = styled.div`
   position: relative;
-  z-index: 2;
+  z-index: 1;
 
   height: 389px;
   width: 100vw;
@@ -73,9 +73,9 @@ export const Galeb1 = styled.div`
 
   width: 300px;
   height: 230px;
-  bottom: ${(props) => props.percentage - 20}%;
+  bottom: ${(props) => props.percentage}%;
   @media only screen and (max-width: 850px) {
-    bottom: ${(props) => props.percentage - 5}%;
+    bottom: ${(props) => props.percentage}%;
 
     right: ${(props) => props.percentage + 60}%;
 
@@ -88,6 +88,7 @@ export const PercentageDiv = styled.div`
   top: 100vh;
   height: 100%;
   width: 100%;
+  z-index: 0;
   @media only screen and (max-width: 850px) {
   }
 `;
