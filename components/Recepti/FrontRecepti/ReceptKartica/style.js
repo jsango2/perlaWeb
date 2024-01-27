@@ -221,7 +221,7 @@ export const TextWrap = styled.div`
   position: absolute;
   z-index: 10;
   width: auto;
-  height: 80px;
+  height: 100px;
   width: 100%;
   bottom: 0;
   color: #1c2640;
@@ -235,7 +235,7 @@ export const TextWrap = styled.div`
   overflow: hidden;
   cursor: pointer;
   background-color: #ffffffc4;
-  padding: 15px 26px;
+  padding: 13px 26px 15px 26px;
   transition: all 0.3s ease-in-out;
   /* &:hover {
     background-color: #00304a;
@@ -259,7 +259,7 @@ export const Time = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  bottom: 90px;
+  bottom: 110px;
   left: 20px;
   display: flex;
   align-items: center;

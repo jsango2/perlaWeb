@@ -114,7 +114,7 @@ export const WrapContent2 = styled.div`
     width: 100vw;
   }
   @media only screen and (max-width: 650px) {
-    padding-top: 120px;
+    padding-top: 90px;
     padding-bottom: 0;
   }
 `;
@@ -260,7 +260,7 @@ export const Category = styled.div`
   font-style: normal;
   font-weight: 500;
   line-height: 120%; /* 19.2px */
-  margin: 6px 7px;
+  margin: 4px 5px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   &:hover {

@@ -21,12 +21,12 @@ import {
   Broj,
   WrapTopTitle,
   WrapNasloviBroj,
+  YouTubeWrap,
 } from "./style.js";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import parse from "html-react-parser";
 import slugify from "slugify";
-
 import useWindowSize from "../../../helper/usewindowsize.js";
 // import { useTranslations } from "next-intl";
 import en from "../../../../locales/en.json";
@@ -525,6 +525,19 @@ function ReceptSection({ data }) {
                   )}
                 </div>
               )}
+          {data.receptData.node.perlaRecepti.youtubeLinkVidea !== null && (
+            <YouTubeWrap>
+              <iframe
+                width="100%"
+                height="100%"
+                src={`https://www.youtube.com/embed/GIRKrtwHl88?si=VQ-PGBd6ieBfM4Kj`}
+                title="Perla video recepta"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+            </YouTubeWrap>
+          )}
         </Postupak>
       </WrapContent>
       {data.receptData.node.perlaRecepti.fotografijaReceptaDonja.sourceUrl !==

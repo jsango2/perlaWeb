@@ -73,8 +73,8 @@ export default function News({
           property="og:title"
           content={
             locale === "hr"
-              ? `Perla - ${recept.naslovRecepta}`
-              : `Perla - ${recept.naslovReceptaEng}`
+              ? `Perla recepti - ${recept.naslovRecepta}`
+              : `Perla recepti - ${recept.naslovReceptaEng}`
           }
           key="title"
         />
@@ -82,8 +82,8 @@ export default function News({
           name="twitter:title"
           content={
             locale === "hr"
-              ? `Perla - ${recept.naslovRecepta}`
-              : `Perla - ${recept.naslovReceptaEng}`
+              ? `Perla recepti - ${recept.naslovRecepta}`
+              : `Perla recepti - ${recept.naslovReceptaEng}`
           }
         />
         <meta

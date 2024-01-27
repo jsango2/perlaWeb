@@ -154,7 +154,7 @@ function FrontRecepti({ recepti, samoRecepti }) {
   };
 
   const [itemsPerPage] = useState(9);
-  console.log(samoRecepti);
+  console.log("ROUTER::::", router);
   return (
     <div>
       <WrapAll ref={ref}>
@@ -165,21 +165,28 @@ function FrontRecepti({ recepti, samoRecepti }) {
         </RedLine>
 
         <WrapContent2>
-          {" "}
-          <BlueLine />
-          {locale === "hr" ? (
-            <Title>
-              NAŠI RECEPTI SU
-              <span style={{ color: "#4299C8" }}> JEDNOSTAVNI I ZABAVNI </span>
-              PROVJERITE ZAŠTO
-            </Title>
-          ) : (
-            <Title>
-              OUR RECIPES ARE{" "}
-              <span style={{ color: "#4299C8" }}>SIMPLE AND FUN</span>, CHECK
-              WHY
-            </Title>
+          {router.pathname !== "/recepti" && (
+            <>
+              <BlueLine />
+              {locale === "hr" ? (
+                <Title>
+                  NAŠI RECEPTI SU
+                  <span style={{ color: "#4299C8" }}>
+                    {" "}
+                    JEDNOSTAVNI I ZABAVNI{" "}
+                  </span>
+                  PROVJERITE ZAŠTO
+                </Title>
+              ) : (
+                <Title>
+                  OUR RECIPES ARE{" "}
+                  <span style={{ color: "#4299C8" }}>SIMPLE AND FUN</span>,
+                  CHECK WHY
+                </Title>
+              )}
+            </>
           )}
+
           <WrapCategories>
             {locale === "hr" ? (
               <Category onClick={() => handleTagClick("Svi")}>Svi</Category>

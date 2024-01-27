@@ -44,7 +44,7 @@ export const WrapContent = styled.div`
   grid-row-gap: 8px;
   padding-top: 50px;
   padding-bottom: 100px;
-  margin-left: 20px;
+  margin-left: 30px;
   /* @media only screen and (max-width: 1400px) {
     padding: 100px 0 70px 70px;
   } */
@@ -57,7 +57,7 @@ export const WrapContent = styled.div`
   }
   @media only screen and (max-width: 430px) {
     align-items: flex-start;
-    margin-left: 20px;
+    margin-left: 30px;
   }
 `;
 export const WrapTopTitle = styled.div`
@@ -452,6 +452,25 @@ export const WrapFeaturedImage = styled.div`
   }
   @media only screen and (max-width: 430px) {
     width: 90vw;
+  }
+`;
+export const YouTubeWrap = styled.div`
+  position: relative;
+  z-index: 1;
+  height: 400px;
+  width: 100%;
+  margin-top: 60px;
+  /* @media only screen and (max-width: 1400px) {
+    padding: 100px 0 70px 70px;
+  } */
+  background-color: gray;
+
+  @media only screen and (max-width: 850px) {
+    width: 100%;
+    height: 62vw;
+  }
+  @media only screen and (max-width: 430px) {
+    /* width: 90vw; */
   }
 `;
 export const BottomOverlay = styled.div`
