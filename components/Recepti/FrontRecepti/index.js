@@ -154,7 +154,7 @@ function FrontRecepti({ recepti, samoRecepti }) {
   };
 
   const [itemsPerPage] = useState(9);
-  console.log("ROUTER::::", router);
+  console.log("sortedRecepies::::", sortedRecipes);
   return (
     <div>
       <WrapAll ref={ref}>
@@ -209,6 +209,9 @@ function FrontRecepti({ recepti, samoRecepti }) {
                     photo={
                       recept.node.perlaRecepti.fotografijaRecepta.sourceUrl
                     }
+                    photoSrcSet={
+                      recept.node.perlaRecepti.fotografijaRecepta.srcSet
+                    }
                     trajanje={recept.node.perlaRecepti.trajanjeKuhanja}
                     naslov={
                       locale === "hr"
@@ -253,6 +256,9 @@ function FrontRecepti({ recepti, samoRecepti }) {
                     catalogId={recept.catalogId}
                     photo={
                       recept.node.perlaRecepti.fotografijaRecepta.sourceUrl
+                    }
+                    photoSrcSet={
+                      recept.node.perlaRecepti.fotografijaRecepta.srcSet
                     }
                     trajanje={recept.node.perlaRecepti.trajanjeKuhanja}
                     naslov={

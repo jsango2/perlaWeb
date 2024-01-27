@@ -165,9 +165,12 @@ export const PhotoWrap = styled.div`
   width: 100%;
   height: 100%;
   transition: all 0.8s ease-in-out;
+  img {
+    object-fit: cover;
+  }
 
-  background: ${(props) => `url(${props.photo}) no-repeat center center`};
-  background-size: cover;
+  /* background: ${(props) => `url(${props.photo}) no-repeat center center`};
+  background-size: cover; */
   @media only screen and (max-width: 850px) {
   }
 `;

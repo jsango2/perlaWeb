@@ -8,7 +8,7 @@ export const HeroWrap = styled.div`
   position: relative;
   z-index: 1;
 
-  height: 410px;
+  height: 510px;
   width: 100%;
   display: flex;
   justify-content: center;

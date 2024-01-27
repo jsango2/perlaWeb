@@ -21,7 +21,14 @@ import useWindowSize from "../../../helper/usewindowsize.js";
 import { useInView } from "react-intersection-observer";
 import { catalogData } from "../../../../catalogData.js";
 
-function ReceptKartica({ photo, naslov, trajanje, link, catalogId }) {
+function ReceptKartica({
+  photo,
+  photoSrcSet,
+  naslov,
+  trajanje,
+  link,
+  catalogId,
+}) {
   const { ref, inView, entry } = useInView({
     /* Optional options */
     threshold: 0.2,
@@ -33,7 +40,7 @@ function ReceptKartica({ photo, naslov, trajanje, link, catalogId }) {
   const { locale } = router;
   // const t = locale === "en" ? en : hr;
 
-  console.log("Catalog id:", catalogId);
+  console.log("Photo srcSet:", photoSrcSet);
 
   return (
     <WrapRecipe href={`/recepti/${link}`}>
@@ -51,7 +58,23 @@ function ReceptKartica({ photo, naslov, trajanje, link, catalogId }) {
           <Timer />
           {trajanje} min
         </Time>
-        <PhotoWrap photo={photo} className="photoWrap"></PhotoWrap>
+        <PhotoWrap className="photoWrap">
+          {/* <Image
+            src={photo}
+            // src={`${photo.slice(0, -4)}-768x432.png`}
+            layout="fill"
+            objectFit="cover"
+            quality={100}
+            placeholder="blur"
+            blurDataURL={`${photo}?auto=format,compress&q=1&blur=100&w=2`}
+          /> */}
+          <img
+            srcSet={photoSrcSet}
+            src="/perlaLogo.svg"
+            width="450"
+            height="350"
+          />
+        </PhotoWrap>
         <TextWrap className="cardTextBg">{naslov}</TextWrap>
       </Recipe>
     </WrapRecipe>

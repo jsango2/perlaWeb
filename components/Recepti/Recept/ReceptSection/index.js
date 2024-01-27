@@ -101,7 +101,6 @@ function ReceptSection({ data }) {
     }
   });
 
-  console.log(perlaProizvodiFeatured);
   const perlaProizvodFeaturedCatNumber =
     perlaProizvodFeatured["Kataloški broj: "];
   const sastojciPerla = data.receptData.node.perlaRecepti.perlaSastojci.map(
@@ -144,7 +143,7 @@ function ReceptSection({ data }) {
     current === kat ? setCurrent(null) : setCurrent(kat);
     setPersonNumber(kat);
   };
-  console.log("PERLA FEATURED", perlaProizvodFeatured);
+
   return (
     <WrapAll>
       <RedLine>
