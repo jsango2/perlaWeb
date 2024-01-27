@@ -59,8 +59,6 @@ function ReceptSection({ data }) {
   const { locale } = router;
   const t = locale === "en" ? en : hr;
 
-  console.log(data);
-
   const perlaProizvodFeatured = catalogData.find(
     (s) =>
       data.receptData.node.perlaRecepti.perlaSastojci !== null &&

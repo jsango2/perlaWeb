@@ -14,6 +14,10 @@ import {
   WrapLogoPerla,
   Button,
   RedLine,
+  WrapCert,
+  WrapCertMSC,
+  WrapCertZZ,
+  WrapCerts,
 } from "./style.js";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -102,6 +106,39 @@ function NasiProizvodi() {
                 key={data["Kataloški broj: "]}
               >
                 <WrapProizvod>
+                  <WrapCerts>
+                    {data["IFS Food"] === "DA" && (
+                      <WrapCert>
+                        <Image
+                          src="/IFSfood.svg"
+                          layout="fill"
+                          objectFit="contain"
+                        />
+                      </WrapCert>
+                    )}
+                    {data["Certifikat 'MSC' (DA/NE)"] === "DA" && (
+                      <div style={{ marginLeft: "10px" }}>
+                        <WrapCertMSC>
+                          <Image
+                            src="/MSC.svg"
+                            layout="fill"
+                            objectFit="contain"
+                          />
+                        </WrapCertMSC>
+                      </div>
+                    )}
+                    {data["Certifikat 'Živjeti Zdravo' (DA/NE)"] === "DA" && (
+                      <div style={{ marginLeft: "10px" }}>
+                        <WrapCertZZ>
+                          <Image
+                            src="/zivjetizdravo.svg"
+                            layout="fill"
+                            objectFit="contain"
+                          />
+                        </WrapCertZZ>
+                      </div>
+                    )}
+                  </WrapCerts>
                   <Proizvod>
                     <Overlay />
                     <WrapProizvodImage>

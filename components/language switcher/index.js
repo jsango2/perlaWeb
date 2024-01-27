@@ -26,8 +26,6 @@ function LanguageSwitcher({
     setMessage(message);
   };
 
-  console.log(catalogData);
-
   // funkcija za promjenu jezika i trazenje url-a za istu stranicu na drugom jeziku. novostiNaslovi u propsima dolazi iz parent page Novosti
   function handleRouteChange(lang) {
     if (lang != locale) {

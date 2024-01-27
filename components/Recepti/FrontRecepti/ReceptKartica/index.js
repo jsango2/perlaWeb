@@ -40,8 +40,6 @@ function ReceptKartica({
   const { locale } = router;
   // const t = locale === "en" ? en : hr;
 
-  console.log("Photo srcSet:", photoSrcSet);
-
   return (
     <WrapRecipe href={`/recepti/${link}`}>
       <Recipe>

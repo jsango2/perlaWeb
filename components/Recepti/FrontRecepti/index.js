@@ -36,8 +36,7 @@ import { catalogData } from "../../../catalogData.js";
 function FrontRecepti({ recepti, samoRecepti }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(9);
-  console.log(recepti);
-  console.log(catalogData);
+
   const [sortedRecipes, setSortedRecipes] = useState(recepti.edges);
   const { ref, inView, entry } = useInView({
     /* Optional options */
@@ -54,7 +53,6 @@ function FrontRecepti({ recepti, samoRecepti }) {
   // recepti.edges.map((post, i) => {
   //   post.node.perlaRecepti.tag.map((tag) => tags.push(tag.name));
   // });
-  console.log("Recepti", sortedRecipes);
   const receptiSaKataloskimBrojemPerlaProizvoda = recepti.edges;
 
   receptiSaKataloskimBrojemPerlaProizvoda.forEach((recept) => {
@@ -154,7 +152,6 @@ function FrontRecepti({ recepti, samoRecepti }) {
   };
 
   const [itemsPerPage] = useState(9);
-  console.log("sortedRecepies::::", sortedRecipes);
   return (
     <div>
       <WrapAll ref={ref}>

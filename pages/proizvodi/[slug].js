@@ -82,9 +82,6 @@ export default function ProizvodPage({ pageData, params, recepti }) {
       namirnica
   );
 
-  console.log(receptiSaOvimPerlaProizvodom);
-  console.log(namirnica);
-
   // const wantedArray = ["Lignja", "očišćena", "patagonica"];
 
   // const seen = "Brudet od lignja";

@@ -91,6 +91,51 @@ export const Proizvod = styled.div`
     height: 222px;
   }
 `;
+export const WrapCerts = styled.div`
+  position: absolute;
+  z-index: 12;
+  height: 35px;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  top: 240px;
+  left: 18px;
+  @media only screen and (max-width: 600px) {
+    height: 33px;
+  }
+`;
+export const WrapCert = styled.div`
+  position: relative;
+  z-index: 10;
+  height: 100%;
+  width: 58px;
+  @media only screen and (max-width: 600px) {
+    /* margin-top: 35px; */
+    top: 5px;
+    margin: 5px 0 0 0;
+    width: 55px;
+  }
+`;
+export const WrapCertMSC = styled(WrapCert)`
+  width: 88px;
+  @media only screen and (max-width: 600px) {
+    /* margin-top: 35px; */
+    top: 5px;
+    margin: 5px 0 0 0;
+    max-width: 87px;
+  }
+`;
+export const WrapCertZZ = styled(WrapCert)`
+  width: 50px;
+
+  @media only screen and (max-width: 600px) {
+    /* margin-top: 35px; */
+    top: 5px;
+    margin: 5px 0 0 0;
+    max-width: 42px;
+  }
+`;
 
 export const WrapLogoPerla = styled.div`
   position: relative;

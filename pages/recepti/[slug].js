@@ -38,7 +38,6 @@ export default function News({
   // const textNovosti =
   //   locale === "hr" ? novost.textNovosti : novost.textNovostiEng;
   // const htmlString = `<div>${textNovosti}</div>`;
-  console.log("PageData::::", pageData);
   const recept = pageData.node.perlaRecepti;
   return (
     <Layout receptiNaslovi={receptiNaslovi.edges}>

@@ -16,6 +16,7 @@ import { WrapRecipies } from "../../FrontRecepti/style.js";
 import ReceptKartica from "../../FrontRecepti/ReceptKartica/index.js";
 import slugify from "slugify";
 import { catalogData } from "../../../../catalogData.js";
+import Link from "next/link.js";
 function OstaliRecepti({ data }) {
   const { ref, inView, entry } = useInView({
     /* Optional options */
@@ -97,7 +98,11 @@ function OstaliRecepti({ data }) {
           ></ReceptKartica>
         ))}
       </WrapRecipies>
-      <Button>{locale === "hr" ? "ISTRAŽI RECEPTE" : "SEARCH RECEPIES"}</Button>
+      <Link href="/recepti">
+        <Button>
+          {locale === "hr" ? "ISTRAŽI RECEPTE" : "SEARCH RECEPIES"}
+        </Button>
+      </Link>
     </WrapAll>
   );
 }

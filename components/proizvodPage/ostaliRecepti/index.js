@@ -41,7 +41,6 @@ function OstaliRecepti({ receptiSaProizvodom }) {
       }
     }
   });
-  console.log(receptiSaKataloskimBrojemPerlaProizvoda.length);
   return (
     <>
       {receptiSaKataloskimBrojemPerlaProizvoda.length !== 0 && (
