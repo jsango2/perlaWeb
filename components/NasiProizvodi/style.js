@@ -260,6 +260,8 @@ export const Overlay = styled.div`
   /* border-radius: 39px; */
   transition: all 0.5s ease-in-out;
   @media only screen and (max-width: 600px) {
+    width: 179%;
+    height: 179%;
   }
 `;
 export const Proizvod = styled.div`
