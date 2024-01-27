@@ -72,7 +72,8 @@ function ReceptKartica({
             srcSet={photoSrcSet}
             src="/perlaLogo.svg"
             width="450"
-            height="350"
+            height="360"
+            lowsrc
           />
         </PhotoWrap>
         <TextWrap className="cardTextBg">{naslov}</TextWrap>
