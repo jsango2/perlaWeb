@@ -68,7 +68,7 @@ function ReceptKartica({
             placeholder="blur"
             blurDataURL={`${photo}?auto=format,compress&q=1&blur=100&w=2`}
           /> */}
-          <img srcSet={photoSrcSet} width="450" height="360" />
+          <img srcSet={photoSrcSet} height={360} />
         </PhotoWrap>
         <TextWrap className="cardTextBg">{naslov}</TextWrap>
       </Recipe>
