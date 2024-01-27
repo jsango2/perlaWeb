@@ -7,6 +7,8 @@ import {
   Galeb2,
   Galeb3,
   PercentageDiv,
+  RedLine,
+  WrapLogoPerla,
 } from "./style.js";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -50,28 +52,12 @@ function Hero() {
           <Galeb3 percentage={percentage10}>
             <Image src="/galeb3.png" layout="fill" />
           </Galeb3>
+          <RedLine>
+            <WrapLogoPerla>
+              <Image src="/perlaLogo.svg" layout="fill" />
+            </WrapLogoPerla>
+          </RedLine>
         </HeroContent>
-        {/* <WrapText>
-          <Title
-            ref={ref}
-            className={` ${inView ? "inViewHero" : "outViewHero"}`}
-          >
-            {t.Hero.title}
-          </Title>
-          <SubTitle className={` ${inView ? "inViewHero" : "outViewHero"}`}>
-            {t.Hero.description}
-          </SubTitle>
-  
-        </WrapText> */}
-        {/* <WrapImage>
-     
-          <video autoPlay muted loop="loop" className="videoHero" playsInline>
-            <source src="/HeroVideo.mp4" type="video/mp4" />
-          </video>
-          <Icon href="https://www.youtube.com/watch?v=JjshNMQqKnU">
-            <AiOutlineYoutube size={45} />
-          </Icon>
-        </WrapImage> */}
       </HeroWrap>
     </div>
   );

@@ -86,7 +86,7 @@ export const Overlay = styled.div`
 export const WrapProizvodImage = styled.div`
   position: relative;
   z-index: 11;
-  width: 330px;
+  width: 100%;
   height: 500px;
   padding: 20px;
   background-image: url("/karijereLogo/marikomerc.svg");

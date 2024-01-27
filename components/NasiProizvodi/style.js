@@ -88,7 +88,7 @@ export const Proizvod = styled.div`
   cursor: pointer;
   @media only screen and (max-width: 1300px) {
     width: 100%;
-    height: 222px;
+    height: auto;
   }
 `;
 export const WrapCerts = styled.div`
@@ -101,8 +101,12 @@ export const WrapCerts = styled.div`
   margin-bottom: 30px;
   top: 240px;
   left: 18px;
+  @media only screen and (max-width: 1200px) {
+    left: 22px;
+    width: 87%;
+    height: 20px;
+  }
   @media only screen and (max-width: 600px) {
-    height: 33px;
   }
 `;
 export const WrapCert = styled.div`
@@ -110,30 +114,28 @@ export const WrapCert = styled.div`
   z-index: 10;
   height: 100%;
   width: 58px;
+  @media only screen and (max-width: 1200px) {
+    width: 40px;
+  }
   @media only screen and (max-width: 600px) {
     /* margin-top: 35px; */
-    top: 5px;
-    margin: 5px 0 0 0;
-    width: 55px;
   }
 `;
 export const WrapCertMSC = styled(WrapCert)`
   width: 88px;
+  @media only screen and (max-width: 1200px) {
+    width: 55px;
+  }
   @media only screen and (max-width: 600px) {
-    /* margin-top: 35px; */
-    top: 5px;
-    margin: 5px 0 0 0;
-    max-width: 87px;
   }
 `;
 export const WrapCertZZ = styled(WrapCert)`
   width: 50px;
-
+  @media only screen and (max-width: 1200px) {
+    width: 35px;
+  }
   @media only screen and (max-width: 600px) {
     /* margin-top: 35px; */
-    top: 5px;
-    margin: 5px 0 0 0;
-    max-width: 42px;
   }
 `;
 
@@ -283,7 +285,7 @@ export const Overlay = styled.div`
 export const WrapProizvodImage = styled.div`
   position: relative;
   z-index: 11;
-  width: 157px;
+  width: 100%;
   height: 244px;
   padding: 20px;
   background-image: url("/karijereLogo/marikomerc.svg");
@@ -291,8 +293,8 @@ export const WrapProizvodImage = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   @media only screen and (max-width: 1300px) {
-    width: 116px;
-    height: 182px;
+    /* width: 116px; */
+    /* height: 182px; */
   }
 `;
 export const Karamarko = styled.div`

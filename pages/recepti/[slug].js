@@ -189,27 +189,7 @@ export async function getStaticPaths({ locales }) {
         locale: "en",
       });
     }
-    // });
   });
-
-  // novosti.edges.map((post, i) => {
-  //   // return locales.map((locale) => {
-  //   return paths.push({
-  //     params: {
-  //       slug:
-  //         slugify(
-  //           post.node.novosti.naslovEng.toLowerCase().split(" ").join("-"),
-  //           {
-  //             locale: "eng",
-  //           }
-  //         ) +
-  //         "-" +
-  //         post.node.novosti.datum.split("/").join("-"),
-  //     },
-  //     locale: "en",
-  //   });
-  //   // });
-  // });
 
   return { paths, fallback: false };
 }
@@ -255,41 +235,3 @@ export async function getStaticProps({ params }) {
     props: { pageData, recepti, receptiNaslovi, params },
   };
 }
-// export async function getStaticPaths({ locales }) {
-//   const novosti = await getAllNovosti();
-
-//   const paths = [];
-
-//   novosti.edges.map((post, i) => {
-//     return locales.map((locale) => {
-//       return paths.push({
-//         params: {
-//           slug:
-//             slugify(
-//               post.node.novosti.naslov.toLowerCase().split(" ").join("-"),
-//               { locale: "hrv" }
-//             ) +
-//             "-" +
-//             post.node.novosti.datum.split("/").join("-"),
-//         },
-//         locale: "hr",
-//       });
-//     });
-//   });
-
-//   novosti.edges.map((post, i) => {
-//     return locales.map((locale) => {
-//       return paths.push({
-//         params: {
-//           slug:
-//             post.node.novosti.naslovEng.toLowerCase().split(" ").join("-") +
-//             "-" +
-//             post.node.novosti.datum.split("/").join("-"),
-//         },
-//         locale: "en",
-//       });
-//     });
-//   });
-
-//   return { paths, fallback: false };
-// }

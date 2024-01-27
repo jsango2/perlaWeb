@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 export const HeroWrap = styled.div`
   position: relative;
-  z-index: 1;
+  z-index: 2;
 
   height: 389px;
   width: 100vw;
@@ -20,9 +20,37 @@ export const HeroWrap = styled.div`
     height: 65vw;
   }
 `;
+export const RedLine = styled.div`
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: 49px;
+  background: #e1251b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+
+  @media only screen and (max-width: 650px) {
+    height: 30px;
+  }
+  @media only screen and (max-width: 430px) {
+  }
+`;
+export const WrapLogoPerla = styled.div`
+  position: relative;
+  z-index: 10;
+  top: -10px;
+  width: 324px;
+  height: 152px;
+  @media only screen and (max-width: 650px) {
+    width: 168px;
+  }
+`;
 
 export const HeroContent = styled.div`
   position: relative;
+  z-index: 2;
   width: 1440px;
   height: 100%;
   background: url("/heroBg.webp") no-repeat center center / cover;
@@ -45,8 +73,10 @@ export const Galeb1 = styled.div`
 
   width: 300px;
   height: 230px;
-  bottom: ${(props) => props.percentage}%;
+  bottom: ${(props) => props.percentage - 20}%;
   @media only screen and (max-width: 850px) {
+    bottom: ${(props) => props.percentage - 5}%;
+
     right: ${(props) => props.percentage + 60}%;
 
     width: 30vw;
