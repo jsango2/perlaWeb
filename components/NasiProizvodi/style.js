@@ -77,26 +77,27 @@ export const WrapCerts = styled.div`
   position: absolute;
   z-index: 12;
   height: 26px;
-  width: 63%;
+  width: 171px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   margin-bottom: 30px;
-  top: 240px;
+  top: 245px;
+  margin-right: 23px;
   @media only screen and (max-width: 1200px) {
-    left: 22px;
-    width: 87%;
+    width: 130px;
     height: 20px;
   }
   @media only screen and (max-width: 600px) {
+    margin-right: 13px;
   }
 `;
 export const WrapCert = styled.div`
   position: relative;
   z-index: 10;
   height: 100%;
-  width: 50px;
+  width: 45px;
   @media only screen and (max-width: 1200px) {
-    width: 40px;
+    width: 32px;
   }
   @media only screen and (max-width: 600px) {
     /* margin-top: 35px; */
@@ -105,15 +106,15 @@ export const WrapCert = styled.div`
 export const WrapCertMSC = styled(WrapCert)`
   width: 68px;
   @media only screen and (max-width: 1200px) {
-    width: 55px;
+    width: 48px;
   }
   @media only screen and (max-width: 600px) {
   }
 `;
 export const WrapCertZZ = styled(WrapCert)`
-  width: 40px;
+  width: 34px;
   @media only screen and (max-width: 1200px) {
-    width: 35px;
+    width: 27px;
   }
   @media only screen and (max-width: 600px) {
     /* margin-top: 35px; */
@@ -256,12 +257,11 @@ export const Overlay = styled.div`
   background: linear-gradient(180deg, #a4d4ff 0%, rgba(255, 255, 255, 0) 100%);
   opacity: 0.09;
   /* SUNRISE/Sunray */
-
+  left: -20%;
   /* border-radius: 39px; */
   transition: all 0.5s ease-in-out;
   @media only screen and (max-width: 600px) {
-    width: 179%;
-    height: 179%;
+    left: -35%;
   }
 `;
 export const Proizvod = styled.div`
@@ -276,11 +276,13 @@ export const Proizvod = styled.div`
   border-radius: 39px;
   overflow: hidden;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   cursor: pointer;
   &:hover .proizvodBG {
     transform: rotate(90deg);
+    width: 250%;
+    height: 250%;
   }
   &:hover .proizvodImg {
     transform: rotate(8deg) translate(0px, 0px) scale(1, 1) skew(-7deg, 0deg);

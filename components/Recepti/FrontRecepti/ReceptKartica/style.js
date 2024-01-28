@@ -142,6 +142,9 @@ export const Recipe = styled.div`
   }
   &:hover .featuredPerlaImage {
     opacity: 1;
+
+    transform: rotate(8deg) translate(0px, 0px) scale(1.15, 1.15)
+      skew(-7deg, 0deg);
   }
   @media only screen and (max-width: 760px) {
     width: 46vw;
@@ -201,12 +204,13 @@ export const Timer = styled.div`
 export const FeaturedPerlaImage = styled.div`
   position: absolute;
   z-index: 11;
-  bottom: 86px;
-  right: 10px;
+  bottom: 85px;
+  right: 7px;
   width: 140px;
   height: 110px;
   opacity: 0;
   transition: all 0.5s ease-in-out;
+  transform: scale(0.9);
   @media only screen and (max-width: 430px) {
     bottom: 102px;
     width: 120px;

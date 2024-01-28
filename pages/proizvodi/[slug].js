@@ -82,6 +82,29 @@ export default function ProizvodPage({ pageData, params, recepti }) {
       namirnica
   );
 
+  const receptiSaProizvodima = [];
+  const sviReceptiSaOvimPerlaProizvodom = recepti.edges.filter((recept) =>
+    recept.node.perlaRecepti.perlaSastojci.map((item) => {
+      if (item.perlaProizvodUReceptu === namirnica) {
+        receptiSaProizvodima.push(recept);
+      }
+    })
+  );
+
+  console.log("RSP::::", receptiSaProizvodima);
+  // const newArr1 = filteredDataByCategory.map((v) => ({
+  //   ...v,
+  //   photoUrl: `/productImages/${v["Kataloški broj:"]}.webp`,
+  // }));
+  // newArr1.forEach((item) => {
+  //   item.hasUrl = false;
+  //   for (let j = 0; j < photoIdList.length; j++) {
+  //     if (item["Kataloški broj:"] == +photoIdList[j]) {
+  //       item.hasUrl = true;
+  //     }
+  //   }
+  // });
+
   // const wantedArray = ["Lignja", "očišćena", "patagonica"];
 
   // const seen = "Brudet od lignja";
@@ -192,7 +215,7 @@ export default function ProizvodPage({ pageData, params, recepti }) {
       </Head> */}
       <Proizvod
         pageData={pageData}
-        receptiSaProizvodom={receptiSaOvimPerlaProizvodom}
+        receptiSaProizvodom={receptiSaProizvodima}
       />
     </Layout>
   );

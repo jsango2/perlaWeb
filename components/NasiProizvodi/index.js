@@ -118,7 +118,7 @@ function NasiProizvodi() {
                         </WrapCert>
                       )}
                       {data["Certifikat 'MSC' (DA/NE)"] === "DA" && (
-                        <div style={{ marginLeft: "10px" }}>
+                        <div style={{ marginLeft: "5px" }}>
                           <WrapCertMSC>
                             <Image
                               src="/MSC.svg"
@@ -129,7 +129,7 @@ function NasiProizvodi() {
                         </div>
                       )}
                       {data["Certifikat 'Živjeti Zdravo' (DA/NE)"] === "DA" && (
-                        <div style={{ marginLeft: "10px" }}>
+                        <div style={{ marginLeft: "5px" }}>
                           <WrapCertZZ>
                             <Image
                               src="/zivjetizdravo.svg"
