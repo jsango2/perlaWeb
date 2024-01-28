@@ -22,9 +22,9 @@ export const HeroWrap = styled.div`
     align-items: flex-start;
 
   } */
-  /* @media only screen and (max-width: 430px) {
-    min-height: unset;
-  } */
+  @media only screen and (max-width: 430px) {
+    height: 320px;
+  }
 `;
 export const HeroContent = styled.div`
   position: relative;

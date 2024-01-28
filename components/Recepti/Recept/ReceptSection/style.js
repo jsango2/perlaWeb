@@ -56,6 +56,9 @@ export const WrapContent = styled.div`
     padding-top: 0px;
   }
   @media only screen and (max-width: 430px) {
+    margin-top: 80px;
+    padding-bottom: 50px;
+
     align-items: flex-start;
     margin-left: 30px;
   }
@@ -341,7 +344,9 @@ export const PripremaVrijeme = styled.div`
   /* @media only screen and (max-width: 1400px) {
     padding: 100px 0 70px 70px;
   } */
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 600px) {
+    font-size: 12px;
+
     margin-bottom: 0px;
   }
   /* @media only screen and (max-width: 430px) {
@@ -368,7 +373,7 @@ export const VideoLink = styled.div`
   position: relative;
   z-index: 1;
   display: flex;
-  width: 200px;
+  width: 120px;
   align-items: center;
   /* @media only screen and (max-width: 1400px) {
     padding: 100px 0 70px 70px;
@@ -377,7 +382,8 @@ export const VideoLink = styled.div`
     text-decoration: none;
     color: white;
   }
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 650px) {
+    width: 74px;
   }
   /* @media only screen and (max-width: 430px) {
     min-height: unset;
@@ -507,6 +513,7 @@ export const WrapFeaturedImage = styled.div`
   }
   @media only screen and (max-width: 430px) {
     width: 90vw;
+    margin: 30px auto 0 auto;
   }
 `;
 export const YouTubeWrap = styled.div`
