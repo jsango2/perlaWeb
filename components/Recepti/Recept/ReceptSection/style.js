@@ -166,7 +166,7 @@ export const NaslovSastojci = styled.h3`
   font-weight: 600;
   line-height: 120%; /* 24px */
   text-transform: uppercase;
-  margin-top: 10px;
+  margin-top: 0px;
   margin-bottom: 0;
   /* @media only screen and (max-width: 1400px) {
     padding: 100px 0 70px 70px;
@@ -404,8 +404,9 @@ export const WrapNasloviBroj = styled.div`
   z-index: 1;
   display: flex;
   flex-direction: column;
+  margin-bottom: 20px;
   @media only screen and (max-width: 850px) {
-    margin-bottom: 0px;
+    margin-bottom: 20px;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
