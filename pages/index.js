@@ -45,7 +45,10 @@ export default function IndexPage({ allRecepti }) {
 
         {/* <meta property="og:url" content="https://www.runzadar.com" /> */}
 
-        <meta property="og:image" content="/perlaOGimage.png" />
+        <meta
+          property="og:image"
+          content="http://cms.marikomerc.hr/wp-content/uploads/2024/01/perlaOGimage.png"
+        />
         <meta
           name="description"
           content={

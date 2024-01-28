@@ -379,7 +379,7 @@ export const catalogData = [
     "PRODUCT NAME - up to 60 characters":
       "Crab sticks for baking and salad 1000 g Perla",
     "IME PROIZVODA - skraceno": "Krakovi za peku i salatu Perla",
-    "PRODUCT NAME - short": "Crab sticks for baking and salad Perla",
+    "PRODUCT NAME - short": "Octopus arms for baking and salad Perla",
     "LATINSKI NAZIV - do 60 znakova": "Dosidicus gigas",
     "Kataloški broj: ": 21021,
     FeaturedPerla: "",
