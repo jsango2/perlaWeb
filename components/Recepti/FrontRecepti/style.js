@@ -253,7 +253,8 @@ export const Category = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  background: #497290;
+  background: ${(props) => (props.oznaka === "svi" ? "#314c5f" : "#497290")};
+
   color: white;
   font-family: Gilroy;
   font-size: 16px;

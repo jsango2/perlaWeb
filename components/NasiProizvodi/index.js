@@ -55,7 +55,7 @@ function NasiProizvodi() {
   const router = useRouter();
   const { locale } = router;
   const t = locale === "en" ? en : hr;
-  const handleClick = () => {};
+  // const handleClick = () => {};
   return (
     <div>
       <WrapAll ref={ref}>

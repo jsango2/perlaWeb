@@ -22,6 +22,9 @@ import {
   WrapTopTitle,
   WrapNasloviBroj,
   YouTubeWrap,
+  WrapIkona,
+  VideoLink,
+  WrapTimer,
 } from "./style.js";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -141,7 +144,7 @@ function ReceptSection({ data }) {
     current === kat ? setCurrent(null) : setCurrent(kat);
     setPersonNumber(kat);
   };
-
+  console.log(data.receptData.node.perlaRecepti);
   return (
     <WrapAll>
       <RedLine>
@@ -160,18 +163,35 @@ function ReceptSection({ data }) {
             {" "}
             {data.receptData.node.perlaRecepti.trajanjePripreme !== null ? (
               <>
-                <span>
+                <WrapTimer>
+                  <WrapIkona>
+                    <Image src="/satIkona.svg" layout="fill" />
+                  </WrapIkona>
                   {locale === "hr" ? "Priprema" : "Preparation"} :{" "}
                   {data.receptData.node.perlaRecepti.trajanjePripreme} min
-                </span>
+                </WrapTimer>
 
                 <span style={{ margin: "0 5px" }}>|</span>
               </>
             ) : null}
-            <span>
+            <WrapTimer>
+              <WrapIkona>
+                <Image src="/satIkona.svg" layout="fill" />
+              </WrapIkona>
               {locale === "hr" ? "Kuhanje" : "Cooking"} :{" "}
               {data.receptData.node.perlaRecepti.trajanjeKuhanja} min
-            </span>
+            </WrapTimer>
+            {data.receptData.node.perlaRecepti.youtubeLinkVidea !== null ? (
+              <VideoLink>
+                <span style={{ margin: "0 5px" }}>|</span>
+                <WrapIkona>
+                  <Image src="/videoIkona.svg" layout="fill" />
+                </WrapIkona>
+                <a href="#youtube" scroll={false}>
+                  VIDEO
+                </a>
+              </VideoLink>
+            ) : null}
           </PripremaVrijeme>
         </WrapTopTitle>
         <Sastojci>
@@ -209,48 +229,12 @@ function ReceptSection({ data }) {
               >
                 4
               </Broj>
-              <Broj
-                onClick={() => handleClick(5)}
-                id="5"
-                className={current === 5 ? "blueLink" : ""}
-              >
-                5
-              </Broj>
-              <Broj
-                onClick={() => handleClick(6)}
-                id="6"
-                className={current === 6 ? "blueLink" : ""}
-              >
-                6
-              </Broj>
             </Wrapbroj>
           </WrapNasloviBroj>
           <NaslovSastojci>
-            {locale === "hr" ? "SASTOJCI" : "INGREDIENTS"}
+            {locale === "hr" ? "SASTOJCI:" : "INGREDIENTS:"}
           </NaslovSastojci>
-          {/* <ul>
-            {sastojciPerla.map((sastojak) =>
-              catalogData.map((data) => {
-                data["IME PROIZVODA - skraceno"] ===
-                  sastojak.perlaProizvodUReceptu && (
-                  <li
-                    key={sastojak.perlaProizvodUReceptu}
-                    className="perlaProizvod"
-                  >
-                    {console.log(
-                      sastojak.perlaProizvodUReceptu,
-                      personNumber * sastojak.kolicina
-                    )}
-                    {sastojak.perlaProizvodUReceptu},{" "}
-                    {(personNumber * sastojak.kolicina)
-                      .toFixed(2)
-                      .replace(/[.,]00$/, "")}
-                    {sastojak.jedinicnaMjera}
-                  </li>
-                );
-              })
-            )}
-          </ul> */}
+
           <ul>
             {locale === "hr"
               ? [
@@ -278,7 +262,7 @@ function ReceptSection({ data }) {
                           className="perlaProizvod"
                         >
                           {sastojak.perlaProizvodUReceptu},{" "}
-                          {(personNumber * sastojak.kolicina).toString()}{" "}
+                          {(personNumber * sastojak.kolicina).toString()}
                           {sastojak.jedinicnaMjera}
                         </li>
                       </Link>
@@ -287,9 +271,7 @@ function ReceptSection({ data }) {
                     (sastojak) => (
                       <li key={sastojak.nazivNamirnice}>
                         {sastojak.nazivNamirnice},{" "}
-                        {(+(personNumber * sastojak.kolicina))
-                          .toFixed(2)
-                          .replace(/([0-9]+(\.[0-9]+[1-9])?)(\.?0+$)/, "$1")}
+                        {+(personNumber * sastojak.kolicina).toString()}
                         {sastojak.jedinicnaMjera}
                       </li>
                     )
@@ -319,9 +301,7 @@ function ReceptSection({ data }) {
                           className="perlaProizvod"
                         >
                           {sastojak.perlaProizvodUReceptu},{" "}
-                          {(personNumber * sastojak.kolicina)
-                            .toFixed(2)
-                            .replace(/[.,]00$/, "")}{" "}
+                          {(personNumber * sastojak.kolicina).toString()}
                           {sastojak.jedinicnaMjera}
                         </li>
                       </Link>
@@ -330,9 +310,7 @@ function ReceptSection({ data }) {
                     (sastojak) => (
                       <li key={sastojak.nazivNamirniceEng}>
                         {sastojak.nazivNamirniceEng},{" "}
-                        {(personNumber * sastojak.kolicinaEng)
-                          .toFixed(2)
-                          .replace(/[.,]00$/, "")}
+                        {(personNumber * sastojak.kolicinaEng).toString()}
                         {sastojak.jedinicnaMjeraEng}
                       </li>
                     )
@@ -350,6 +328,7 @@ function ReceptSection({ data }) {
                       data.receptData.node.perlaRecepti.dodatniPrilog
                         .nazivDodatnogPriloga
                     }
+                    :
                   </NaslovDodatniSastojci>
                 </>
               )
@@ -374,9 +353,7 @@ function ReceptSection({ data }) {
                   (sastojak) => (
                     <li key={sastojak.nazivNamirnice}>
                       {sastojak.nazivNamirnice},{" "}
-                      {(personNumber * sastojak.kolicina)
-                        .toFixed(2)
-                        .replace(/[.,]00$/, "")}{" "}
+                      {(personNumber * sastojak.kolicina).toString()}{" "}
                       {sastojak.jedinicnaMjera}
                     </li>
                   )
@@ -387,9 +364,7 @@ function ReceptSection({ data }) {
                   (sastojak) => (
                     <li key={sastojak.nazivNamirniceEng}>
                       {sastojak.nazivNamirniceEng},{" "}
-                      {(personNumber * sastojak.kolicinaEng)
-                        .toFixed(2)
-                        .replace(/[.,]00$/, "")}{" "}
+                      {(personNumber * sastojak.kolicinaEng).toString()}{" "}
                       {sastojak.jedinicnaMjeraEng}
                     </li>
                   )
@@ -523,11 +498,11 @@ function ReceptSection({ data }) {
                 </div>
               )}
           {data.receptData.node.perlaRecepti.youtubeLinkVidea !== null && (
-            <YouTubeWrap>
+            <YouTubeWrap id="youtube">
               <iframe
                 width="100%"
                 height="100%"
-                src={`https://www.youtube.com/embed/GIRKrtwHl88?si=VQ-PGBd6ieBfM4Kj`}
+                src={`${data.receptData.node.perlaRecepti.youtubeLinkVidea}`}
                 title="Perla video recepta"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

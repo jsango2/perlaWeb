@@ -11,6 +11,7 @@ import { WrapAll } from "./style.js";
 import LanguageSwitcher from "../language switcher/index.js";
 import { useRouter } from "next/router.js";
 import useScrollBlock from "../helper/useScrollBlock.js";
+import Image from "next/image.js";
 
 const MeniMobile = ({
   isOpen,
@@ -108,7 +109,7 @@ const MeniMobile = ({
         {/* <Link href="/karijere">{locale === "hr" ? "Karijere" : "Careers"}</Link> */}
         {/* <Link href="/kontakt">{locale === "hr" ? "Kontakt" : "Contact"}</Link> */}
         <Link href="/recepti">{locale === "hr" ? "Recepti" : "Recipes"}</Link>
-        <Link href="/">Grupa</Link>
+        {/* <Link href="/">Grupa</Link> */}
         <div className="mobileLinkDivider"></div>
         <LanguageSwitcher
           closeMenu={closeMenu}
@@ -123,6 +124,9 @@ const MeniMobile = ({
           >
             {" "}
           </div>
+        </div>
+        <div className="perlaLogoUMeniMobile">
+          <img src="/perlaLogoWithRed.svg" />
         </div>
       </div>
     </>

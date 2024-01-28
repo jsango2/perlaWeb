@@ -118,11 +118,11 @@ const Header = ({ siteTitle, receptiNaslovi }) => {
                     )}
                   </div>
 
-                  <div>
+                  {/* <div>
                     <Link className="navLink" href="/kontakt">
                       {locale === "hr" ? "Kontakt" : "Contact"}
                     </Link>
-                  </div>
+                  </div> */}
 
                   {/* <div className="navLink borderNav"></div> */}
                 </div>

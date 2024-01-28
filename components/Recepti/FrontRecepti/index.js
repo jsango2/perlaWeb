@@ -186,7 +186,9 @@ function FrontRecepti({ recepti, samoRecepti }) {
 
           <WrapCategories>
             {locale === "hr" ? (
-              <Category onClick={() => handleTagClick("Svi")}>Svi</Category>
+              <Category onClick={() => handleTagClick("Svi")} oznaka="svi">
+                Svi
+              </Category>
             ) : (
               <Category onClick={() => handleTagClick("All")}>All</Category>
             )}

@@ -327,6 +327,12 @@ p {
   transition: all 1.4s ease-out;
   /* transition-delay: 0.5s; */
 }
+.perlaLogoUMeniMobile {
+  margin-top: 200px;
+}
+.perlaLogoUMeniMobile img {
+  width: 200px;
+}
 .outView {
   top: 25px;
   opacity: 0;

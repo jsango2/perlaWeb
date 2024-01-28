@@ -332,16 +332,68 @@ export const PripremaVrijeme = styled.div`
 
   /* M-T */
   font-family: Gilroy;
-  font-size: 12px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: 140%; /* 16.8px */
   margin-bottom: 50px;
+  display: flex;
   /* @media only screen and (max-width: 1400px) {
     padding: 100px 0 70px 70px;
   } */
   @media only screen and (max-width: 850px) {
     margin-bottom: 0px;
+  }
+  /* @media only screen and (max-width: 430px) {
+    min-height: unset;
+  } */
+`;
+
+export const WrapIkona = styled.div`
+  position: relative;
+  z-index: 1;
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  /* @media only screen and (max-width: 1400px) {
+    padding: 100px 0 70px 70px;
+  } */
+  @media only screen and (max-width: 850px) {
+  }
+  /* @media only screen and (max-width: 430px) {
+    min-height: unset;
+  } */
+`;
+export const VideoLink = styled.div`
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 200px;
+  align-items: center;
+  /* @media only screen and (max-width: 1400px) {
+    padding: 100px 0 70px 70px;
+  } */
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  @media only screen and (max-width: 850px) {
+  }
+  /* @media only screen and (max-width: 430px) {
+    min-height: unset;
+  } */
+`;
+export const WrapTimer = styled.div`
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: auto;
+  align-items: center;
+  /* @media only screen and (max-width: 1400px) {
+    padding: 100px 0 70px 70px;
+  } */
+
+  @media only screen and (max-width: 850px) {
   }
   /* @media only screen and (max-width: 430px) {
     min-height: unset;
@@ -466,7 +518,10 @@ export const YouTubeWrap = styled.div`
     padding: 100px 0 70px 70px;
   } */
   background-color: gray;
+  scroll-margin-block-start: 110px;
+  /*Adds margin to the top of the viewport*/
 
+  scroll-margin-block-end: 110px;
   @media only screen and (max-width: 850px) {
     width: 100%;
     height: 62vw;
