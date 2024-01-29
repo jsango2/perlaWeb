@@ -147,6 +147,8 @@ function NasiProizvodi() {
                         layout="fill"
                         alt="p1"
                         objectFit="contain"
+                        placeholder="blur"
+                        blurDataURL={`/productImages/${data["Kataloški broj: "]}.webp?auto=format,compress&q=1&blur=100&w=2`}
                       />
                     </WrapProizvodImage>
                   </Proizvod>
