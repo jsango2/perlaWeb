@@ -353,6 +353,20 @@ export const Photo = styled.div`
     height: 120vw;
   }
 `;
+export const WrapIcon = styled.div`
+  position: relative;
+
+  width: 13px;
+  height: 13px;
+  margin-right: 5px;
+
+  @media only screen and (max-width: 430px) {
+    width: 13px;
+    height: 13px;
+    margin-right: 5px;
+    display: block;
+  }
+`;
 export const WrapSocial = styled.div`
   position: absolute;
   z-index: 1;
@@ -361,6 +375,11 @@ export const WrapSocial = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  transition: all 1s ease-out;
+  transition-delay: 1s;
+  right: ${(props) => (props.inView ? "-179px" : "-400px")};
+  opacity: ${(props) => (props.inView ? "1" : "0")};
+
   @media only screen and (max-width: 750px) {
     position: absolute;
     right: unset;
@@ -379,7 +398,9 @@ export const WrapSocial = styled.div`
     align-items: flex-start;
   }
   @media only screen and (max-width: 430px) {
-    bottom: 67px;
+    bottom: ${(props) => (props.inView ? "67px" : "-200px")};
+    opacity: ${(props) => (props.inView ? "1" : "0")};
+
     left: 20px;
   }
 `;
@@ -387,8 +408,10 @@ export const Instagram = styled.div`
   position: relative;
   height: 23px;
   border-radius: 5px;
-  background: #efe3cc;
-  color: #1c2640;
+  /* background: #efe3cc;
+  color: #1c2640; */
+  background: #33250a;
+  color: #efe3cc;
   font-family: Gilroy;
   font-size: 12px;
   font-style: normal;
@@ -401,7 +424,9 @@ export const Instagram = styled.div`
   padding: 0 15px;
   cursor: pointer;
   margin-bottom: 10px;
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 430px) {
+    background: #33250a;
+    color: #efe3cc;
   }
 `;
 

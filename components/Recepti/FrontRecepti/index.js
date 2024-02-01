@@ -32,6 +32,7 @@ import ReceptKartica from "./ReceptKartica/index.js";
 import slugify from "slugify";
 import Link from "next/link.js";
 import { catalogData } from "../../../catalogData.js";
+import SocialComp from "./social.js";
 
 function FrontRecepti({ recepti, samoRecepti }) {
   const [currentPage, setCurrentPage] = useState(1);
@@ -317,7 +318,7 @@ function FrontRecepti({ recepti, samoRecepti }) {
               onClick={paginationClick}
             />
           </Pagination> */}
-          {samoRecepti !== true && (
+          {/* {samoRecepti !== true && (
             <>
               <Link href="/recepti">
                 <Button>
@@ -338,7 +339,8 @@ function FrontRecepti({ recepti, samoRecepti }) {
                 </WrapSocial>
               </Photo>
             </>
-          )}
+          )} */}
+          <SocialComp />
         </WrapContent2>
         {/* <RedLineBottom>
           <WrapLogoPerla>
