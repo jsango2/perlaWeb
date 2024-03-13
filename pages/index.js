@@ -47,7 +47,7 @@ export default function IndexPage({ allRecepti }) {
 
         <meta
           property="og:image"
-          content="http://cms.marikomerc.hr/wp-content/uploads/2024/01/perlaOGimage.png"
+          content="http://marikomerc.sutra.hr/wp-content/uploads/2024/01/perlaOGimage.png"
         />
         <meta
           name="description"

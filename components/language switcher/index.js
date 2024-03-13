@@ -98,7 +98,7 @@ function LanguageSwitcher({
 
                 { locale: "hrv", strict: true }
               );
-        console.log(matchingUrl);
+        // console.log(matchingUrl);
         return router.push(matchingUrl, undefined, { locale: lang });
       }
 
@@ -158,7 +158,7 @@ function LanguageSwitcher({
               "-" +
               getTranslationRouteForProduct[0]["Kataloški broj: "];
 
-        console.log(matchingUrl);
+        // console.log(matchingUrl);
         return router.push(matchingUrl, undefined, { locale: lang });
       }
       // pronađi za matchinUrl za Novosti

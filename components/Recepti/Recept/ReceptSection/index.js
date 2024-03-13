@@ -144,7 +144,7 @@ function ReceptSection({ data }) {
     current === kat ? setCurrent(null) : setCurrent(kat);
     setPersonNumber(kat);
   };
-  console.log(data.receptData.node.perlaRecepti);
+  // console.log(data.receptData.node.perlaRecepti);
   return (
     <WrapAll>
       <RedLine>

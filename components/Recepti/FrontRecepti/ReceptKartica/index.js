@@ -39,7 +39,7 @@ function ReceptKartica({
   const router = useRouter();
   const { locale } = router;
   // const t = locale === "en" ? en : hr;
-  console.log("je in view", inView);
+  // console.log("je in view", inView);
   return (
     <WrapRecipe href={`/recepti/${link}`}>
       <Recipe ref={ref} className={` ${inView ? "inView" : "outView"}`}>
