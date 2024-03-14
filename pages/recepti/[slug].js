@@ -39,8 +39,9 @@ export default function News({
   //   locale === "hr" ? novost.textNovosti : novost.textNovostiEng;
   // const htmlString = `<div>${textNovosti}</div>`;
   const recept = pageData.node.perlaRecepti;
+
   return (
-    <Layout receptiNaslovi={receptiNaslovi.edges}>
+    <Layout receptiNaslovi={recepti.edges}>
       <Head>
         <title>
           {" "}
@@ -196,7 +197,7 @@ export async function getStaticPaths({ locales }) {
 
 export async function getStaticProps({ params }) {
   const recepti = await getAllRecepti();
-  const receptiNaslovi = await getAllReceptiNaslovi();
+  // const receptiNaslovi = await getAllReceptiNaslovi();
 
   // const novostiNaslovi = await getAllNovostiNaslovi();
   const currentPath = params.slug;
@@ -232,6 +233,6 @@ export async function getStaticProps({ params }) {
     notfound: true,
   };
   return {
-    props: { pageData, recepti, receptiNaslovi, params },
+    props: { pageData, recepti, params },
   };
 }

@@ -281,6 +281,7 @@ function ReceptSection({ data }) {
                   perlaProizvodiFeaturedEng !== undefined &&
                     perlaProizvodiFeaturedEng.map((sastojak) => (
                       <Link
+                        key={sastojak.punoImeProizvoda}
                         href={`/proizvodi/${
                           slugify(
                             sastojak.punoImeProizvoda

@@ -42,81 +42,9 @@ function index(props) {
 
 export default index;
 
-// export async function getStaticProps({ preview = false }) {
-//   const novosti = await getAllNovosti(preview);
-//   return {
-//     props: { novosti, preview },
-//   };
-// }
-
 export async function getStaticProps({ locales }) {
   const recepti = await getAllRecepti();
   const paths = [];
-
-  // recepti.edges.map((recept, i) => {
-  //   // return locales.map((locale) => {
-  //   return paths.push({
-  //     params: {
-  //       slug:
-  //         slugify(
-  //           recept.node.perlaRecepti.naslovRecepta
-  //             .toLowerCase()
-  //             .split(" ")
-  //             .join("-"),
-  //           {
-  //             locale: "hrv",
-  //           }
-  //         ) +
-  //         "-" +
-  //         new Date(recept.node.date).toISOString().split("T")[0],
-  //     },
-  //     locale: "hr",
-  //   });
-  //   // });
-  // });
-
-  // novosti.edges.map((post, i) => {
-  //   return paths.push({
-  //     params: {
-  //       slug:
-  //         post.node.novosti.naslovEng.toLowerCase().split(" ").join("-") +
-  //         "-" +
-  //         post.node.novosti.datum.split("/").join("-"),
-  //     },
-  //     locale: "en",
-  //   });
-  // });
-
-  // pathsAllHr.push({
-  //   params: {
-  //     slug: novostiNaslovHr.toLowerCase().split(" ").join("-"),
-  //   },
-  // });
-  // pathsAllEng.push({
-  //   params: {
-  //     slug: novostiNaslovEng.toLowerCase().split(" ").join("-"),
-  //   },
-  // });
-
-  // locales.forEach((locale, i) => {
-  //   novosti.edges.forEach((post, i) => {
-  //     paths.push({
-  //       params: {
-  //         slugHr: post.node.novosti.naslov.toLowerCase().split(" ").join("-"),
-  //         slugEn: post.node.novosti.naslovEng
-  //           .toLowerCase()
-  //           .split(" ")
-  //           .join("-"),
-  //       },
-  //       locale,
-  //     });
-
-  //     // paths.push({
-  //     //   hrnovosti: post.node.novosti.naslov.toLowerCase().split(" ").join("-"),
-  //     //   ennovosti: post.node.novosti.naslovEng.toLowerCase().split(" ").join("-"),
-  //     // });
-  //   });
-  // });
 
   return {
     props: {
