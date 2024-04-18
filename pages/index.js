@@ -44,7 +44,10 @@ export default function IndexPage({ allRecepti }) {
         <meta name="twitter:card" content="summary_large_image" />
 
         {/* <meta property="og:url" content="https://www.runzadar.com" /> */}
-
+        <meta
+          name="google-site-verification"
+          content="KSOsBchhDMtcxBavoVnUbAVI8Jxcipv9J5ceC1K4Rag"
+        />
         <meta
           property="og:image"
           content="http://marikomerc.sutra.hr/wp-content/uploads/2024/01/perlaOGimage.png"
