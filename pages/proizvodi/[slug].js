@@ -93,7 +93,7 @@ export default function ProizvodPage({ pageData, params, recepti }) {
 
   return (
     <Layout>
-      <Head>
+      {/* <Head>
         <title> {locale === "hr" ? novost.naslov : novost.naslovEng}</title>
         <link
           rel="canonical"
@@ -182,7 +182,7 @@ export default function ProizvodPage({ pageData, params, recepti }) {
           property="og:image"
           content={`${novost.istaknutaFotografija.sourceUrl}`}
         />
-      </Head>
+      </Head> */}
       <Proizvod
         pageData={pageData}
         receptiSaProizvodom={receptiSaProizvodima}
