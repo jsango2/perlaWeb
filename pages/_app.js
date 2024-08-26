@@ -2,6 +2,7 @@ import { withTranslateRoutes } from "next-translate-routes";
 import { AnimatePresence, domAnimation, LazyMotion, m } from "framer-motion";
 import { useState, createContext } from "react";
 // import AppContext from "../components/AppContext";
+import { GoogleAnalytics } from "nextjs-google-analytics";
 
 import { animations } from "../lib/animations";
 import "../styles/index.css";
@@ -19,6 +20,7 @@ function MyApp({ Component, pageProps, router, allPosts }) {
 
   return (
     <AppContext.Provider value={[category, setCategory]}>
+      <GoogleAnalytics />
       <div className="app-wrap">
         {/* <LazyMotion features={domAnimation}>
           <AnimatePresence exitBeforeEnter={!exitBefore}>
