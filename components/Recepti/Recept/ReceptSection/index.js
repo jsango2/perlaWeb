@@ -271,7 +271,7 @@ function ReceptSection({ data }) {
                     (sastojak) => (
                       <li key={sastojak.nazivNamirnice}>
                         {sastojak.nazivNamirnice},{" "}
-                        {+(personNumber * sastojak.kolicina).toString()}
+                        {+(personNumber * sastojak.kolicina).toFixed(1)}
                         {sastojak.jedinicnaMjera}
                       </li>
                     )
