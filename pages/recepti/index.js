@@ -32,6 +32,7 @@ function index(props) {
   );
 
   const { locale, locales, defaultLocale, asPath, basePath } = useRouter();
+
   return (
     <Layout>
       <Hero />
