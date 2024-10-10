@@ -21,6 +21,7 @@ import { useState } from "react";
 import { format, parseISO } from "date-fns";
 import Hero from "../../components/Hero/index.js";
 import FrontRecepti from "../../components/Recepti/FrontRecepti/index.js";
+import Head from "next/head.js";
 
 function index(props) {
   const [itemOffset, setItemOffset] = useState([]);
@@ -35,6 +36,59 @@ function index(props) {
 
   return (
     <Layout>
+      <Head>
+        <title>Perla Recepti</title>
+        <meta property="og:title" content="Perla recepti" key="title" />
+
+        {/* <link
+          rel="alternate"
+          hreflang={locale === "hr" ? "hr" : "en"}
+          href={locale === "hr" ? "https://www.perla.hr":"https://www.perla.hr/en"}
+          data-react-helmet="true"
+        ></link> */}
+        {/* <link
+          rel="canonical"
+          href={locale === "hr" ? "https://www.perla.hr":"https://www.perla.hr/en"}
+          data-react-helmet="true"
+        ></link> */}
+
+        <meta name="twitter:card" content="summary_large_image" />
+
+        {/* <meta property="og:url" content="https://www.runzadar.com" /> */}
+        <meta
+          name="google-site-verification"
+          content="KSOsBchhDMtcxBavoVnUbAVI8Jxcipv9J5ceC1K4Rag"
+        />
+        <meta
+          property="og:image"
+          content="http://marikomerc.sutra.hr/wp-content/uploads/2024/01/perlaOGimage.png"
+        />
+        <meta
+          name="description"
+          content={
+            locale === "hr"
+              ? "Otkrijte raznolike recepte na Perla web stranici, idealne za ljubitelje morskih plodova. Pronađite inspiraciju za vaš sljedeći obrok, od jednostavnih do gurmanskih jela."
+              : "Discover a variety of recipes on Perla's website, perfect for seafood enthusiasts. From simple to gourmet, find inspiration for your next meal."
+          }
+          key="desc"
+        />
+        <meta
+          property="og:description"
+          content={
+            locale === "hr"
+              ? "Otkrijte raznolike recepte na Perla web stranici, idealne za ljubitelje morskih plodova. Pronađite inspiraciju za vaš sljedeći obrok, od jednostavnih do gurmanskih jela."
+              : "Discover a variety of recipes on Perla's website, perfect for seafood enthusiasts. From simple to gourmet, find inspiration for your next meal."
+          }
+        />
+        <meta
+          property="twitter:description"
+          content={
+            locale === "hr"
+              ? "Otkrijte raznolike recepte na Perla web stranici, idealne za ljubitelje morskih plodova. Pronađite inspiraciju za vaš sljedeći obrok, od jednostavnih do gurmanskih jela."
+              : "Discover a variety of recipes on Perla's website, perfect for seafood enthusiasts. From simple to gourmet, find inspiration for your next meal."
+          }
+        />
+      </Head>
       <Hero />
       <FrontRecepti recepti={props.recepti} samoRecepti={true} />
     </Layout>
