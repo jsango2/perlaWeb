@@ -50,7 +50,7 @@ function ReceptSection({ data }) {
   //   useState(undefined);
   // const [sastojciPerla, setSastojciPerla] = useState([]);
   // const [sastojciPerlaEng, setSastojciPerlaEng] = useState([]);
-
+  console.log({ data });
   const { ref, inView, entry } = useInView({
     /* Optional options */
     threshold: 0.2,
@@ -271,7 +271,7 @@ function ReceptSection({ data }) {
                     (sastojak) => (
                       <li key={sastojak.nazivNamirnice}>
                         {sastojak.nazivNamirnice},{" "}
-                        {+(personNumber * sastojak.kolicina).toFixed(1)}
+                        {+(personNumber * sastojak.kolicina).toFixed(2)}
                         {sastojak.jedinicnaMjera}
                       </li>
                     )
