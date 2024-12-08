@@ -54,8 +54,15 @@ function KaoVrhunski() {
             zabavna.
           </Text>
           <WrapSocial>
-            <Instagram>@BISERMORA</Instagram>
-            <Facebook>PERLA - Biser Mora</Facebook>
+            <a
+              href="https://www.instagram.com/perla_bisermora/"
+              target="_blank"
+            >
+              <Instagram>@BISERMORA</Instagram>
+            </a>
+            <a href="https://www.facebook.com/perla.bisermora" target="_blank">
+              <Facebook>PERLA - Biser Mora</Facebook>
+            </a>
           </WrapSocial>
           <Photo>
             <Image src="/fotoMixPerla.png" layout="fill" />

@@ -53,18 +53,28 @@ function SocialComp({ samoRecepti }) {
           </Text>
           <Photo className={` ${inView ? "inView" : "outView"}`}>
             <WrapSocial inView={inView}>
-              <Instagram>
-                <WrapIcon>
-                  <Image src="/igicon.svg" layout="fill" />
-                </WrapIcon>
-                @BISERMORA
-              </Instagram>
-              <Facebook>
-                <WrapIcon>
-                  <Image src="/fbicon.svg" layout="fill" />
-                </WrapIcon>
-                PERLA - Biser Mora
-              </Facebook>
+              <a
+                href="https://www.instagram.com/perla_bisermora/"
+                target="_blank"
+              >
+                <Instagram>
+                  <WrapIcon>
+                    <Image src="/igicon.svg" layout="fill" />
+                  </WrapIcon>
+                  @BISERMORA
+                </Instagram>
+              </a>
+              <a
+                href="https://www.facebook.com/perla.bisermora"
+                target="_blank"
+              >
+                <Facebook>
+                  <WrapIcon>
+                    <Image src="/fbicon.svg" layout="fill" />
+                  </WrapIcon>
+                  PERLA - Biser Mora
+                </Facebook>
+              </a>
             </WrapSocial>
           </Photo>
         </>

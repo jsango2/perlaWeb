@@ -53,31 +53,37 @@ function FooterSection() {
             : "Follow us on Instagram and other social networks"}
         </Title>
         <Social>
-          <Link href="/">
+          {/* <Link href="/">
             <div style={{ cursor: "pointer" }}>
               <Image src="/instagram.svg" width={25} height={25} />
             </div>
-          </Link>
+          </Link> */}
 
-          <Link href="/">
+          <Link
+            href="https://www.instagram.com/perla_bisermora/"
+            target="_blank"
+          >
             <div style={{ cursor: "pointer" }}>
               <Image src="/Instagram.svg" width={25} height={25} />
             </div>
           </Link>
 
-          <Link href="/">
+          <Link
+            href="https://hr.linkedin.com/company/marikomerc"
+            target="_blank"
+          >
             <div style={{ cursor: "pointer" }}>
               <Image src="/Linkedin.svg" width={25} height={25} />
             </div>
           </Link>
 
-          <Link href="/">
+          <Link href="https://www.facebook.com/perla.bisermora" target="_blank">
             <div style={{ cursor: "pointer" }}>
               <Image src="/Facebook.svg" width={25} height={25} />
             </div>
           </Link>
 
-          <Link href="/">
+          <Link href="mailto: info@marikomerc.hr">
             <div style={{ cursor: "pointer" }}>
               <Image src="/Email.svg" width={25} height={25} />
             </div>
