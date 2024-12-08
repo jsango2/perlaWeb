@@ -1,7 +1,6 @@
 import React from "react";
 
 import { WrapAll } from "./style.js";
-import Image from "next/image";
 import { useRouter } from "next/router";
 
 import useWindowSize from "../../helper/usewindowsize.js";
@@ -9,7 +8,6 @@ import useWindowSize from "../../helper/usewindowsize.js";
 import en from "../../../locales/en.json";
 import hr from "../../../locales/hr.json";
 import { useInView } from "react-intersection-observer";
-import slugify from "slugify";
 import Hero from "./Hero/index.js";
 import ReceptSection from "./ReceptSection/index.js";
 import OstaliRecepti from "./OstaliReceptiSection/index.js";

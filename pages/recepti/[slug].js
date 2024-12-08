@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React from "react";
 // import { catalogData } from "../../catalogData.js";
 // import { news } from "../../news";
 import Layout from "../../components/layout.js";
@@ -14,23 +14,15 @@ import Image from "next/image";
 //   Naslov,
 //   WrapContent,
 // } from "../../components/NovostiSection/style";
-import AppContext from "../../components/AppContext.js";
 // import { BlueLine } from "../../components/NovostiSection/newsCard/style.js";
-import parse from "html-react-parser";
 import slugify from "slugify";
 // import OtherNews from "../../components/NovostiSection/OtherNewsSection/index.js";
 import Head from "next/head.js";
-import { getAllRecepti, getAllReceptiNaslovi } from "../../lib/api2.js";
+import { getAllRecepti } from "../../lib/api2.js";
 import Recept from "../../components/Recepti/Recept/index.js";
 
-export default function News({
-  pageData,
-  recepti,
-  receptiNaslovi,
-  testData,
-  params,
-}) {
-  const { locale, locales, defaultLocale, asPath, basePath } = useRouter();
+export default function News({ pageData, recepti }) {
+  const { locale } = useRouter();
   const router = useRouter();
 
   // const novost = pageData.node.novosti;

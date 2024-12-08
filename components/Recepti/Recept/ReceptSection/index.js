@@ -34,14 +34,11 @@ import useWindowSize from "../../../helper/usewindowsize.js";
 // import { useTranslations } from "next-intl";
 import en from "../../../../locales/en.json";
 import hr from "../../../../locales/hr.json";
-import { AiOutlineYoutube } from "react-icons/ai";
 import { useInView } from "react-intersection-observer";
 import { RedLine, WrapLogoPerla } from "../style.js";
 import { catalogData } from "../../../../catalogData.js";
 import { useState } from "react";
-import { useEffect } from "react";
 import Link from "next/link.js";
-import { clearStorage } from "mapbox-gl";
 
 function ReceptSection({ data }) {
   const [current, setCurrent] = useState(1);
@@ -302,7 +299,7 @@ function ReceptSection({ data }) {
                           className="perlaProizvod"
                         >
                           {sastojak.perlaProizvodUReceptu},{" "}
-                          {(personNumber * sastojak.kolicina).toString()}
+                          {+(personNumber * sastojak.kolicina).toFixed(2)}
                           {sastojak.jedinicnaMjera}
                         </li>
                       </Link>
@@ -311,7 +308,7 @@ function ReceptSection({ data }) {
                     (sastojak) => (
                       <li key={sastojak.nazivNamirniceEng}>
                         {sastojak.nazivNamirniceEng},{" "}
-                        {(personNumber * sastojak.kolicinaEng).toString()}
+                        {+(personNumber * sastojak.kolicinaEng).toFixed(2)}
                         {sastojak.jedinicnaMjeraEng}
                       </li>
                     )
@@ -354,7 +351,7 @@ function ReceptSection({ data }) {
                   (sastojak) => (
                     <li key={sastojak.nazivNamirnice}>
                       {sastojak.nazivNamirnice},{" "}
-                      {(personNumber * sastojak.kolicina).toString()}{" "}
+                      {+(personNumber * sastojak.kolicina).toFixed(2)}{" "}
                       {sastojak.jedinicnaMjera}
                     </li>
                   )
@@ -365,7 +362,7 @@ function ReceptSection({ data }) {
                   (sastojak) => (
                     <li key={sastojak.nazivNamirniceEng}>
                       {sastojak.nazivNamirniceEng},{" "}
-                      {(personNumber * sastojak.kolicinaEng).toString()}{" "}
+                      {+(personNumber * sastojak.kolicinaEng).toFixed(2)}{" "}
                       {sastojak.jedinicnaMjeraEng}
                     </li>
                   )
