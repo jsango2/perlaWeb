@@ -43,7 +43,7 @@ function FooterSection() {
               {locale === "hr" ? "Proizvodi" : "Products"}
             </SingleLink>
           </Link>
-          <Link href="mailto:info@perla.hr">
+          <Link href="mailto:info@marikomerc.hr">
             <SingleLink>{locale === "hr" ? "Kontakt" : "Contact"}</SingleLink>
           </Link>
         </MainLinks>
@@ -93,21 +93,22 @@ function FooterSection() {
         <Copy>
           <CopyLink>
             Marikomerc d.o.o., Grabi 54, 23241 Poličnik, Hrvatska;
-            info@perla.hr, +385(0)23/342-613
+            info@marikomerc.hr, +385 (0)23/630-539
           </CopyLink>
           <CopyLink>
-            <Link href="/">© 2022 MARIKOMERC GRUPA &nbsp;· </Link>
+            <Link href="/">© 2022 MARIKOMERC d.o.o. &nbsp;·&nbsp; </Link>
             <Link href="/">
               {locale === "hr"
-                ? " Uvjeti korištenja · "
+                ? "Uvjeti korištenja · "
                 : ` Terms & Conditions · `}
             </Link>
+            &nbsp;
             <Link href="/">
               {locale === "hr"
-                ? " Izjava o privatnosti · "
+                ? "Izjava o privatnosti · "
                 : " Privacy policy · "}
             </Link>
-            <Link href="/">&nbsp; Web design SUTRA</Link>
+            <Link href="/">&nbsp;Web design SUTRA</Link>
           </CopyLink>
         </Copy>
       </Container>
