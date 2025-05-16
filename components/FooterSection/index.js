@@ -36,7 +36,7 @@ function FooterSection() {
       <Container>
         <MainLinks>
           <Link href="/recepti">
-            <SingleLink>{locale === "hr" ? "Recepti" : "Recepies"}</SingleLink>
+            <SingleLink>{locale === "hr" ? "Recepti" : "Recipes"}</SingleLink>
           </Link>
           <Link href="/">
             <SingleLink>

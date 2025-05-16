@@ -32,9 +32,11 @@ import slugify from "slugify";
 import Link from "next/link.js";
 import KaramarkoComp from "./karamarko.js";
 
-function NasiProizvodi() {
+function NasiProizvodi({ proizvodi }) {
   const [perlaData, setPerlaData] = useState([]);
   const [sliced, setSliced] = useState(false);
+  console.log({ catalogData });
+  console.log({ proizvodi });
 
   const [slice, setSlice] = useState([]);
   useEffect(() => {
@@ -44,6 +46,15 @@ function NasiProizvodi() {
       )
     );
   }, []);
+  // useEffect(() => {
+  //   setPerlaData(
+  //     proizvodi.edges.filter(
+  //       (data) =>
+  //         data.node.proizvodiInformacije.kategorijaKojojProizvodPripada ==
+  //         "PERLA"
+  //     )
+  //   );
+  // }, []);
 
   const { ref, inView, entry } = useInView({
     /* Optional options */
@@ -56,6 +67,7 @@ function NasiProizvodi() {
   const { locale } = router;
   const t = locale === "en" ? en : hr;
   // const handleClick = () => {};
+  console.log({ perlaData });
   return (
     <div>
       <WrapAll ref={ref}>
@@ -161,7 +173,98 @@ function NasiProizvodi() {
               </Link>
             ))}
           </Proizvodi>
-
+          {/* <Proizvodi>
+            {(sliced ? perlaData : perlaData.slice(0, 8)).map((data) => (
+              <Link
+                href={
+                  locale === "hr"
+                    ? `/proizvodi/${
+                        slugify(
+                          data["IME PROIZVODA - do 60 znakova"]
+                            .toLowerCase()
+                            .split(" ")
+                            .join("-"),
+                          {
+                            strict: true,
+                            locale: "hrv",
+                          }
+                        ) +
+                        "-" +
+                        data["Kataloški broj: "]
+                      }`
+                    : `/proizvodi/${
+                        slugify(
+                          data["PRODUCT NAME - up to 60 characters"]
+                            .toLowerCase()
+                            .split(" ")
+                            .join("-"),
+                          {
+                            strict: true,
+                            locale: "eng",
+                          }
+                        ) +
+                        "-" +
+                        data["Kataloški broj: "]
+                      }`
+                }
+                key={data["Kataloški broj: "]}
+              >
+                <WrapProizvod>
+                  <Proizvod>
+                    <WrapCerts>
+                      {data["IFS Food"] === "DA" && (
+                        <WrapCert>
+                          <Image
+                            src="/IFSfood.svg"
+                            layout="fill"
+                            objectFit="contain"
+                          />
+                        </WrapCert>
+                      )}
+                      {data["Certifikat 'MSC' (DA/NE)"] === "DA" && (
+                        <div style={{ marginLeft: "5px" }}>
+                          <WrapCertMSC>
+                            <Image
+                              src="/MSC.svg"
+                              layout="fill"
+                              objectFit="contain"
+                            />
+                          </WrapCertMSC>
+                        </div>
+                      )}
+                      {data["Certifikat 'Živjeti Zdravo' (DA/NE)"] === "DA" && (
+                        <div style={{ marginLeft: "5px" }}>
+                          <WrapCertZZ>
+                            <Image
+                              src="/zivjetizdravo.svg"
+                              layout="fill"
+                              objectFit="contain"
+                            />
+                          </WrapCertZZ>
+                        </div>
+                      )}
+                    </WrapCerts>
+                    <Overlay className="proizvodBG" />
+                    <WrapProizvodImage className="proizvodImg">
+                      <Image
+                        src={`/productImages/${data["Kataloški broj: "]}.webp`}
+                        layout="fill"
+                        alt="p1"
+                        objectFit="contain"
+                        placeholder="blur"
+                        blurDataURL={`/productImages/${data["Kataloški broj: "]}.webp?auto=format,compress&q=1&blur=100&w=2`}
+                      />
+                    </WrapProizvodImage>
+                  </Proizvod>
+                  <ProizvodName>
+                    {locale === "hr"
+                      ? data["IME PROIZVODA - do 60 znakova"]
+                      : data["PRODUCT NAME - up to 60 characters"]}
+                  </ProizvodName>
+                </WrapProizvod>
+              </Link>
+            ))}
+          </Proizvodi> */}
           <Button onClick={() => setSliced(!sliced)}>
             {!sliced
               ? locale === "hr"

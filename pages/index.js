@@ -11,13 +11,13 @@ import AppContext from "../components/AppContext.js";
 import Hero from "../components/Hero/index.js";
 import FrontRecepti from "../components/Recepti/FrontRecepti/index.js";
 import NasiProizvodi from "../components/NasiProizvodi/index.js";
-import { getAllRecepti } from "../lib/api2.js";
+import { getAllProizvodi, getAllRecepti } from "../lib/api2.js";
 import KaoVrhunski from "../components/Recepti/FrontRecepti/KuhajKaoVrhunski/index.js";
 import { WrapAll } from "../components/Recepti/FrontRecepti/style.js";
 import { catalogData } from "../catalogData.js";
 import { useRouter } from "next/router.js";
 
-export default function IndexPage({ allRecepti }) {
+export default function IndexPage({ allRecepti, allProizvodi }) {
   const context = useContext(AppContext);
   const size = useWindowSize();
   const router = useRouter();
@@ -82,15 +82,16 @@ export default function IndexPage({ allRecepti }) {
 
       <FrontRecepti recepti={allRecepti} />
 
-      <NasiProizvodi />
+      <NasiProizvodi proizvodi={allProizvodi} />
     </Layout>
   );
 }
 
 export async function getStaticProps({ preview = false }) {
   const allRecepti = await getAllRecepti();
+  const allProizvodi = await getAllProizvodi();
 
   return {
-    props: { allRecepti },
+    props: { allRecepti, allProizvodi },
   };
 }

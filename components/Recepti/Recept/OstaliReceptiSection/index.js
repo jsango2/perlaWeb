@@ -54,7 +54,7 @@ function OstaliRecepti({ data }) {
     <WrapAll>
       <BlueLine />
       <NaslovRecepta>
-        {locale === "hr" ? "Ostali recepti" : "Other recepies"}
+        {locale === "hr" ? "Ostali recepti" : "Other recipes"}
       </NaslovRecepta>
       <WrapRecipies>
         {receptiSaKataloskimBrojemPerlaProizvoda.slice(0, 3).map((recept) => (
@@ -100,7 +100,7 @@ function OstaliRecepti({ data }) {
       </WrapRecipies>
       <Link href="/recepti">
         <Button>
-          {locale === "hr" ? "ISTRAŽI RECEPTE" : "SEARCH RECEPIES"}
+          {locale === "hr" ? "ISTRAŽI RECEPTE" : "SEARCH RECIPES"}
         </Button>
       </Link>
     </WrapAll>

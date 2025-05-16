@@ -49,7 +49,7 @@ function OstaliRecepti({ receptiSaProizvodom }) {
           <Naziv>
             {locale === "hr"
               ? "Recepti sa ovim proizvodom"
-              : "Recepies with this product"}
+              : "Recipes with this product"}
           </Naziv>
           <Container>
             {receptiSaKataloskimBrojemPerlaProizvoda.map((recept) => (

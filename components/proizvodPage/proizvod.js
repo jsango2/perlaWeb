@@ -42,7 +42,7 @@ function Proizvod({ pageData, receptiSaProizvodom }) {
       <Link href="/recepti">
         <Button>
           {" "}
-          {locale === "hr" ? "ISTRAŽI RECEPTE" : "SEARCH THE RECEPIES"}
+          {locale === "hr" ? "ISTRAŽI RECEPTE" : "SEARCH THE RECIPES"}
         </Button>
       </Link>
       <PerlaProizvodi />

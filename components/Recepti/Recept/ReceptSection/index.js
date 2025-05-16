@@ -520,7 +520,7 @@ function ReceptSection({ data }) {
         }
       >
         <BottomOverlay />
-        <DobarTek>{locale === "hr" ? "DOBAR TEK!" : "BOUN APETITE!"}</DobarTek>
+        <DobarTek>{locale === "hr" ? "DOBAR TEK!" : "BON APPETIT!"}</DobarTek>
       </BottomCoverPhoto>
     </WrapAll>
   );
