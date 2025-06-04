@@ -21,7 +21,7 @@ import slugify from "slugify";
 // import OtherNews from "../../components/NovostiSection/OtherNewsSection/index.js";
 import Head from "next/head.js";
 import Proizvod from "../../components/proizvodPage/proizvod.js";
-import { getAllRecepti } from "../../lib/api2.js";
+import { getAllProizvodi, getAllRecepti } from "../../lib/api2.js";
 
 export default function ProizvodPage({ pageData, params, recepti }) {
   const { locale, locales, defaultLocale, asPath, basePath } = useRouter();
@@ -193,6 +193,7 @@ export default function ProizvodPage({ pageData, params, recepti }) {
 
 export async function getStaticPaths({ locales }) {
   const paths = [];
+  const proizvodi = await getAllProizvodi();
   const perlaData = catalogData.filter(
     (data) => data["Kategorija kojoj proizvod pripada:"] === "PERLA"
   );
