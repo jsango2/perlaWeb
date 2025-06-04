@@ -40,14 +40,19 @@ import { catalogData } from "../../../../catalogData.js";
 import { useState } from "react";
 import Link from "next/link.js";
 
-function ReceptSection({ data, proizvodi }) {
+function ReceptSection({ data }) {
+  const perlaProizvodi = data.proizvodi.edges.filter(
+    (data) =>
+      data.node.proizvodiInformacije.kategorijaKojojProizvodPripada === "PERLA"
+  );
+  console.log({ perlaProizvodi });
+
   const [current, setCurrent] = useState(1);
   const [personNumber, setPersonNumber] = useState(1);
   // const [perlaProizvodFeaturedCatNumber, setPerlaProizvodFeaturedCatNumber] =
   //   useState(undefined);
   // const [sastojciPerla, setSastojciPerla] = useState([]);
   // const [sastojciPerlaEng, setSastojciPerlaEng] = useState([]);
-  console.log({ data });
   const { ref, inView, entry } = useInView({
     /* Optional options */
     threshold: 0.2,
@@ -66,7 +71,7 @@ function ReceptSection({ data, proizvodi }) {
   //       data.receptData.node.perlaRecepti.perlaSastojci[0].perlaProizvodUReceptu
   // );
 
-  const perlaProizvodFeatured = proizvodi.find(
+  const perlaProizvodFeatured = perlaProizvodi.find(
     (s) =>
       data.receptData.node.perlaRecepti.perlaSastojci !== null &&
       s.node.proizvodiInformacije.imeProizvodaDo60Znakova ===
@@ -83,75 +88,82 @@ function ReceptSection({ data, proizvodi }) {
     for (let j = 0; j < catalogData.length; j++) {
       if (
         sastojak.perlaProizvodUReceptu ===
-        catalogData[j][["IME PROIZVODA - skraceno"]]
+        perlaProizvodi[j].node.proizvodiInformacije.imeProizvodaDo60Znakova
+        // catalogData[j][["IME PROIZVODA - skraceno"]]
       ) {
         sastojak.punoImeProizvoda =
-          catalogData[j]["IME PROIZVODA - do 60 znakova"];
-        sastojak.idProizvoda = catalogData[j]["Kataloški broj: "];
+          perlaProizvodi[j].node.proizvodiInformacije.imeProizvodaDo60Znakova;
+        sastojak.idProizvoda =
+          perlaProizvodi[j].node.proizvodiInformacije.kataloskiBroj;
       }
     }
   });
+  console.log({ perlaProizvodiFeatured });
   perlaProizvodiFeaturedEng.forEach((sastojak) => {
     sastojak.punoImeProizvodaEng = null;
     sastojak.idProizvoda = null;
     for (let j = 0; j < catalogData.length; j++) {
       if (
         sastojak.perlaProizvodUReceptu ===
-        catalogData[j][["PRODUCT NAME - short"]]
+        perlaProizvodi[j].node.proizvodiInformacije.imeProizvodaDo60ZnakovaEng
       ) {
         sastojak.punoImeProizvoda =
-          catalogData[j]["PRODUCT NAME - up to 60 characters"];
-        sastojak.idProizvoda = catalogData[j]["Kataloški broj: "];
+          perlaProizvodi[
+            j
+          ].node.proizvodiInformacije.imeProizvodaDo60ZnakovaEng;
+        sastojak.idProizvoda =
+          perlaProizvodi[j].node.proizvodiInformacije.kataloskiBroj;
       }
     }
   });
-
+  console.log({ perlaProizvodFeatured });
   const perlaProizvodFeaturedCatNumber =
-    perlaProizvodFeatured["Kataloški broj: "];
+    perlaProizvodFeatured.node.proizvodiInformacije.kataloskiBroj;
   const sastojciPerla = data.receptData.node.perlaRecepti.perlaSastojci.map(
     (s) => s
   );
 
-  // receptiSaKataloskimBrojemPerlaProizvoda.forEach((recept) => {
-  //   recept.catalogId = null;
-  //   for (let j = 0; j < catalogData.length; j++) {
-  //     if (
-  //       recept.node.perlaRecepti.perlaSastojci[0].perlaProizvodUReceptu ===
-  //       catalogData[j]["IME PROIZVODA - do 60 znakova"]
-  //     ) {
-  //       recept.catalogId = catalogData[j]["Kataloški broj: "];
-  //     }
-  //   }
-  // });
-  const sastojciPerlaEng =
-    data.receptData.node.perlaRecepti.perlaSastojciEng.map((s) => s);
-  // useEffect(() => {
-  //   setPerlaProizvodFeaturedCatNumber(
-  //     perlaProizvodFeatured["Kataloški broj: "]
-  //   );
-  //   setSastojciPerla(
-  //     data.receptData.node.perlaRecepti.perlaSastojci.map((s) => s)
-  //   );
-  //   setSastojciPerlaEng(
-  //     data.receptData.node.perlaRecepti.perlaSastojciEng.map((s) => s)
-  //   );
-  // }, []);
-
-  // const perlaProizvodFeaturedCatNumber =
-  //   perlaProizvodFeatured["Kataloški broj:"];
-  // const sastojciPerla = data.receptData.node.perlaRecepti.perlaSastojci.map(
-  //   (s) => s
-  // );
+  receptiSaKataloskimBrojemPerlaProizvoda.forEach((recept) => {
+    recept.catalogId = null;
+    for (let j = 0; j < perlaProizvodi.length; j++) {
+      if (
+        recept.node.perlaRecepti.perlaSastojci[0].perlaProizvodUReceptu ===
+        perlaProizvodi[j].node.proizvodiInformacije.imeProizvodaDo60Znakova
+      ) {
+        recept.catalogId =
+          perlaProizvodi[j].node.proizvodiInformacije.kataloskiBroj;
+      }
+    }
+  });
   // const sastojciPerlaEng =
   //   data.receptData.node.perlaRecepti.perlaSastojciEng.map((s) => s);
-  const handleClick = (kat) => {
-    current === kat ? setCurrent(null) : setCurrent(kat);
-    setPersonNumber(kat);
-  };
-  // console.log(data.receptData.node.perlaRecepti);
+  // // useEffect(() => {
+  // //   setPerlaProizvodFeaturedCatNumber(
+  // //     perlaProizvodFeatured["Kataloški broj: "]
+  // //   );
+  // //   setSastojciPerla(
+  // //     data.receptData.node.perlaRecepti.perlaSastojci.map((s) => s)
+  // //   );
+  // //   setSastojciPerlaEng(
+  // //     data.receptData.node.perlaRecepti.perlaSastojciEng.map((s) => s)
+  // //   );
+  // // }, []);
+
+  // // const perlaProizvodFeaturedCatNumber =
+  // //   perlaProizvodFeatured["Kataloški broj:"];
+  // // const sastojciPerla = data.receptData.node.perlaRecepti.perlaSastojci.map(
+  // //   (s) => s
+  // // );
+  // // const sastojciPerlaEng =
+  // //   data.receptData.node.perlaRecepti.perlaSastojciEng.map((s) => s);
+  // const handleClick = (kat) => {
+  //   current === kat ? setCurrent(null) : setCurrent(kat);
+  //   setPersonNumber(kat);
+  // };
+  // // console.log(data.receptData.node.perlaRecepti);
   return (
     <WrapAll>
-      <RedLine>
+      {/* <RedLine>
         <WrapLogoPerla>
           <Image src="/perlaLogo.svg" layout="fill" />
         </WrapLogoPerla>
@@ -422,15 +434,7 @@ function ReceptSection({ data, proizvodi }) {
           )}
         </Sastojci>
         <Postupak>
-          {/* <NaslovRecepta>
-            {locale === "hr"
-              ? data.receptData.node.perlaRecepti.naslovRecepta
-              : data.receptData.node.perlaRecepti.naslovReceptaEng}
-          </NaslovRecepta>
-          <PripremaVrijeme>
-            {locale === "hr" ? "Priprema" : "Preparation"} :{" "}
-            {data.receptData.node.perlaRecepti.trajanjeKuhanja} min
-          </PripremaVrijeme> */}
+     
           {locale === "hr"
             ? data.receptData.node.perlaRecepti.postupakPoKoracima.map(
                 (korak, index) => (
@@ -528,7 +532,7 @@ function ReceptSection({ data, proizvodi }) {
       >
         <BottomOverlay />
         <DobarTek>{locale === "hr" ? "DOBAR TEK!" : "BON APPETIT!"}</DobarTek>
-      </BottomCoverPhoto>
+      </BottomCoverPhoto> */}
     </WrapAll>
   );
 }

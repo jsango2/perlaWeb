@@ -33,7 +33,6 @@ function index(props) {
   );
 
   const { locale, locales, defaultLocale, asPath, basePath } = useRouter();
-
   console.log(props);
   return (
     <Layout>
@@ -91,7 +90,11 @@ function index(props) {
         />
       </Head>
       <Hero />
-      <FrontRecepti recepti={props.recepti} samoRecepti={true} />
+      <FrontRecepti
+        recepti={props.recepti}
+        samoRecepti={true}
+        proizvodi={props.proizvodi}
+      />
     </Layout>
   );
 }

@@ -22,8 +22,7 @@ export default function IndexPage({ allRecepti, allProizvodi }) {
     (data) =>
       data.node.proizvodiInformacije.kategorijaKojojProizvodPripada === "PERLA"
   );
-  console.log({ allRecepti });
-  console.log({ perlaProizvodi });
+
   const context = useContext(AppContext);
   const size = useWindowSize();
   const router = useRouter();

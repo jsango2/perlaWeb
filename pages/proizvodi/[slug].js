@@ -29,7 +29,6 @@ export default function ProizvodPage({ pageData, params, recepti, proizvodi }) {
       data.node.proizvodiInformacije.kategorijaKojojProizvodPripada === "PERLA"
   );
 
-  console.log({ perlaProizvodi });
   const { locale, locales, defaultLocale, asPath, basePath } = useRouter();
   const router = useRouter();
 

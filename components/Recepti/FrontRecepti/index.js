@@ -34,7 +34,14 @@ import Link from "next/link.js";
 import { catalogData } from "../../../catalogData.js";
 import SocialComp from "./social.js";
 
-function FrontRecepti({ recepti, samoRecepti }) {
+function FrontRecepti({ recepti, samoRecepti, proizvodi }) {
+  const perlaProizvodi = proizvodi.edges.filter(
+    (data) =>
+      data.node.proizvodiInformacije.kategorijaKojojProizvodPripada === "PERLA"
+  );
+  console.log({ perlaProizvodi });
+  console.log({ catalogData });
+  console.log({ recepti });
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(9);
 
@@ -61,12 +68,15 @@ function FrontRecepti({ recepti, samoRecepti }) {
     for (let j = 0; j < catalogData.length; j++) {
       if (
         recept.node.perlaRecepti.perlaSastojci[0].perlaProizvodUReceptu ===
-        catalogData[j]["IME PROIZVODA - skraceno"]
+        perlaProizvodi[j].node.proizvodiInformacije.imeProizvodaDo60Znakova
+        // catalogData[j]["IME PROIZVODA - skraceno"]
       ) {
-        recept.catalogId = catalogData[j]["Kataloški broj: "];
+        // recept.catalogId = catalogData[j]["Kataloški broj: "];
+        recept.catalogId = perlaProizvodi[j].node.kataloskiBroj;
       }
     }
   });
+  console.log({ receptiSaKataloskimBrojemPerlaProizvoda });
 
   receptiSaKataloskimBrojemPerlaProizvoda.map((post, i) => {
     if (locale === "hr") {

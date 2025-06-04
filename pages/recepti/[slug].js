@@ -127,7 +127,7 @@ export default function News({ pageData, recepti, proizvodi }) {
           content={recept.fotografijaRecepta.sourceUrl}
         />
       </Head>
-      <Recept receptData={pageData} recepti={recepti} proizvodi={proizvodi} />
+      <Recept receptData={pageData} recept={recepti} proizvodi={proizvodi} />
     </Layout>
   );
 }

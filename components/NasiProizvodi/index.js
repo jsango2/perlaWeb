@@ -35,8 +35,6 @@ import KaramarkoComp from "./karamarko.js";
 function NasiProizvodi({ proizvodi }) {
   const [perlaData, setPerlaData] = useState([]);
   const [sliced, setSliced] = useState(false);
-  console.log({ catalogData });
-  console.log({ proizvodi });
 
   const [slice, setSlice] = useState([]);
   useEffect(() => {
@@ -67,7 +65,6 @@ function NasiProizvodi({ proizvodi }) {
   const { locale } = router;
   const t = locale === "en" ? en : hr;
   // const handleClick = () => {};
-  console.log({ perlaData });
   return (
     <div>
       <WrapAll ref={ref}>
