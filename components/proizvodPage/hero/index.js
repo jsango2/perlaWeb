@@ -44,24 +44,33 @@ function Hero({ pageData }) {
         <Proizvod>
           <Overlay />
           <WrapProizvodImage>
-            <Image
-              src={`/productImages/${pageData["Kataloški broj: "]}.webp`}
-              layout="fill"
-              alt="p1"
-              objectFit="contain"
-            />
+            {pageData.node.proizvodiInformacije.slikaProizvoda != null ? (
+              <Image
+                src={
+                  pageData.node.proizvodiInformacije.slikaProizvoda.sourceUrl
+                }
+                layout="fill"
+                alt="p1"
+                objectFit="contain"
+              />
+            ) : null}
           </WrapProizvodImage>
         </Proizvod>
         <Data>
-          <Pakiranje>{pageData["Težina po jedinici mjere"]}</Pakiranje>
+          <Pakiranje>
+            {pageData.node.proizvodiInformacije.tezinaPoJediniciMjere}
+          </Pakiranje>
           <NazivTop>
             {locale === "hr"
-              ? pageData["IME PROIZVODA - do 60 znakova"]
-              : pageData["PRODUCT NAME - up to 60 characters"]}
+              ? pageData.node.proizvodiInformacije
+                  .marketinskoImePerlaProizvodaHr
+              : pageData.node.proizvodiInformacije
+                  .marketinskoImePerlaProizvodaEng}
           </NazivTop>
-          {pageData["LATINSKI NAZIV - do 60 znakova"] !== "-" && (
+          {pageData.node.proizvodiInformacije.latinskiNazivDo60Znakova !==
+            null && (
             <NazivLat>
-              lat. {pageData["LATINSKI NAZIV - do 60 znakova"]}
+              lat. {pageData.node.proizvodiInformacije.latinskiNazivDo60Znakova}
             </NazivLat>
           )}
 
@@ -69,32 +78,33 @@ function Hero({ pageData }) {
             {locale === "hr" ? "Pakiranje:" : "Packaging:"}
             <strong style={{ marginLeft: "5px", marginRight: "10px" }}>
               {locale === "hr"
-                ? pageData["OPIS (DO 300 ZNAKOVA)"]
-                : pageData["OPIS ENGLESKI"]}
+                ? pageData.node.proizvodiInformacije.opisHrDo300Znakova
+                : pageData.node.proizvodiInformacije.opisEngDo300Znakova}
             </strong>
-            {pageData["NAČIN SMRZAVANJA"] !== "-" && (
+            {pageData.node.proizvodiInformacije.nacinSmrzavanja !== null && (
               <div>
                 {locale === "hr"
-                  ? `Način smrzavanja: ${pageData["NAČIN SMRZAVANJA"]}`
-                  : `Freezing method: ${pageData["NAČIN SMRZAVANJA"]}`}
+                  ? `Način smrzavanja: ${pageData.node.proizvodiInformacije.nacinSmrzavanja}`
+                  : `Freezing method: ${pageData.node.proizvodiInformacije.nacinSmrzavanja}`}
               </div>
             )}
           </WrapInfo>
           <WrapCerts>
-            {pageData["IFS Food"] === "DA" ? (
+            {pageData.node.proizvodiInformacije.ifsFood === true ? (
               <WrapCert>
                 <Image src="/IFSfood.svg" layout="fill" objectFit="contain" />
               </WrapCert>
             ) : null}
             <div style={{ marginLeft: "10px" }}>
-              {pageData["Certifikat 'MSC' (DA/NE)"] === "DA" ? (
+              {pageData.node.proizvodiInformacije.certifikatMsc === true ? (
                 <WrapCertMSC>
                   <Image src="/MSC.svg" layout="fill" objectFit="contain" />
                 </WrapCertMSC>
               ) : null}
             </div>
             <div style={{ marginLeft: "10px" }}>
-              {pageData["Certifikat 'Živjeti Zdravo' (DA/NE)"] === "DA" ? (
+              {pageData.node.proizvodiInformacije.certifikatZivjetiZdravo ===
+              true ? (
                 <WrapCertZZ>
                   <Image
                     src="/zivjetizdravo.svg"
@@ -105,11 +115,11 @@ function Hero({ pageData }) {
               ) : null}
             </div>
           </WrapCerts>
-          <Download href="/">
+          {/* <Download href="/">
             {locale === "hr"
               ? "Download specifikacije proizvoda"
               : "Download product specification"}
-          </Download>
+          </Download> */}
         </Data>
       </Container>
     </HeroWrap>

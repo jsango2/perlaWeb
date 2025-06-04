@@ -93,6 +93,7 @@ export const WrapProizvodImage = styled.div`
   background-size: 80px 80px;
   background-repeat: no-repeat;
   background-position: center;
+
   @media only screen and (max-width: 600px) {
     width: 50vw;
     height: 500px;

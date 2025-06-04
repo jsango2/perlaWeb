@@ -30,7 +30,7 @@ import { RedLine } from "../style.js";
 import Link from "next/link.js";
 import slugify from "slugify";
 
-function PerlaProizvodi() {
+function PerlaProizvodi({ perlaProizvodi }) {
   const settings = {
     // dots: false,
     // infinite: true,
@@ -94,13 +94,13 @@ function PerlaProizvodi() {
     ],
   };
   const [perlaData, setPerlaData] = useState([]);
-  useEffect(() => {
-    setPerlaData(
-      catalogData.filter(
-        (data) => data["Kategorija kojoj proizvod pripada:"] == "PERLA"
-      )
-    );
-  }, []);
+  // useEffect(() => {
+  //   setPerlaData(
+  //     perlaProizvodi.filter(
+  //       (data) => data["Kategorija kojoj proizvod pripada:"] == "PERLA"
+  //     )
+  //   );
+  // }, []);
 
   const { ref, inView, entry } = useInView({
     /* Optional options */
@@ -127,14 +127,14 @@ function PerlaProizvodi() {
           </Title>
           <Proizvodi>
             <Slider {...settings}>
-              {perlaData.map((data) => (
+              {perlaProizvodi.map((data) => (
                 <Link
-                  key={data["Kataloški broj: "]}
+                  key={data.node.proizvodId}
                   href={
                     locale === "hr"
                       ? `/proizvodi/${
                           slugify(
-                            data["IME PROIZVODA - do 60 znakova"]
+                            data.node.proizvodiInformacije.imeProizvodaDo60Znakova
                               .toLowerCase()
                               .split(" ")
                               .join("-"),
@@ -144,11 +144,11 @@ function PerlaProizvodi() {
                             }
                           ) +
                           "-" +
-                          data["Kataloški broj: "]
+                          data.node.proizvodiInformacije.kataloskiBroj
                         }`
                       : `/proizvodi/${
                           slugify(
-                            data["PRODUCT NAME - up to 60 characters"]
+                            data.node.proizvodiInformacije.imeProizvodaDo60ZnakovaEng
                               .toLowerCase()
                               .split(" ")
                               .join("-"),
@@ -158,7 +158,7 @@ function PerlaProizvodi() {
                             }
                           ) +
                           "-" +
-                          data["Kataloški broj: "]
+                          data.node.proizvodiInformacije.kataloskiBroj
                         }`
                   }
                 >
@@ -166,18 +166,25 @@ function PerlaProizvodi() {
                     <Proizvod>
                       <Overlay />
                       <WrapProizvodImage>
-                        <Image
-                          src={`/productImages/${data["Kataloški broj: "]}.webp`}
-                          layout="fill"
-                          alt="p1"
-                          objectFit="contain"
-                        />
+                        {data.node.proizvodiInformacije.slikaProizvoda !=
+                          null && (
+                          <Image
+                            src={
+                              data.node.proizvodiInformacije.slikaProizvoda
+                                .sourceUrl
+                            }
+                            layout="fill"
+                            alt="p1"
+                            objectFit="contain"
+                          />
+                        )}
                       </WrapProizvodImage>
                     </Proizvod>
                     <ProizvodName>
                       {locale === "hr"
-                        ? data["IME PROIZVODA - do 60 znakova"]
-                        : data["PRODUCT NAME - up to 60 characters"]}
+                        ? data.node.proizvodiInformacije.imeProizvodaDo60Znakova
+                        : data.node.proizvodiInformacije
+                            .imeProizvodaDo60ZnakovaEng}
                     </ProizvodName>
                   </WrapProizvod>
                 </Link>

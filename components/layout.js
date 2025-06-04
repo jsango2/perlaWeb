@@ -7,10 +7,14 @@ export default function Layout({
   children,
   receptiNaslovi,
   oglasiNaslovi,
+  proizvodiNaslovi,
 }) {
   return (
     <>
-      <Header receptiNaslovi={receptiNaslovi} />
+      <Header
+        receptiNaslovi={receptiNaslovi}
+        proizvodiNaslovi={proizvodiNaslovi}
+      />
       <Meta />
       <main>{children}</main>
       <FooterSection />

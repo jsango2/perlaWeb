@@ -23,11 +23,17 @@ import Head from "next/head.js";
 import Proizvod from "../../components/proizvodPage/proizvod.js";
 import { getAllProizvodi, getAllRecepti } from "../../lib/api2.js";
 
-export default function ProizvodPage({ pageData, params, recepti, proizvodi }) {
-  const perlaProizvodi = proizvodi.edges.filter(
-    (data) =>
-      data.node.proizvodiInformacije.kategorijaKojojProizvodPripada === "PERLA"
-  );
+export default function ProizvodPage({
+  pageData,
+  params,
+  recepti,
+  proizvodi,
+  perlaProizvodi,
+}) {
+  // const perlaProizvodi = proizvodi.edges.filter(
+  //   (data) =>
+  //     data.node.proizvodiInformacije.kategorijaKojojProizvodPripada === "PERLA"
+  // );
 
   const { locale, locales, defaultLocale, asPath, basePath } = useRouter();
   const router = useRouter();
@@ -97,7 +103,7 @@ export default function ProizvodPage({ pageData, params, recepti, proizvodi }) {
   );
 
   return (
-    <Layout>
+    <Layout proizvodiNaslovi={perlaProizvodi}>
       {/* <Head>
         <title> {locale === "hr" ? novost.naslov : novost.naslovEng}</title>
         <link
@@ -191,6 +197,7 @@ export default function ProizvodPage({ pageData, params, recepti, proizvodi }) {
       <Proizvod
         pageData={pageData}
         receptiSaProizvodom={receptiSaProizvodima}
+        perlaProizvodi={perlaProizvodi}
       />
     </Layout>
   );
@@ -282,14 +289,18 @@ export async function getStaticPaths({ locales }) {
 export async function getStaticProps({ params }) {
   // const novostiNaslovi = await getAllNovostiNaslovi();
   const proizvodi = await getAllProizvodi();
+  const perlaProizvodi = proizvodi.edges.filter(
+    (data) =>
+      data.node.proizvodiInformacije.kategorijaKojojProizvodPripada === "PERLA"
+  );
 
   const recepti = await getAllRecepti();
   const data = await catalogData;
   const currentPath = params.slug;
-  const pageData = data.find(
+  const pageData = perlaProizvodi.find(
     (product) =>
       slugify(
-        product["IME PROIZVODA - do 60 znakova"]
+        product.node.proizvodiInformacije.imeProizvodaDo60Znakova
           .toLowerCase()
           .split(" ")
           .join("-"),
@@ -299,10 +310,10 @@ export async function getStaticProps({ params }) {
         }
       ) +
         "-" +
-        product["Kataloški broj: "] ===
+        product.node.proizvodiInformacije.kataloskiBroj ===
         currentPath ||
       slugify(
-        product["PRODUCT NAME - up to 60 characters"]
+        product.node.proizvodiInformacije.imeProizvodaDo60ZnakovaEng
           .toLowerCase()
           .split(" ")
           .join("-"),
@@ -312,13 +323,13 @@ export async function getStaticProps({ params }) {
         }
       ) +
         "-" +
-        product["Kataloški broj: "] ===
+        product.node.proizvodiInformacije.kataloskiBroj ===
         currentPath
   ) || {
     notfound: true,
   };
   return {
-    props: { pageData, params, recepti, proizvodi },
+    props: { pageData, params, recepti, perlaProizvodi },
   };
 }
 // export async function getStaticPaths({ locales }) {

@@ -24,6 +24,10 @@ import Recept from "../../components/Recepti/Recept/index.js";
 export default function News({ pageData, recepti, proizvodi }) {
   const { locale } = useRouter();
   const router = useRouter();
+  const perlaProizvodi = proizvodi.edges.filter(
+    (data) =>
+      data.node.proizvodiInformacije.kategorijaKojojProizvodPripada === "PERLA"
+  );
 
   // const novost = pageData.node.novosti;
 
@@ -127,7 +131,11 @@ export default function News({ pageData, recepti, proizvodi }) {
           content={recept.fotografijaRecepta.sourceUrl}
         />
       </Head>
-      <Recept receptData={pageData} recept={recepti} proizvodi={proizvodi} />
+      <Recept
+        receptData={pageData}
+        recept={recepti}
+        proizvodiOdPerle={perlaProizvodi}
+      />
     </Layout>
   );
 }

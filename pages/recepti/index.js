@@ -28,12 +28,11 @@ function index(props) {
   const [itemsPerPage] = useState(6);
   const endOffset = itemOffset + itemsPerPage;
   const [blockScroll, allowScroll] = useScrollBlock();
-  const catDat = catalogData.map(
-    (item) => item["IME PROIZVODA - do 60 znakova"]
-  );
+  // const catDat = catalogData.map(
+  //   (item) => item["IME PROIZVODA - do 60 znakova"]
+  // );
 
   const { locale, locales, defaultLocale, asPath, basePath } = useRouter();
-  console.log(props);
   return (
     <Layout>
       <Head>
@@ -93,7 +92,7 @@ function index(props) {
       <FrontRecepti
         recepti={props.recepti}
         samoRecepti={true}
-        proizvodi={props.proizvodi}
+        proizvodi={props.proizvodi.edges}
       />
     </Layout>
   );

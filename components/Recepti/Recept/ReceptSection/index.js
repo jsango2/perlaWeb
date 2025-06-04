@@ -41,11 +41,10 @@ import { useState } from "react";
 import Link from "next/link.js";
 
 function ReceptSection({ data }) {
-  const perlaProizvodi = data.proizvodi.edges.filter(
+  const perlaProizvodi = data.proizvodiOdPerle.filter(
     (data) =>
       data.node.proizvodiInformacije.kategorijaKojojProizvodPripada === "PERLA"
   );
-  console.log({ perlaProizvodi });
 
   const [current, setCurrent] = useState(1);
   const [personNumber, setPersonNumber] = useState(1);
@@ -85,7 +84,7 @@ function ReceptSection({ data }) {
   perlaProizvodiFeatured.forEach((sastojak) => {
     sastojak.punoImeProizvoda = null;
     sastojak.idProizvoda = null;
-    for (let j = 0; j < catalogData.length; j++) {
+    for (let j = 0; j < perlaProizvodi.length; j++) {
       if (
         sastojak.perlaProizvodUReceptu ===
         perlaProizvodi[j].node.proizvodiInformacije.imeProizvodaDo60Znakova
@@ -98,11 +97,10 @@ function ReceptSection({ data }) {
       }
     }
   });
-  console.log({ perlaProizvodiFeatured });
   perlaProizvodiFeaturedEng.forEach((sastojak) => {
     sastojak.punoImeProizvodaEng = null;
     sastojak.idProizvoda = null;
-    for (let j = 0; j < catalogData.length; j++) {
+    for (let j = 0; j < perlaProizvodi.length; j++) {
       if (
         sastojak.perlaProizvodUReceptu ===
         perlaProizvodi[j].node.proizvodiInformacije.imeProizvodaDo60ZnakovaEng
@@ -116,12 +114,12 @@ function ReceptSection({ data }) {
       }
     }
   });
-  console.log({ perlaProizvodFeatured });
-  const perlaProizvodFeaturedCatNumber =
-    perlaProizvodFeatured.node.proizvodiInformacije.kataloskiBroj;
-  const sastojciPerla = data.receptData.node.perlaRecepti.perlaSastojci.map(
-    (s) => s
-  );
+
+  // const perlaProizvodFeaturedCatNumber =
+  //   perlaProizvodFeatured.node.proizvodiInformacije.kataloskiBroj;
+  // const sastojciPerla = data.receptData.node.perlaRecepti.perlaSastojci.map(
+  //   (s) => s
+  // );
 
   // receptiSaKataloskimBrojemPerlaProizvoda.forEach((recept) => {
   //   recept.catalogId = null;
@@ -163,7 +161,7 @@ function ReceptSection({ data }) {
   // // console.log(data.receptData.node.perlaRecepti);
   return (
     <WrapAll>
-      {/* <RedLine>
+      <RedLine>
         <WrapLogoPerla>
           <Image src="/perlaLogo.svg" layout="fill" />
         </WrapLogoPerla>
@@ -260,7 +258,7 @@ function ReceptSection({ data }) {
                         key={sastojak.idProizvoda}
                         href={`/proizvodi/${
                           slugify(
-                            sastojak.punoImeProizvoda
+                            sastojak.perlaProizvodUReceptu
                               .toLowerCase()
                               .split(" ")
                               .join("-"),
@@ -300,7 +298,7 @@ function ReceptSection({ data }) {
                         key={sastojak.punoImeProizvoda}
                         href={`/proizvodi/${
                           slugify(
-                            sastojak.punoImeProizvoda
+                            sastojak.perlaProizvodUReceptu
                               .toLowerCase()
                               .split(" ")
                               .join("-"),
@@ -387,7 +385,7 @@ function ReceptSection({ data }) {
                   )
                 )}{" "}
           </ul>
-          {perlaProizvodFeaturedCatNumber && (
+          {/* {perlaProizvodFeaturedCatNumber && (
             <Link
               href={
                 locale === "hr"
@@ -431,10 +429,9 @@ function ReceptSection({ data }) {
                 />
               </WrapFeaturedImage>
             </Link>
-          )}
+          )} */}
         </Sastojci>
         <Postupak>
-     
           {locale === "hr"
             ? data.receptData.node.perlaRecepti.postupakPoKoracima.map(
                 (korak, index) => (
@@ -532,7 +529,7 @@ function ReceptSection({ data }) {
       >
         <BottomOverlay />
         <DobarTek>{locale === "hr" ? "DOBAR TEK!" : "BON APPETIT!"}</DobarTek>
-      </BottomCoverPhoto> */}
+      </BottomCoverPhoto>
     </WrapAll>
   );
 }

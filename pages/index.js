@@ -85,9 +85,9 @@ export default function IndexPage({ allRecepti, allProizvodi }) {
       </Head>
       <Hero />
 
-      <FrontRecepti recepti={allRecepti} />
+      <FrontRecepti recepti={allRecepti} proizvodi={perlaProizvodi} />
 
-      <NasiProizvodi proizvodi={allProizvodi} />
+      <NasiProizvodi proizvodi={perlaProizvodi} />
     </Layout>
   );
 }

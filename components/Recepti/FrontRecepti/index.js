@@ -35,13 +35,11 @@ import { catalogData } from "../../../catalogData.js";
 import SocialComp from "./social.js";
 
 function FrontRecepti({ recepti, samoRecepti, proizvodi }) {
-  const perlaProizvodi = proizvodi.edges.filter(
+  const perlaProizvodi = proizvodi.filter(
     (data) =>
       data.node.proizvodiInformacije.kategorijaKojojProizvodPripada === "PERLA"
   );
-  console.log({ perlaProizvodi });
-  console.log({ catalogData });
-  console.log({ recepti });
+
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(9);
 
@@ -76,7 +74,6 @@ function FrontRecepti({ recepti, samoRecepti, proizvodi }) {
       }
     }
   });
-  console.log({ receptiSaKataloskimBrojemPerlaProizvoda });
 
   receptiSaKataloskimBrojemPerlaProizvoda.map((post, i) => {
     if (locale === "hr") {

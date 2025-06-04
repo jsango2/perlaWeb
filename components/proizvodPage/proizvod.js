@@ -18,7 +18,7 @@ import { Button } from "../Recepti/FrontRecepti/style.js";
 import PerlaProizvodi from "../Recepti/Recept/PerlaProizvodi/index.js";
 import Link from "next/link.js";
 
-function Proizvod({ pageData, receptiSaProizvodom }) {
+function Proizvod({ pageData, receptiSaProizvodom, perlaProizvodi }) {
   //   const { ref, inView, entry } = useInView({
   //     /* Optional options */
   //     threshold: 0.2,
@@ -45,7 +45,7 @@ function Proizvod({ pageData, receptiSaProizvodom }) {
           {locale === "hr" ? "ISTRAŽI RECEPTE" : "SEARCH THE RECIPES"}
         </Button>
       </Link>
-      <PerlaProizvodi />
+      <PerlaProizvodi perlaProizvodi={perlaProizvodi} />
     </WrapAll>
   );
 }

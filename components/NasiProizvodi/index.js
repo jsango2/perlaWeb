@@ -39,9 +39,10 @@ function NasiProizvodi({ proizvodi }) {
   const [slice, setSlice] = useState([]);
   useEffect(() => {
     setPerlaData(
-      catalogData.filter(
-        (data) => data["Kategorija kojoj proizvod pripada:"] == "PERLA"
-      )
+      // catalogData.filter(
+      //   (data) => data["Kategorija kojoj proizvod pripada:"] == "PERLA"
+      // )
+      proizvodi
     );
   }, []);
   // useEffect(() => {
@@ -85,7 +86,7 @@ function NasiProizvodi({ proizvodi }) {
                   locale === "hr"
                     ? `/proizvodi/${
                         slugify(
-                          data["IME PROIZVODA - do 60 znakova"]
+                          data.node.proizvodiInformacije.imeProizvodaDo60Znakova
                             .toLowerCase()
                             .split(" ")
                             .join("-"),
@@ -95,11 +96,11 @@ function NasiProizvodi({ proizvodi }) {
                           }
                         ) +
                         "-" +
-                        data["Kataloški broj: "]
+                        data.node.proizvodiInformacije.kataloskiBroj
                       }`
                     : `/proizvodi/${
                         slugify(
-                          data["PRODUCT NAME - up to 60 characters"]
+                          data.node.proizvodiInformacije.imeProizvodaDo60ZnakovaEng
                             .toLowerCase()
                             .split(" ")
                             .join("-"),
@@ -109,15 +110,15 @@ function NasiProizvodi({ proizvodi }) {
                           }
                         ) +
                         "-" +
-                        data["Kataloški broj: "]
+                        data.node.proizvodiInformacije.kataloskiBroj
                       }`
                 }
-                key={data["Kataloški broj: "]}
+                key={data.node.proizvodiInformacije.kataloskiBroj}
               >
                 <WrapProizvod>
                   <Proizvod>
                     <WrapCerts>
-                      {data["IFS Food"] === "DA" && (
+                      {data.node.proizvodiInformacije.ifsFood === "DA" && (
                         <WrapCert>
                           <Image
                             src="/IFSfood.svg"
@@ -126,7 +127,8 @@ function NasiProizvodi({ proizvodi }) {
                           />
                         </WrapCert>
                       )}
-                      {data["Certifikat 'MSC' (DA/NE)"] === "DA" && (
+                      {data.node.proizvodiInformacije.certifikatMsc ===
+                        "DA" && (
                         <div style={{ marginLeft: "5px" }}>
                           <WrapCertMSC>
                             <Image
@@ -137,7 +139,8 @@ function NasiProizvodi({ proizvodi }) {
                           </WrapCertMSC>
                         </div>
                       )}
-                      {data["Certifikat 'Živjeti Zdravo' (DA/NE)"] === "DA" && (
+                      {data.node.proizvodiInformacije
+                        .certifikatZivjetiZdravo === "DA" && (
                         <div style={{ marginLeft: "5px" }}>
                           <WrapCertZZ>
                             <Image
@@ -152,19 +155,29 @@ function NasiProizvodi({ proizvodi }) {
                     <Overlay className="proizvodBG" />
                     <WrapProizvodImage className="proizvodImg">
                       <Image
-                        src={`/productImages/${data["Kataloški broj: "]}.webp`}
+                        src={
+                          data.node.proizvodiInformacije.slikaProizvoda != null
+                            ? data.node.proizvodiInformacije.slikaProizvoda
+                                .sourceUrl
+                            : "/perlaLogoWithRed.svg"
+                        }
                         layout="fill"
                         alt="p1"
                         objectFit="contain"
-                        placeholder="blur"
-                        blurDataURL={`/productImages/${data["Kataloški broj: "]}.webp?auto=format,compress&q=1&blur=100&w=2`}
+                        // placeholder="blur"
+                        // blurDataURL={
+                        //   data.node.proizvodiInformacije.slikaProizvoda !== null
+                        //     ? `${data.node.proizvodiInformacije.slikaProizvoda.sourceUrl}?auto=format,compress&q=1&blur=100&w=2`
+                        //     : null
+                        // }
                       />
                     </WrapProizvodImage>
                   </Proizvod>
                   <ProizvodName>
                     {locale === "hr"
-                      ? data["IME PROIZVODA - do 60 znakova"]
-                      : data["PRODUCT NAME - up to 60 characters"]}
+                      ? data.node.proizvodiInformacije.imeProizvodaDo60Znakova
+                      : data.node.proizvodiInformacije
+                          .imeProizvodaDo60ZnakovaEng}
                   </ProizvodName>
                 </WrapProizvod>
               </Link>
