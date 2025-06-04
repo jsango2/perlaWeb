@@ -123,18 +123,18 @@ function ReceptSection({ data }) {
     (s) => s
   );
 
-  receptiSaKataloskimBrojemPerlaProizvoda.forEach((recept) => {
-    recept.catalogId = null;
-    for (let j = 0; j < perlaProizvodi.length; j++) {
-      if (
-        recept.node.perlaRecepti.perlaSastojci[0].perlaProizvodUReceptu ===
-        perlaProizvodi[j].node.proizvodiInformacije.imeProizvodaDo60Znakova
-      ) {
-        recept.catalogId =
-          perlaProizvodi[j].node.proizvodiInformacije.kataloskiBroj;
-      }
-    }
-  });
+  // receptiSaKataloskimBrojemPerlaProizvoda.forEach((recept) => {
+  //   recept.catalogId = null;
+  //   for (let j = 0; j < perlaProizvodi.length; j++) {
+  //     if (
+  //       recept.node.perlaRecepti.perlaSastojci[0].perlaProizvodUReceptu ===
+  //       perlaProizvodi[j].node.proizvodiInformacije.imeProizvodaDo60Znakova
+  //     ) {
+  //       recept.catalogId =
+  //         perlaProizvodi[j].node.proizvodiInformacije.kataloskiBroj;
+  //     }
+  //   }
+  // });
   // const sastojciPerlaEng =
   //   data.receptData.node.perlaRecepti.perlaSastojciEng.map((s) => s);
   // // useEffect(() => {
