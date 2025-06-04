@@ -18,6 +18,12 @@ import { catalogData } from "../catalogData.js";
 import { useRouter } from "next/router.js";
 
 export default function IndexPage({ allRecepti, allProizvodi }) {
+  const perlaProizvodi = allProizvodi.edges.filter(
+    (data) =>
+      data.node.proizvodiInformacije.kategorijaKojojProizvodPripada === "PERLA"
+  );
+  console.log({ allRecepti });
+  console.log({ perlaProizvodi });
   const context = useContext(AppContext);
   const size = useWindowSize();
   const router = useRouter();

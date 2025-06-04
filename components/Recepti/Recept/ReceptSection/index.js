@@ -69,7 +69,7 @@ function ReceptSection({ data, proizvodi }) {
   const perlaProizvodFeatured = proizvodi.find(
     (s) =>
       data.receptData.node.perlaRecepti.perlaSastojci !== null &&
-      s["IME PROIZVODA - skraceno"] ===
+      s.node.proizvodiInformacije.imeProizvodaDo60Znakova ===
         data.receptData.node.perlaRecepti.perlaSastojci[0].perlaProizvodUReceptu
   );
 
