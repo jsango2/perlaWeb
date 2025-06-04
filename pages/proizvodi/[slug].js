@@ -23,7 +23,13 @@ import Head from "next/head.js";
 import Proizvod from "../../components/proizvodPage/proizvod.js";
 import { getAllProizvodi, getAllRecepti } from "../../lib/api2.js";
 
-export default function ProizvodPage({ pageData, params, recepti }) {
+export default function ProizvodPage({ pageData, params, recepti, proizvodi }) {
+  const perlaProizvodi = proizvodi.edges.filter(
+    (data) =>
+      data.node.proizvodiInformacije.kategorijaKojojProizvodPripada === "PERLA"
+  );
+
+  console.log({ perlaProizvodi });
   const { locale, locales, defaultLocale, asPath, basePath } = useRouter();
   const router = useRouter();
 
@@ -193,9 +199,14 @@ export default function ProizvodPage({ pageData, params, recepti }) {
 
 export async function getStaticPaths({ locales }) {
   const paths = [];
+  // const perlaData = catalogData.filter(
+  //   (data) => data["Kategorija kojoj proizvod pripada:"] === "PERLA"
+  // );
   const proizvodi = await getAllProizvodi();
-  const perlaData = catalogData.filter(
-    (data) => data["Kategorija kojoj proizvod pripada:"] === "PERLA"
+
+  const perlaData = proizvodi.edges.filter(
+    (data) =>
+      data.node.proizvodiInformacije.kategorijaKojojProizvodPripada === "PERLA"
   );
 
   perlaData.map((product, i) => {
@@ -204,7 +215,7 @@ export async function getStaticPaths({ locales }) {
       params: {
         slug:
           slugify(
-            product["IME PROIZVODA - do 60 znakova"]
+            product.node.proizvodiInformacije.imeProizvodaDo60Znakova
               .toLowerCase()
               .split(" ")
               .join("-"),
@@ -214,12 +225,35 @@ export async function getStaticPaths({ locales }) {
             }
           ) +
           "-" +
-          product["Kataloški broj: "],
+          product.node.proizvodiInformacije.kataloskiBroj,
       },
       locale: "hr",
     });
     // });
   });
+
+  // perlaData.map((product, i) => {
+  //   // return locales.map((locale) => {
+  //   return paths.push({
+  //     params: {
+  //       slug:
+  //         slugify(
+  //           product["IME PROIZVODA - do 60 znakova"]
+  //             .toLowerCase()
+  //             .split(" ")
+  //             .join("-"),
+  //           {
+  //             locale: "hrv",
+  //             strict: true,
+  //           }
+  //         ) +
+  //         "-" +
+  //         product["Kataloški broj: "],
+  //     },
+  //     locale: "hr",
+  //   });
+  //   // });
+  // });
 
   perlaData.map((product, i) => {
     // return locales.map((locale) => {
@@ -227,7 +261,7 @@ export async function getStaticPaths({ locales }) {
       params: {
         slug:
           slugify(
-            product["PRODUCT NAME - up to 60 characters"]
+            product.node.proizvodiInformacije.imeProizvodaDo60ZnakovaEng
               .toLowerCase()
               .split(" ")
               .join("-"),
@@ -237,7 +271,7 @@ export async function getStaticPaths({ locales }) {
             }
           ) +
           "-" +
-          product["Kataloški broj: "],
+          product.node.proizvodiInformacije.kataloskiBroj,
       },
       locale: "en",
     });
@@ -248,6 +282,8 @@ export async function getStaticPaths({ locales }) {
 
 export async function getStaticProps({ params }) {
   // const novostiNaslovi = await getAllNovostiNaslovi();
+  const proizvodi = await getAllProizvodi();
+
   const recepti = await getAllRecepti();
   const data = await catalogData;
   const currentPath = params.slug;
@@ -283,7 +319,7 @@ export async function getStaticProps({ params }) {
     notfound: true,
   };
   return {
-    props: { pageData, params, recepti },
+    props: { pageData, params, recepti, proizvodi },
   };
 }
 // export async function getStaticPaths({ locales }) {

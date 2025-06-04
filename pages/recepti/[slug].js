@@ -18,10 +18,10 @@ import Image from "next/image";
 import slugify from "slugify";
 // import OtherNews from "../../components/NovostiSection/OtherNewsSection/index.js";
 import Head from "next/head.js";
-import { getAllRecepti } from "../../lib/api2.js";
+import { getAllProizvodi, getAllRecepti } from "../../lib/api2.js";
 import Recept from "../../components/Recepti/Recept/index.js";
 
-export default function News({ pageData, recepti }) {
+export default function News({ pageData, recepti, proizvodi }) {
   const { locale } = useRouter();
   const router = useRouter();
 
@@ -127,7 +127,7 @@ export default function News({ pageData, recepti }) {
           content={recept.fotografijaRecepta.sourceUrl}
         />
       </Head>
-      <Recept receptData={pageData} recepti={recepti} />
+      <Recept receptData={pageData} recepti={recepti} proizvodi={proizvodi} />
     </Layout>
   );
 }
@@ -189,6 +189,8 @@ export async function getStaticPaths({ locales }) {
 
 export async function getStaticProps({ params }) {
   const recepti = await getAllRecepti();
+  const proizvodi = await getAllProizvodi();
+
   // const receptiNaslovi = await getAllReceptiNaslovi();
 
   // const novostiNaslovi = await getAllNovostiNaslovi();
@@ -225,6 +227,6 @@ export async function getStaticProps({ params }) {
     notfound: true,
   };
   return {
-    props: { pageData, recepti, params },
+    props: { pageData, recepti, params, proizvodi },
   };
 }

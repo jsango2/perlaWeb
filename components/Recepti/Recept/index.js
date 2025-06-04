@@ -13,7 +13,8 @@ import ReceptSection from "./ReceptSection/index.js";
 import OstaliRecepti from "./OstaliReceptiSection/index.js";
 import PerlaProizvodi from "./PerlaProizvodi/index.js";
 
-function Recept(recept, recepti) {
+function Recept(recept, proizvodi) {
+  console.log({ recept });
   const { ref, inView, entry } = useInView({
     /* Optional options */
     threshold: 0.2,
@@ -29,7 +30,7 @@ function Recept(recept, recepti) {
       <Hero
         photo={recept.receptData.node.perlaRecepti.fotografijaRecepta.sourceUrl}
       />
-      <ReceptSection data={recept} />
+      <ReceptSection data={recept} proizvodi={proizvodi} />
       <OstaliRecepti data={recept} />
       <PerlaProizvodi />
     </WrapAll>

@@ -40,7 +40,7 @@ import { catalogData } from "../../../../catalogData.js";
 import { useState } from "react";
 import Link from "next/link.js";
 
-function ReceptSection({ data }) {
+function ReceptSection({ data, proizvodi }) {
   const [current, setCurrent] = useState(1);
   const [personNumber, setPersonNumber] = useState(1);
   // const [perlaProizvodFeaturedCatNumber, setPerlaProizvodFeaturedCatNumber] =
@@ -59,7 +59,14 @@ function ReceptSection({ data }) {
   const { locale } = router;
   const t = locale === "en" ? en : hr;
 
-  const perlaProizvodFeatured = catalogData.find(
+  // const perlaProizvodFeatured = catalogData.find(
+  //   (s) =>
+  //     data.receptData.node.perlaRecepti.perlaSastojci !== null &&
+  //     s["IME PROIZVODA - skraceno"] ===
+  //       data.receptData.node.perlaRecepti.perlaSastojci[0].perlaProizvodUReceptu
+  // );
+
+  const perlaProizvodFeatured = proizvodi.find(
     (s) =>
       data.receptData.node.perlaRecepti.perlaSastojci !== null &&
       s["IME PROIZVODA - skraceno"] ===

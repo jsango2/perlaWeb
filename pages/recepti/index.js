@@ -9,7 +9,7 @@ import Layout from "../../components/layout";
 //   Pagination,
 // } from "../../components/NovostiSection/page/style.js";
 
-import { getAllRecepti } from "../../lib/api2.js";
+import { getAllProizvodi, getAllRecepti } from "../../lib/api2.js";
 import Image from "next/image.js";
 import { useRouter } from "next/router.js";
 import slugify from "slugify";
@@ -34,6 +34,7 @@ function index(props) {
 
   const { locale, locales, defaultLocale, asPath, basePath } = useRouter();
 
+  console.log(props);
   return (
     <Layout>
       <Head>
@@ -99,6 +100,8 @@ export default index;
 
 export async function getStaticProps({ locales }) {
   const recepti = await getAllRecepti();
+  const proizvodi = await getAllProizvodi();
+
   const paths = [];
 
   return {
@@ -107,6 +110,7 @@ export async function getStaticProps({ locales }) {
 
       fallback: false,
       recepti,
+      proizvodi,
     },
   };
 }
