@@ -28,7 +28,6 @@ function Proizvod({ pageData, receptiSaProizvodom, perlaProizvodi }) {
   //   // const t = useTranslations("Index");
   const router = useRouter();
   const { locale } = router;
-  console.log({ perlaProizvodi });
   return (
     <WrapAll>
       <Hero pageData={pageData} />

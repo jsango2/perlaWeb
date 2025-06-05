@@ -37,7 +37,6 @@ export default function ProizvodPage({
 
   const { locale, locales, defaultLocale, asPath, basePath } = useRouter();
   const router = useRouter();
-  console.log({ pageData });
   // const novost = pageData.node.novosti;
 
   // const textNovosti =
@@ -101,7 +100,6 @@ export default function ProizvodPage({
       }
     })
   );
-  console.log({ sviReceptiSaOvimPerlaProizvodom });
 
   return (
     <Layout proizvodiNaslovi={perlaProizvodi}>
