@@ -120,9 +120,9 @@ function PerlaProizvodi({ perlaProizvodi }) {
           </Title>
           <Proizvodi>
             <Slider {...settings}>
-              {perlaProizvodi.map((data) => (
+              {perlaProizvodi.map((data, index) => (
                 <Link
-                  key={data.node.proizvodId}
+                  key={index}
                   href={
                     locale === "hr"
                       ? `/proizvodi/${

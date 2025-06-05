@@ -9,7 +9,7 @@ import Layout from "../../components/layout";
 //   Pagination,
 // } from "../../components/NovostiSection/page/style.js";
 
-import { getAllProizvodi, getAllRecepti } from "../../lib/api2.js";
+import { getAllPerlaProizvodi, getAllRecepti } from "../../lib/api2.js";
 // import Image from "next/image.js";
 import { useRouter } from "next/router.js";
 // import slugify from "slugify";
@@ -28,7 +28,6 @@ function index(props) {
   const [itemsPerPage] = useState(6);
   const endOffset = itemOffset + itemsPerPage;
   const [blockScroll, allowScroll] = useScrollBlock();
-
   const { locale, locales, defaultLocale, asPath, basePath } = useRouter();
   return (
     <Layout>
@@ -89,7 +88,7 @@ function index(props) {
       <FrontRecepti
         recepti={props.recepti}
         samoRecepti={true}
-        proizvodi={props.proizvodi.edges}
+        proizvodi={props.proizvodi}
       />
     </Layout>
   );
@@ -99,14 +98,10 @@ export default index;
 
 export async function getStaticProps({ locales }) {
   const recepti = await getAllRecepti();
-  const proizvodi = await getAllProizvodi();
-
-  const paths = [];
+  const proizvodi = await getAllPerlaProizvodi();
 
   return {
     props: {
-      paths: paths,
-
       fallback: false,
       recepti,
       proizvodi,
