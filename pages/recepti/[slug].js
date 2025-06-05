@@ -1,12 +1,12 @@
 import React from "react";
 
-import Layout from "../components/layout.js";
+import Layout from "../../components/layout.js";
 import { useRouter } from "next/router";
 
 import slugify from "slugify";
 import Head from "next/head.js";
-import { getAllPerlaProizvodi, getAllRecepti } from "../lib/api2.js";
-import Recept from "../components/Recepti/Recept/index.js";
+import { getAllPerlaProizvodi, getAllRecepti } from "../../lib/api2.js";
+import Recept from "../../components/Recepti/Recept/index.js";
 
 export default function News({ pageData, recepti, perlaProizvodi }) {
   const { locale } = useRouter();
@@ -69,11 +69,11 @@ export default function News({ pageData, recepti, perlaProizvodi }) {
           content={recept.fotografijaRecepta.sourceUrl}
         />
       </Head>
-      <Recept
+      {/* <Recept
         receptData={pageData}
         recept={recepti}
         perlaProizvodi={perlaProizvodi}
-      />
+      /> */}
     </Layout>
   );
 }
@@ -119,7 +119,7 @@ export async function getStaticPaths({ locales }) {
 
 export async function getStaticProps({ params }) {
   const recepti = await getAllRecepti();
-  const perlaProizvodi = await getAllPerlaProizvodi();
+  // const perlaProizvodi = await getAllPerlaProizvodi();
   const currentSlug = params.slug;
 
   const found = recepti.edges.find(({ node }) => {
@@ -153,7 +153,7 @@ export async function getStaticProps({ params }) {
       pageData: found,
       recepti,
       params,
-      perlaProizvodi,
+      // perlaProizvodi,
     },
   };
 }

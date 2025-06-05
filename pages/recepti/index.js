@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "../components/layout.js";
+import Layout from "../../components/layout.js";
 // import {
 //   Container,
 //   FeaturedNews,
@@ -9,18 +9,18 @@ import Layout from "../components/layout.js";
 //   Pagination,
 // } from "../../components/NovostiSection/page/style.js";
 
-import { getAllPerlaProizvodi, getAllRecepti } from "../lib/api2.js";
+import { getAllPerlaProizvodi, getAllRecepti } from "../../lib/api2.js";
 // import Image from "next/image.js";
 import { useRouter } from "next/router.js";
 // import slugify from "slugify";
 // import { catalogData } from "../../catalogData.js";
-import useScrollBlock from "../components/helper/useScrollBlock.js";
+import useScrollBlock from "../../components/helper/useScrollBlock.js";
 // import { useEffect } from "react";
 // import ReactPaginate from "react-paginate";
 import { useState } from "react";
 // import { format, parseISO } from "date-fns";
-import Hero from "../components/Hero/index.js";
-import FrontRecepti from "../components/Recepti/FrontRecepti/index.js";
+import Hero from "../../components/Hero/index.js";
+import FrontRecepti from "../../components/Recepti/FrontRecepti/index.js";
 import Head from "next/head.js";
 
 function index(props) {
