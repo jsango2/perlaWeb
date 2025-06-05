@@ -21,25 +21,21 @@ import slugify from "slugify";
 // import OtherNews from "../../components/NovostiSection/OtherNewsSection/index.js";
 import Head from "next/head.js";
 import Proizvod from "../../components/proizvodPage/proizvod.js";
-import {
-  getAllPerlaProizvodi,
-  getAllProizvodi,
-  getAllRecepti,
-} from "../../lib/api2.js";
+import { getAllPerlaProizvodi } from "../../lib/api2.js";
 
-export default function ProizvodPage({ pageData, perlaProizvodi, recepti }) {
+export default function ProizvodPage({ pageData, perlaProizvodi }) {
   // const { locale, locales, defaultLocale, asPath, basePath } = useRouter();
   const router = useRouter();
   let namirnica = pageData.node.proizvodiInformacije.imeProizvodaDo60Znakova;
 
   const receptiSaProizvodima = [];
-  const sviReceptiSaOvimPerlaProizvodom = recepti.edges.filter((recept) =>
-    recept.node.perlaRecepti.perlaSastojci.map((item) => {
-      if (item.perlaProizvodUReceptu === namirnica) {
-        receptiSaProizvodima.push(recept);
-      }
-    })
-  );
+  // const sviReceptiSaOvimPerlaProizvodom = recepti.edges.filter((recept) =>
+  //   recept.node.perlaRecepti.perlaSastojci.map((item) => {
+  //     if (item.perlaProizvodUReceptu === namirnica) {
+  //       receptiSaProizvodima.push(recept);
+  //     }
+  //   })
+  // );
 
   return (
     <Layout proizvodiNaslovi={perlaProizvodi}>
@@ -147,10 +143,6 @@ export async function getStaticPaths({ locales }) {
   const perlaData = await getAllPerlaProizvodi();
 
   const paths = [];
-  // const perlaData = proizvodi.edges.filter(
-  //   (data) =>
-  //     data.node.proizvodiInformacije.kategorijaKojojProizvodPripada === "PERLA"
-  // );
 
   perlaData.map((product, i) => {
     // return locales.map((locale) => {
@@ -202,14 +194,7 @@ export async function getStaticPaths({ locales }) {
 
 export async function getStaticProps({ params }) {
   const perlaProizvodi = await getAllPerlaProizvodi();
-  // const recepti = await getAllRecepti();
 
-  // const perlaProizvodi = proizvodi.edges.filter(
-  //   (data) =>
-  //     data.node.proizvodiInformacije.kategorijaKojojProizvodPripada === "PERLA"
-  // );
-
-  // const data = await catalogData;
   const currentPath = params.slug;
   const pageData = perlaProizvodi.find(
     (product) =>

@@ -28,16 +28,7 @@ import Recept from "../../components/Recepti/Recept/index.js";
 export default function News({ pageData, recepti, perlaProizvodi }) {
   const { locale } = useRouter();
   const router = useRouter();
-  // const perlaProizvodi = proizvodi.edges.filter(
-  //   (data) =>
-  //     data.node.proizvodiInformacije.kategorijaKojojProizvodPripada === "PERLA"
-  // );
 
-  // const novost = pageData.node.novosti;
-
-  // const textNovosti =
-  //   locale === "hr" ? novost.textNovosti : novost.textNovostiEng;
-  // const htmlString = `<div>${textNovosti}</div>`;
   const recept = pageData.node.perlaRecepti;
 
   return (
