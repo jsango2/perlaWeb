@@ -85,26 +85,26 @@ function index(props) {
         />
       </Head>
       <Hero />
-      <FrontRecepti
+      {/* <FrontRecepti
         recepti={props.recepti}
         samoRecepti={true}
         proizvodi={props.proizvodi}
-      />
+      /> */}
     </Layout>
   );
 }
 
 export default index;
 
-export async function getStaticProps({ locales }) {
-  const recepti = await getAllRecepti();
-  const proizvodi = await getAllPerlaProizvodi();
+// export async function getStaticProps({ locales }) {
+//   const recepti = await getAllRecepti();
+//   const proizvodi = await getAllPerlaProizvodi();
 
-  return {
-    props: {
-      fallback: false,
-      recepti,
-      proizvodi,
-    },
-  };
-}
+//   return {
+//     props: {
+//       fallback: false,
+//       recepti,
+//       proizvodi,
+//     },
+//   };
+// }
