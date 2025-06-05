@@ -204,7 +204,6 @@ export async function getStaticProps({ params }) {
       data.node.proizvodiInformacije.kategorijaKojojProizvodPripada === "PERLA"
   );
 
-  const recepti = await getAllRecepti();
   // const data = await catalogData;
   const currentPath = params.slug;
   const pageData = perlaProizvodi.find(
