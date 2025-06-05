@@ -36,15 +36,16 @@ import en from "../../../../locales/en.json";
 import hr from "../../../../locales/hr.json";
 import { useInView } from "react-intersection-observer";
 import { RedLine, WrapLogoPerla } from "../style.js";
-import { catalogData } from "../../../../catalogData.js";
+// import { catalogData } from "../../../../catalogData.js";
 import { useState } from "react";
 import Link from "next/link.js";
 
-function ReceptSection({ data }) {
-  const perlaProizvodi = data.proizvodiOdPerle.filter(
-    (data) =>
-      data.node.proizvodiInformacije.kategorijaKojojProizvodPripada === "PERLA"
-  );
+function ReceptSection({ data, proizvodi }) {
+  const perlaProizvodi = proizvodi;
+  // data.proizvodiOdPerle.filter(
+  //   (data) =>
+  //     data.node.proizvodiInformacije.kategorijaKojojProizvodPripada === "PERLA"
+  // );
 
   const [current, setCurrent] = useState(1);
   const [personNumber, setPersonNumber] = useState(1);
@@ -70,12 +71,12 @@ function ReceptSection({ data }) {
   //       data.receptData.node.perlaRecepti.perlaSastojci[0].perlaProizvodUReceptu
   // );
 
-  const perlaProizvodFeatured = perlaProizvodi.find(
-    (s) =>
-      data.receptData.node.perlaRecepti.perlaSastojci !== null &&
-      s.node.proizvodiInformacije.imeProizvodaDo60Znakova ===
-        data.receptData.node.perlaRecepti.perlaSastojci[0].perlaProizvodUReceptu
-  );
+  // const perlaProizvodFeatured = perlaProizvodi.find(
+  //   (s) =>
+  //     data.receptData.node.perlaRecepti.perlaSastojci !== null &&
+  //     s.node.proizvodiInformacije.imeProizvodaDo60Znakova ===
+  //       data.receptData.node.perlaRecepti.perlaSastojci[0].perlaProizvodUReceptu
+  // );
 
   const perlaProizvodiFeatured =
     data.receptData.node.perlaRecepti.perlaSastojci;

@@ -18,16 +18,20 @@ import { useRouter } from "next/router";
 import slugify from "slugify";
 // import OtherNews from "../../components/NovostiSection/OtherNewsSection/index.js";
 import Head from "next/head.js";
-import { getAllProizvodi, getAllRecepti } from "../../lib/api2.js";
+import {
+  getAllPerlaProizvodi,
+  getAllProizvodi,
+  getAllRecepti,
+} from "../../lib/api2.js";
 import Recept from "../../components/Recepti/Recept/index.js";
 
-export default function News({ pageData, recepti, proizvodi }) {
+export default function News({ pageData, recepti, perlaProizvodi }) {
   const { locale } = useRouter();
   const router = useRouter();
-  const perlaProizvodi = proizvodi.edges.filter(
-    (data) =>
-      data.node.proizvodiInformacije.kategorijaKojojProizvodPripada === "PERLA"
-  );
+  // const perlaProizvodi = proizvodi.edges.filter(
+  //   (data) =>
+  //     data.node.proizvodiInformacije.kategorijaKojojProizvodPripada === "PERLA"
+  // );
 
   // const novost = pageData.node.novosti;
 
@@ -134,7 +138,7 @@ export default function News({ pageData, recepti, proizvodi }) {
       <Recept
         receptData={pageData}
         recept={recepti}
-        proizvodiOdPerle={perlaProizvodi}
+        perlaProizvodi={perlaProizvodi}
       />
     </Layout>
   );
@@ -197,7 +201,8 @@ export async function getStaticPaths({ locales }) {
 
 export async function getStaticProps({ params }) {
   const recepti = await getAllRecepti();
-  const proizvodi = await getAllProizvodi();
+  // const proizvodi = await getAllProizvodi();
+  const perlaProizvodi = await getAllPerlaProizvodi();
 
   // const receptiNaslovi = await getAllReceptiNaslovi();
 
@@ -235,6 +240,6 @@ export async function getStaticProps({ params }) {
     notfound: true,
   };
   return {
-    props: { pageData, recepti, params, proizvodi },
+    props: { pageData, recepti, params, perlaProizvodi },
   };
 }

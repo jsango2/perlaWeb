@@ -21,7 +21,11 @@ import slugify from "slugify";
 // import OtherNews from "../../components/NovostiSection/OtherNewsSection/index.js";
 import Head from "next/head.js";
 import Proizvod from "../../components/proizvodPage/proizvod.js";
-import { getAllProizvodi, getAllRecepti } from "../../lib/api2.js";
+import {
+  getAllPerlaProizvodi,
+  getAllProizvodi,
+  getAllRecepti,
+} from "../../lib/api2.js";
 
 export default function ProizvodPage({ pageData, perlaProizvodi }) {
   // const { locale, locales, defaultLocale, asPath, basePath } = useRouter();
@@ -140,14 +144,14 @@ export default function ProizvodPage({ pageData, perlaProizvodi }) {
 }
 
 export async function getStaticPaths({ locales }) {
+  // const proizvodi = await getAllProizvodi();
+  const perlaData = await getAllPerlaProizvodi();
+
   const paths = [];
-
-  const proizvodi = await getAllProizvodi();
-
-  const perlaData = proizvodi.edges.filter(
-    (data) =>
-      data.node.proizvodiInformacije.kategorijaKojojProizvodPripada === "PERLA"
-  );
+  // const perlaData = proizvodi.edges.filter(
+  //   (data) =>
+  //     data.node.proizvodiInformacije.kategorijaKojojProizvodPripada === "PERLA"
+  // );
 
   perlaData.map((product, i) => {
     // return locales.map((locale) => {
@@ -198,11 +202,11 @@ export async function getStaticPaths({ locales }) {
 }
 
 export async function getStaticProps({ params }) {
-  const proizvodi = await getAllProizvodi();
-  const perlaProizvodi = proizvodi.edges.filter(
-    (data) =>
-      data.node.proizvodiInformacije.kategorijaKojojProizvodPripada === "PERLA"
-  );
+  const perlaProizvodi = await getAllPerlaProizvodi();
+  // const perlaProizvodi = proizvodi.edges.filter(
+  //   (data) =>
+  //     data.node.proizvodiInformacije.kategorijaKojojProizvodPripada === "PERLA"
+  // );
 
   // const data = await catalogData;
   const currentPath = params.slug;
@@ -237,6 +241,7 @@ export async function getStaticProps({ params }) {
   ) || {
     notfound: true,
   };
+
   return {
     props: { pageData, perlaProizvodi },
   };

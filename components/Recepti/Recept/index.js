@@ -10,10 +10,10 @@ import hr from "../../../locales/hr.json";
 import { useInView } from "react-intersection-observer";
 import Hero from "./Hero/index.js";
 import ReceptSection from "./ReceptSection/index.js";
-// import OstaliRecepti from "./OstaliReceptiSection/index.js";
+import OstaliRecepti from "./OstaliReceptiSection/index.js";
 import PerlaProizvodi from "./PerlaProizvodi/index.js";
 
-function Recept(recept, proizvodiOdPerle) {
+function Recept(recept) {
   const { ref, inView, entry } = useInView({
     /* Optional options */
     threshold: 0.2,
@@ -24,6 +24,9 @@ function Recept(recept, proizvodiOdPerle) {
   const router = useRouter();
   const { locale } = router;
   const t = locale === "en" ? en : hr;
+  const proizvodiOdPerle = recept.perlaProizvodi;
+  console.log(recept.perlaProizvodi);
+
   return (
     <WrapAll>
       <Hero
@@ -31,7 +34,7 @@ function Recept(recept, proizvodiOdPerle) {
       />
       <ReceptSection data={recept} proizvodi={proizvodiOdPerle} />
       {/* <OstaliRecepti data={recept} /> */}
-      <PerlaProizvodi perlaProizvodi={recept.proizvodiOdPerle} />
+      <PerlaProizvodi perlaProizvodi={proizvodiOdPerle} />
     </WrapAll>
   );
 }
