@@ -1,8 +1,0 @@
-# Configuration for branch deploys for the branch named `staging`.
-# Remember to replace `npm run build` with your site's build command 
-# and replace `dist` with your site's publish directory.
-[context.new_sourcing]
-  command = "npm run build && cp ./custom-headers/_stagingHeaders ./.next/_headers"
-
-[context.production]
-  command = "npm run build && cp ./custom-headers/_productionHeaders ./.next/_headers"
