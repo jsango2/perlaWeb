@@ -25,7 +25,6 @@ function Recept(recept) {
   const { locale } = router;
   const t = locale === "en" ? en : hr;
   const proizvodiOdPerle = recept.perlaProizvodi;
-  console.log(recept.perlaProizvodi);
 
   return (
     <WrapAll>

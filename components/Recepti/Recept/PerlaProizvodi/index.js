@@ -31,7 +31,6 @@ import Link from "next/link.js";
 import slugify from "slugify";
 
 function PerlaProizvodi({ perlaProizvodi }) {
-  console.log({ perlaProizvodi });
   const settings = {
     // dots: false,
     // infinite: true,

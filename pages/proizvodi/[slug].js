@@ -27,20 +27,19 @@ import {
   getAllRecepti,
 } from "../../lib/api2.js";
 
-export default function ProizvodPage({ pageData, perlaProizvodi }) {
+export default function ProizvodPage({ pageData, perlaProizvodi, recepti }) {
   // const { locale, locales, defaultLocale, asPath, basePath } = useRouter();
   const router = useRouter();
-
   let namirnica = pageData.node.proizvodiInformacije.imeProizvodaDo60Znakova;
 
   const receptiSaProizvodima = [];
-  // const sviReceptiSaOvimPerlaProizvodom = recepti.edges.filter((recept) =>
-  //   recept.node.perlaRecepti.perlaSastojci.map((item) => {
-  //     if (item.perlaProizvodUReceptu === namirnica) {
-  //       receptiSaProizvodima.push(recept);
-  //     }
-  //   })
-  // );
+  const sviReceptiSaOvimPerlaProizvodom = recepti.edges.filter((recept) =>
+    recept.node.perlaRecepti.perlaSastojci.map((item) => {
+      if (item.perlaProizvodUReceptu === namirnica) {
+        receptiSaProizvodima.push(recept);
+      }
+    })
+  );
 
   return (
     <Layout proizvodiNaslovi={perlaProizvodi}>
@@ -203,6 +202,8 @@ export async function getStaticPaths({ locales }) {
 
 export async function getStaticProps({ params }) {
   const perlaProizvodi = await getAllPerlaProizvodi();
+  const recepti = await getAllRecepti();
+
   // const perlaProizvodi = proizvodi.edges.filter(
   //   (data) =>
   //     data.node.proizvodiInformacije.kategorijaKojojProizvodPripada === "PERLA"
@@ -243,6 +244,6 @@ export async function getStaticProps({ params }) {
   };
 
   return {
-    props: { pageData, perlaProizvodi },
+    props: { pageData, perlaProizvodi, recepti },
   };
 }
