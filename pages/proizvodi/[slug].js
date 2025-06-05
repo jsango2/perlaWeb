@@ -269,7 +269,7 @@ export async function getStaticProps({ params }) {
   );
 
   const recepti = await getAllRecepti();
-  const data = await catalogData;
+  // const data = await catalogData;
   const currentPath = params.slug;
   const pageData = perlaProizvodi.find(
     (product) =>
