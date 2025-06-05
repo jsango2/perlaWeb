@@ -138,97 +138,178 @@ export default function ProizvodPage({ pageData, perlaProizvodi }) {
   );
 }
 
-export async function getStaticPaths({ locales }) {
-  // const proizvodi = await getAllProizvodi();
-  const perlaData = await getAllPerlaProizvodi();
+// export async function getStaticPaths({ locales }) {
+//   // const proizvodi = await getAllProizvodi();
+//   const perlaData = await getAllPerlaProizvodi();
 
+//   const paths = [];
+
+//   perlaData.map((product, i) => {
+//     // return locales.map((locale) => {
+//     return paths.push({
+//       params: {
+//         slug:
+//           slugify(
+//             product.node.proizvodiInformacije.imeProizvodaDo60Znakova
+//               .toLowerCase()
+//               .split(" ")
+//               .join("-"),
+//             {
+//               locale: "hrv",
+//               strict: true,
+//             }
+//           ) +
+//           "-" +
+//           product.node.proizvodiInformacije.kataloskiBroj,
+//       },
+//       locale: "hr",
+//     });
+//     // });
+//   });
+
+//   perlaData.map((product, i) => {
+//     // return locales.map((locale) => {
+//     return paths.push({
+//       params: {
+//         slug:
+//           slugify(
+//             product.node.proizvodiInformacije.imeProizvodaDo60ZnakovaEng
+//               .toLowerCase()
+//               .split(" ")
+//               .join("-"),
+//             {
+//               locale: "eng",
+//               strict: true,
+//             }
+//           ) +
+//           "-" +
+//           product.node.proizvodiInformacije.kataloskiBroj,
+//       },
+//       locale: "en",
+//     });
+//     // });
+//   });
+//   return { paths, fallback: false };
+// }
+
+export async function getStaticPaths({ locales }) {
+  const perlaData = await getAllPerlaProizvodi();
   const paths = [];
 
-  perlaData.map((product, i) => {
-    // return locales.map((locale) => {
-    return paths.push({
-      params: {
-        slug:
-          slugify(
-            product.node.proizvodiInformacije.imeProizvodaDo60Znakova
-              .toLowerCase()
-              .split(" ")
-              .join("-"),
-            {
-              locale: "hrv",
+  perlaData.forEach(({ node }) => {
+    const info = node.proizvodiInformacije;
+    const id = info?.kataloskiBroj;
+
+    if (info?.imeProizvodaDo60Znakova && id) {
+      paths.push({
+        params: {
+          slug:
+            slugify(info.imeProizvodaDo60Znakova, {
+              locale: "hr",
               strict: true,
-            }
-          ) +
-          "-" +
-          product.node.proizvodiInformacije.kataloskiBroj,
-      },
-      locale: "hr",
-    });
-    // });
+              lower: true,
+            }) + `-${id}`,
+        },
+        locale: "hr",
+      });
+    }
+
+    if (info?.imeProizvodaDo60ZnakovaEng && id) {
+      paths.push({
+        params: {
+          slug:
+            slugify(info.imeProizvodaDo60ZnakovaEng, {
+              locale: "en",
+              strict: true,
+              lower: true,
+            }) + `-${id}`,
+        },
+        locale: "en",
+      });
+    }
   });
 
-  perlaData.map((product, i) => {
-    // return locales.map((locale) => {
-    return paths.push({
-      params: {
-        slug:
-          slugify(
-            product.node.proizvodiInformacije.imeProizvodaDo60ZnakovaEng
-              .toLowerCase()
-              .split(" ")
-              .join("-"),
-            {
-              locale: "eng",
-              strict: true,
-            }
-          ) +
-          "-" +
-          product.node.proizvodiInformacije.kataloskiBroj,
-      },
-      locale: "en",
-    });
-    // });
-  });
   return { paths, fallback: false };
 }
 
+// export async function getStaticProps({ params }) {
+//   const perlaProizvodi = await getAllPerlaProizvodi();
+
+//   const currentPath = params.slug;
+//   const pageData = perlaProizvodi.find(
+//     (product) =>
+//       slugify(
+//         product.node.proizvodiInformacije.imeProizvodaDo60Znakova
+//           .toLowerCase()
+//           .split(" ")
+//           .join("-"),
+//         {
+//           locale: "hrv",
+//           strict: true,
+//         }
+//       ) +
+//         "-" +
+//         product.node.proizvodiInformacije.kataloskiBroj ===
+//         currentPath ||
+//       slugify(
+//         product.node.proizvodiInformacije.imeProizvodaDo60ZnakovaEng
+//           .toLowerCase()
+//           .split(" ")
+//           .join("-"),
+//         {
+//           locale: "eng",
+//           strict: true,
+//         }
+//       ) +
+//         "-" +
+//         product.node.proizvodiInformacije.kataloskiBroj ===
+//         currentPath
+//   ) || {
+//     notfound: true,
+//   };
+
+//   return {
+//     props: { pageData, perlaProizvodi },
+//   };
+// }
+
 export async function getStaticProps({ params }) {
   const perlaProizvodi = await getAllPerlaProizvodi();
+  const currentSlug = params.slug;
 
-  const currentPath = params.slug;
-  const pageData = perlaProizvodi.find(
-    (product) =>
-      slugify(
-        product.node.proizvodiInformacije.imeProizvodaDo60Znakova
-          .toLowerCase()
-          .split(" ")
-          .join("-"),
-        {
-          locale: "hrv",
-          strict: true,
-        }
-      ) +
-        "-" +
-        product.node.proizvodiInformacije.kataloskiBroj ===
-        currentPath ||
-      slugify(
-        product.node.proizvodiInformacije.imeProizvodaDo60ZnakovaEng
-          .toLowerCase()
-          .split(" ")
-          .join("-"),
-        {
-          locale: "eng",
-          strict: true,
-        }
-      ) +
-        "-" +
-        product.node.proizvodiInformacije.kataloskiBroj ===
-        currentPath
-  ) || {
-    notfound: true,
-  };
+  const found = perlaProizvodi.find(({ node }) => {
+    const info = node.proizvodiInformacije;
+    const id = info?.kataloskiBroj;
+
+    if (!id) return false;
+
+    const hrSlug =
+      slugify(info.imeProizvodaDo60Znakova || "", {
+        locale: "hr",
+        strict: true,
+        lower: true,
+      }) + `-${id}`;
+
+    const enSlug =
+      slugify(info.imeProizvodaDo60ZnakovaEng || "", {
+        locale: "en",
+        strict: true,
+        lower: true,
+      }) + `-${id}`;
+
+    return hrSlug === currentSlug || enSlug === currentSlug;
+  });
+
+  if (!found) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
-    props: { pageData, perlaProizvodi },
+    props: {
+      pageData: found,
+      perlaProizvodi,
+    },
   };
 }
