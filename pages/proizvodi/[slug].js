@@ -246,7 +246,7 @@ export async function getStaticProps({ params }) {
     notfound: true,
   };
   return {
-    props: { pageData, params, recepti, perlaProizvodi },
+    props: { pageData, perlaProizvodi },
   };
 }
 // export async function getStaticPaths({ locales }) {
