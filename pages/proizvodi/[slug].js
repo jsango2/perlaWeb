@@ -25,7 +25,7 @@ import {
   getAllPerlaProizvodiPaths,
 } from "../../lib/api2.js";
 
-export default function ProizvodPage({ pageData, perlaProizvodi }) {
+export default function ProizvodPage({ pageData, perlaProizvodi, perlaData }) {
   // const { locale, locales, defaultLocale, asPath, basePath } = useRouter();
   const router = useRouter();
   let namirnica = pageData.node.proizvodiInformacije.imeProizvodaDo60Znakova;
@@ -38,7 +38,6 @@ export default function ProizvodPage({ pageData, perlaProizvodi }) {
   //     }
   //   })
   // );
-
   return (
     <Layout proizvodiNaslovi={perlaProizvodi}>
       {/* <Head>
@@ -277,6 +276,7 @@ export async function getStaticPaths({ locales }) {
 
 export async function getStaticProps({ params }) {
   const perlaProizvodi = await getAllPerlaProizvodi();
+
   const currentSlug = params.slug;
 
   const found = perlaProizvodi.find(({ node }) => {
