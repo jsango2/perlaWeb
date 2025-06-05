@@ -33,7 +33,7 @@ function Recept(recept) {
       />
       <ReceptSection data={recept} proizvodi={proizvodiOdPerle} />
       {/* <OstaliRecepti data={recept} /> */}
-      <PerlaProizvodi perlaProizvodi={proizvodiOdPerle} />
+      {/* <PerlaProizvodi perlaProizvodi={proizvodiOdPerle} /> */}
     </WrapAll>
   );
 }
