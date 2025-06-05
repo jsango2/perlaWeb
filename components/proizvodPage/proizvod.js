@@ -28,13 +28,14 @@ function Proizvod({ pageData, receptiSaProizvodom, perlaProizvodi }) {
   //   // const t = useTranslations("Index");
   const router = useRouter();
   const { locale } = router;
+  console.log({ perlaProizvodi });
   return (
     <WrapAll>
       <Hero pageData={pageData} />
       <Divider />
       {/* <BlueLine />
       <Naziv>
-        {locale === "hr"
+        {locale === "hr" 
           ? "Recepti sa ovim proizvodom"
           : "Recepies with this product"}
       </Naziv> */}

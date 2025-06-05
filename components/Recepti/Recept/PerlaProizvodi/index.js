@@ -94,13 +94,6 @@ function PerlaProizvodi({ perlaProizvodi }) {
     ],
   };
   const [perlaData, setPerlaData] = useState([]);
-  // useEffect(() => {
-  //   setPerlaData(
-  //     perlaProizvodi.filter(
-  //       (data) => data["Kategorija kojoj proizvod pripada:"] == "PERLA"
-  //     )
-  //   );
-  // }, []);
 
   const { ref, inView, entry } = useInView({
     /* Optional options */

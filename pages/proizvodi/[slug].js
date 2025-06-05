@@ -37,14 +37,14 @@ export default function ProizvodPage({
 
   const { locale, locales, defaultLocale, asPath, basePath } = useRouter();
   const router = useRouter();
-
+  console.log({ pageData });
   // const novost = pageData.node.novosti;
 
   // const textNovosti =
   //   locale === "hr" ? novost.textNovosti : novost.textNovostiEng;
   // const htmlString = `<div>${textNovosti}</div>`;
 
-  let namirnica = pageData["IME PROIZVODA - skraceno"];
+  let namirnica = pageData.node.proizvodiInformacije.imeProizvodaDo60Znakova;
 
   // const namirnicaNoSpaces = namirnica.toLowerCase().replaceAll(" ", "");
 
@@ -101,6 +101,7 @@ export default function ProizvodPage({
       }
     })
   );
+  console.log({ sviReceptiSaOvimPerlaProizvodom });
 
   return (
     <Layout proizvodiNaslovi={perlaProizvodi}>
@@ -205,9 +206,7 @@ export default function ProizvodPage({
 
 export async function getStaticPaths({ locales }) {
   const paths = [];
-  // const perlaData = catalogData.filter(
-  //   (data) => data["Kategorija kojoj proizvod pripada:"] === "PERLA"
-  // );
+
   const proizvodi = await getAllProizvodi();
 
   const perlaData = proizvodi.edges.filter(
@@ -237,29 +236,6 @@ export async function getStaticPaths({ locales }) {
     });
     // });
   });
-
-  // perlaData.map((product, i) => {
-  //   // return locales.map((locale) => {
-  //   return paths.push({
-  //     params: {
-  //       slug:
-  //         slugify(
-  //           product["IME PROIZVODA - do 60 znakova"]
-  //             .toLowerCase()
-  //             .split(" ")
-  //             .join("-"),
-  //           {
-  //             locale: "hrv",
-  //             strict: true,
-  //           }
-  //         ) +
-  //         "-" +
-  //         product["Kataloški broj: "],
-  //     },
-  //     locale: "hr",
-  //   });
-  //   // });
-  // });
 
   perlaData.map((product, i) => {
     // return locales.map((locale) => {

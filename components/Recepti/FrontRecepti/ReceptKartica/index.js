@@ -45,13 +45,13 @@ function ReceptKartica({
       <Recipe ref={ref} className={` ${inView ? "inView" : "outView"}`}>
         <BGplaceholder />
         <Overlay />
-        <FeaturedPerlaImage className="featuredPerlaImage">
+        {/* <FeaturedPerlaImage className="featuredPerlaImage">
           <Image
             src={`/productImages/${catalogId}.webp`}
             layout="fill"
             objectFit="contain"
           />
-        </FeaturedPerlaImage>
+        </FeaturedPerlaImage> */}
         <Time>
           <Timer />
           {trajanje} min

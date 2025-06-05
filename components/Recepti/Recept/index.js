@@ -10,7 +10,7 @@ import hr from "../../../locales/hr.json";
 import { useInView } from "react-intersection-observer";
 import Hero from "./Hero/index.js";
 import ReceptSection from "./ReceptSection/index.js";
-import OstaliRecepti from "./OstaliReceptiSection/index.js";
+// import OstaliRecepti from "./OstaliReceptiSection/index.js";
 import PerlaProizvodi from "./PerlaProizvodi/index.js";
 
 function Recept(recept, proizvodiOdPerle) {

@@ -28,22 +28,22 @@ function OstaliRecepti({ receptiSaProizvodom }) {
   const router = useRouter();
   const { locale } = router;
   // const t = locale === "en" ? en : hr;
-  const receptiSaKataloskimBrojemPerlaProizvoda = receptiSaProizvodom;
+  // const receptiSaKataloskimBrojemPerlaProizvoda = receptiSaProizvodom;
 
-  receptiSaKataloskimBrojemPerlaProizvoda.forEach((recept) => {
-    recept.catalogId = null;
-    for (let j = 0; j < catalogData.length; j++) {
-      if (
-        recept.node.perlaRecepti.perlaSastojci[0].perlaProizvodUReceptu ===
-        catalogData[j]["IME PROIZVODA - skraceno"]
-      ) {
-        recept.catalogId = catalogData[j]["Kataloški broj: "];
-      }
-    }
-  });
+  // receptiSaKataloskimBrojemPerlaProizvoda.forEach((recept) => {
+  //   recept.catalogId = null;
+  //   for (let j = 0; j < catalogData.length; j++) {
+  //     if (
+  //       recept.node.perlaRecepti.perlaSastojci[0].perlaProizvodUReceptu ===
+  //       catalogData[j]["IME PROIZVODA - skraceno"]
+  //     ) {
+  //       recept.catalogId = catalogData[j]["Kataloški broj: "];
+  //     }
+  //   }
+  // });
   return (
     <>
-      {receptiSaKataloskimBrojemPerlaProizvoda.length !== 0 && (
+      {receptiSaProizvodom.length !== 0 && (
         <>
           <BlueLine />
           <Naziv>
@@ -52,7 +52,7 @@ function OstaliRecepti({ receptiSaProizvodom }) {
               : "Recipes with this product"}
           </Naziv>
           <Container>
-            {receptiSaKataloskimBrojemPerlaProizvoda.map((recept) => (
+            {receptiSaProizvodom.map((recept) => (
               <ReceptKartica
                 key={recept.node.id}
                 catalogId={recept.catalogId}

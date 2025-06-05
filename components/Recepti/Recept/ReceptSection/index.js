@@ -88,7 +88,6 @@ function ReceptSection({ data }) {
       if (
         sastojak.perlaProizvodUReceptu ===
         perlaProizvodi[j].node.proizvodiInformacije.imeProizvodaDo60Znakova
-        // catalogData[j][["IME PROIZVODA - skraceno"]]
       ) {
         sastojak.punoImeProizvoda =
           perlaProizvodi[j].node.proizvodiInformacije.imeProizvodaDo60Znakova;
@@ -159,6 +158,10 @@ function ReceptSection({ data }) {
   //   setPersonNumber(kat);
   // };
   // // console.log(data.receptData.node.perlaRecepti);
+  const handleClick = (kat) => {
+    current === kat ? setCurrent(null) : setCurrent(kat);
+    setPersonNumber(kat);
+  };
   return (
     <WrapAll>
       <RedLine>
