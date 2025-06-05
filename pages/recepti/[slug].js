@@ -1,33 +1,16 @@
 import React from "react";
-// import { catalogData } from "../../catalogData.js";
-// import { news } from "../../news";
+
 import Layout from "../../components/layout.js";
 import { useRouter } from "next/router";
 
-// import Image from "next/image";
-// import {
-//   FeaturedImage,
-//   TextSection,
-//   TitleBlock,
-//   Content,
-//   Datum,
-//   Naslov,
-//   WrapContent,
-// } from "../../components/NovostiSection/style";
-// import { BlueLine } from "../../components/NovostiSection/newsCard/style.js";
 import slugify from "slugify";
-// import OtherNews from "../../components/NovostiSection/OtherNewsSection/index.js";
 import Head from "next/head.js";
-import {
-  getAllPerlaProizvodi,
-  getAllProizvodi,
-  getAllRecepti,
-} from "../../lib/api2.js";
+import { getAllPerlaProizvodi, getAllRecepti } from "../../lib/api2.js";
 import Recept from "../../components/Recepti/Recept/index.js";
 
 export default function News({ pageData, recepti, perlaProizvodi }) {
   const { locale } = useRouter();
-  const router = useRouter();
+  // const router = useRouter();
 
   const recept = pageData.node.perlaRecepti;
 
@@ -38,27 +21,6 @@ export default function News({ pageData, recepti, perlaProizvodi }) {
           {" "}
           {locale === "hr" ? recept.naslovRecepta : recept.naslovReceptaEng}
         </title>
-        {/* <link
-          rel="canonical"
-          href={
-            locale === "hr"
-              ? `https://www.marikomerc.hr/novosti/${
-                  slugify(novost.naslov.toLowerCase().split(" ").join("-"), {
-                    locale: "hrv",
-                  }) +
-                  "-" +
-                  novost.datum.split("/").join("-")
-                }`
-              : `https://www.marikomerc.hr/novosti/${
-                  slugify(novost.naslovEng.toLowerCase().split(" ").join("-"), {
-                    locale: "hrv",
-                  }) +
-                  "-" +
-                  novost.datum.split("/").join("-")
-                }`
-          }
-          key="canonical"
-        /> */}
 
         <meta
           property="og:title"
@@ -101,26 +63,7 @@ export default function News({ pageData, recepti, perlaProizvodi }) {
             locale === "hr" ? recept.naslovRecepta : recept.naslovReceptaEng
           }
         />
-        {/* <meta
-          property="og:url"
-          content={
-            locale === "hr"
-              ? `https://www.marikomerc.hr/novosti/${
-                  slugify(novost.naslov.toLowerCase().split(" ").join("-"), {
-                    locale: "hrv",
-                  }) +
-                  "-" +
-                  novost.datum.split("/").join("-")
-                }`
-              : `https://www.marikomerc.hr/novosti/${
-                  slugify(novost.naslovEng.toLowerCase().split(" ").join("-"), {
-                    locale: "hrv",
-                  }) +
-                  "-" +
-                  novost.datum.split("/").join("-")
-                }`
-          }
-        /> */}
+
         <meta
           property="og:image"
           content={recept.fotografijaRecepta.sourceUrl}
@@ -173,51 +116,6 @@ export async function getStaticPaths({ locales }) {
 
   return { paths, fallback: false };
 }
-
-// export async function getStaticProps({ params }) {
-//   const recepti = await getAllRecepti();
-//   // const proizvodi = await getAllProizvodi();
-//   const perlaProizvodi = await getAllPerlaProizvodi();
-
-//   // const receptiNaslovi = await getAllReceptiNaslovi();
-
-//   // const novostiNaslovi = await getAllNovostiNaslovi();
-//   const currentPath = params.slug;
-//   const pageData = recepti.edges.find(
-//     (recept) =>
-//       slugify(
-//         recept.node.perlaRecepti.naslovRecepta
-//           .toLowerCase()
-//           .split(" ")
-//           .join("-"),
-//         {
-//           locale: "hrv",
-//           strict: true,
-//         }
-//       ) +
-//         "-" +
-//         new Date(recept.node.date).toISOString().split("T")[0] ===
-//         currentPath ||
-//       slugify(
-//         recept.node.perlaRecepti.naslovReceptaEng
-//           .toLowerCase()
-//           .split(" ")
-//           .join("-"),
-//         {
-//           locale: "eng",
-//           strict: true,
-//         }
-//       ) +
-//         "-" +
-//         new Date(recept.node.date).toISOString().split("T")[0] ===
-//         currentPath
-//   ) || {
-//     notfound: true,
-//   };
-//   return {
-//     props: { pageData, recepti, params, perlaProizvodi },
-//   };
-// }
 
 export async function getStaticProps({ params }) {
   const recepti = await getAllRecepti();

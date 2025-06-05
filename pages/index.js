@@ -3,11 +3,11 @@
 import Layout from "./../components/layout";
 // import Seo from "../components/seo";
 import Head from "next/head";
-import { useContext, useEffect, useState } from "react";
+// import { useContext, useEffect, useState } from "react";
 
-import useWindowSize from "../components/helper/usewindowsize";
+// import useWindowSize from "../components/helper/usewindowsize";
 
-import AppContext from "../components/AppContext.js";
+// import AppContext from "../components/AppContext.js";
 import Hero from "../components/Hero/index.js";
 import FrontRecepti from "../components/Recepti/FrontRecepti/index.js";
 import NasiProizvodi from "../components/NasiProizvodi/index.js";
@@ -24,8 +24,6 @@ import { useRouter } from "next/router.js";
 export default function IndexPage({ allRecepti, allProizvodi }) {
   const perlaProizvodi = allProizvodi;
 
-  const context = useContext(AppContext);
-  const size = useWindowSize();
   const router = useRouter();
   const { locale } = router;
 

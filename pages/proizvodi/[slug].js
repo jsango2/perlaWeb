@@ -1,4 +1,3 @@
-import React, { useState, useEffect, useContext } from "react";
 // import { catalogData } from "../../catalogData.js";
 // import { news } from "../../news";
 import Layout from "../../components/layout.js";
