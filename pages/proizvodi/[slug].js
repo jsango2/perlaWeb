@@ -202,7 +202,7 @@ export async function getStaticPaths({ locales }) {
 
 export async function getStaticProps({ params }) {
   const perlaProizvodi = await getAllPerlaProizvodi();
-  const recepti = await getAllRecepti();
+  // const recepti = await getAllRecepti();
 
   // const perlaProizvodi = proizvodi.edges.filter(
   //   (data) =>
@@ -244,6 +244,6 @@ export async function getStaticProps({ params }) {
   };
 
   return {
-    props: { pageData, perlaProizvodi, recepti },
+    props: { pageData, perlaProizvodi },
   };
 }
