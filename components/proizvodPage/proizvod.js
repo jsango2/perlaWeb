@@ -38,7 +38,7 @@ function Proizvod({ pageData, receptiSaProizvodom, perlaProizvodi }) {
           ? "Recepti sa ovim proizvodom"
           : "Recepies with this product"}
       </Naziv> */}
-      <OstaliRecepti receptiSaProizvodom={receptiSaProizvodom} />
+      {/* <OstaliRecepti receptiSaProizvodom={receptiSaProizvodom} /> */}
       <Link href="/recepti">
         <Button>
           {" "}
