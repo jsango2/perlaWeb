@@ -21,7 +21,7 @@ export default function Meta() {
         sizes="16x16"
         href="/favicon/faviconPerla.png"
       />
-      <link rel="manifest" href="/favicon/site.webmanifest" />
+      {/* <link rel="manifest" href="/favicon/site.webmanifest" /> */}
       <link
         rel="mask-icon"
         href="/favicon/safari-pinned-tab.svg"
