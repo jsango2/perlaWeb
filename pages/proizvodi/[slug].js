@@ -1,6 +1,6 @@
 // import { catalogData } from "../../catalogData.js";
 // import { news } from "../../news";
-import Layout from "../components/layout.js";
+import Layout from "../../components/layout.js";
 import { useRouter } from "next/router";
 // import { catalogData } from "../../catalogData.js";
 // import Image from "next/image";
@@ -19,8 +19,8 @@ import { useRouter } from "next/router";
 import slugify from "slugify";
 // import OtherNews from "../../components/NovostiSection/OtherNewsSection/index.js";
 import Head from "next/head.js";
-import Proizvod from "../components/proizvodPage/proizvod.js";
-import { getAllPerlaProizvodi } from "../lib/api2.js";
+import Proizvod from "../../components/proizvodPage/proizvod.js";
+import { getAllPerlaProizvodi } from "../../lib/api2.js";
 
 export default function ProizvodPage({ pageData, perlaProizvodi }) {
   // const { locale, locales, defaultLocale, asPath, basePath } = useRouter();

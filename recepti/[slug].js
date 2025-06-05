@@ -1,12 +1,12 @@
 import React from "react";
 
-import Layout from "../../components/layout.js";
+import Layout from "../components/layout.js";
 import { useRouter } from "next/router";
 
 import slugify from "slugify";
 import Head from "next/head.js";
-import { getAllPerlaProizvodi, getAllRecepti } from "../../lib/api2.js";
-import Recept from "../../components/Recepti/Recept/index.js";
+import { getAllPerlaProizvodi, getAllRecepti } from "../lib/api2.js";
+import Recept from "../components/Recepti/Recept/index.js";
 
 export default function News({ pageData, recepti, perlaProizvodi }) {
   const { locale } = useRouter();
