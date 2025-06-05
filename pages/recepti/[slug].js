@@ -69,11 +69,11 @@ export default function News({ pageData, recepti, perlaProizvodi }) {
           content={recept.fotografijaRecepta.sourceUrl}
         />
       </Head>
-      {/* <Recept
+      <Recept
         receptData={pageData}
         recept={recepti}
         perlaProizvodi={perlaProizvodi}
-      /> */}
+      />
     </Layout>
   );
 }
@@ -153,7 +153,7 @@ export async function getStaticProps({ params }) {
       pageData: found,
       recepti,
       params,
-      // perlaProizvodi,
+      perlaProizvodi,
     },
   };
 }
