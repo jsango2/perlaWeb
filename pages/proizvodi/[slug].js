@@ -3,8 +3,8 @@ import React, { useState, useEffect, useContext } from "react";
 // import { news } from "../../news";
 import Layout from "../../components/layout.js";
 import { useRouter } from "next/router";
-import { catalogData } from "../../catalogData.js";
-import Image from "next/image";
+// import { catalogData } from "../../catalogData.js";
+// import Image from "next/image";
 // import {
 //   FeaturedImage,
 //   TextSection,
@@ -14,23 +14,17 @@ import Image from "next/image";
 //   Naslov,
 //   WrapContent,
 // } from "../../components/NovostiSection/style";
-import AppContext from "../../components/AppContext.js";
+// import AppContext from "../../components/AppContext.js";
 // import { BlueLine } from "../../components/NovostiSection/newsCard/style.js";
-import parse from "html-react-parser";
+// import parse from "html-react-parser";
 import slugify from "slugify";
 // import OtherNews from "../../components/NovostiSection/OtherNewsSection/index.js";
 import Head from "next/head.js";
 import Proizvod from "../../components/proizvodPage/proizvod.js";
 import { getAllProizvodi, getAllRecepti } from "../../lib/api2.js";
 
-export default function ProizvodPage({
-  pageData,
-  params,
-  recepti,
-  proizvodi,
-  perlaProizvodi,
-}) {
-  const { locale, locales, defaultLocale, asPath, basePath } = useRouter();
+export default function ProizvodPage({ pageData, perlaProizvodi }) {
+  // const { locale, locales, defaultLocale, asPath, basePath } = useRouter();
   const router = useRouter();
 
   let namirnica = pageData.node.proizvodiInformacije.imeProizvodaDo60Znakova;
@@ -204,7 +198,6 @@ export async function getStaticPaths({ locales }) {
 }
 
 export async function getStaticProps({ params }) {
-  // const novostiNaslovi = await getAllNovostiNaslovi();
   const proizvodi = await getAllProizvodi();
   const perlaProizvodi = proizvodi.edges.filter(
     (data) =>
@@ -249,8 +242,3 @@ export async function getStaticProps({ params }) {
     props: { pageData, perlaProizvodi },
   };
 }
-// export async function getStaticPaths({ locales }) {
-//   const novosti = await getAllNovosti();
-
-//   return { paths, fallback: false };
-// }

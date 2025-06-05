@@ -4,7 +4,7 @@ import React from "react";
 import Layout from "../../components/layout.js";
 import { useRouter } from "next/router";
 
-import Image from "next/image";
+// import Image from "next/image";
 // import {
 //   FeaturedImage,
 //   TextSection,
