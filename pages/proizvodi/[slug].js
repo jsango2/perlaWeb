@@ -20,7 +20,10 @@ import slugify from "slugify";
 // import OtherNews from "../../components/NovostiSection/OtherNewsSection/index.js";
 import Head from "next/head.js";
 import Proizvod from "../../components/proizvodPage/proizvod.js";
-import { getAllPerlaProizvodi } from "../../lib/api2.js";
+import {
+  getAllPerlaProizvodi,
+  getAllPerlaProizvodiPaths,
+} from "../../lib/api2.js";
 
 export default function ProizvodPage({ pageData, perlaProizvodi }) {
   // const { locale, locales, defaultLocale, asPath, basePath } = useRouter();
@@ -192,7 +195,7 @@ export default function ProizvodPage({ pageData, perlaProizvodi }) {
 // }
 
 export async function getStaticPaths({ locales }) {
-  const perlaData = await getAllPerlaProizvodi();
+  const perlaData = await getAllPerlaProizvodiPaths();
   const paths = [];
 
   perlaData.forEach(({ node }) => {

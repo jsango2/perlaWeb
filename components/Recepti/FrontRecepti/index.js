@@ -35,10 +35,7 @@ import { catalogData } from "../../../catalogData.js";
 import SocialComp from "./social.js";
 
 function FrontRecepti({ recepti, samoRecepti, proizvodi }) {
-  const perlaProizvodi = proizvodi.filter(
-    (data) =>
-      data.node.proizvodiInformacije.kategorijaKojojProizvodPripada === "PERLA"
-  );
+  const perlaProizvodi = proizvodi;
 
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(9);

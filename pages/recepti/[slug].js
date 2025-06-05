@@ -5,7 +5,11 @@ import { useRouter } from "next/router";
 
 import slugify from "slugify";
 import Head from "next/head.js";
-import { getAllPerlaProizvodi, getAllRecepti } from "../../lib/api2.js";
+import {
+  getAllPerlaProizvodi,
+  getAllRecepti,
+  getAllReceptiPaths,
+} from "../../lib/api2.js";
 import Recept from "../../components/Recepti/Recept/index.js";
 
 export default function News({ pageData, recepti, perlaProizvodi }) {
@@ -79,7 +83,7 @@ export default function News({ pageData, recepti, perlaProizvodi }) {
 }
 
 export async function getStaticPaths({ locales }) {
-  const recepti = await getAllRecepti();
+  const recepti = await getAllReceptiPaths();
   const paths = [];
 
   recepti.edges.forEach(({ node }) => {
