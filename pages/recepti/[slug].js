@@ -137,50 +137,34 @@ export default function News({ pageData, recepti, perlaProizvodi }) {
 
 export async function getStaticPaths({ locales }) {
   const recepti = await getAllRecepti();
-
   const paths = [];
 
-  recepti.edges.map((post, i) => {
-    // return locales.map((locale) => {
-    return paths.push({
-      params: {
-        slug:
-          slugify(
-            post.node.perlaRecepti.naslovRecepta
-              .toLowerCase()
-              .split(" ")
-              .join("-"),
-            {
-              locale: "hrv",
-              strict: true,
-            }
-          ) +
-          "-" +
-          new Date(post.node.date).toISOString().split("T")[0],
-      },
-      locale: "hr",
-    });
-    // });
-  });
+  recepti.edges.forEach(({ node }) => {
+    const date = new Date(node.date).toISOString().split("T")[0];
 
-  recepti.edges.map((post, i) => {
-    // return locales.map((locale) => {
-    if (post.node.perlaRecepti.naslovReceptaEng !== null) {
-      return paths.push({
+    if (node.perlaRecepti?.naslovRecepta) {
+      paths.push({
         params: {
           slug:
-            slugify(
-              post.node.perlaRecepti.naslovReceptaEng
-                .toLowerCase()
-                .split(" ")
-                .join("-"),
-              {
-                locale: "eng",
-                strict: true,
-              }
-            ) +
-            "-" +
-            new Date(post.node.date).toISOString().split("T")[0],
+            slugify(node.perlaRecepti.naslovRecepta, {
+              locale: "hr",
+              strict: true,
+              lower: true,
+            }) + `-${date}`,
+        },
+        locale: "hr",
+      });
+    }
+
+    if (node.perlaRecepti?.naslovReceptaEng) {
+      paths.push({
+        params: {
+          slug:
+            slugify(node.perlaRecepti.naslovReceptaEng, {
+              locale: "en",
+              strict: true,
+              lower: true,
+            }) + `-${date}`,
         },
         locale: "en",
       });
@@ -190,47 +174,88 @@ export async function getStaticPaths({ locales }) {
   return { paths, fallback: false };
 }
 
+// export async function getStaticProps({ params }) {
+//   const recepti = await getAllRecepti();
+//   // const proizvodi = await getAllProizvodi();
+//   const perlaProizvodi = await getAllPerlaProizvodi();
+
+//   // const receptiNaslovi = await getAllReceptiNaslovi();
+
+//   // const novostiNaslovi = await getAllNovostiNaslovi();
+//   const currentPath = params.slug;
+//   const pageData = recepti.edges.find(
+//     (recept) =>
+//       slugify(
+//         recept.node.perlaRecepti.naslovRecepta
+//           .toLowerCase()
+//           .split(" ")
+//           .join("-"),
+//         {
+//           locale: "hrv",
+//           strict: true,
+//         }
+//       ) +
+//         "-" +
+//         new Date(recept.node.date).toISOString().split("T")[0] ===
+//         currentPath ||
+//       slugify(
+//         recept.node.perlaRecepti.naslovReceptaEng
+//           .toLowerCase()
+//           .split(" ")
+//           .join("-"),
+//         {
+//           locale: "eng",
+//           strict: true,
+//         }
+//       ) +
+//         "-" +
+//         new Date(recept.node.date).toISOString().split("T")[0] ===
+//         currentPath
+//   ) || {
+//     notfound: true,
+//   };
+//   return {
+//     props: { pageData, recepti, params, perlaProizvodi },
+//   };
+// }
+
 export async function getStaticProps({ params }) {
   const recepti = await getAllRecepti();
-  // const proizvodi = await getAllProizvodi();
   const perlaProizvodi = await getAllPerlaProizvodi();
+  const currentSlug = params.slug;
 
-  // const receptiNaslovi = await getAllReceptiNaslovi();
+  const found = recepti.edges.find(({ node }) => {
+    const date = new Date(node.date).toISOString().split("T")[0];
 
-  // const novostiNaslovi = await getAllNovostiNaslovi();
-  const currentPath = params.slug;
-  const pageData = recepti.edges.find(
-    (recept) =>
-      slugify(
-        recept.node.perlaRecepti.naslovRecepta
-          .toLowerCase()
-          .split(" ")
-          .join("-"),
-        {
-          locale: "hrv",
-          strict: true,
-        }
-      ) +
-        "-" +
-        new Date(recept.node.date).toISOString().split("T")[0] ===
-        currentPath ||
-      slugify(
-        recept.node.perlaRecepti.naslovReceptaEng
-          .toLowerCase()
-          .split(" ")
-          .join("-"),
-        {
-          locale: "eng",
-          strict: true,
-        }
-      ) +
-        "-" +
-        new Date(recept.node.date).toISOString().split("T")[0] ===
-        currentPath
-  ) || {
-    notfound: true,
-  };
+    const hrSlug =
+      slugify(node.perlaRecepti?.naslovRecepta || "", {
+        locale: "hr",
+        strict: true,
+        lower: true,
+      }) + `-${date}`;
+
+    const enSlug =
+      slugify(node.perlaRecepti?.naslovReceptaEng || "", {
+        locale: "en",
+        strict: true,
+        lower: true,
+      }) + `-${date}`;
+
+    return hrSlug === currentSlug || enSlug === currentSlug;
+  });
+
+  if (!found) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
-    props: { pageData, recepti, params, perlaProizvodi },
+    props: {
+      pageData: found,
+      recepti,
+      params,
+      perlaProizvodi,
+    },
   };
 }
