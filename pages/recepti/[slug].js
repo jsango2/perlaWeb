@@ -119,7 +119,7 @@ export async function getStaticPaths({ locales }) {
 
 export async function getStaticProps({ params }) {
   const recepti = await getAllRecepti();
-  // const perlaProizvodi = await getAllPerlaProizvodi();
+  const perlaProizvodi = await getAllPerlaProizvodi();
   const currentSlug = params.slug;
 
   const found = recepti.edges.find(({ node }) => {
