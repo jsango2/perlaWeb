@@ -79,7 +79,7 @@ export default function News({ pageData, recepti, perlaProizvodi }) {
         recept={recepti}
         perlaProizvodi={perlaProizvodi}
       />
-      <PerlaProizvodi perlaProizvodi={perlaProizvodi} />
+      {/* <PerlaProizvodi perlaProizvodi={perlaProizvodi} /> */}
     </Layout>
   );
 }
