@@ -12,7 +12,7 @@ import Hero from "../components/Hero/index.js";
 import FrontRecepti from "../components/Recepti/FrontRecepti/index.js";
 import NasiProizvodi from "../components/NasiProizvodi/index.js";
 import {
-  getAllPerlaProizvodi,
+  // getAllPerlaProizvodi,
   // getAllProizvodi,
   getAllRecepti,
 } from "../lib/api2.js";
@@ -20,6 +20,7 @@ import {
 // import { WrapAll } from "../components/Recepti/FrontRecepti/style.js";
 // import { catalogData } from "../catalogData.js";
 import { useRouter } from "next/router.js";
+import { perlaProizvodiLocal } from "../perlaProizvodi.js";
 
 export default function IndexPage({ allRecepti, allProizvodi }) {
   const perlaProizvodi = allProizvodi;
@@ -93,7 +94,7 @@ export default function IndexPage({ allRecepti, allProizvodi }) {
 
 export async function getStaticProps({ preview = false }) {
   const allRecepti = await getAllRecepti();
-  const allProizvodi = await getAllPerlaProizvodi();
+  const allProizvodi = await perlaProizvodiLocal;
 
   return {
     props: {

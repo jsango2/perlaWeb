@@ -64,45 +64,6 @@ function ReceptSection({ data, proizvodi }) {
     data.receptData.node.perlaRecepti.perlaSastojci;
   const perlaProizvodiFeaturedEng =
     data.receptData.node.perlaRecepti.perlaSastojciEng;
-  // perlaProizvodiFeatured.forEach((sastojak) => {
-  //   sastojak.punoImeProizvoda = null;
-  //   sastojak.idProizvoda = null;
-  //   for (let j = 0; j < perlaProizvodi.length; j++) {
-  //     if (
-  //       sastojak.perlaProizvodUReceptu ===
-  //       perlaProizvodi[j].node.proizvodiInformacije.imeProizvodaDo60Znakova
-  //     ) {
-  //       sastojak.punoImeProizvoda =
-  //         perlaProizvodi[j].node.proizvodiInformacije.imeProizvodaDo60Znakova;
-  //       sastojak.idProizvoda =
-  //         perlaProizvodi[j].node.proizvodiInformacije.kataloskiBroj;
-  //     }
-  //   }
-  // });
-
-  // perlaProizvodiFeaturedEng.forEach((sastojak) => {
-  //   sastojak.punoImeProizvodaEng = null;
-  //   sastojak.idProizvoda = null;
-  //   for (let j = 0; j < perlaProizvodi.length; j++) {
-  //     if (
-  //       sastojak.perlaProizvodUReceptu ===
-  //       perlaProizvodi[j].node.proizvodiInformacije.imeProizvodaDo60ZnakovaEng
-  //     ) {
-  //       sastojak.punoImeProizvoda =
-  //         perlaProizvodi[
-  //           j
-  //         ].node.proizvodiInformacije.imeProizvodaDo60ZnakovaEng;
-  //       sastojak.idProizvoda =
-  //         perlaProizvodi[j].node.proizvodiInformacije.kataloskiBroj;
-  //     }
-  //   }
-  // });
-
-  // const perlaProizvodFeaturedCatNumber =
-  //   perlaProizvodFeatured.node.proizvodiInformacije.kataloskiBroj;
-  // const sastojciPerla = data.receptData.node.perlaRecepti.perlaSastojci.map(
-  //   (s) => s
-  // );
 
   // --- Optimization Step: Create a map for efficient lookups ---
   // Create a map for Croatian names

@@ -9,7 +9,7 @@ import Layout from "../../components/layout.js";
 //   Pagination,
 // } from "../../components/NovostiSection/page/style.js";
 
-import { getAllPerlaProizvodi, getAllRecepti } from "../../lib/api2.js";
+import { getAllRecepti } from "../../lib/api2.js";
 // import Image from "next/image.js";
 import { useRouter } from "next/router.js";
 // import slugify from "slugify";
@@ -22,6 +22,7 @@ import { useState } from "react";
 import Hero from "../../components/Hero/index.js";
 import FrontRecepti from "../../components/Recepti/FrontRecepti/index.js";
 import Head from "next/head.js";
+import { perlaProizvodiLocal } from "../../perlaProizvodi.js";
 
 function index(props) {
   const [itemOffset, setItemOffset] = useState([]);
@@ -98,7 +99,7 @@ export default index;
 
 export async function getStaticProps({ locales }) {
   const recepti = await getAllRecepti();
-  const proizvodi = await getAllPerlaProizvodi();
+  const proizvodi = await perlaProizvodiLocal;
 
   return {
     props: {

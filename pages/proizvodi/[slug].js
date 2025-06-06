@@ -21,23 +21,26 @@ import slugify from "slugify";
 import Head from "next/head.js";
 import Proizvod from "../../components/proizvodPage/proizvod.js";
 import {
-  getAllPerlaProizvodi,
-  getAllPerlaProizvodiPaths,
+  // getAllPerlaProizvodi,
+  // getAllPerlaProizvodiPaths,
+  getAllRecepti,
+  // getAllReceptiPaths,
 } from "../../lib/api2.js";
+import { perlaProizvodiLocal } from "../../perlaProizvodi.js";
 
-export default function ProizvodPage({ pageData, perlaProizvodi, perlaData }) {
+export default function ProizvodPage({ pageData, perlaProizvodi, recepti }) {
   // const { locale, locales, defaultLocale, asPath, basePath } = useRouter();
   const router = useRouter();
   let namirnica = pageData.node.proizvodiInformacije.imeProizvodaDo60Znakova;
 
   const receptiSaProizvodima = [];
-  // const sviReceptiSaOvimPerlaProizvodom = recepti.edges.filter((recept) =>
-  //   recept.node.perlaRecepti.perlaSastojci.map((item) => {
-  //     if (item.perlaProizvodUReceptu === namirnica) {
-  //       receptiSaProizvodima.push(recept);
-  //     }
-  //   })
-  // );
+  const sviReceptiSaOvimPerlaProizvodom = recepti.edges.filter((recept) =>
+    recept.node.perlaRecepti.perlaSastojci.map((item) => {
+      if (item.perlaProizvodUReceptu === namirnica) {
+        receptiSaProizvodima.push(recept);
+      }
+    })
+  );
   return (
     <Layout proizvodiNaslovi={perlaProizvodi}>
       {/* <Head>
@@ -194,7 +197,7 @@ export default function ProizvodPage({ pageData, perlaProizvodi, perlaData }) {
 // }
 
 export async function getStaticPaths({ locales }) {
-  const perlaData = await getAllPerlaProizvodiPaths();
+  const perlaData = await perlaProizvodiLocal;
   const paths = [];
 
   perlaData.forEach(({ node }) => {
@@ -234,7 +237,8 @@ export async function getStaticPaths({ locales }) {
 }
 
 export async function getStaticProps({ params }) {
-  const perlaProizvodi = await getAllPerlaProizvodi();
+  const recepti = await getAllRecepti();
+  const perlaProizvodi = await perlaProizvodiLocal;
 
   const currentSlug = params.slug;
 
@@ -271,6 +275,7 @@ export async function getStaticProps({ params }) {
     props: {
       pageData: found,
       perlaProizvodi,
+      recepti,
     },
   };
 }
