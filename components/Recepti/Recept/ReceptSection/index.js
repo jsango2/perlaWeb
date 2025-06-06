@@ -49,77 +49,116 @@ function ReceptSection({ data, proizvodi }) {
 
   const [current, setCurrent] = useState(1);
   const [personNumber, setPersonNumber] = useState(1);
-  // const [perlaProizvodFeaturedCatNumber, setPerlaProizvodFeaturedCatNumber] =
-  //   useState(undefined);
-  // const [sastojciPerla, setSastojciPerla] = useState([]);
-  // const [sastojciPerlaEng, setSastojciPerlaEng] = useState([]);
+
   const { ref, inView, entry } = useInView({
     /* Optional options */
     threshold: 0.2,
     triggerOnce: true,
   });
   const size = useWindowSize();
-  // const t = useTranslations("Index");
   const router = useRouter();
   const { locale } = router;
   const t = locale === "en" ? en : hr;
-
-  // const perlaProizvodFeatured = catalogData.find(
-  //   (s) =>
-  //     data.receptData.node.perlaRecepti.perlaSastojci !== null &&
-  //     s["IME PROIZVODA - skraceno"] ===
-  //       data.receptData.node.perlaRecepti.perlaSastojci[0].perlaProizvodUReceptu
-  // );
-
-  // const perlaProizvodFeatured = perlaProizvodi.find(
-  //   (s) =>
-  //     data.receptData.node.perlaRecepti.perlaSastojci !== null &&
-  //     s.node.proizvodiInformacije.imeProizvodaDo60Znakova ===
-  //       data.receptData.node.perlaRecepti.perlaSastojci[0].perlaProizvodUReceptu
-  // );
 
   const perlaProizvodiFeatured =
     data.receptData.node.perlaRecepti.perlaSastojci;
   const perlaProizvodiFeaturedEng =
     data.receptData.node.perlaRecepti.perlaSastojciEng;
-  perlaProizvodiFeatured.forEach((sastojak) => {
-    sastojak.punoImeProizvoda = null;
-    sastojak.idProizvoda = null;
-    for (let j = 0; j < perlaProizvodi.length; j++) {
-      if (
-        sastojak.perlaProizvodUReceptu ===
-        perlaProizvodi[j].node.proizvodiInformacije.imeProizvodaDo60Znakova
-      ) {
-        sastojak.punoImeProizvoda =
-          perlaProizvodi[j].node.proizvodiInformacije.imeProizvodaDo60Znakova;
-        sastojak.idProizvoda =
-          perlaProizvodi[j].node.proizvodiInformacije.kataloskiBroj;
-      }
-    }
-  });
-  perlaProizvodiFeaturedEng.forEach((sastojak) => {
-    sastojak.punoImeProizvodaEng = null;
-    sastojak.idProizvoda = null;
-    for (let j = 0; j < perlaProizvodi.length; j++) {
-      if (
-        sastojak.perlaProizvodUReceptu ===
-        perlaProizvodi[j].node.proizvodiInformacije.imeProizvodaDo60ZnakovaEng
-      ) {
-        sastojak.punoImeProizvoda =
-          perlaProizvodi[
-            j
-          ].node.proizvodiInformacije.imeProizvodaDo60ZnakovaEng;
-        sastojak.idProizvoda =
-          perlaProizvodi[j].node.proizvodiInformacije.kataloskiBroj;
-      }
-    }
-  });
+  // perlaProizvodiFeatured.forEach((sastojak) => {
+  //   sastojak.punoImeProizvoda = null;
+  //   sastojak.idProizvoda = null;
+  //   for (let j = 0; j < perlaProizvodi.length; j++) {
+  //     if (
+  //       sastojak.perlaProizvodUReceptu ===
+  //       perlaProizvodi[j].node.proizvodiInformacije.imeProizvodaDo60Znakova
+  //     ) {
+  //       sastojak.punoImeProizvoda =
+  //         perlaProizvodi[j].node.proizvodiInformacije.imeProizvodaDo60Znakova;
+  //       sastojak.idProizvoda =
+  //         perlaProizvodi[j].node.proizvodiInformacije.kataloskiBroj;
+  //     }
+  //   }
+  // });
+
+  // perlaProizvodiFeaturedEng.forEach((sastojak) => {
+  //   sastojak.punoImeProizvodaEng = null;
+  //   sastojak.idProizvoda = null;
+  //   for (let j = 0; j < perlaProizvodi.length; j++) {
+  //     if (
+  //       sastojak.perlaProizvodUReceptu ===
+  //       perlaProizvodi[j].node.proizvodiInformacije.imeProizvodaDo60ZnakovaEng
+  //     ) {
+  //       sastojak.punoImeProizvoda =
+  //         perlaProizvodi[
+  //           j
+  //         ].node.proizvodiInformacije.imeProizvodaDo60ZnakovaEng;
+  //       sastojak.idProizvoda =
+  //         perlaProizvodi[j].node.proizvodiInformacije.kataloskiBroj;
+  //     }
+  //   }
+  // });
 
   // const perlaProizvodFeaturedCatNumber =
   //   perlaProizvodFeatured.node.proizvodiInformacije.kataloskiBroj;
   // const sastojciPerla = data.receptData.node.perlaRecepti.perlaSastojci.map(
   //   (s) => s
   // );
+
+  // --- Optimization Step: Create a map for efficient lookups ---
+  // Create a map for Croatian names
+  const perlaProizvodiHrMap = new Map();
+  perlaProizvodi.forEach((product) => {
+    const node = product.node;
+    if (node?.proizvodiInformacije?.imeProizvodaDo60Znakova) {
+      perlaProizvodiHrMap.set(
+        node.proizvodiInformacije.imeProizvodaDo60Znakova,
+        node
+      );
+    }
+  });
+
+  // Create a map for English names
+  const perlaProizvodiEngMap = new Map();
+  perlaProizvodi.forEach((product) => {
+    const node = product.node;
+    if (node?.proizvodiInformacije?.imeProizvodaDo60ZnakovaEng) {
+      perlaProizvodiEngMap.set(
+        node.proizvodiInformacije.imeProizvodaDo60ZnakovaEng,
+        node
+      );
+    }
+  });
+  // --- End Optimization Step ---
+
+  // Apply logic for Croatian featured products
+  perlaProizvodiFeatured.forEach((sastojak) => {
+    sastojak.punoImeProizvoda = null;
+    sastojak.idProizvoda = null;
+
+    const matchedNode = perlaProizvodiHrMap.get(sastojak.perlaProizvodUReceptu);
+
+    if (matchedNode) {
+      sastojak.punoImeProizvoda =
+        matchedNode.proizvodiInformacije.imeProizvodaDo60Znakova;
+      sastojak.idProizvoda = matchedNode.proizvodiInformacije.kataloskiBroj;
+    }
+  });
+
+  // Apply logic for English featured products
+  perlaProizvodiFeaturedEng.forEach((sastojak) => {
+    sastojak.punoImeProizvodaEng = null;
+    sastojak.idProizvoda = null;
+
+    const matchedNode = perlaProizvodiEngMap.get(
+      sastojak.perlaProizvodUReceptu
+    );
+
+    if (matchedNode) {
+      sastojak.punoImeProizvodaEng =
+        matchedNode.proizvodiInformacije.imeProizvodaDo60ZnakovaEng;
+      sastojak.idProizvoda = matchedNode.proizvodiInformacije.kataloskiBroj;
+    }
+  });
 
   // receptiSaKataloskimBrojemPerlaProizvoda.forEach((recept) => {
   //   recept.catalogId = null;
