@@ -118,7 +118,7 @@ function NasiProizvodi({ proizvodi }) {
                 <WrapProizvod>
                   <Proizvod>
                     <WrapCerts>
-                      {data.node.proizvodiInformacije.ifsFood === "DA" && (
+                      {data.node.proizvodiInformacije.ifsFood === true && (
                         <WrapCert>
                           <Image
                             src="/IFSfood.svg"
@@ -128,7 +128,7 @@ function NasiProizvodi({ proizvodi }) {
                         </WrapCert>
                       )}
                       {data.node.proizvodiInformacije.certifikatMsc ===
-                        "DA" && (
+                        true && (
                         <div style={{ marginLeft: "5px" }}>
                           <WrapCertMSC>
                             <Image
@@ -140,7 +140,7 @@ function NasiProizvodi({ proizvodi }) {
                         </div>
                       )}
                       {data.node.proizvodiInformacije
-                        .certifikatZivjetiZdravo === "DA" && (
+                        .certifikatZivjetiZdravo === true && (
                         <div style={{ marginLeft: "5px" }}>
                           <WrapCertZZ>
                             <Image
