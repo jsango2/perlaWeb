@@ -32,7 +32,7 @@ function Recept(recept) {
         photo={recept.receptData.node.perlaRecepti.fotografijaRecepta.sourceUrl}
       />
       <ReceptSection data={recept} proizvodi={proizvodiOdPerle} />
-      <OstaliRecepti data={recept} />
+      {/* <OstaliRecepti data={recept} /> */}
       <PerlaProizvodi perlaProizvodi={proizvodiOdPerle} />
     </WrapAll>
   );
