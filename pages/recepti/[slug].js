@@ -74,11 +74,11 @@ export default function News({ pageData, recepti, perlaProizvodi }) {
           content={recept.fotografijaRecepta.sourceUrl}
         />
       </Head>
-      <Recept
+      {/* <Recept
         receptData={pageData}
         recept={recepti}
         perlaProizvodi={perlaProizvodi}
-      />
+      /> */}
       {/* <PerlaProizvodi perlaProizvodi={perlaProizvodi} /> */}
     </Layout>
   );
@@ -125,7 +125,7 @@ export async function getStaticPaths({ locales }) {
 
 export async function getStaticProps({ params }) {
   const recepti = await getAllRecepti();
-  const perlaProizvodi = await getAllPerlaProizvodi();
+  // const perlaProizvodi = await getAllPerlaProizvodi();
   const currentSlug = params.slug;
   const found = recepti.edges.find(({ node }) => {
     const date = new Date(node.date).toISOString().split("T")[0];
@@ -157,7 +157,7 @@ export async function getStaticProps({ params }) {
     props: {
       pageData: found,
       recepti,
-      perlaProizvodi,
+      // perlaProizvodi,
     },
   };
 }
