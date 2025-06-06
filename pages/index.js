@@ -84,21 +84,21 @@ export default function IndexPage({ allRecepti, allProizvodi }) {
       </Head>
       <Hero />
 
-      {/* <FrontRecepti recepti={allRecepti} proizvodi={perlaProizvodi} /> */}
+      <FrontRecepti recepti={allRecepti} proizvodi={perlaProizvodi} />
 
-      {/* <NasiProizvodi proizvodi={perlaProizvodi} /> */}
+      <NasiProizvodi proizvodi={perlaProizvodi} />
     </Layout>
   );
 }
 
 export async function getStaticProps({ preview = false }) {
   const allRecepti = await getAllRecepti();
-  // const allProizvodi = await getAllPerlaProizvodi();
+  const allProizvodi = await getAllPerlaProizvodi();
 
   return {
     props: {
       allRecepti,
-      //  allProizvodi
+      allProizvodi,
     },
   };
 }

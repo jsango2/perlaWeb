@@ -233,47 +233,6 @@ export async function getStaticPaths({ locales }) {
   return { paths, fallback: false };
 }
 
-// export async function getStaticProps({ params }) {
-//   const perlaProizvodi = await getAllPerlaProizvodi();
-
-//   const currentPath = params.slug;
-//   const pageData = perlaProizvodi.find(
-//     (product) =>
-//       slugify(
-//         product.node.proizvodiInformacije.imeProizvodaDo60Znakova
-//           .toLowerCase()
-//           .split(" ")
-//           .join("-"),
-//         {
-//           locale: "hrv",
-//           strict: true,
-//         }
-//       ) +
-//         "-" +
-//         product.node.proizvodiInformacije.kataloskiBroj ===
-//         currentPath ||
-//       slugify(
-//         product.node.proizvodiInformacije.imeProizvodaDo60ZnakovaEng
-//           .toLowerCase()
-//           .split(" ")
-//           .join("-"),
-//         {
-//           locale: "eng",
-//           strict: true,
-//         }
-//       ) +
-//         "-" +
-//         product.node.proizvodiInformacije.kataloskiBroj ===
-//         currentPath
-//   ) || {
-//     notfound: true,
-//   };
-
-//   return {
-//     props: { pageData, perlaProizvodi },
-//   };
-// }
-
 export async function getStaticProps({ params }) {
   const perlaProizvodi = await getAllPerlaProizvodi();
 
