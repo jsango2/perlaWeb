@@ -1,3 +1,6 @@
+// povuci preko getAllPerlaProizvodi u get static props na nekom pageu i sa json.stringify pretvori u ovakav json i tu kopiraj
+// to treba napraviti kad dodaju neki novi perla proizvod. Sad ih je tu 20ak
+
 export const perlaProizvodiLocal = [
   {
     node: {

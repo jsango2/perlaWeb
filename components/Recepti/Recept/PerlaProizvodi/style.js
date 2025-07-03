@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 export const WrapAll = styled.div`
   position: relative;
-  z-index: 1;
+  z-index: 2;
 
   min-height: 589px;
   height: auto;
