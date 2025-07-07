@@ -41,6 +41,7 @@ import { useState } from "react";
 import Link from "next/link.js";
 
 function ReceptSection({ data, proizvodi }) {
+  console.log({ data });
   const perlaProizvodi = proizvodi;
   // data.proizvodiOdPerle.filter(
   //   (data) =>
@@ -163,6 +164,8 @@ function ReceptSection({ data, proizvodi }) {
     current === kat ? setCurrent(null) : setCurrent(kat);
     setPersonNumber(kat);
   };
+  console.log({ perlaProizvodiFeaturedEng });
+  console.log({ perlaProizvodi });
   return (
     <WrapAll>
       <RedLine>

@@ -19,7 +19,7 @@ export default function News({ pageData, recepti }) {
   const { locale } = useRouter();
   // const router = useRouter();
   const recept = pageData.node.perlaRecepti;
-
+  console.log({ pageData });
   return (
     <Layout receptiNaslovi={recepti.edges}>
       <Head>

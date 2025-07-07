@@ -81,7 +81,7 @@ export const perlaProizvodiLocal = [
     node: {
       proizvodiInformacije: {
         imeProizvodaDo60Znakova: "Hobotnica očišćena 1000g",
-        imeProizvodaDo60ZnakovaEng: "Octopus ball type cleaned 1000 g",
+        imeProizvodaDo60ZnakovaEng: "Giant squid tentacles 1000 g Perla",
         kataloskiBroj: "21062",
         kategorijaKojojProizvodPripada: "PERLA",
         certifikatMsc: null,
@@ -107,7 +107,7 @@ export const perlaProizvodiLocal = [
     node: {
       proizvodiInformacije: {
         imeProizvodaDo60Znakova: "Meso jadranskih kozica 200 g Perla",
-        imeProizvodaDo60ZnakovaEng: "Adriatic shrimp tails PUD 500 g. ",
+        imeProizvodaDo60ZnakovaEng: "Adriatic shrimp tails PUD 500 g ",
         kataloskiBroj: "21052",
         kategorijaKojojProizvodPripada: "PERLA",
         certifikatMsc: null,
@@ -115,7 +115,7 @@ export const perlaProizvodiLocal = [
         ifsFood: true,
         jedinicaMjere: "kom",
         latinskiNazivDo60Znakova: "Parapenaeus longirostris",
-        marketinskoImePerlaProizvodaEng: "Adriatic shrimp tails PUD 500 g. ",
+        marketinskoImePerlaProizvodaEng: "Adriatic shrimp tails PUD 500 g ",
         marketinskoImePerlaProizvodaHr: "Meso jadranskih kozica 200 g Perla",
         nacinSmrzavanja: "-",
         opisEngDo300Znakova: "a",
@@ -133,7 +133,7 @@ export const perlaProizvodiLocal = [
     node: {
       proizvodiInformacije: {
         imeProizvodaDo60Znakova: "Oslić očišćeni 450 g",
-        imeProizvodaDo60ZnakovaEng: "Hake HGT 450 g. ",
+        imeProizvodaDo60ZnakovaEng: "Hake HGT 450 g ",
         kataloskiBroj: "21030",
         kategorijaKojojProizvodPripada: "PERLA",
         certifikatMsc: null,
@@ -141,7 +141,7 @@ export const perlaProizvodiLocal = [
         ifsFood: true,
         jedinicaMjere: "kom",
         latinskiNazivDo60Znakova: "Merluccius hubbsi",
-        marketinskoImePerlaProizvodaEng: "Hake HGT 450 g. ",
+        marketinskoImePerlaProizvodaEng: "Hake HGT 450 g ",
         marketinskoImePerlaProizvodaHr: "Oslić očišćeni 450 g",
         nacinSmrzavanja: "IQF",
         opisEngDo300Znakova: "xx",
@@ -211,7 +211,7 @@ export const perlaProizvodiLocal = [
     node: {
       proizvodiInformacije: {
         imeProizvodaDo60Znakova: "Bakalar Lofoten namočen očišćen Perla",
-        imeProizvodaDo60ZnakovaEng: "Stockfish fillets - soaked",
+        imeProizvodaDo60ZnakovaEng: "Cod Lofoten soaked & cleaned Perla",
         kataloskiBroj: "20861",
         kategorijaKojojProizvodPripada: "PERLA",
         certifikatMsc: null,
@@ -263,7 +263,7 @@ export const perlaProizvodiLocal = [
     node: {
       proizvodiInformacije: {
         imeProizvodaDo60Znakova: "Krakovi za peku i salatu 1000 g",
-        imeProizvodaDo60ZnakovaEng: "Giant squid tentacles 1000 g. tray",
+        imeProizvodaDo60ZnakovaEng: "Giant squid tentacles 1000 g tray",
         kataloskiBroj: "21021",
         kategorijaKojojProizvodPripada: "PERLA",
         certifikatMsc: null,
@@ -271,7 +271,7 @@ export const perlaProizvodiLocal = [
         ifsFood: true,
         jedinicaMjere: "kom",
         latinskiNazivDo60Znakova: "Dosidicus gigas",
-        marketinskoImePerlaProizvodaEng: "Giant squid tentacles 1000 g. tray",
+        marketinskoImePerlaProizvodaEng: "Giant squid tentacles 1000 g tray",
         marketinskoImePerlaProizvodaHr: "Krakovi za peku i salatu Perla",
         nacinSmrzavanja: "-",
         opisEngDo300Znakova: "x",
@@ -315,7 +315,7 @@ export const perlaProizvodiLocal = [
     node: {
       proizvodiInformacije: {
         imeProizvodaDo60Znakova: "Temeljac od škampa 450 g Perla",
-        imeProizvodaDo60ZnakovaEng: "Scampi stock 450 g Perla",
+        imeProizvodaDo60ZnakovaEng: "Shrimp stock 450 g Perla",
         kataloskiBroj: "20985",
         kategorijaKojojProizvodPripada: "PERLA",
         certifikatMsc: null,
@@ -341,7 +341,7 @@ export const perlaProizvodiLocal = [
     node: {
       proizvodiInformacije: {
         imeProizvodaDo60Znakova: "Vongole 750 g Perla",
-        imeProizvodaDo60ZnakovaEng: "White whole clams 750 g Perla",
+        imeProizvodaDo60ZnakovaEng: "Vongole 750 g Perla",
         kataloskiBroj: "20841",
         kategorijaKojojProizvodPripada: "PERLA",
         certifikatMsc: null,
@@ -367,7 +367,7 @@ export const perlaProizvodiLocal = [
     node: {
       proizvodiInformacije: {
         imeProizvodaDo60Znakova: "Lignja Peškafondo 500 g Perla",
-        imeProizvodaDo60ZnakovaEng: "Atlantic squid WR 500 g.",
+        imeProizvodaDo60ZnakovaEng: "Peškafondo squid 500 g Perla",
         kataloskiBroj: "20968",
         kategorijaKojojProizvodPripada: "PERLA",
         certifikatMsc: null,
@@ -375,7 +375,7 @@ export const perlaProizvodiLocal = [
         ifsFood: true,
         jedinicaMjere: "kom",
         latinskiNazivDo60Znakova: "Loligo pealeii",
-        marketinskoImePerlaProizvodaEng: "Atlantic squid WR 500 g.",
+        marketinskoImePerlaProizvodaEng: "Atlantic squid WR 500 g",
         marketinskoImePerlaProizvodaHr: "Lignja Peškafondo Perla",
         nacinSmrzavanja: "-",
         opisEngDo300Znakova: "s",
@@ -419,7 +419,7 @@ export const perlaProizvodiLocal = [
     node: {
       proizvodiInformacije: {
         imeProizvodaDo60Znakova: "Škampi za buzaru 375 g Perla",
-        imeProizvodaDo60ZnakovaEng: "Scampi WR 375 g. ",
+        imeProizvodaDo60ZnakovaEng: "Shrimp for buzara 375 g Perla",
         kataloskiBroj: "20856",
         kategorijaKojojProizvodPripada: "PERLA",
         certifikatMsc: null,
@@ -497,8 +497,7 @@ export const perlaProizvodiLocal = [
     node: {
       proizvodiInformacije: {
         imeProizvodaDo60Znakova: "Lignja očišćena Patagonica 450 g Perla",
-        imeProizvodaDo60ZnakovaEng:
-          "Patagonian squid tubes and tentacles cleaned 450 g.",
+        imeProizvodaDo60ZnakovaEng: "Cleaned Patagonian squid 450 g Perla",
         kataloskiBroj: "21048",
         kategorijaKojojProizvodPripada: "PERLA",
         certifikatMsc: null,
@@ -507,7 +506,7 @@ export const perlaProizvodiLocal = [
         jedinicaMjere: "kom",
         latinskiNazivDo60Znakova: "Loligo gahi",
         marketinskoImePerlaProizvodaEng:
-          "Patagonian squid tubes and tentacles cleaned 450 g.",
+          "Patagonian squid tubes and tentacles cleaned 450 g",
         marketinskoImePerlaProizvodaHr: "Lignja očišćena Patagonica Perla",
         nacinSmrzavanja: "IQF",
         opisEngDo300Znakova: "za",
@@ -525,7 +524,7 @@ export const perlaProizvodiLocal = [
     node: {
       proizvodiInformacije: {
         imeProizvodaDo60Znakova: "Lignja Patagonica 525 g Perla",
-        imeProizvodaDo60ZnakovaEng: "Patagonian squid WR 525 g.",
+        imeProizvodaDo60ZnakovaEng: "Patagonian squid WR 525 g",
         kataloskiBroj: "21047",
         kategorijaKojojProizvodPripada: "PERLA",
         certifikatMsc: null,
@@ -533,7 +532,7 @@ export const perlaProizvodiLocal = [
         ifsFood: true,
         jedinicaMjere: "kom",
         latinskiNazivDo60Znakova: "Loligo gahi",
-        marketinskoImePerlaProizvodaEng: "Patagonian squid WR 525 g.",
+        marketinskoImePerlaProizvodaEng: "Patagonian squid WR 525 g",
         marketinskoImePerlaProizvodaHr: "Lignja Patagonica Perla",
         nacinSmrzavanja: "IQF",
         opisEngDo300Znakova: "cc",
@@ -553,7 +552,7 @@ export const perlaProizvodiLocal = [
         imeProizvodaDo60Znakova:
           "Kolutići i krakovi lignje Patagonica 425 g Perla",
         imeProizvodaDo60ZnakovaEng:
-          "Patagonian Squid rings and tentacles 425 g.",
+          "Patagonian squid rings and tentacles 425 g Perla",
         kataloskiBroj: "21046",
         kategorijaKojojProizvodPripada: "PERLA",
         certifikatMsc: null,
@@ -562,7 +561,7 @@ export const perlaProizvodiLocal = [
         jedinicaMjere: "kom",
         latinskiNazivDo60Znakova: "Loligo gahi",
         marketinskoImePerlaProizvodaEng:
-          "Patagonian Squid rings and tentacles 425 g.",
+          "Patagonian Squid rings and tentacles 425 g",
         marketinskoImePerlaProizvodaHr:
           "Kolutići i krakovi lignje Patagonica Perla",
         nacinSmrzavanja: "IQF",

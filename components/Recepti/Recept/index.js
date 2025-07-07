@@ -13,7 +13,7 @@ import ReceptSection from "./ReceptSection/index.js";
 import OstaliRecepti from "./OstaliReceptiSection/index.js";
 import PerlaProizvodi from "./PerlaProizvodi/index.js";
 
-function Recept(recept) {
+function Recept(data) {
   const { ref, inView, entry } = useInView({
     /* Optional options */
     threshold: 0.2,
@@ -24,14 +24,14 @@ function Recept(recept) {
   const router = useRouter();
   const { locale } = router;
   const t = locale === "en" ? en : hr;
-  const proizvodiOdPerle = recept.perlaProizvodi;
-
+  const proizvodiOdPerle = data.perlaProizvodi;
+  console.log({ data });
   return (
     <WrapAll>
       <Hero
-        photo={recept.receptData.node.perlaRecepti.fotografijaRecepta.sourceUrl}
+        photo={data.receptData.node.perlaRecepti.fotografijaRecepta.sourceUrl}
       />
-      <ReceptSection data={recept} proizvodi={proizvodiOdPerle} />
+      <ReceptSection data={data} proizvodi={proizvodiOdPerle} />
       {/* <OstaliRecepti data={recept} /> */}
     </WrapAll>
   );

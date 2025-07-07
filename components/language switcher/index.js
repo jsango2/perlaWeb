@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import AppContext from "../../components/AppContext.js";
 import slugify from "slugify";
 import { catalogData } from "../../catalogData.js";
+import { perlaProizvodiLocal } from "../../perlaProizvodi.js";
 
 function LanguageSwitcher({
   receptiNaslovi,
@@ -104,7 +105,7 @@ function LanguageSwitcher({
       }
 
       if (asPath.includes("/proizvodi/")) {
-        const getTranslationRouteForProduct = proizvodiNaslovi.filter(
+        const getTranslationRouteForProduct = perlaProizvodiLocal.filter(
           (naslov) =>
             locale === "en"
               ? slugify(

@@ -21,6 +21,7 @@ import slugify from "slugify";
 import Head from "next/head.js";
 import Proizvod from "../../components/proizvodPage/proizvod.js";
 import {
+  getAllPerlaProizvodi,
   // getAllPerlaProizvodi,
   // getAllPerlaProizvodiPaths,
   getAllRecepti,
@@ -28,8 +29,14 @@ import {
 } from "../../lib/api2.js";
 import { perlaProizvodiLocal } from "../../perlaProizvodi.js";
 
-export default function ProizvodPage({ pageData, perlaProizvodi, recepti }) {
+export default function ProizvodPage({
+  pageData,
+  perlaProizvodi,
+  recepti,
+  allPerlaProizvodiIzWp,
+}) {
   // const { locale, locales, defaultLocale, asPath, basePath } = useRouter();
+  console.log({ allPerlaProizvodiIzWp });
   const router = useRouter();
   let namirnica = pageData.node.proizvodiInformacije.imeProizvodaDo60Znakova;
 
@@ -239,6 +246,7 @@ export async function getStaticPaths({ locales }) {
 export async function getStaticProps({ params }) {
   const recepti = await getAllRecepti();
   const perlaProizvodi = await perlaProizvodiLocal;
+  const allPerlaProizvodiIzWp = await getAllPerlaProizvodi();
 
   const currentSlug = params.slug;
 
@@ -276,6 +284,7 @@ export async function getStaticProps({ params }) {
       pageData: found,
       perlaProizvodi,
       recepti,
+      allPerlaProizvodiIzWp,
     },
   };
 }
