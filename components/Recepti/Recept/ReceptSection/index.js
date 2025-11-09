@@ -164,8 +164,7 @@ function ReceptSection({ data, proizvodi }) {
     current === kat ? setCurrent(null) : setCurrent(kat);
     setPersonNumber(kat);
   };
-  console.log({ perlaProizvodiFeaturedEng });
-  console.log({ perlaProizvodi });
+
   return (
     <WrapAll>
       <RedLine>

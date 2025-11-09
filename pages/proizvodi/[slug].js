@@ -33,7 +33,7 @@ export default function ProizvodPage({
   pageData,
   perlaProizvodi,
   recepti,
-  allPerlaProizvodiIzWp,
+  // allPerlaProizvodiIzWp,
 }) {
   // const { locale, locales, defaultLocale, asPath, basePath } = useRouter();
   // console.log({ allPerlaProizvodiIzWp });
@@ -143,7 +143,7 @@ export default function ProizvodPage({
       <Proizvod
         pageData={pageData}
         receptiSaProizvodom={receptiSaProizvodima}
-        perlaProizvodi={allPerlaProizvodiIzWp}
+        perlaProizvodi={perlaProizvodi}
       />
     </Layout>
   );
@@ -246,7 +246,7 @@ export async function getStaticPaths({ locales }) {
 export async function getStaticProps({ params }) {
   const recepti = await getAllRecepti();
   const perlaProizvodi = await perlaProizvodiLocal;
-  const allPerlaProizvodiIzWp = await getAllPerlaProizvodi();
+  // const allPerlaProizvodiIzWp = await getAllPerlaProizvodi();
 
   const currentSlug = params.slug;
 
@@ -284,7 +284,7 @@ export async function getStaticProps({ params }) {
       pageData: found,
       perlaProizvodi,
       recepti,
-      allPerlaProizvodiIzWp,
+      // allPerlaProizvodiIzWp,
     },
   };
 }

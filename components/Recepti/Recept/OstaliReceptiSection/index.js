@@ -36,7 +36,7 @@ function OstaliRecepti({ data }) {
   const otherRecipes = data.recepti.edges.filter(
     (rec) => rec.node.id !== currentReceptId
   );
-  console.log({ data });
+  // console.log({ data });
   const receptiSaKataloskimBrojemPerlaProizvoda = otherRecipes;
 
   receptiSaKataloskimBrojemPerlaProizvoda.forEach((recept) => {

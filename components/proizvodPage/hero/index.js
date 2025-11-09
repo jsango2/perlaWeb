@@ -38,7 +38,7 @@ function Hero({ pageData }) {
   const router = useRouter();
   const { locale } = router;
   // const t = locale === "en" ? en : hr;
-  console.log({ pageData });
+  // console.log({ pageData });
   return (
     <HeroWrap>
       <Container>
