@@ -19,7 +19,10 @@ export const perlaProizvodiLocal = [
         nacinSmrzavanja: "BLOK (BLOCK)",
         opisEngDo300Znakova: "asaas",
         opisHrDo300Znakova: "asas",
-        slikaProizvoda: null,
+        slikaProizvoda: {
+          sourceUrl:
+            "https://marikomerc.sutra.hr/wp-content/uploads/2024/10/SALATA-OD-HOBOTNICE-04-sjena-mali.jpg",
+        },
       },
       title: "Salata od hobotnice 210 g",
       proizvodId: 2078,

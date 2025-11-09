@@ -29,12 +29,7 @@ import {
 } from "../../lib/api2.js";
 import { perlaProizvodiLocal } from "../../perlaProizvodi.js";
 
-export default function ProizvodPage({
-  pageData,
-  perlaProizvodi,
-  recepti,
-  allPerlaProizvodiIzWp,
-}) {
+export default function ProizvodPage({ pageData, perlaProizvodi, recepti }) {
   // const { locale, locales, defaultLocale, asPath, basePath } = useRouter();
   // console.log({ allPerlaProizvodiIzWp });
   const router = useRouter();
@@ -250,7 +245,7 @@ export async function getStaticProps({ params }) {
 
   const currentSlug = params.slug;
 
-  const found = allPerlaProizvodiIzWp.find(({ node }) => {
+  const found = perlaProizvodi.find(({ node }) => {
     const info = node.proizvodiInformacije;
     const id = info?.kataloskiBroj;
 
