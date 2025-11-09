@@ -29,7 +29,12 @@ import {
 } from "../../lib/api2.js";
 import { perlaProizvodiLocal } from "../../perlaProizvodi.js";
 
-export default function ProizvodPage({ pageData, perlaProizvodi, recepti }) {
+export default function ProizvodPage({
+  pageData,
+  perlaProizvodi,
+  recepti,
+  allPerlaProizvodiIzWp,
+}) {
   // const { locale, locales, defaultLocale, asPath, basePath } = useRouter();
   // console.log({ allPerlaProizvodiIzWp });
   const router = useRouter();
