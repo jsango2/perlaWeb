@@ -12,6 +12,8 @@ import Hero from "../components/Hero/index.js";
 import FrontRecepti from "../components/Recepti/FrontRecepti/index.js";
 import NasiProizvodi from "../components/NasiProizvodi/index.js";
 import {
+  getAllPerlaProizvodi,
+  getAllProizvodi2,
   // getAllPerlaProizvodi,
   // getAllProizvodi,
   getAllRecepti,
@@ -22,9 +24,9 @@ import {
 import { useRouter } from "next/router.js";
 import { perlaProizvodiLocal } from "../perlaProizvodi.js";
 
-export default function IndexPage({ allRecepti, allProizvodi }) {
+export default function IndexPage({ allRecepti, allProizvodi, allProizvodi2 }) {
   const perlaProizvodi = allProizvodi;
-
+  console.log({ allProizvodi2 });
   const router = useRouter();
   const { locale } = router;
 
@@ -87,7 +89,10 @@ export default function IndexPage({ allRecepti, allProizvodi }) {
 
       <FrontRecepti recepti={allRecepti} proizvodi={perlaProizvodi} />
 
-      <NasiProizvodi proizvodi={perlaProizvodi} />
+      <NasiProizvodi
+        proizvodi={perlaProizvodi}
+        perlaProizvodi={allProizvodi2}
+      />
     </Layout>
   );
 }
@@ -95,11 +100,13 @@ export default function IndexPage({ allRecepti, allProizvodi }) {
 export async function getStaticProps({ preview = false }) {
   const allRecepti = await getAllRecepti();
   const allProizvodi = await perlaProizvodiLocal;
+  const allProizvodi2 = await getAllPerlaProizvodi();
 
   return {
     props: {
       allRecepti,
       allProizvodi,
+      allProizvodi2,
     },
   };
 }

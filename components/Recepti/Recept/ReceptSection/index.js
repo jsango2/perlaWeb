@@ -41,7 +41,7 @@ import { useState } from "react";
 import Link from "next/link.js";
 
 function ReceptSection({ data, proizvodi }) {
-  console.log({ data });
+  // console.log({ data });
   const perlaProizvodi = proizvodi;
   // data.proizvodiOdPerle.filter(
   //   (data) =>

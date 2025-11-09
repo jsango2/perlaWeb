@@ -32,7 +32,7 @@ import slugify from "slugify";
 import Link from "next/link.js";
 import KaramarkoComp from "./karamarko.js";
 
-function NasiProizvodi({ proizvodi }) {
+function NasiProizvodi({ proizvodi, perlaProizvodi }) {
   const [perlaData, setPerlaData] = useState([]);
   const [sliced, setSliced] = useState(false);
 
@@ -42,7 +42,7 @@ function NasiProizvodi({ proizvodi }) {
       // catalogData.filter(
       //   (data) => data["Kategorija kojoj proizvod pripada:"] == "PERLA"
       // )
-      proizvodi
+      perlaProizvodi
     );
   }, []);
   // useEffect(() => {

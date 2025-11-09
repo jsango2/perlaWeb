@@ -36,7 +36,7 @@ export default function ProizvodPage({
   allPerlaProizvodiIzWp,
 }) {
   // const { locale, locales, defaultLocale, asPath, basePath } = useRouter();
-  console.log({ allPerlaProizvodiIzWp });
+  // console.log({ allPerlaProizvodiIzWp });
   const router = useRouter();
   let namirnica = pageData.node.proizvodiInformacije.imeProizvodaDo60Znakova;
 
@@ -143,7 +143,7 @@ export default function ProizvodPage({
       <Proizvod
         pageData={pageData}
         receptiSaProizvodom={receptiSaProizvodima}
-        perlaProizvodi={perlaProizvodi}
+        perlaProizvodi={allPerlaProizvodiIzWp}
       />
     </Layout>
   );
@@ -250,7 +250,7 @@ export async function getStaticProps({ params }) {
 
   const currentSlug = params.slug;
 
-  const found = perlaProizvodi.find(({ node }) => {
+  const found = allPerlaProizvodiIzWp.find(({ node }) => {
     const info = node.proizvodiInformacije;
     const id = info?.kataloskiBroj;
 
