@@ -26,7 +26,6 @@ import { perlaProizvodiLocal } from "../perlaProizvodi.js";
 
 export default function IndexPage({ allRecepti, allProizvodi, allProizvodi2 }) {
   const perlaProizvodi = allProizvodi;
-
   const router = useRouter();
   const { locale } = router;
 
