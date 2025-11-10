@@ -28,7 +28,8 @@ import {
 } from "./style.js";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import parse from "html-react-parser";
+
+import parse from "react-html-parser";
 import slugify from "slugify";
 import useWindowSize from "../../../helper/usewindowsize.js";
 // import { useTranslations } from "next-intl";

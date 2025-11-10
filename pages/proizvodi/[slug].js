@@ -15,7 +15,6 @@ import { useRouter } from "next/router";
 // } from "../../components/NovostiSection/style";
 // import AppContext from "../../components/AppContext.js";
 // import { BlueLine } from "../../components/NovostiSection/newsCard/style.js";
-// import parse from "html-react-parser";
 import slugify from "slugify";
 // import OtherNews from "../../components/NovostiSection/OtherNewsSection/index.js";
 import Head from "next/head.js";

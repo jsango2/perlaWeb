@@ -3,7 +3,6 @@ import React from "react";
 import { WrapAll, Button, NaslovRecepta } from "./style.js";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import parse from "html-react-parser";
 
 import useWindowSize from "../../../helper/usewindowsize.js";
 // import { useTranslations } from "next-intl";
