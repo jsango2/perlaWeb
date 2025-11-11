@@ -1,28 +1,29 @@
 // import React from "react";
 // import { graphql } from "gatsby";
-import Layout from "./../components/layout";
+import Layout from './../components/layout';
 // import Seo from "../components/seo";
-import Head from "next/head";
+import Head from 'next/head';
 // import { useContext, useEffect, useState } from "react";
 
 // import useWindowSize from "../components/helper/usewindowsize";
 
 // import AppContext from "../components/AppContext.js";
-import Hero from "../components/Hero/index.js";
-import FrontRecepti from "../components/Recepti/FrontRecepti/index.js";
-import NasiProizvodi from "../components/NasiProizvodi/index.js";
+import Hero from '../components/Hero/index.js';
+import FrontRecepti from '../components/Recepti/FrontRecepti/index.js';
+import NasiProizvodi from '../components/NasiProizvodi/index.js';
 import {
   getAllPerlaProizvodi,
   getAllProizvodi2,
   // getAllPerlaProizvodi,
   // getAllProizvodi,
   getAllRecepti,
-} from "../lib/api2.js";
+} from '../lib/api2.js';
 // import KaoVrhunski from "../components/Recepti/FrontRecepti/KuhajKaoVrhunski/index.js";
 // import { WrapAll } from "../components/Recepti/FrontRecepti/style.js";
 // import { catalogData } from "../catalogData.js";
-import { useRouter } from "next/router.js";
-import { perlaProizvodiLocal } from "../perlaProizvodi.js";
+import { useRouter } from 'next/router.js';
+import { perlaProizvodiLocal } from '../perlaProizvodi.js';
+import CookieNotice from '../components/rudiKomponente/CookieNotice.js';
 
 export default function IndexPage({ allRecepti, allProizvodi, allProizvodi2 }) {
   const perlaProizvodi = allProizvodi;
@@ -34,7 +35,7 @@ export default function IndexPage({ allRecepti, allProizvodi, allProizvodi2 }) {
     <Layout>
       <Head>
         <title>Perla Recepti</title>
-        <meta property="og:title" content="Perla recepti" key="title" />
+        <meta property='og:title' content='Perla recepti' key='title' />
 
         {/* <link
           rel="alternate"
@@ -48,39 +49,33 @@ export default function IndexPage({ allRecepti, allProizvodi, allProizvodi2 }) {
           data-react-helmet="true"
         ></link> */}
 
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta name='twitter:card' content='summary_large_image' />
 
         {/* <meta property="og:url" content="https://www.runzadar.com" /> */}
+        <meta name='google-site-verification' content='KSOsBchhDMtcxBavoVnUbAVI8Jxcipv9J5ceC1K4Rag' />
+        <meta property='og:image' content='http://marikomerc.sutra.hr/wp-content/uploads/2024/01/perlaOGimage.png' />
         <meta
-          name="google-site-verification"
-          content="KSOsBchhDMtcxBavoVnUbAVI8Jxcipv9J5ceC1K4Rag"
-        />
-        <meta
-          property="og:image"
-          content="http://marikomerc.sutra.hr/wp-content/uploads/2024/01/perlaOGimage.png"
-        />
-        <meta
-          name="description"
+          name='description'
           content={
-            locale === "hr"
-              ? "Otkrijte raznolike recepte na Perla web stranici, idealne za ljubitelje morskih plodova. Pronađite inspiraciju za vaš sljedeći obrok, od jednostavnih do gurmanskih jela."
+            locale === 'hr'
+              ? 'Otkrijte raznolike recepte na Perla web stranici, idealne za ljubitelje morskih plodova. Pronađite inspiraciju za vaš sljedeći obrok, od jednostavnih do gurmanskih jela.'
               : "Discover a variety of recipes on Perla's website, perfect for seafood enthusiasts. From simple to gourmet, find inspiration for your next meal."
           }
-          key="desc"
+          key='desc'
         />
         <meta
-          property="og:description"
+          property='og:description'
           content={
-            locale === "hr"
-              ? "Otkrijte raznolike recepte na Perla web stranici, idealne za ljubitelje morskih plodova. Pronađite inspiraciju za vaš sljedeći obrok, od jednostavnih do gurmanskih jela."
+            locale === 'hr'
+              ? 'Otkrijte raznolike recepte na Perla web stranici, idealne za ljubitelje morskih plodova. Pronađite inspiraciju za vaš sljedeći obrok, od jednostavnih do gurmanskih jela.'
               : "Discover a variety of recipes on Perla's website, perfect for seafood enthusiasts. From simple to gourmet, find inspiration for your next meal."
           }
         />
         <meta
-          property="twitter:description"
+          property='twitter:description'
           content={
-            locale === "hr"
-              ? "Otkrijte raznolike recepte na Perla web stranici, idealne za ljubitelje morskih plodova. Pronađite inspiraciju za vaš sljedeći obrok, od jednostavnih do gurmanskih jela."
+            locale === 'hr'
+              ? 'Otkrijte raznolike recepte na Perla web stranici, idealne za ljubitelje morskih plodova. Pronađite inspiraciju za vaš sljedeći obrok, od jednostavnih do gurmanskih jela.'
               : "Discover a variety of recipes on Perla's website, perfect for seafood enthusiasts. From simple to gourmet, find inspiration for your next meal."
           }
         />
@@ -89,10 +84,8 @@ export default function IndexPage({ allRecepti, allProizvodi, allProizvodi2 }) {
 
       <FrontRecepti recepti={allRecepti} proizvodi={perlaProizvodi} />
 
-      <NasiProizvodi
-        proizvodi={perlaProizvodi}
-        perlaProizvodi={allProizvodi2}
-      />
+      <NasiProizvodi proizvodi={perlaProizvodi} perlaProizvodi={allProizvodi2} />
+      <CookieNotice />
     </Layout>
   );
 }
