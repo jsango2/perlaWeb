@@ -33,7 +33,7 @@ export const perlaProizvodiLocal = [
         perlaHoreca: null,
         slikaProizvoda: {
           sourceUrl:
-            "https://marikomerc.sutra.hr/wp-content/uploads/2025/06/SALATA-OD-HOBOTNICE-04-sjena-mali.jpg",
+            "https://marikomerc.sutra.hr/wp-content/uploads/2025/11/SALATA-OD-HOBOTNICE-04-_transparent.png",
         },
       },
       title: "Salata od hobotnice 210 g",
@@ -393,7 +393,7 @@ export const perlaProizvodiLocal = [
         perlaHoreca: null,
         slikaProizvoda: {
           sourceUrl:
-            "https://marikomerc.sutra.hr/wp-content/uploads/2024/10/Krakovi-za-peku-i-salatu-Perla_pack-scaled.jpg",
+            "https://marikomerc.sutra.hr/wp-content/uploads/2025/11/Krakovi_za_peku_i_salatu_Perla_pack_transparent.png",
         },
       },
       title: "Krakovi za peku i salatu 1000 g Perla",
